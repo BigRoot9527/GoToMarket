@@ -14,6 +14,9 @@
 		329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */; };
 		329BC6D1209700D700CC9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6D0209700D700CC9096 /* Assets.xcassets */; };
 		329BC6D4209700D700CC9096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */; };
+		329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */; };
+		329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */; };
+		329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DF2097257700CC9096 /* CropQuoteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		329BC6D0209700D700CC9096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329BC6D3209700D700CC9096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329BC6D5209700D700CC9096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgriculturalStructs.swift; sourceTree = "<group>"; };
+		329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
+		329BC6DF2097257700CC9096 /* CropQuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropQuoteManager.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +76,9 @@
 				329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */,
 				329BC6D5209700D700CC9096 /* Info.plist */,
 				329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */,
+				329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */,
+				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
+				329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */,
 			);
 			path = GoToMarket;
 			sourceTree = "<group>";
@@ -203,9 +212,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */,
+				329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */,
 				329BC6C9209700D600CC9096 /* ViewController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
+				329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +364,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -367,7 +382,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

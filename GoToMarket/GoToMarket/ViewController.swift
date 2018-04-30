@@ -8,11 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CropQuoteManagerDelegate {
+    func manager(_ manager: CropQuoteManager, didGet cropQuote: [CropQuote]) {
+        cropQuote.forEach {
+            print("\($0)\n")
+        }
+    }
+    
+    func manager(_ manager: CropQuoteManager, didFailWith error: Error) {
+        print(error)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        var manager = CropQuoteManager()
+        manager.delegate = self
+        manager.requestCropQuote(onCropName: nil, onCropID: nil, skipDataAmout: nil, maxDataAmount: nil, fromDate: nil, toDate: nil)
     }
 
     override func didReceiveMemoryWarning() {
