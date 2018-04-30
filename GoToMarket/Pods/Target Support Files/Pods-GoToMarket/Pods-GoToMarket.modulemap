@@ -1,0 +1,6 @@
+framework module Pods_GoToMarket {
+  umbrella header "Pods-GoToMarket-umbrella.h"
+
+  export *
+  module * { export * }
+}

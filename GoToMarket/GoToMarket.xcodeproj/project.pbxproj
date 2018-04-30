@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B72833610E48BE1F66E2B97 /* Pods_GoToMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */; };
 		329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C6209700D600CC9096 /* AppDelegate.swift */; };
 		329BC6C9209700D600CC9096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C8209700D600CC9096 /* ViewController.swift */; };
 		329BC6CC209700D600CC9096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6CA209700D600CC9096 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.release.xcconfig"; sourceTree = "<group>"; };
 		329BC6C3209700D600CC9096 /* GoToMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329BC6C6209700D600CC9096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		329BC6C8209700D600CC9096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		329BC6D0209700D700CC9096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329BC6D3209700D700CC9096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329BC6D5209700D700CC9096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B72833610E48BE1F66E2B97 /* Pods_GoToMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				329BC6C5209700D600CC9096 /* GoToMarket */,
 				329BC6C4209700D600CC9096 /* Products */,
+				B6FF0B1522012E7E6E95CEA0 /* Pods */,
+				EF202FB28D49F4603D5A68AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = GoToMarket;
 			sourceTree = "<group>";
 		};
+		B6FF0B1522012E7E6E95CEA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */,
+				2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF202FB28D49F4603D5A68AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 329BC6D8209700D700CC9096 /* Build configuration list for PBXNativeTarget "GoToMarket" */;
 			buildPhases = (
+				BE36FDC57FF3753C150D15DC /* [CP] Check Pods Manifest.lock */,
 				329BC6BF209700D600CC9096 /* Sources */,
 				329BC6C0209700D600CC9096 /* Frameworks */,
 				329BC6C1209700D600CC9096 /* Resources */,
+				162C552C1FFFD841D1855AAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		162C552C1FFFD841D1855AAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE36FDC57FF3753C150D15DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoToMarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		329BC6BF209700D600CC9096 /* Sources */ = {
@@ -282,14 +347,12 @@
 		};
 		329BC6D9209700D700CC9096 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -299,14 +362,12 @@
 		};
 		329BC6DA209700D700CC9096 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
