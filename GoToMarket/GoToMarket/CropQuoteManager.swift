@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol CropQuoteManagerDelegate: class {
-    func manager(_ manager: CropQuoteManager, didGet cropQuote: [CropQuote]) -> Void
+    func manager(_ manager: CropQuoteManager, didGet cropQuote: [CropNewQuote]) -> Void
     func manager(_ manager: CropQuoteManager, didFailWith error: Error) -> Void
 }
 struct CropQuoteManager {
@@ -29,7 +29,7 @@ struct CropQuoteManager {
                     return
                 }
                 print(data)
-                let cropQuoteArray = try JSONDecoder().decode([CropQuote].self, from: data)
+                let cropQuoteArray = try JSONDecoder().decode([CropNewQuote].self, from: data)
                 print("Msg From CommentManager: cropQuoteArray = \(cropQuoteArray)")
                 DispatchQueue.main.async {
                     self.delegate?.manager(self, didGet: cropQuoteArray)

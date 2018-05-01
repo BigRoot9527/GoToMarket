@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, CropQuoteManagerDelegate {
-    func manager(_ manager: CropQuoteManager, didGet cropQuote: [CropQuote]) {
+    func manager(_ manager: CropQuoteManager, didGet cropQuote: [CropNewQuote]) {
         cropQuote.forEach {
             print("\($0)\n")
         }
