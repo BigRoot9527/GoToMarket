@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct CropNewQuote: Decodable {
+struct CropQuote: Decodable {
     let date: String
     let cropCode: String
     let cropName: String

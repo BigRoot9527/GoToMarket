@@ -8,7 +8,7 @@
 
 import Foundation
 struct CropApiConstant {
-    static let url = "http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx"
+    static let url = "http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx?"
     static let maxDataAmount = "$top"
     static let skipDataAmout = "$skip"
     static let searchCropCode = "CropCode"

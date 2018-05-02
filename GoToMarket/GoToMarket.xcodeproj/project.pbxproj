@@ -24,6 +24,7 @@
 		329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */; };
 		329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F5209986EF00CC9096 /* CropProvider.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
+		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODHTTPClient.swift; sourceTree = "<group>"; };
 		329BC6F5209986EF00CC9096 /* CropProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProvider.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
+		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,8 +103,8 @@
 				329BC6F42099863B00CC9096 /* Crop */,
 				329BC6E72099657600CC9096 /* HTTP */,
 				329BC6E62099640900CC9096 /* CoreData */,
-				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
 				32BB0C5220999814001ECF52 /* TWDateProvider.swift */,
+				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
 				329BC6F0209971FF00CC9096 /* GoToMarketError.swift */,
 			);
 			path = Model;
@@ -132,6 +134,7 @@
 				329BC6DB209701BA00CC9096 /* CropStruct.swift */,
 				329BC6DD2097198400CC9096 /* CropConstant.swift */,
 				329BC6F5209986EF00CC9096 /* CropProvider.swift */,
+				32BB0C542099BE30001ECF52 /* CropManager.swift */,
 			);
 			path = Crop;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
 				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
+				32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */,
 				329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */,
 				329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */,
 			);
