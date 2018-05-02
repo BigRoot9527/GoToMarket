@@ -16,9 +16,6 @@ protocol CropQuoteManagerDelegate: class {
 struct CropQuoteManager {
     weak var delegate: CropQuoteManagerDelegate?
     func requestCropQuote(onCropName crop: String?, onCropID id: String?, skipDataAmout skip: String?, maxDataAmount max: String?, fromDate:String?, toDate: String?) {
-        //let parameterArray = [crop, id, skip, max, fromDate, toDate]
-        //Todo: Use associated enum to establish params
-        //request(ApiConstant.CropApi.url, method: .get).responseData { response in
         request(ApiConstant.CropApi.url,method: .get, parameters: ["Market":"台北一"]).responseData { response in
             guard(response.result.error == nil) else {
                 print("CommentManager Error: \(response.result.error)")

@@ -14,11 +14,16 @@
 		329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */; };
 		329BC6D1209700D700CC9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6D0209700D700CC9096 /* Assets.xcassets */; };
 		329BC6D4209700D700CC9096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */; };
-		329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */; };
-		329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */; };
+		329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DB209701BA00CC9096 /* CropStruct.swift */; };
+		329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DD2097198400CC9096 /* CropConstant.swift */; };
 		329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DF2097257700CC9096 /* CropQuoteManager.swift */; };
 		329BC6E32098496E00CC9096 /* CropNew+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */; };
 		329BC6E42098496E00CC9096 /* CropNew+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */; };
+		329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */; };
+		329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F0209971FF00CC9096 /* GoToMarketError.swift */; };
+		329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */; };
+		329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F5209986EF00CC9096 /* CropProvider.swift */; };
+		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +36,16 @@
 		329BC6D0209700D700CC9096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329BC6D3209700D700CC9096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329BC6D5209700D700CC9096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgriculturalStructs.swift; sourceTree = "<group>"; };
-		329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
+		329BC6DB209701BA00CC9096 /* CropStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropStruct.swift; sourceTree = "<group>"; };
+		329BC6DD2097198400CC9096 /* CropConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropConstant.swift; sourceTree = "<group>"; };
 		329BC6DF2097257700CC9096 /* CropQuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropQuoteManager.swift; sourceTree = "<group>"; };
 		329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropNew+CoreDataClass.swift"; sourceTree = "<group>"; };
 		329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropNew+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODHTTPRequest.swift; sourceTree = "<group>"; };
+		329BC6F0209971FF00CC9096 /* GoToMarketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketError.swift; sourceTree = "<group>"; };
+		329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODHTTPClient.swift; sourceTree = "<group>"; };
+		329BC6F5209986EF00CC9096 /* CropProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProvider.swift; sourceTree = "<group>"; };
+		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				329BC6E52098991C00CC9096 /* Model */,
-				329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */,
-				329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */,
 				329BC6C6209700D600CC9096 /* AppDelegate.swift */,
 				329BC6C8209700D600CC9096 /* ViewController.swift */,
 				329BC6CA209700D600CC9096 /* Main.storyboard */,
@@ -83,7 +91,6 @@
 				329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */,
 				329BC6D5209700D700CC9096 /* Info.plist */,
 				329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */,
-				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
 			);
 			path = GoToMarket;
 			sourceTree = "<group>";
@@ -91,10 +98,42 @@
 		329BC6E52098991C00CC9096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */,
-				329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */,
+				329BC6F42099863B00CC9096 /* Crop */,
+				329BC6E72099657600CC9096 /* HTTP */,
+				329BC6E62099640900CC9096 /* CoreData */,
+				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
+				32BB0C5220999814001ECF52 /* TWDateProvider.swift */,
+				329BC6F0209971FF00CC9096 /* GoToMarketError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		329BC6E62099640900CC9096 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */,
+				329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		329BC6E72099657600CC9096 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */,
+				329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		329BC6F42099863B00CC9096 /* Crop */ = {
+			isa = PBXGroup;
+			children = (
+				329BC6DB209701BA00CC9096 /* CropStruct.swift */,
+				329BC6DD2097198400CC9096 /* CropConstant.swift */,
+				329BC6F5209986EF00CC9096 /* CropProvider.swift */,
+			);
+			path = Crop;
 			sourceTree = "<group>";
 		};
 		B6FF0B1522012E7E6E95CEA0 /* Pods */ = {
@@ -226,14 +265,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropNew+CoreDataProperties.swift in Sources */,
 				329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */,
-				329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */,
+				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				329BC6C9209700D600CC9096 /* ViewController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropNew+CoreDataClass.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
-				329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */,
+				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
+				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
+				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
+				329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */,
+				329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
