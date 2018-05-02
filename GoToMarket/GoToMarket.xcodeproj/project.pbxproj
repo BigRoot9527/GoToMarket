@@ -17,6 +17,8 @@
 		329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */; };
 		329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */; };
 		329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6DF2097257700CC9096 /* CropQuoteManager.swift */; };
+		329BC6E32098496E00CC9096 /* CropNew+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */; };
+		329BC6E42098496E00CC9096 /* CropNew+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgriculturalStructs.swift; sourceTree = "<group>"; };
 		329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
 		329BC6DF2097257700CC9096 /* CropQuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropQuoteManager.swift; sourceTree = "<group>"; };
+		329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropNew+CoreDataClass.swift"; sourceTree = "<group>"; };
+		329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropNew+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +73,9 @@
 		329BC6C5209700D600CC9096 /* GoToMarket */ = {
 			isa = PBXGroup;
 			children = (
+				329BC6E52098991C00CC9096 /* Model */,
+				329BC6E12098496E00CC9096 /* CropNew+CoreDataClass.swift */,
+				329BC6E22098496E00CC9096 /* CropNew+CoreDataProperties.swift */,
 				329BC6C6209700D600CC9096 /* AppDelegate.swift */,
 				329BC6C8209700D600CC9096 /* ViewController.swift */,
 				329BC6CA209700D600CC9096 /* Main.storyboard */,
@@ -76,11 +83,18 @@
 				329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */,
 				329BC6D5209700D700CC9096 /* Info.plist */,
 				329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */,
-				329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */,
 				329BC6DF2097257700CC9096 /* CropQuoteManager.swift */,
-				329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */,
 			);
 			path = GoToMarket;
+			sourceTree = "<group>";
+		};
+		329BC6E52098991C00CC9096 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				329BC6DD2097198400CC9096 /* GoToMarketConstant.swift */,
+				329BC6DB209701BA00CC9096 /* AgriculturalStructs.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B6FF0B1522012E7E6E95CEA0 /* Pods */ = {
@@ -212,10 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329BC6E42098496E00CC9096 /* CropNew+CoreDataProperties.swift in Sources */,
 				329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */,
 				329BC6DE2097198400CC9096 /* GoToMarketConstant.swift in Sources */,
 				329BC6C9209700D600CC9096 /* ViewController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
+				329BC6E32098496E00CC9096 /* CropNew+CoreDataClass.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6DC209701BA00CC9096 /* AgriculturalStructs.swift in Sources */,
 			);

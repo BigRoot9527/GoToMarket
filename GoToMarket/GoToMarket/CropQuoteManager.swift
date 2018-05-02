@@ -15,10 +15,11 @@ protocol CropQuoteManagerDelegate: class {
 }
 struct CropQuoteManager {
     weak var delegate: CropQuoteManagerDelegate?
-    func requestCropQuote(onCropName crop: String?, onCropID id: String?, skipDataAmout skip: String?, maxDataAmount max: String?, fromDate:String?, toDate:String?) {
+    func requestCropQuote(onCropName crop: String?, onCropID id: String?, skipDataAmout skip: String?, maxDataAmount max: String?, fromDate:String?, toDate: String?) {
         //let parameterArray = [crop, id, skip, max, fromDate, toDate]
         //Todo: Use associated enum to establish params
-        Alamofire.request(ApiConstant.CropApi.url, method: .get).responseData { response in
+        //request(ApiConstant.CropApi.url, method: .get).responseData { response in
+        request(ApiConstant.CropApi.url,method: .get, parameters: ["Market":"台北一"]).responseData { response in
             guard(response.result.error == nil) else {
                 print("CommentManager Error: \(response.result.error)")
                 return
@@ -30,12 +31,11 @@ struct CropQuoteManager {
                 }
                 print(data)
                 let cropQuoteArray = try JSONDecoder().decode([CropNewQuote].self, from: data)
-                print("Msg From CommentManager: cropQuoteArray = \(cropQuoteArray)")
                 DispatchQueue.main.async {
                     self.delegate?.manager(self, didGet: cropQuoteArray)
                 }
             } catch {
-                print("CommentManager Error: \(error)")
+                print("CommentManager Error: \(error.localizedDescription)")
                 DispatchQueue.main.async {
                     self.delegate?.manager(self, didFailWith: error)
                 }

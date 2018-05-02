@@ -6,9 +6,8 @@
         <attribute name="cropName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="marketName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tradeVolume" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CropNew" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="CropNew" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
