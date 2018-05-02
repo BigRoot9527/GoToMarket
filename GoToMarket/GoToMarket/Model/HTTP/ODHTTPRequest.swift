@@ -17,7 +17,7 @@ protocol OpenDataRequest {
 extension OpenDataRequest {
     func urlString() -> String { return domainURLString() + urlParameter() }
     func request() throws -> URLRequest {
-        let url = URL(string: urlString())
+        let url = URL(string: urlString().urlEncoded())
         guard let openDataUrl = url else {
             throw GoToMarketError.OpenDataServerError
         }

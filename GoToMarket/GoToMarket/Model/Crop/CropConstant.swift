@@ -20,27 +20,9 @@ struct CropApiConstant {
 enum CropMarkets: String {
     case taipei = "台北一"
     case tauyuan = "桃農"
-    case taichung = "台中"
-    case nantou = "南投"
-    case kaoshung = "高雄"
-    case taidong = "台東"
-    case ilan = "宜蘭"
-    func getCode() -> Int {
-        switch self {
-        case .taipei:
-            return 109
-        case .tauyuan:
-            return 338
-        case .taichung:
-            return 400
-        case .nantou:
-            return 540
-        case .kaoshung:
-            return 800
-        case .taidong:
-            return 930
-        case .ilan:
-            return 260
-        }
-    }
+    case taichung = "台中市"
+    case nantou = "南投市"
+    case kaoshung = "高雄市"
+    case taidong = "台東市"
+    case ilan = "宜蘭市"
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 enum GoToMarketError: String, Error {
-    case OpenDataServerError = "OpenData client error"
+    case OpenDataServerError = "OpenData client error: cannot get URL"
 }

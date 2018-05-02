@@ -42,6 +42,7 @@ class OpenDataClient {
         do {
             return try request(OpenHTTPRequest.request(), success: success, failure: failure)
         } catch {
+            print("Error from ODHTTPClient: \(error)")
             failure(error)
             return nil
         }

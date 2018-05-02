@@ -13,7 +13,10 @@ import CoreData
 
 public class CropNew: NSManagedObject
 {
-    class func findOrCreateQuote(matching quoteInfo:CropNewQuote, in context: NSManagedObjectContext) -> CropNew
+    class func findOrCreateQuote(
+        matching quoteInfo: CropQuote,
+        in context: NSManagedObjectContext
+        ) -> CropNew
     {
         let request: NSFetchRequest<CropNew> = CropNew.fetchRequest()
         request.predicate = NSPredicate(format: "(cropCode = %@) AND (marketName = %@)", quoteInfo.cropCode, quoteInfo.marketName)
@@ -34,9 +37,25 @@ public class CropNew: NSManagedObject
         newCrop.cropCode = quoteInfo.cropCode
         newCrop.cropName = quoteInfo.cropName
         newCrop.averagePrice = quoteInfo.averagePrice
+        print(quoteInfo.averagePrice)
         newCrop.date = quoteInfo.date
         newCrop.marketName = quoteInfo.marketName
         return newCrop
+    }
+    
+    class func deleteAllQuotes(
+        in context: NSManagedObjectContext,
+        sucess: () -> Void,
+        failure: (Error) -> Void)
+    {
+        let request: NSFetchRequest<NSFetchRequestResult> = CropNew.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        do {
+            try context.execute(batchDeleteRequest)
+            sucess()
+        } catch {
+            failure(error)
+        }
     }
 
 }

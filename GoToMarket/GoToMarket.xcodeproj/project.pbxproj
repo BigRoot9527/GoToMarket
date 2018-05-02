@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B72833610E48BE1F66E2B97 /* Pods_GoToMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */; };
 		329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C6209700D600CC9096 /* AppDelegate.swift */; };
-		329BC6C9209700D600CC9096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C8209700D600CC9096 /* ViewController.swift */; };
+		329BC6C9209700D600CC9096 /* ViewControllerOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C8209700D600CC9096 /* ViewControllerOrigin.swift */; };
 		329BC6CC209700D600CC9096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6CA209700D600CC9096 /* Main.storyboard */; };
 		329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */; };
 		329BC6D1209700D700CC9096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329BC6D0209700D700CC9096 /* Assets.xcassets */; };
@@ -25,13 +25,15 @@
 		329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F5209986EF00CC9096 /* CropProvider.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
+		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
+		32BB0C592099EB95001ECF52 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C582099EB95001ECF52 /* URLCoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.release.xcconfig"; sourceTree = "<group>"; };
 		329BC6C3209700D600CC9096 /* GoToMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329BC6C6209700D600CC9096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		329BC6C8209700D600CC9096 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		329BC6C8209700D600CC9096 /* ViewControllerOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerOrigin.swift; sourceTree = "<group>"; };
 		329BC6CB209700D600CC9096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		329BC6CE209700D600CC9096 /* GoToMarket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoToMarket.xcdatamodel; sourceTree = "<group>"; };
 		329BC6D0209700D700CC9096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		329BC6F5209986EF00CC9096 /* CropProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProvider.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
+		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32BB0C582099EB95001ECF52 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +91,8 @@
 			children = (
 				329BC6E52098991C00CC9096 /* Model */,
 				329BC6C6209700D600CC9096 /* AppDelegate.swift */,
-				329BC6C8209700D600CC9096 /* ViewController.swift */,
+				329BC6C8209700D600CC9096 /* ViewControllerOrigin.swift */,
+				32BB0C562099E638001ECF52 /* ViewController.swift */,
 				329BC6CA209700D600CC9096 /* Main.storyboard */,
 				329BC6D0209700D700CC9096 /* Assets.xcassets */,
 				329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */,
@@ -124,6 +129,7 @@
 			children = (
 				329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */,
 				329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */,
+				32BB0C582099EB95001ECF52 /* URLCoder.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -271,8 +277,10 @@
 				329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropNew+CoreDataProperties.swift in Sources */,
 				329BC6E02097257700CC9096 /* CropQuoteManager.swift in Sources */,
+				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
-				329BC6C9209700D600CC9096 /* ViewController.swift in Sources */,
+				32BB0C592099EB95001ECF52 /* URLCoder.swift in Sources */,
+				329BC6C9209700D600CC9096 /* ViewControllerOrigin.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropNew+CoreDataClass.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,

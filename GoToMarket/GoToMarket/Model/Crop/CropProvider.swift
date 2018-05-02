@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CropAPIProvider: OpenDataRequest {
+enum CropRequestProvider: OpenDataRequest {
     
     case getNewQuote(Market: CropMarkets)
     case getInitailQuotes(Market: CropMarkets)
@@ -22,32 +22,44 @@ enum CropAPIProvider: OpenDataRequest {
         switch self {
         case .getHistoryQutoes(Market: let market, CropCode: let cropCode):
             let param =
-                "\(CropApiConstant.searchCropCode) = \(cropCode)"
-                + "&\(CropApiConstant.fixedSearchMarket) = \(market.rawValue)"
-                + "&\(CropApiConstant.searchFromDate) = \(TwDateProvider.getLastMonthString())"
-                + "&\(CropApiConstant.searchEndDate) = \(TwDateProvider.getTodayString())"
+                "\(CropApiConstant.searchCropCode)=\(cropCode)"
+                + "&\(CropApiConstant.fixedSearchMarket)=\(market.rawValue)"
+                + "&\(CropApiConstant.searchFromDate)=\(TwDateProvider.getLastMonthString())"
+                + "&\(CropApiConstant.searchEndDate)=\(TwDateProvider.getTodayString())"
             return param
         case .getInitailQuotes(Market: let market):
             let param =
-                "\(CropApiConstant.searchFromDate) = \(TwDateProvider.getLastWeekString())"
-                + "&\(CropApiConstant.searchEndDate) = \(TwDateProvider.getTodayString())"
-                + "&\(CropApiConstant.fixedSearchMarket) = \(market.rawValue)"
+                "\(CropApiConstant.searchFromDate)=\(TwDateProvider.getLastWeekString())"
+                + "&\(CropApiConstant.searchEndDate)=\(TwDateProvider.getTodayString())"
+                + "&\(CropApiConstant.fixedSearchMarket)=\(market.rawValue)"
             return param
         case .getNewQuote(Market: let market):
-            let param = "\(CropApiConstant.fixedSearchMarket) = \(market.rawValue)"
+            let param = "\(CropApiConstant.fixedSearchMarket)=\(market.rawValue)"
             return param
+        }
+    }
+    
+    func getMarket() -> CropMarkets {
+        switch self {
+        case .getHistoryQutoes(let market, _):
+            return market
+        case .getInitailQuotes(let market):
+            return market
+        case .getNewQuote(let market):
+            return market
         }
     }
 }
 struct CropProvider {
-    let request: CropAPIProvider
     private weak var httpClient = OpenDataClient.shared
     private let decoder = JSONDecoder()
     
     func getCropQuote(
+        request: CropRequestProvider,
         success: @escaping([CropQuote]) -> Void,
-        failure: @escaping(GoToMarketError) -> Void )
+        failure: @escaping(Error) -> Void )
     {
+        print("request.urlString() = \(request.urlString())")
         httpClient?.request(request,
         success: { data in
             do
@@ -62,6 +74,7 @@ struct CropProvider {
         },
         failure: { error in
             print("Error from CropProvider: \(error)")
+            failure(error)
         })
     }
     
