@@ -64,6 +64,8 @@ struct CropProvider {
         success: { data in
             do
             {
+                print("Task started-------")
+                print(Date().timeIntervalSince1970)
                 let response = try self.decoder.decode([CropQuote].self, from: data)
                 success(response)
             }

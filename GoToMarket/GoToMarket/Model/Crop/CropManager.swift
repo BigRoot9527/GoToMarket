@@ -44,6 +44,8 @@ struct CropManager {
                 _ = CropNew.findOrCreateQuote(matching: quoteInfo, in: context)
             }
             try? context.save()
+            print(Date().timeIntervalSince1970)
+            print("Task ended-------")
             self.printDatabaseStatistics()
         }
     }

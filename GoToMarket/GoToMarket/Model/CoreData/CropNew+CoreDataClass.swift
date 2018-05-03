@@ -37,7 +37,6 @@ public class CropNew: NSManagedObject
         newCrop.cropCode = quoteInfo.cropCode
         newCrop.cropName = quoteInfo.cropName
         newCrop.averagePrice = quoteInfo.averagePrice
-        print(quoteInfo.averagePrice)
         newCrop.date = quoteInfo.date
         newCrop.marketName = quoteInfo.marketName
         return newCrop
