@@ -13,14 +13,14 @@ class QuotesTableViewController: FetchedResultsTableViewController {
     
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
-    var fetchedResultsController: NSFetchedResultsController<CropNew>?
+    var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     
     private func updateUI() {
         if let context = container?.viewContext {
-            let request: NSFetchRequest<CropNew> = CropNew.fetchRequest()
+            let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(key: "averagePrice", ascending: true)]
             //request.predicate = NSPredicate(format:)
-            fetchedResultsController = NSFetchedResultsController<CropNew>(
+            fetchedResultsController = NSFetchedResultsController<CropDatas>(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,

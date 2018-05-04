@@ -41,7 +41,7 @@ struct CropManager {
     private func updateDatabase(with newQuote: [CropQuote]) {
         container?.performBackgroundTask{ context in
             for quoteInfo in newQuote {
-                _ = CropNew.findOrCreateQuote(matching: quoteInfo, in: context)
+                _ = CropDatas.findOrCreateQuote(matching: quoteInfo, in: context)
             }
             try? context.save()
             print(Date().timeIntervalSince1970)
@@ -52,7 +52,7 @@ struct CropManager {
     
     private func resetAllData(with newQuote: [CropQuote]) {
         container?.performBackgroundTask{ context in
-            CropNew.deleteAllQuotes(in: context, sucess: {
+            CropDatas.deleteAllQuotes(in: context, sucess: {
                 self.updateDatabase(with: newQuote.reversed())
             }, failure: { error in
                 print("Error from CropManager, resetAllData: \(error)")
@@ -63,7 +63,7 @@ struct CropManager {
     private func printDatabaseStatistics() {
         if let context = container?.viewContext {
             context.perform {
-                if let quoteCount = (try?context.fetch(CropNew.fetchRequest()))?.count {
+                if let quoteCount = (try?context.fetch(CropDatas.fetchRequest()))?.count {
                     print("Database count: \(quoteCount)")
                 }
             }

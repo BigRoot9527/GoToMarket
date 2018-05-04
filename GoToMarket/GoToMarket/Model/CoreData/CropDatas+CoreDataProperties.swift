@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension CropNew {
+extension CropDatas {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CropNew> {
-        return NSFetchRequest<CropNew>(entityName: "CropNew")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CropDatas> {
+        return NSFetchRequest<CropDatas>(entityName: "CropNew")
     }
 
     @NSManaged public var date: String?
