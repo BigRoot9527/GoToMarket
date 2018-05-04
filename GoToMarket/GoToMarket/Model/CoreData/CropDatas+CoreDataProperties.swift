@@ -14,7 +14,7 @@ import CoreData
 extension CropDatas {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CropDatas> {
-        return NSFetchRequest<CropDatas>(entityName: "CropNew")
+        return NSFetchRequest<CropDatas>(entityName: "CropDatas")
     }
 
     @NSManaged public var date: String?
@@ -22,5 +22,6 @@ extension CropDatas {
     @NSManaged public var cropName: String?
     @NSManaged public var marketName: String?
     @NSManaged public var averagePrice: Float
+    @NSManaged public var note: UserNotes?
 
 }
