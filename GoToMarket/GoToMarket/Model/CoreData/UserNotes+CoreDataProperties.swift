@@ -20,6 +20,7 @@ extension UserNotes {
     @NSManaged public var customMutipler: Float
     @NSManaged public var muliplerWeight: Float
     @NSManaged public var favorite: Bool
+    @NSManaged public var cropCode: String?
     @NSManaged public var cropData: CropDatas?
 
 }

@@ -17,9 +17,9 @@ extension CropDatas {
         return NSFetchRequest<CropDatas>(entityName: "CropDatas")
     }
 
-    @NSManaged public var date: String?
-    @NSManaged public var cropCode: String?
-    @NSManaged public var cropName: String?
+    @NSManaged public var date: String
+    @NSManaged public var cropCode: String
+    @NSManaged public var cropName: String
     @NSManaged public var marketName: String?
     @NSManaged public var averagePrice: Float
     @NSManaged public var note: UserNotes?

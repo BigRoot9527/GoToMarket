@@ -13,7 +13,7 @@ import CoreData
 
 public class CropDatas: NSManagedObject
 {
-    class func findOrCreateQuote(
+    class func updateOrCreateQuote(
         matching quoteInfo: CropQuote,
         in context: NSManagedObjectContext
         ) -> CropDatas
@@ -25,10 +25,13 @@ public class CropDatas: NSManagedObject
             if maches.count > 0 {
                 if maches.count > 1 {
                     maches.forEach {
-                        print($0)
+                        print("CropDatas NSMO Error: matches > 1 \($0)")
                     }
                 }
-                context.delete(maches[0])
+                maches[0].averagePrice = quoteInfo.averagePrice
+                maches[0].date = quoteInfo.date
+                maches[0].cropName = quoteInfo.cropName
+                return maches[0]
             }
         } catch {
             print(error)
@@ -39,6 +42,7 @@ public class CropDatas: NSManagedObject
         newCrop.averagePrice = quoteInfo.averagePrice
         newCrop.date = quoteInfo.date
         newCrop.marketName = quoteInfo.marketName
+        newCrop.note = UserNotes.findOrCreateNote(matching: newCrop, in: context)
         return newCrop
     }
     

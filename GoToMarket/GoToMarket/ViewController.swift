@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let manager = CropManager()
-        manager.getCropQuote(task: .getInitailQuotes(Market: .taipei))
+        manager.getCropQuote(task: .getInitailQuotes(Market: .tauyuan))
     }
 
     override func didReceiveMemoryWarning() {

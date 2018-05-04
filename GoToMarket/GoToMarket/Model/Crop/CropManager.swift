@@ -41,7 +41,7 @@ struct CropManager {
     private func updateDatabase(with newQuote: [CropQuote]) {
         container?.performBackgroundTask{ context in
             for quoteInfo in newQuote {
-                _ = CropDatas.findOrCreateQuote(matching: quoteInfo, in: context)
+                _ = CropDatas.updateOrCreateQuote(matching: quoteInfo, in: context)
             }
             try? context.save()
             print(Date().timeIntervalSince1970)

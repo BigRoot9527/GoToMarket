@@ -26,6 +26,7 @@
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyingList" inverseName="ingredients" inverseEntity="BuyingList" syncable="YES"/>
     </entity>
     <entity name="UserNotes" representedClassName=".UserNotes" syncable="YES">
+        <attribute name="cropCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="customMutipler" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" customClassName="." syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="muliplerWeight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -35,6 +36,6 @@
         <element name="BuyingList" positionX="1584" positionY="938" width="128" height="133"/>
         <element name="CropDatas" positionX="1591" positionY="1130" width="128" height="133"/>
         <element name="Ingredient" positionX="1780" positionY="911" width="128" height="148"/>
-        <element name="UserNotes" positionX="1780" positionY="1116" width="128" height="103"/>
+        <element name="UserNotes" positionX="1780" positionY="1116" width="128" height="118"/>
     </elements>
 </model>
