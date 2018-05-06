@@ -10,6 +10,8 @@ import Foundation
 import CoreData
 import UIKit
 
+
+
 protocol CropManagerDelegate: class {
     func manager(_ manager: CropManager, didGet cropQuote: [CropQuote]) -> Void
     func manager(_ manager: CropManager, didFailWith error: Error) -> Void
@@ -27,7 +29,7 @@ struct CropManager {
                 let quotesArray = self.cropValidate(fromCropArray: cropQuotes, ofTask: task)
                 switch task {
                 case .getHistoryQutoes:
-                    self.delegate?.manager( self, didGet: quotesArray)
+                    self.delegate?.manager(self, didGet: quotesArray)
                 case .getInitailQuotes:
                     self.resetAllData(with: quotesArray)
                 case .getNewQuote:
@@ -35,6 +37,7 @@ struct CropManager {
                 }
         }) { error in
             print("error from CropManager, getCropQuote: \(error)")
+            self.delegate?.manager(self, didFailWith: error)
         }
     }
     

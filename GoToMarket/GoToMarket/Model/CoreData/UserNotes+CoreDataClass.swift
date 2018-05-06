@@ -29,16 +29,18 @@ public class UserNotes: NSManagedObject {
                     }
                 }
                 maches[0].cropData = cropData
+                maches[0].customMutipler = NoteConstant.initailMultipler
+                maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
                 return maches[0]
             }
         } catch {
             print(error)
         }
         let newNote = UserNotes(context: context)
-        newNote.favorite = false
+        newNote.favorite = NoteConstant.initailFavorite
         newNote.cropCode = cropData.cropCode
-        newNote.customMutipler = 2.0
-        newNote.muliplerWeight = 1.0
+        newNote.customMutipler = NoteConstant.initailMultipler
+        newNote.muliplerWeight = NoteConstant.initailMultiplerWeight
         newNote.cropData = cropData
         return newNote
     }

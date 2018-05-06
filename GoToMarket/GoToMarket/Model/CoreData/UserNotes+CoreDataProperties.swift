@@ -17,8 +17,8 @@ extension UserNotes {
         return NSFetchRequest<UserNotes>(entityName: "UserNotes")
     }
 
-    @NSManaged public var customMutipler: Float
-    @NSManaged public var muliplerWeight: Float
+    @NSManaged public var customMutipler: Double
+    @NSManaged public var muliplerWeight: Double
     @NSManaged public var favorite: Bool
     @NSManaged public var cropCode: String?
     @NSManaged public var cropData: CropDatas?
