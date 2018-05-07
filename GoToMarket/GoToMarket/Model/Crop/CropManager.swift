@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import CoreData
-import UIKit
 
 
 protocol CropManagerDelegate: class {
@@ -17,7 +15,7 @@ protocol CropManagerDelegate: class {
 }
 
 struct CropManager {
-    weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    
     weak var delegate: CropManagerDelegate?
     private let provider = CropProvider()
     
@@ -25,14 +23,14 @@ struct CropManager {
         provider.getCropQuote(
             request: task,
             success: { cropQuotes in
-                let quotesArray = self.cropValidate(fromCropArray: cropQuotes, ofTask: task)
+                let quotesArray = self.provider.cropValidate(fromCropArray: cropQuotes, ofTask: task)
                 switch task {
                 case .getHistoryQutoes:
                     self.delegate?.manager(self, didGet: quotesArray)
                 case .getInitailQuotes:
-                    self.resetAllData(with: quotesArray)
+                    self.provider.resetAllData(with: quotesArray)
                 case .getNewQuote:
-                    self.updateDatabase(with: quotesArray)
+                    self.provider.updateDatabase(with: quotesArray)
                 }
         }) { error in
             print("error from CropManager, getCropQuote: \(error)")
@@ -40,48 +38,6 @@ struct CropManager {
         }
     }
     
-    private func updateDatabase(with newQuote: [CropQuote]) {
-        container?.performBackgroundTask{ context in
-            for quoteInfo in newQuote {
-                _ = CropDatas.updateOrCreateQuote(matching: quoteInfo, in: context)
-            }
-            try? context.save()
-            print(Date().timeIntervalSince1970)
-            print("Task ended-------")
-            self.printDatabaseStatistics()
-        }
-    }
-    
-    private func resetAllData(with newQuote: [CropQuote]) {
-        container?.performBackgroundTask{ context in
-            CropDatas.deleteAllQuotes(in: context, sucess: {
-                self.updateDatabase(with: newQuote.reversed())
-            }, failure: { error in
-                print("Error from CropManager, resetAllData: \(error)")
-            })
-        }
-    }
-    
-    private func printDatabaseStatistics() {
-        if let context = container?.viewContext {
-            context.perform {
-                if let quoteCount = (try?context.fetch(CropDatas.fetchRequest()))?.count {
-                    print("Database count: \(quoteCount)")
-                }
-            }
-        }
-    }
-    
-    private func cropValidate(
-        fromCropArray rawArray: [CropQuote],
-        ofTask task:CropRequestProvider
-        ) -> [CropQuote] {
-        let correctMarketName = task.getMarket().rawValue
-        let correctArray = rawArray.filter { aCropQuote -> Bool in
-            aCropQuote.marketName == correctMarketName
-        }
-        return correctArray
-    }
     
     
 }

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 enum CropRequestProvider: OpenDataRequest {
     
@@ -53,6 +55,7 @@ enum CropRequestProvider: OpenDataRequest {
 struct CropProvider {
     private weak var httpClient = OpenDataClient.shared
     private let decoder = JSONDecoder()
+    private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
     func getCropQuote(
         request: CropRequestProvider,
@@ -79,5 +82,49 @@ struct CropProvider {
             failure(error)
         })
     }
+    
+    func updateDatabase(with newQuote: [CropQuote]) {
+        container?.performBackgroundTask{ context in
+            for quoteInfo in newQuote {
+                _ = CropDatas.updateOrCreateQuote(matching: quoteInfo, in: context)
+            }
+            try? context.save()
+            print(Date().timeIntervalSince1970)
+            print("Task ended-------")
+            self.printDatabaseStatistics()
+        }
+    }
+    
+    func resetAllData(with newQuote: [CropQuote]) {
+        container?.performBackgroundTask{ context in
+            CropDatas.deleteAllQuotes(in: context, sucess: {
+                self.updateDatabase(with: newQuote.reversed())
+            }, failure: { error in
+                print("Error from CropManager, resetAllData: \(error)")
+            })
+        }
+    }
+    
+    func printDatabaseStatistics() {
+        if let context = container?.viewContext {
+            context.perform {
+                if let quoteCount = (try?context.fetch(CropDatas.fetchRequest()))?.count {
+                    print("Database count: \(quoteCount)")
+                }
+            }
+        }
+    }
+    
+    func cropValidate(
+        fromCropArray rawArray: [CropQuote],
+        ofTask task:CropRequestProvider
+        ) -> [CropQuote] {
+        let correctMarketName = task.getMarket().rawValue
+        let correctArray = rawArray.filter { aCropQuote -> Bool in
+            aCropQuote.marketName == correctMarketName
+        }
+        return correctArray
+    }
+    
     
 }

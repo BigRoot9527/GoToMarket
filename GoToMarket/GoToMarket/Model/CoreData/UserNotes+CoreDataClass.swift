@@ -48,12 +48,12 @@ public class UserNotes: NSManagedObject {
     }
     
     class func fetchNote(
-        matching quoteInfo: CropQuote,
+        matching cropCode: String,
         in context: NSManagedObjectContext
         ) -> UserNotes?
     {
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
-        request.predicate = NSPredicate(format: "(cropCode = %@)", quoteInfo.cropCode)
+        request.predicate = NSPredicate(format: "(cropCode = %@)", cropCode)
         do {
             let maches = try context.fetch(request)
             if maches.count > 0 {
@@ -71,49 +71,66 @@ public class UserNotes: NSManagedObject {
     }
     
     class func setFavoriteState(
-        matching quoteInfo: CropQuote,
+        matching cropCode: String,
         toState bool: Bool,
         in context: NSManagedObjectContext
         )
     {
-        guard let fetchedNote = self.fetchNote(matching: quoteInfo, in: context) else { return }
+        guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { return }
         fetchedNote.favorite = bool
     }
     
     class func getFavoriteState(
-        matching quoteInfo: CropQuote,
+        matching cropCode: String,
         in context: NSManagedObjectContext
         ) throws -> Bool
     {
         guard
-            let note = self.fetchNote(matching: quoteInfo, in: context)
+            let note = self.fetchNote(matching: cropCode, in: context)
             else { throw GoToMarketError.FetchError }
         return note.favorite
     }
     
     class func setCropMutiplerAndWeight(
-        matching quoteInfo: CropQuote,
+        matching cropCode: String,
         withNewMutipler mutipler: Double,
         withNewWeight weight: Double,
         in context: NSManagedObjectContext
         )
     {
-        guard let note = self.fetchNote(matching: quoteInfo, in: context) else { return }
+        guard let note = self.fetchNote(matching: cropCode, in: context) else { return }
         note.customMutipler = mutipler
         note.muliplerWeight = weight
     }
     
     class func getPredictPrice(
-        matching quoteInfo: CropQuote,
+        matching cropCode: String,
         in context: NSManagedObjectContext
         ) throws -> Double
     {
         guard
-            let note = self.fetchNote(matching: quoteInfo, in: context),
+            let note = self.fetchNote(matching: cropCode, in: context),
             let quote = note.cropData?.averagePrice
             else { throw GoToMarketError.FetchError }
         let multipler = note.customMutipler
         return multipler * quote
     }
+    
+    //    private class func calculateNewModel(
+    //        savedQuote: Double,
+    //        savedMultipler: Double,
+    //        oldWeight: Double,
+    //        newPrice: Double)
+    //        -> (Double, Double)
+    //    {
+    //        let originPrice = oldQuote * oldMultipler
+    //        if oldWeight == 0.0 {
+    //            let newMutipler = newPrice / oldQuote
+    //            return ()
+    //        }
+    //        let confidenceIntervel = originPrice * 2
+    //        let newWeight: Double = ( 1.0000 - (exp(fabs(originPrice - newPrice) - confidenceIntervel)))
+    //        let totalWeight = oldWeight + newWeight
+    //    } //this must be doing in ingredients NSMO
     
 }
