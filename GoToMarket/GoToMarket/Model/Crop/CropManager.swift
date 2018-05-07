@@ -11,7 +11,6 @@ import CoreData
 import UIKit
 
 
-
 protocol CropManagerDelegate: class {
     func manager(_ manager: CropManager, didGet cropQuote: [CropQuote]) -> Void
     func manager(_ manager: CropManager, didFailWith error: Error) -> Void
@@ -22,7 +21,7 @@ struct CropManager {
     weak var delegate: CropManagerDelegate?
     private let provider = CropProvider()
     
-    func getCropQuote(task: CropRequestProvider) {
+    func accessCropQuote(task: CropRequestProvider) {
         provider.getCropQuote(
             request: task,
             success: { cropQuotes in

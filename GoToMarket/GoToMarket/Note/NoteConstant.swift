@@ -11,5 +11,6 @@ import Foundation
 struct NoteConstant {
     static let initailMultipler: Double = 2.0
     static let initailMultiplerWeight: Double = 0.0
+    static let maximunWeightPerTrain: Double = 1.0
     static let initailFavorite: Bool = false
 }
