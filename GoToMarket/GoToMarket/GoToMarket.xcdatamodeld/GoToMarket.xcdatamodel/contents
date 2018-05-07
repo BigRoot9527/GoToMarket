@@ -9,7 +9,7 @@
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="list" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
     <entity name="CropDatas" representedClassName=".CropDatas" syncable="YES">
-        <attribute name="averagePrice" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="averagePrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="cropCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cropName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>

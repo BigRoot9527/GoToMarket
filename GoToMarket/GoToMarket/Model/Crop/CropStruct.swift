@@ -12,7 +12,7 @@ struct CropQuote: Decodable {
     let cropCode: String
     let cropName: String
     let marketName: String
-    let averagePrice: Float
+    let averagePrice: Double
     private enum CodingKeys: String, CodingKey {
         case date = "交易日期"
         case cropCode = "作物代號"

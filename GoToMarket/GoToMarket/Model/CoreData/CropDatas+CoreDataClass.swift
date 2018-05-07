@@ -13,10 +13,10 @@ import CoreData
 
 public class CropDatas: NSManagedObject
 {
-    class func updateOrCreateQuote(
+    class func fetchQuote(
         matching quoteInfo: CropQuote,
         in context: NSManagedObjectContext
-        ) -> CropDatas
+        ) -> CropDatas?
     {
         let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
         request.predicate = NSPredicate(format: "(cropCode = %@) AND (marketName = %@)", quoteInfo.cropCode, quoteInfo.marketName)
@@ -28,22 +28,37 @@ public class CropDatas: NSManagedObject
                         print("CropDatas NSMO Error: matches > 1 \($0)")
                     }
                 }
-                maches[0].averagePrice = quoteInfo.averagePrice
-                maches[0].date = quoteInfo.date
-                maches[0].cropName = quoteInfo.cropName
                 return maches[0]
             }
         } catch {
             print(error)
         }
-        let newCrop = CropDatas(context: context)
-        newCrop.cropCode = quoteInfo.cropCode
-        newCrop.cropName = quoteInfo.cropName
-        newCrop.averagePrice = quoteInfo.averagePrice
-        newCrop.date = quoteInfo.date
-        newCrop.marketName = quoteInfo.marketName
-        newCrop.note = UserNotes.findOrCreateNote(matching: newCrop, in: context)
-        return newCrop
+        return nil
+    }
+    
+    class func updateOrCreateQuote(
+        matching quoteInfo: CropQuote,
+        in context: NSManagedObjectContext
+        ) -> CropDatas
+    {
+        if let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context)
+        {
+            fetchedQuote.averagePrice = quoteInfo.averagePrice
+            fetchedQuote.date = quoteInfo.date
+            fetchedQuote.cropName = quoteInfo.cropName
+            return fetchedQuote
+        }
+        else
+        {
+            let newCrop = CropDatas(context: context)
+            newCrop.cropCode = quoteInfo.cropCode
+            newCrop.cropName = quoteInfo.cropName
+            newCrop.averagePrice = quoteInfo.averagePrice
+            newCrop.date = quoteInfo.date
+            newCrop.marketName = quoteInfo.marketName
+            newCrop.note = UserNotes.findOrCreateNoteFromData(matching: newCrop, in: context)
+            return newCrop
+        }
     }
     
     class func deleteAllQuotes(

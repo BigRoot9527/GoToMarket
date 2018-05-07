@@ -21,7 +21,7 @@ extension CropDatas {
     @NSManaged public var cropCode: String
     @NSManaged public var cropName: String
     @NSManaged public var marketName: String?
-    @NSManaged public var averagePrice: Float
+    @NSManaged public var averagePrice: Double
     @NSManaged public var note: UserNotes?
 
 }
