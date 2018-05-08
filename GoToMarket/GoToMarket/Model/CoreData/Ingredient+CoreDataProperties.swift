@@ -2,7 +2,7 @@
 //  Ingredient+CoreDataProperties.swift
 //  GoToMarket
 //
-//  Created by 許庭瑋 on 2018/5/4.
+//  Created by 許庭瑋 on 2018/5/8.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
 //
@@ -17,12 +17,14 @@ extension Ingredient {
         return NSFetchRequest<Ingredient>(entityName: "Ingredient")
     }
 
-    @NSManaged public var buyingKg: Float
+    @NSManaged public var actualPricePerKG: Double
+    @NSManaged public var buyingKg: Double
     @NSManaged public var done: Bool
     @NSManaged public var itemName: String?
-    @NSManaged public var savedPrice: Float
-    @NSManaged public var actualPrice: Float
+    @NSManaged public var savedPridictPricePerKG: Double
     @NSManaged public var savedTime: NSDate?
+    @NSManaged public var itemCode: String?
+    @NSManaged public var itemType: String?
     @NSManaged public var list: BuyingList?
 
 }

@@ -12,8 +12,6 @@
 		327A4DF8209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
 		327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */; };
-		327A4DFB209C48D200B3EEE9 /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF3209C48D200B3EEE9 /* Ingredient+CoreDataClass.swift */; };
-		327A4DFC209C48D200B3EEE9 /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF4209C48D200B3EEE9 /* Ingredient+CoreDataProperties.swift */; };
 		327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */; };
 		327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */; };
 		327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0220A0566400B3EEE9 /* NoteManager.swift */; };
@@ -37,6 +35,8 @@
 		32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */; };
 		32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */; };
 		32BB0C5F209AC450001ECF52 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5E209AC450001ECF52 /* QuotesTableViewController.swift */; };
+		32F87A2320A173C7005207CD /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */; };
+		32F87A2420A173C7005207CD /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,6 @@
 		327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		327A4DF3209C48D200B3EEE9 /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		327A4DF4209C48D200B3EEE9 /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteConstant.swift; sourceTree = "<group>"; };
 		327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteProvider.swift; sourceTree = "<group>"; };
 		327A4E0220A0566400B3EEE9 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
@@ -72,6 +70,8 @@
 		32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionOfNSFetchResultsController.swift; sourceTree = "<group>"; };
 		32BB0C5E209AC450001ECF52 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
+		32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,8 +140,6 @@
 			children = (
 				327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */,
 				327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */,
-				327A4DF3209C48D200B3EEE9 /* Ingredient+CoreDataClass.swift */,
-				327A4DF4209C48D200B3EEE9 /* Ingredient+CoreDataProperties.swift */,
 				329BC6F42099863B00CC9096 /* Crop */,
 				329BC6E72099657600CC9096 /* HTTP */,
 				329BC6E62099640900CC9096 /* CoreData */,
@@ -154,6 +152,8 @@
 		329BC6E62099640900CC9096 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */,
+				32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */,
 				327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */,
 				327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */,
 				329BC6E12098496E00CC9096 /* CropDatas+CoreDataClass.swift */,
@@ -315,7 +315,7 @@
 				327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */,
 				327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */,
 				329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */,
-				327A4DFB209C48D200B3EEE9 /* Ingredient+CoreDataClass.swift in Sources */,
+				32F87A2320A173C7005207CD /* Ingredient+CoreDataClass.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,
 				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
@@ -332,7 +332,7 @@
 				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
 				32BB0C5F209AC450001ECF52 /* QuotesTableViewController.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
-				327A4DFC209C48D200B3EEE9 /* Ingredient+CoreDataProperties.swift in Sources */,
+				32F87A2420A173C7005207CD /* Ingredient+CoreDataProperties.swift in Sources */,
 				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
 				32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */,
 				329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */,
