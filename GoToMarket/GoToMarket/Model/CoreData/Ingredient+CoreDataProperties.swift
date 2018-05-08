@@ -22,9 +22,9 @@ extension Ingredient {
     @NSManaged public var done: Bool
     @NSManaged public var itemName: String?
     @NSManaged public var savedPridictPricePerKG: Double
-    @NSManaged public var savedTime: NSDate?
-    @NSManaged public var itemCode: String?
+    @NSManaged public var itemCodeUnique: String?
     @NSManaged public var itemType: String?
+    @NSManaged public var listUuid: String?
     @NSManaged public var list: BuyingList?
 
 }

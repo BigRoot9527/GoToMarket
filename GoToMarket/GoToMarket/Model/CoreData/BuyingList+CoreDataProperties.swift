@@ -2,7 +2,7 @@
 //  BuyingList+CoreDataProperties.swift
 //  GoToMarket
 //
-//  Created by 許庭瑋 on 2018/5/4.
+//  Created by 許庭瑋 on 2018/5/8.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
 //
@@ -22,6 +22,7 @@ extension BuyingList {
     @NSManaged public var createTime: NSDate?
     @NSManaged public var listName: String?
     @NSManaged public var quota: Int16
+    @NSManaged public var uuid: String?
     @NSManaged public var ingredients: NSSet?
 
 }

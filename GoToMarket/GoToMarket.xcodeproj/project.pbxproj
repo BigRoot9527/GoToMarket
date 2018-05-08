@@ -37,6 +37,10 @@
 		32BB0C5F209AC450001ECF52 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5E209AC450001ECF52 /* QuotesTableViewController.swift */; };
 		32F87A2320A173C7005207CD /* Ingredient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */; };
 		32F87A2420A173C7005207CD /* Ingredient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */; };
+		32F87A2820A18437005207CD /* BuyingListConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2720A18437005207CD /* BuyingListConstant.swift */; };
+		32F87A2A20A19AA6005207CD /* IngredientConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2920A19AA6005207CD /* IngredientConstant.swift */; };
+		32F87A2C20A19BAB005207CD /* IngredientStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2B20A19BAB005207CD /* IngredientStruct.swift */; };
+		32F87A2E20A1A296005207CD /* BuyinListStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F87A2D20A1A296005207CD /* BuyinListStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		32BB0C5E209AC450001ECF52 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
 		32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ingredient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		32F87A2720A18437005207CD /* BuyingListConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingListConstant.swift; sourceTree = "<group>"; };
+		32F87A2920A19AA6005207CD /* IngredientConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientConstant.swift; sourceTree = "<group>"; };
+		32F87A2B20A19BAB005207CD /* IngredientStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientStruct.swift; sourceTree = "<group>"; };
+		32F87A2D20A1A296005207CD /* BuyinListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyinListStruct.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +127,6 @@
 		329BC6C5209700D600CC9096 /* GoToMarket */ = {
 			isa = PBXGroup;
 			children = (
-				327A4DFD209C9C6C00B3EEE9 /* Note */,
 				329BC6E52098991C00CC9096 /* Model */,
 				329BC6C6209700D600CC9096 /* AppDelegate.swift */,
 				32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */,
@@ -138,8 +145,9 @@
 		329BC6E52098991C00CC9096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */,
-				327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */,
+				32F87A2620A175B5005207CD /* BuyingList */,
+				32F87A2520A174F9005207CD /* Ingredient */,
+				327A4DFD209C9C6C00B3EEE9 /* Note */,
 				329BC6F42099863B00CC9096 /* Crop */,
 				329BC6E72099657600CC9096 /* HTTP */,
 				329BC6E62099640900CC9096 /* CoreData */,
@@ -152,6 +160,8 @@
 		329BC6E62099640900CC9096 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */,
+				327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */,
 				32F87A2120A173C7005207CD /* Ingredient+CoreDataClass.swift */,
 				32F87A2220A173C7005207CD /* Ingredient+CoreDataProperties.swift */,
 				327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */,
@@ -181,6 +191,24 @@
 				32BB0C542099BE30001ECF52 /* CropManager.swift */,
 			);
 			path = Crop;
+			sourceTree = "<group>";
+		};
+		32F87A2520A174F9005207CD /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				32F87A2B20A19BAB005207CD /* IngredientStruct.swift */,
+				32F87A2920A19AA6005207CD /* IngredientConstant.swift */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		32F87A2620A175B5005207CD /* BuyingList */ = {
+			isa = PBXGroup;
+			children = (
+				32F87A2720A18437005207CD /* BuyingListConstant.swift */,
+				32F87A2D20A1A296005207CD /* BuyinListStruct.swift */,
+			);
+			path = BuyingList;
 			sourceTree = "<group>";
 		};
 		B6FF0B1522012E7E6E95CEA0 /* Pods */ = {
@@ -318,9 +346,12 @@
 				32F87A2320A173C7005207CD /* Ingredient+CoreDataClass.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,
 				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
+				32F87A2E20A1A296005207CD /* BuyinListStruct.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				32BB0C592099EB95001ECF52 /* URLCoder.swift in Sources */,
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
+				32F87A2820A18437005207CD /* BuyingListConstant.swift in Sources */,
+				32F87A2A20A19AA6005207CD /* IngredientConstant.swift in Sources */,
 				327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */,
 				32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
@@ -329,6 +360,7 @@
 				327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
+				32F87A2C20A19BAB005207CD /* IngredientStruct.swift in Sources */,
 				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
 				32BB0C5F209AC450001ECF52 /* QuotesTableViewController.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
