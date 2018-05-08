@@ -14,7 +14,7 @@ protocol NoteManagerFevoriteDelegate: class {
 }
 
 protocol NoteManagerPriceDelegate: class {
-    func manager(_ manager: NoteManager, didGet priceAndWeight: Float) -> Void
+    func manager(_ manager: NoteManager, didGet priceAndWeight: Double) -> Void
     func manager(_ manager: NoteManager, didFailWith error: Error) -> Void
 }
 
@@ -26,8 +26,8 @@ struct NoteManager {
         switch task {
         case .setFavoriteState(ofCode: let code, isFavorite: let bool):
             self.provider.setFevorite(toCropCode: code, bool: bool)
-        case .setMultiplerAndWeight(ofCode: let code, withMutipler: let mutipler, withWeight: let weight):
-            self.provider.setTrainModel(toCropCode: code, mutipler: mutipler, weight: weight)
+        case .setMultiplerAndWeight(ofCode: let code, actualPricePerKG: let price):
+            self.provider.setTrainModel(toCropCode: code, actualPricePerKG: price)
         case .getFavoriteState(ofCode: let code):
             self.provider.getFevorite(
                 toCropCode: code,
@@ -36,7 +36,7 @@ struct NoteManager {
         case .getPredictPricePerKG(ofCode: let code):
             self.provider.getPricePerKG(
                 toCropCode: code,
-                success: { self.priceDelegate?.manager(self, didGet:Float($0))},
+                success: { self.priceDelegate?.manager(self, didGet:$0)},
                 failure: { self.priceDelegate?.manager(self, didFailWith: $0)})
         }
     }

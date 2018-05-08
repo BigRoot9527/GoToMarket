@@ -30,6 +30,7 @@ public class UserNotes: NSManagedObject {
                         print("UserNotes NSMO Error: matches > 1 \($0)")
                     }
                 }
+                //單向: 用cropData找Note, 不能用note找cropData
                 maches[0].cropData = cropData
                 maches[0].customMutipler = NoteConstant.initailMultipler
                 maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
@@ -74,10 +75,11 @@ public class UserNotes: NSManagedObject {
         matching cropCode: String,
         toState bool: Bool,
         in context: NSManagedObjectContext
-        )
+        ) throws -> UserNotes
     {
-        guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { return }
+        guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { throw GoToMarketError.FetchError }
         fetchedNote.favorite = bool
+        return fetchedNote
     }
     
     class func getFavoriteState(
@@ -89,18 +91,6 @@ public class UserNotes: NSManagedObject {
             let note = self.fetchNote(matching: cropCode, in: context)
             else { throw GoToMarketError.FetchError }
         return note.favorite
-    }
-    
-    class func setCropMutiplerAndWeight(
-        matching cropCode: String,
-        withNewMutipler mutipler: Double,
-        withNewWeight weight: Double,
-        in context: NSManagedObjectContext
-        )
-    {
-        guard let note = self.fetchNote(matching: cropCode, in: context) else { return }
-        note.customMutipler = mutipler
-        note.muliplerWeight = weight
     }
     
     class func getPredictPrice(
@@ -116,22 +106,39 @@ public class UserNotes: NSManagedObject {
         return multipler * quote
     }
     
-    //    private class func calculateNewModel(
-    //        savedQuote: Double,    原行情價 ~> 不需要
-    //        savedMultipler: Double, 原零售價倍率 ~> from note
-    //        oldWeight: Double, 原權重 ~> from note
-    //        newPrice: Double) ~> 新零售價perKG ~> 使用者輸入
-    //        newQuote:         ~>新行情價 ~> V1.0使用當日行情 未來使用API打使用者指定日期，取得特定市場該作物的當日行情
-    //        -> (Double, Double)
-    //    {
-    //        let originPrice = oldQuote * oldMultipler
-    //        if oldWeight == 0.0 {
-    //            let newMutipler = newPrice / oldQuote
-    //            return ()
-    //        }
-    //        let confidenceIntervel = originPrice * 2
-    //        let newWeight: Double = ( 1.0000 - (exp(fabs(originPrice - newPrice) - confidenceIntervel)))
-    //        let totalWeight = oldWeight + newWeight
-    //    } //this can be doing here!!!
+    class func setMutiplerAndWeightTrainModel(
+        //概念：原本存有mutipler跟weight，只要給新的mutipler(某天的實際購買價/某天的行情)即可train
+        matching cropCode: String,
+        actualPricePerKG: Double,
+        in context: NSManagedObjectContext) throws -> UserNotes
+    {
+        guard
+            let note = self.fetchNote(matching: cropCode, in: context),
+            //quoteBuyingDay ~> V1.0使用當日行情(假設使用者是當天買的時候就校正)，未來使用API打使用者指定日期(今日or之前)，取得特定市場該作物的當日行情
+            let quoteBuyingDay = note.cropData?.averagePrice
+            //沒有cropData => 無法取得現在行情價 => 無法計算現在的mutipler => 無法machine learning
+        else { throw GoToMarketError.FetchError }
+        
+        let inputMutipler = actualPricePerKG / quoteBuyingDay
+        let originMutipler = note.customMutipler
+        let originWeight = note.muliplerWeight
+        //handle非預設的第一次input
+        if originWeight == NoteConstant.initailMultiplerWeight
+        {
+            note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
+            note.customMutipler = inputMutipler
+            return note
+        }
+        let confidenceIntervel = originMutipler * NoteConstant.confidenceConstant
+        let inputWeight: Double =
+            ( NoteConstant.maximunWeightPerTrain
+                - (exp(fabs(inputMutipler - originMutipler) - confidenceIntervel)))
+        let newWeight = originWeight + inputWeight
+        let newMutipler =
+            ((originMutipler * originWeight) + (inputMutipler * inputWeight)) / newWeight
+        note.customMutipler = newMutipler
+        note.muliplerWeight = newWeight
+        return note
+    }
     
 }

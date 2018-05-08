@@ -15,7 +15,7 @@ enum NoteRequestProvider
     case getFavoriteState(ofCode: String)
     case setFavoriteState(ofCode: String, isFavorite: Bool)
     case getPredictPricePerKG(ofCode: String)
-    case setMultiplerAndWeight(ofCode: String, withMutipler: Double, withWeight: Double)
+    case setMultiplerAndWeight(ofCode: String, actualPricePerKG: Double)
 }
 
 
@@ -44,7 +44,14 @@ struct NoteProvider
     func setFevorite(toCropCode code: String, bool: Bool)
     {
         if let context = container?.viewContext {
-            UserNotes.setFavoriteState(matching: code, toState: bool, in: context)
+            do
+            {
+            _ = try UserNotes.setFavoriteState(matching: code, toState: bool, in: context)
+            }
+            catch
+            {
+                print(error)
+            }
             try? context.save()
         }
     }
@@ -64,10 +71,18 @@ struct NoteProvider
         }
     }
     
-    func setTrainModel(toCropCode code: String, mutipler: Double, weight: Double)
+    func setTrainModel(toCropCode code: String, actualPricePerKG: Double)
     {
         container?.performBackgroundTask{ context in
-            UserNotes.setCropMutiplerAndWeight(matching: code, withNewMutipler: mutipler, withNewWeight: weight, in: context)
+            do
+            {
+                _ = try UserNotes.setMutiplerAndWeightTrainModel(matching: code, actualPricePerKG: actualPricePerKG, in: context)
+            }
+            catch
+            {
+                print(error)
+            }
+            
             try? context.save()
         }
     }
