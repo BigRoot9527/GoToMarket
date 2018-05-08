@@ -117,10 +117,11 @@ public class UserNotes: NSManagedObject {
     }
     
     //    private class func calculateNewModel(
-    //        savedQuote: Double,
-    //        savedMultipler: Double,
-    //        oldWeight: Double,
-    //        newPrice: Double)
+    //        savedQuote: Double,    原行情價 ~> 不需要
+    //        savedMultipler: Double, 原零售價倍率 ~> from note
+    //        oldWeight: Double, 原權重 ~> from note
+    //        newPrice: Double) ~> 新零售價perKG ~> 使用者輸入
+    //        newQuote:         ~>新行情價 ~> V1.0使用當日行情 未來使用API打使用者指定日期，取得特定市場該作物的當日行情
     //        -> (Double, Double)
     //    {
     //        let originPrice = oldQuote * oldMultipler
@@ -131,6 +132,6 @@ public class UserNotes: NSManagedObject {
     //        let confidenceIntervel = originPrice * 2
     //        let newWeight: Double = ( 1.0000 - (exp(fabs(originPrice - newPrice) - confidenceIntervel)))
     //        let totalWeight = oldWeight + newWeight
-    //    } //this must be doing in ingredients NSMO
+    //    } //this can be doing here!!!
     
 }
