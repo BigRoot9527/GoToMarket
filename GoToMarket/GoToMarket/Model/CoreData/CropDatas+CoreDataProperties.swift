@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension CropDatas {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CropDatas> {

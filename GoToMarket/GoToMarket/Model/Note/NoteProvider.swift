@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 import UIKit
 
-enum NoteRequestProvider
-{
+enum NoteRequestProvider{
+    
     case getFavoriteState(ofCode: String)
     case setFavoriteState(ofCode: String, isFavorite: Bool)
     case getPredictPricePerKG(ofCode: String)
@@ -41,7 +41,7 @@ struct NoteProvider
         }
     }
     
-    func setFevorite(toCropCode code: String, bool: Bool)
+    func setFavorite(toCropCode code: String, bool: Bool)
     {
         if let context = container?.viewContext {
             do

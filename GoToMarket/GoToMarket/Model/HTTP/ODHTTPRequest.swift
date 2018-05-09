@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 protocol OpenDataRequest {
     func domainURLString() -> String
     func urlParameter() -> String
@@ -14,6 +15,7 @@ protocol OpenDataRequest {
     func urlString() -> String
     func request() throws -> URLRequest
 }
+
 extension OpenDataRequest {
     func urlString() -> String { return domainURLString() + urlParameter() }
     func request() throws -> URLRequest {

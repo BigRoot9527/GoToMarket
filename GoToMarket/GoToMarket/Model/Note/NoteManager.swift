@@ -25,7 +25,7 @@ struct NoteManager {
     func accessNote(task: NoteRequestProvider) {
         switch task {
         case .setFavoriteState(ofCode: let code, isFavorite: let bool):
-            self.provider.setFevorite(toCropCode: code, bool: bool)
+            self.provider.setFavorite(toCropCode: code, bool: bool)
         case .setMultiplerAndWeight(ofCode: let code, actualPricePerKG: let price):
             self.provider.setTrainModel(toCropCode: code, actualPricePerKG: price)
         case .getFavoriteState(ofCode: let code):

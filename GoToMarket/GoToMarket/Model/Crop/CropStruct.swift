@@ -7,12 +7,14 @@
 //
 
 import Foundation
+
 struct CropQuote: Decodable {
     let date: String
     let cropCode: String
     let cropName: String
     let marketName: String
     let averagePrice: Double
+    
     private enum CodingKeys: String, CodingKey {
         case date = "交易日期"
         case cropCode = "作物代號"

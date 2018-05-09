@@ -10,14 +10,11 @@
 import Foundation
 import CoreData
 
-
 public class CropDatas: NSManagedObject
 {
-    class func fetchQuote(
-        matching quoteInfo: CropQuote,
-        in context: NSManagedObjectContext
-        ) -> CropDatas?
-    {
+    class func fetchQuote(matching quoteInfo: CropQuote,
+                          in context: NSManagedObjectContext) -> CropDatas? {
+        
         let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
         request.predicate = NSPredicate(format: "(cropCode = %@) AND (marketName = %@)", quoteInfo.cropCode, quoteInfo.marketName)
         do {
