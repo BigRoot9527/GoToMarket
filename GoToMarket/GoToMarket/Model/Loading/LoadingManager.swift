@@ -9,24 +9,20 @@
 import Foundation
 
 struct LoadingManager {
-    
-//    var appInitialLoadingTask: [TaskType]?
-//    var userCustomLoadingTask: [TaskType]?
-    
+
     let indexKeeper = LoadingIndexKeeper.shared
-    
-    
-    func loadInitialTask() {
-        guard let initTasks = indexKeeper.getTaskArray(forState: .appInitialLoadingTask) else { return }
+
+    func loadTask(forState state: LoadingTime) {
+        guard let initTasks = indexKeeper.getTaskArray(forState: state) else { return }
         initTasks.forEach { task in
             switch task {
-            case .crop(let cropMarket, let cropState):
-                
-                
+            case .crop(let cropTask):
+                let manager = CropManager()
+                manager.accessCropQuote(task: cropTask)
             }
         }
-        
     }
+    
     
     
     
