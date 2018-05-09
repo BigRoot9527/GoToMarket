@@ -83,24 +83,38 @@ struct CropProvider {
         })
     }
     
-    func updateDatabase(with newQuote: [CropQuote]) {
+    func updateDatabase(with newQuote: [CropQuote],
+                        success: @escaping () -> Void,
+                        failure: @escaping (Error) -> Void) {
         container?.performBackgroundTask{ context in
             for quoteInfo in newQuote {
                 _ = CropDatas.updateOrCreateQuote(matching: quoteInfo, in: context)
             }
-            try? context.save()
+            do {
+                try context.save()
+            } catch {
+                failure(error)
+            }
             print(Date().timeIntervalSince1970)
             print("Task ended-------")
             self.printDatabaseStatistics()
+            success()
         }
     }
     
-    func resetAllData(with newQuote: [CropQuote]) {
+    func resetAllData(with newQuote: [CropQuote],
+                      success: @escaping () -> Void,
+                      failure: @escaping (Error) -> Void) {
         container?.performBackgroundTask{ context in
-            CropDatas.deleteAllQuotes(in: context, sucess: {
-                self.updateDatabase(with: newQuote.reversed())
-            }, failure: { error in
-                print("Error from CropManager, resetAllData: \(error)")
+            CropDatas.deleteAllQuotes(
+                in: context,
+                sucess: {
+                self.updateDatabase(
+                    with: newQuote.reversed(),
+                    success: { success() },
+                    failure: { error in failure(error) })
+            },
+                failure: { error in failure(error)
             })
         }
     }

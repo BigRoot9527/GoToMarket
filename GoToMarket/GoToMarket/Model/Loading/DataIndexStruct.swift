@@ -18,11 +18,6 @@ enum LoadingTime: String {
     }
 }
 
-//enum WillLoadStatus {
-//    case loadInitialData
-//    case loadUpdateData
-//}
-
 enum TaskType {
     case crop(CropRequestProvider)
 }

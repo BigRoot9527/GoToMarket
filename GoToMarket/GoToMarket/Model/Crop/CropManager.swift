@@ -8,34 +8,34 @@
 
 import Foundation
 
-
-protocol CropManagerDelegate: class {
-    func manager(_ manager: CropManager, didGet cropQuote: [CropQuote]) -> Void
-    func manager(_ manager: CropManager, didFailWith error: Error) -> Void
-}
-
 struct CropManager {
     
-    weak var delegate: CropManagerDelegate?
     private let provider = CropProvider()
     
-    func accessCropQuote(task: CropRequestProvider) {
+    func accessCropQuote(
+        task: CropRequestProvider,
+        success: @escaping([CropQuote]?) -> Void,
+        failure: @escaping(Error) -> Void) {
         provider.getCropQuote(
             request: task,
             success: { cropQuotes in
                 let quotesArray = self.provider.cropValidate(fromCropArray: cropQuotes, ofTask: task)
                 switch task {
                 case .getHistoryQutoes:
-                    self.delegate?.manager(self, didGet: quotesArray)
+                    success(quotesArray)
                 case .getInitailQuotes:
-                    self.provider.resetAllData(with: quotesArray)
+                    self.provider.resetAllData(with: quotesArray,
+                                               success: { success(nil) },
+                                               failure: { error in failure(error) })
                 case .getNewQuote:
-                    self.provider.updateDatabase(with: quotesArray)
+                    self.provider.updateDatabase(with: quotesArray,
+                                                 success: { success(nil) },
+                                                 failure: { error in
+                                                    failure(error) })
                 }
-        }) { error in
-            print("error from CropManager, getCropQuote: \(error)")
-            self.delegate?.manager(self, didFailWith: error)
-        }
+        }, failure: { error in
+            failure(error)
+        })
     }
     
     

@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let manager = CropManager()
-        manager.accessCropQuote(task: .getInitailQuotes(Market: .taipei))
     }
 
     override func didReceiveMemoryWarning() {
