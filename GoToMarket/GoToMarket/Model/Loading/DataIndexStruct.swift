@@ -8,18 +8,17 @@
 
 import Foundation
 
-
-enum LoadingTime: String {
-    case appInitialLoadingTask
-    case userCustomLoadingTask
-    
-    func getKey() -> String {
-        return self.rawValue
-    }
-}
-
 enum TaskType {
     case crop(CropRequestProvider)
 }
 
-
+//
+//struct LoadingTaskMaker {
+//    let itemType: TaskType
+//    let provider: CropRequestProvider
+//    let market: CropMarkets
+//    
+//    func 
+//    
+//    TaskType = .crop(.getInitailQuotes(Market: .taipei))
+//}

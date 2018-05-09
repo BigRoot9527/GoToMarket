@@ -12,13 +12,14 @@ class LoadingIndexKeeper {
     
     static let shared = LoadingIndexKeeper()
     private init() {}
+    private let indexSetKey = "GoToMarket-Index-Key"
 
-    func saveTaskArray(_ indexArray: [TaskType], forState state: LoadingTime) {
-        UserDefaults.standard.set(indexArray, forKey: state.getKey())
+    func saveTaskArray(_ indexArray: [TaskType]) {
+        UserDefaults.standard.set(indexArray, forKey: indexSetKey)
     }
     
-    func getTaskArray(forState state: LoadingTime) -> [TaskType]? {
-        let data = UserDefaults.standard.value(forKey: state.getKey())
+    func getTaskArray() -> [TaskType]? {
+        let data = UserDefaults.standard.value(forKey: indexSetKey)
         guard let array = data as? [TaskType] else { return nil }
         return array
     }

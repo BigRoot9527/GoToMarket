@@ -19,7 +19,7 @@ enum CropRequestProvider: OpenDataRequest {
     func domainURLString() -> String {
         return CropApiConstant.url
     }
-    
+
     func urlParameter() -> String {
         switch self {
         case .getHistoryQutoes(Market: let market, CropCode: let cropCode):
