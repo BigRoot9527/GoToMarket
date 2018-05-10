@@ -12,6 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let manager = CropManager(queryType: .getInitailQuotes, market: .taipei)
+        
+        manager.accessCropQuote(success: { _ in
+            print("Ok")
+        }) { _ in
+            print("GG")
+        }
 
     }
 
