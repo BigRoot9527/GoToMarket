@@ -15,6 +15,17 @@ enum CropRequestProvider: OpenDataRequest {
     case getNewQuote(Market: CropMarkets)
     case getInitailQuotes(Market: CropMarkets)
     case getHistoryQutoes(Market: CropMarkets, CropCode: String)
+    
+    func getMarket() -> CropMarkets {
+        switch self {
+        case .getHistoryQutoes(let market, _):
+            return market
+        case .getInitailQuotes(let market):
+            return market
+        case .getNewQuote(let market):
+            return market
+        }
+    }
 
     func domainURLString() -> String {
         return CropApiConstant.url
@@ -38,17 +49,6 @@ enum CropRequestProvider: OpenDataRequest {
         case .getNewQuote(Market: let market):
             let param = "\(CropApiConstant.fixedSearchMarket)=\(market.rawValue)"
             return param
-        }
-    }
-    
-    func getMarket() -> CropMarkets {
-        switch self {
-        case .getHistoryQutoes(let market, _):
-            return market
-        case .getInitailQuotes(let market):
-            return market
-        case .getNewQuote(let market):
-            return market
         }
     }
 }

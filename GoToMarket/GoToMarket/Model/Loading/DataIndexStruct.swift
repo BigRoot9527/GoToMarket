@@ -9,7 +9,8 @@
 import Foundation
 
 enum TaskType {
-    case crop(CropRequestProvider)
+    case crop
+    case pig
 }
 
 //
