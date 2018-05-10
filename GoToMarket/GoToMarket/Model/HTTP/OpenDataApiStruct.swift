@@ -8,12 +8,15 @@
 
 import Foundation
 
-protocol MarketEnum: OpenDataQueryItemConvertable {
+protocol MarketEnum: OpenDataQueryItemConvertable{
     func getCustomString() -> String
+    static func getAllMarketCases() -> [MarketEnum]
 }
 
 protocol QueryTypeEnum: OpenDataQueryItemConvertable {
     func returnSwichableSelf() -> QueryTypeEnum
+    static func getAllQueryTypes() -> [QueryTypeEnum]
+    
 }
 
 protocol OpenDataQueryItemConvertable {

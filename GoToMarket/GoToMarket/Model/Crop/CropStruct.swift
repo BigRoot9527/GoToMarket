@@ -25,7 +25,7 @@ struct CropQuote: Decodable {
 }
 
 struct CropRequest: OpenDataRequest {
-    
+
     var domainURL: String = CropApiConstant.baseURL
     var market: MarketEnum
     var requestType: QueryTypeEnum
@@ -38,7 +38,7 @@ struct CropRequest: OpenDataRequest {
 }
 
 enum CropMarkets: MarketEnum {
-    
+    typealias ReturnEnum = CropMarkets
     case taipei
     case tauyuan
     case taichung
@@ -47,6 +47,10 @@ enum CropMarkets: MarketEnum {
     case taidong
     case ilan
     
+    static func getAllMarketCases() -> [MarketEnum] {
+        return [CropMarkets.taipei, CropMarkets.tauyuan, CropMarkets.taichung, CropMarkets.nantou, CropMarkets.kaoshung, CropMarkets.taidong, CropMarkets.ilan]
+    }
+
     func getCustomString() -> String {
         switch self {
         case .taipei:
@@ -90,6 +94,7 @@ enum CropMarkets: MarketEnum {
 
 enum CropQueryType: QueryTypeEnum {
     
+    
     case updateQuote
     case getInitailQuotes
     case getHistoryQutoes(CropCode: String)
@@ -122,6 +127,10 @@ enum CropQueryType: QueryTypeEnum {
     
     func returnSwichableSelf() -> QueryTypeEnum {
         return self
+    }
+    
+    static func getAllQueryTypes() -> [QueryTypeEnum] {
+        return [CropQueryType.updateQuote, CropQueryType.getInitailQuotes, CropQueryType.getHistoryQutoes(CropCode: CropApiConstant.emptyString)]
     }
 }
 

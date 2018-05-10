@@ -8,8 +8,3 @@
 
 import Foundation
 
-struct LoadingIndexManager {
-
-    let indexKeeper = LoadingTaskKeeper.shared
-    
-}
