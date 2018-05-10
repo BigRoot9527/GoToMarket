@@ -8,23 +8,47 @@
 
 import Foundation
 
+protocol OpenDataBaseUrlConvertable {
+    func getBaseURLString() -> String
+}
+
+protocol OpenDataQueryItemConvertable {
+    func getNSURLQueryItem() -> [URLQueryItem]
+}
+
 protocol OpenDataRequest {
-    func domainURLString() -> String
-    func urlParameter() -> String
+    var domainURL: String { get set }
+    var requestType: OpenDataQueryItemConvertable { get set }
+    var market: OpenDataQueryItemConvertable { get set }
     //Optional
-    func urlString() -> String
+    func domainURLString() -> String
+    func urlQueryItems() -> [URLQueryItem]
     func request() throws -> URLRequest
 }
 
 extension OpenDataRequest {
-    func urlString() -> String { return domainURLString() + urlParameter() }
+
     func request() throws -> URLRequest {
-        let url = URL(string: urlString().urlEncoded())
-        guard let openDataUrl = url else {
+        var components = URLComponents(string: domainURLString())
+        components?.queryItems = urlQueryItems()
+        
+        guard let openDataUrl = components?.url else {
             throw GoToMarketError.OpenDataServerError
         }
         var request = URLRequest(url: openDataUrl)
         request.httpMethod = "GET"
         return request
     }
+    
+    func domainURLString() -> String {
+        return domainURL
+    }
+    
+    func urlQueryItems() -> [URLQueryItem] {
+        let requestArray = requestType.getNSURLQueryItem()
+        let marketArray = market.getNSURLQueryItem()
+        return requestArray + marketArray
+    }
 }
+
+

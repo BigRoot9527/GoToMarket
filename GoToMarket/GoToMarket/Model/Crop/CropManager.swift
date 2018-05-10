@@ -13,21 +13,23 @@ struct CropManager {
     private let provider = CropProvider()
     
     func accessCropQuote(
-        task: CropRequestProvider,
+        queryType: CropQueryType,
+        market: CropMarkets,
         success: @escaping([CropQuote]?) -> Void,
         failure: @escaping(Error) -> Void) {
+        let task = CropRequest(cropRequestType: queryType, cropMarket: market)
         provider.getCropQuote(
             request: task,
             success: { cropQuotes in
-                let quotesArray = self.provider.cropValidate(fromCropArray: cropQuotes, ofTask: task)
-                switch task {
-                case .getHistoryQutoes:
+                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarket: market)
+                switch queryType {
+                case .getHistoryQutoes(CropCode: _):
                     success(quotesArray)
                 case .getInitailQuotes:
                     self.provider.resetAllData(with: quotesArray,
                                                success: { success(nil) },
                                                failure: { error in failure(error) })
-                case .getNewQuote:
+                case .updateQuote:
                     self.provider.updateDatabase(with: quotesArray,
                                                  success: { success(nil) },
                                                  failure: { error in
