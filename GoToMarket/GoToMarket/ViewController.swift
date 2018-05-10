@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         guard let cropMarketOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropMarkets, let cropRequestOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropQueryType else {return}
-        _ = CropManager(cropQuest: .init(cropRequestType: cropRequestOutput, cropMarket: cropMarketOutput))
     }
 
     override func didReceiveMemoryWarning() {

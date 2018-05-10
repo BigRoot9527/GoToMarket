@@ -25,14 +25,18 @@ struct CropQuote: Decodable {
 }
 
 struct CropRequest: OpenDataRequest {
-
+    
+    var additionalURLQueryItem: URLQueryItem?
     var domainURL: String = CropApiConstant.baseURL
     var market: MarketEnum
     var requestType: QueryTypeEnum
     
-    init (cropRequestType: CropQueryType, cropMarket: CropMarkets) {
+    init (cropRequestType: CropQueryType, cropMarket: CropMarkets, historyCropCode: String?) {
         self.requestType = cropRequestType
         self.market = cropMarket
+        if let code = historyCropCode {
+            self.additionalURLQueryItem = URLQueryItem(name: CropApiConstant.searchCropCode, value: code)
+        }
     }
     
 }

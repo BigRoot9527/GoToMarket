@@ -12,6 +12,7 @@ protocol OpenDataRequest {
     var domainURL: String { get set }
     var requestType: QueryTypeEnum { get set }
     var market: MarketEnum { get set }
+    var additionalURLQueryItem: URLQueryItem? { get set }
     //Optional
     func domainURLString() -> String
     func urlQueryItems() -> [URLQueryItem]
@@ -37,9 +38,11 @@ extension OpenDataRequest {
     }
     
     func urlQueryItems() -> [URLQueryItem] {
-        let requestArray = requestType.getNSURLQueryItem()
-        let marketArray = market.getNSURLQueryItem()
-        return requestArray + marketArray
+        var returnArray = requestType.getNSURLQueryItem() + market.getNSURLQueryItem()
+        if let addtionalItem = additionalURLQueryItem {
+            returnArray.append(addtionalItem)
+        }
+        return returnArray
     }
 }
 

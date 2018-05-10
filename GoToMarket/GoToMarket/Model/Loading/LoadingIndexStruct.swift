@@ -34,18 +34,3 @@ enum TaskKeys {
     }
     static let allCases = [crop]
 }
-
-protocol Task {
-    var ApiType: TaskKeys { get set }
-}
-
-struct CropTask: Task {
-    var ApiType: TaskKeys
-    var market: CropMarkets
-    var requestType: CropQueryType
-    
-    var createRequest: CropRequest {
-        return CropRequest(cropRequestType: requestType, cropMarket: market)
-    }
-    
-}
