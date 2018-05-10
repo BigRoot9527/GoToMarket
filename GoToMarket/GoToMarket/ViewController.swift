@@ -13,14 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let manager = CropManager(cropQuest: .init(cropRequestType: .getInitailQuotes, cropMarket: .taichung))
+        let cropMarketInput = CropMarkets.taichung
+        let cropRequestInput = CropQueryType.getInitailQuotes
         
-        manager.accessCropQuote(success: { _ in
-            print("Ok")
-        }) { _ in
-            print("GG")
-        }
-
+        LoadingTaskKeeper.shared.saveMarket(cropMarketInput, ofKey: .crop)
+        LoadingTaskKeeper.shared.saveQueryType(cropRequestInput, ofKey: .crop)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let cropMarketOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropMarkets, let cropRequestOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropQueryType else {return}
+        _ = CropManager(cropQuest: .init(cropRequestType: cropRequestOutput, cropMarket: cropMarketOutput))
     }
 
     override func didReceiveMemoryWarning() {

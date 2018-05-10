@@ -94,7 +94,6 @@ enum CropMarkets: MarketEnum {
 
 enum CropQueryType: QueryTypeEnum {
     
-    
     case updateQuote
     case getInitailQuotes
     case getHistoryQutoes(CropCode: String)
