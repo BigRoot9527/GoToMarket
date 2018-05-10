@@ -8,10 +8,7 @@
 
 import Foundation
 
-enum TaskType {
-    case crop
-    case pig
-}
+
 
 //
 //struct LoadingTaskMaker {
