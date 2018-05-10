@@ -118,15 +118,15 @@ enum CropQueryType: QueryTypeEnum {
             return [fromDateItem]
         case .getInitailQuotes:
             let fromDateItem =
-                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getTodayString())
+                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getLastWeekString())
             let toDateItem =
-                URLQueryItem(name: endDateTitle, value: TwDateProvider.getLastWeekString())
+                URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
             return [fromDateItem,toDateItem]
         case .getHistoryQutoes(CropCode: let code):
             let fromDateItem =
-                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getTodayString())
+                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getLastMonthString())
             let toDateItem =
-                URLQueryItem(name: endDateTitle, value: TwDateProvider.getLastMonthString())
+                URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
             let cropCodeItem =
                 URLQueryItem(name: searchCodeTitle, value: code)
             return [fromDateItem,toDateItem,cropCodeItem]

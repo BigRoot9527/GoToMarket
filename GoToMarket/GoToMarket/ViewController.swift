@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let manager = CropManager(queryType: .getInitailQuotes, market: .taipei)
+        let manager = CropManager(cropQuest: .init(cropRequestType: .getInitailQuotes, cropMarket: .taichung))
         
         manager.accessCropQuote(success: { _ in
             print("Ok")
