@@ -91,11 +91,10 @@ struct CropProvider {
     
     func marketValidate(
         fromCropArray rawArray: [CropQuote],
-        ofMarket market:CropMarkets
+        ofMarketString market: String
         ) -> [CropQuote] {
-        let correctMarketName = market.getValidateString()
         let correctArray = rawArray.filter { aCropQuote -> Bool in
-            aCropQuote.marketName == correctMarketName
+            aCropQuote.marketName == market
         }
         return correctArray
     }

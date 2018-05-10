@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol OpenDataBaseUrlConvertable {
-    func getBaseURLString() -> String
-}
+
 
 protocol OpenDataQueryItemConvertable {
     func getNSURLQueryItem() -> [URLQueryItem]
@@ -18,8 +16,8 @@ protocol OpenDataQueryItemConvertable {
 
 protocol OpenDataRequest {
     var domainURL: String { get set }
-    var requestType: OpenDataQueryItemConvertable { get set }
-    var market: OpenDataQueryItemConvertable { get set }
+    var requestType: requestEnum { get set }
+    var market: marketEnum { get set }
     //Optional
     func domainURLString() -> String
     func urlQueryItems() -> [URLQueryItem]

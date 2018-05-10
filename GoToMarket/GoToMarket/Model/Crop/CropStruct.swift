@@ -24,11 +24,24 @@ struct CropQuote: Decodable {
     }
 }
 
+protocol CustomStringGettable {
+    func getCustomString() -> String
+}
+
+protocol marketEnum: CustomStringGettable, OpenDataQueryItemConvertable {}
+
+protocol enumCaseGetable {
+
+    func getEnumCase() -> enumCaseGetable
+}
+
+protocol requestEnum: enumCaseGetable, OpenDataQueryItemConvertable{}
+
 struct CropRequest: OpenDataRequest {
     
     var domainURL: String = CropApiConstant.baseURL
-    var market: OpenDataQueryItemConvertable
-    var requestType: OpenDataQueryItemConvertable
+    var market: marketEnum
+    var requestType: requestEnum
     
     init (cropRequestType: CropQueryType, cropMarket: CropMarkets) {
         self.requestType = cropRequestType
@@ -37,7 +50,7 @@ struct CropRequest: OpenDataRequest {
     
 }
 
-enum CropMarkets: OpenDataQueryItemConvertable {
+enum CropMarkets: marketEnum {
     
     case taipei
     case tauyuan
@@ -47,7 +60,7 @@ enum CropMarkets: OpenDataQueryItemConvertable {
     case taidong
     case ilan
     
-    func getValidateString() -> String {
+    func getCustomString() -> String {
         switch self {
         case .taipei:
             return CropApiConstant.taipei
@@ -65,7 +78,7 @@ enum CropMarkets: OpenDataQueryItemConvertable {
             return CropApiConstant.tauyuan
         }
     }
-    
+
     func getNSURLQueryItem() -> [URLQueryItem] {
         let marketTitle = CropApiConstant.fixedSearchMarket
         switch self {
@@ -88,7 +101,11 @@ enum CropMarkets: OpenDataQueryItemConvertable {
 }
 
 
-enum CropQueryType: OpenDataQueryItemConvertable {
+enum CropQueryType: requestEnum {
+    
+    func getEnumCase() -> enumCaseGetable {
+        return self
+    }
     
     case updateQuote
     case getInitailQuotes
