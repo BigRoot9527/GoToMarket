@@ -11,7 +11,8 @@ import Foundation
 struct CropManager {
     
     private let provider = CropProvider()
-    let cropRequest: CropRequest
+    let queryType: CropQueryType
+    let market: CropMarkets
     
     func accessCropQuote(
         success: @escaping([CropQuote]?) -> Void,

@@ -34,6 +34,7 @@ struct CropRequest: OpenDataRequest {
         self.requestType = cropRequestType
         self.market = cropMarket
     }
+    
 }
 
 enum CropMarkets: OpenDataQueryItemConvertable {
