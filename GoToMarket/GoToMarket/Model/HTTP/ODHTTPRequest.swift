@@ -16,7 +16,7 @@ protocol OpenDataQueryItemConvertable {
 
 protocol OpenDataRequest {
     var domainURL: String { get set }
-    var requestType: requestEnum { get set }
+    var requestType: queryTypeEnum { get set }
     var market: marketEnum { get set }
     //Optional
     func domainURLString() -> String

@@ -13,34 +13,27 @@ struct CropManager {
     private let provider = CropProvider()
     let queryType: CropQueryType
     let market: CropMarkets
-    var marketString: String {
-        return market.getCustomString()
-    }
-    let cropApiRequest: CropRequest
     
     func accessCropQuote(
         success: @escaping([CropQuote]?) -> Void,
         failure: @escaping(Error) -> Void) {
-//        let task = CropRequest(cropRequestType: queryType, cropMarket: market)
+        let task = CropRequest(cropRequestType: queryType, cropMarket: market)
         provider.getCropQuote(
-            request: cropApiRequest,
+            request: task,
             success: { cropQuotes in
-                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.cropApiRequest.market.getCustomString())
-                let task = self.cropApiRequest.requestType.getEnumCase()
-                switch task {
-                case CropQueryType.getHistoryQutoes(CropCode: _):
+                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.market.getCustomString())
+                switch self.queryType {
+                case .getHistoryQutoes(CropCode: _):
                     success(quotesArray)
-                case CropQueryType.getInitailQuotes:
+                case .getInitailQuotes:
                     self.provider.resetAllData(with: quotesArray,
                                                success: { success(nil) },
                                                failure: { error in failure(error) })
-                case CropQueryType.updateQuote:
+                case .updateQuote:
                     self.provider.updateDatabase(with: quotesArray,
                                                  success: { success(nil) },
                                                  failure: { error in
                                                     failure(error) })
-                default:
-                    break
                 }
         }, failure: { error in
             failure(error)

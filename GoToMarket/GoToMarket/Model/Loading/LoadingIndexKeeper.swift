@@ -37,10 +37,15 @@ class LoadingIndexKeeper {
     }
 
     
-    func getTask(fromKey key: taskKeys) -> OpenDataRequest {
-        let data = UserDefaults.standard.value(forKey: indexSetKey)
-        guard let array = data as? [TaskType] else { return nil }
-        return array
+    func getTask(fromKey key: taskKeys) -> OpenDataRequest? {
+        let savedRequest = UserDefaults.standard.value(forKey:key.getKeyString())
+        switch key {
+        case .crop:
+            guard let cropRequest = savedRequest as? CropRequest else { return nil }
+            let aaa = CropManager(queryType: cropRequest.requestType, market: cropRequest.market)
+        default:
+            return nil
+        }
     }
     
 }
