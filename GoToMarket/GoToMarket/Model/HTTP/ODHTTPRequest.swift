@@ -8,12 +8,6 @@
 
 import Foundation
 
-
-
-protocol OpenDataQueryItemConvertable {
-    func getNSURLQueryItem() -> [URLQueryItem]
-}
-
 protocol OpenDataRequest {
     var domainURL: String { get set }
     var requestType: QueryTypeEnum { get set }

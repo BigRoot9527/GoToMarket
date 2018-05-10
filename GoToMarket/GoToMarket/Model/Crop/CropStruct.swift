@@ -24,14 +24,6 @@ struct CropQuote: Decodable {
     }
 }
 
-protocol MarketEnum: OpenDataQueryItemConvertable {
-    func getCustomString() -> String
-}
-
-protocol QueryTypeEnum: OpenDataQueryItemConvertable {
-    func returnSwichableSelf() -> QueryTypeEnum
-}
-
 struct CropRequest: OpenDataRequest {
     
     var domainURL: String = CropApiConstant.baseURL
@@ -98,11 +90,6 @@ enum CropMarkets: MarketEnum {
 
 enum CropQueryType: QueryTypeEnum {
     
-    func returnSwichableSelf() -> QueryTypeEnum {
-        return self
-    }
-    
-    
     case updateQuote
     case getInitailQuotes
     case getHistoryQutoes(CropCode: String)
@@ -131,6 +118,10 @@ enum CropQueryType: QueryTypeEnum {
                 URLQueryItem(name: searchCodeTitle, value: code)
             return [fromDateItem,toDateItem,cropCodeItem]
         }
+    }
+    
+    func returnSwichableSelf() -> QueryTypeEnum {
+        return self
     }
 }
 

@@ -11,8 +11,9 @@ import Foundation
 struct CropManager {
     
     private let provider = CropProvider()
-    let cropQuest: CropRequest
     
+    let cropQuest: CropRequest
+
     func accessCropQuote(
         success: @escaping([CropQuote]?) -> Void,
         failure: @escaping(Error) -> Void) {
@@ -23,9 +24,9 @@ struct CropManager {
                 
                 let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.cropQuest.market.getCustomString())
                 
-                let aaa = self.cropQuest.requestType.returnSwichableSelf()
+                let task = self.cropQuest.requestType.returnSwichableSelf()
                 
-                switch aaa {
+                switch task {
                 
                 case CropQueryType.getHistoryQutoes(CropCode: _):
                     success(quotesArray)
