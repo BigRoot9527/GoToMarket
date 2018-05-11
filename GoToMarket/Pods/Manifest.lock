@@ -1,16 +1,30 @@
 PODS:
   - Alamofire (4.7.2)
+  - BusyNavigationBar (2.0.0)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+  - TransitionButton (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
+  - BusyNavigationBar
+  - SDWebImage
+  - TransitionButton
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - BusyNavigationBar
+    - SDWebImage
+    - TransitionButton
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  BusyNavigationBar: b73fd434b95f6198809dcf048b0245ad89ec1b37
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  TransitionButton: d271030914c84a00b54b4d983446944d2875e7ba
 
-PODFILE CHECKSUM: e6cc297dd9da833f40c73c6f2f65edacb6d940b3
+PODFILE CHECKSUM: 94728e60dce80f5d5137d8d97b9e637e3c49a6ca
 
 COCOAPODS: 1.5.0
