@@ -10,6 +10,7 @@ target 'GoToMarket' do
   pod 'TransitionButton'
   pod 'BusyNavigationBar'
   pod 'SDWebImage'
+  pod 'FoldingCell'
 
 
 end

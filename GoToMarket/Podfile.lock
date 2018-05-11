@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
   - BusyNavigationBar (2.0.0)
+  - FoldingCell (3.0.6)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
@@ -9,6 +10,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BusyNavigationBar
+  - FoldingCell
   - SDWebImage
   - TransitionButton
 
@@ -16,15 +18,17 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BusyNavigationBar
+    - FoldingCell
     - SDWebImage
     - TransitionButton
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BusyNavigationBar: b73fd434b95f6198809dcf048b0245ad89ec1b37
+  FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   TransitionButton: d271030914c84a00b54b4d983446944d2875e7ba
 
-PODFILE CHECKSUM: 94728e60dce80f5d5137d8d97b9e637e3c49a6ca
+PODFILE CHECKSUM: 46a59ef4efdaf4514e0220930bdbecc006964b93
 
 COCOAPODS: 1.5.0
