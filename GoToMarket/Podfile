@@ -7,5 +7,9 @@ target 'GoToMarket' do
 
   # Pods for GoToMarket
   pod 'Alamofire'
+  pod 'TransitionButton'
+  pod 'BusyNavigationBar'
+  pod 'SDWebImage'
+
 
 end
