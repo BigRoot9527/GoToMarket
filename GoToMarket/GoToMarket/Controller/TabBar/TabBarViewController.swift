@@ -60,6 +60,19 @@ enum TabBar {
         }
     }
     
+    func title() -> String {
+        switch self {
+        case .note:
+            return "清單"
+            
+        case .quote:
+            return "行情"
+            
+        case .setting:
+            return "設定"
+        }
+    }
+    
     
 }
 
@@ -79,7 +92,7 @@ class TabBarViewController: RAMAnimatedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        changeSelectedColor(GoToMarketColor.tabBarTintColor.color(), iconSelectedColor: GoToMarketColor.tabBarTintColor.color())
     }
 
     private func setupTab() {
@@ -93,10 +106,11 @@ class TabBarViewController: RAMAnimatedTabBarController {
             let controller = tab.controller()
             
             let item = RAMAnimatedTabBarItem(
-                title: nil,
+                title: tab.title(),
                 image: tab.image(),
-                selectedImage: tab.selectedImage()
+                selectedImage: nil
             )
+            
             
             item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
 
@@ -106,6 +120,7 @@ class TabBarViewController: RAMAnimatedTabBarController {
 
             controllers.append(controller)
         }
+        
         
         setViewControllers(controllers, animated: false)
         

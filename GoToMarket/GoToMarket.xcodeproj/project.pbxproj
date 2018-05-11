@@ -22,6 +22,7 @@
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6C20A5730900A6BA27 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B6B20A5730900A6BA27 /* test.storyboard */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
+		326D78F220A5D4D400EE0887 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D78F120A5D4D400EE0887 /* QuoteTableViewCell.swift */; };
 		327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */; };
 		327A4DF8209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
@@ -77,6 +78,7 @@
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6B20A5730900A6BA27 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		326D78F120A5D4D400EE0887 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -135,8 +137,7 @@
 		32070B5C20A551D600A6BA27 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				32070B6320A5616800A6BA27 /* TabBarViewController.swift */,
-				32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */,
+				326D78EF20A5D42500EE0887 /* TabBar */,
 				32070B6020A5552A00A6BA27 /* Quotes */,
 				32070B5F20A554DE00A6BA27 /* Selection */,
 			);
@@ -172,6 +173,31 @@
 				32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		326D78EF20A5D42500EE0887 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				32070B6320A5616800A6BA27 /* TabBarViewController.swift */,
+				32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		326D78F020A5D47100EE0887 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				326D78F320A5D4E000EE0887 /* Quotes */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		326D78F320A5D4E000EE0887 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				326D78F120A5D4D400EE0887 /* QuoteTableViewCell.swift */,
+			);
+			path = Quotes;
 			sourceTree = "<group>";
 		};
 		327A4DFD209C9C6C00B3EEE9 /* Note */ = {
@@ -232,6 +258,7 @@
 		329BC6C5209700D600CC9096 /* GoToMarket */ = {
 			isa = PBXGroup;
 			children = (
+				326D78F020A5D47100EE0887 /* View */,
 				32070B6820A56C6D00A6BA27 /* Support */,
 				32070B6520A566C900A6BA27 /* Extension */,
 				329BC6E52098991C00CC9096 /* Model */,
@@ -501,6 +528,7 @@
 				327E1B6B20A200F90020511A /* LoadingIndexManager.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
 				327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */,
+				326D78F220A5D4D400EE0887 /* QuoteTableViewCell.swift in Sources */,
 				32F87A2420A173C7005207CD /* Ingredient+CoreDataProperties.swift in Sources */,
 				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
