@@ -21,6 +21,7 @@
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6C20A5730900A6BA27 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B6B20A5730900A6BA27 /* test.storyboard */; };
+		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */; };
 		327A4DF8209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
@@ -75,6 +76,7 @@
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6B20A5730900A6BA27 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF0209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				32070B6320A5616800A6BA27 /* TabBarViewController.swift */,
+				32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */,
 				32070B6020A5552A00A6BA27 /* Quotes */,
 				32070B5F20A554DE00A6BA27 /* Selection */,
 			);
@@ -466,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */,
 				327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */,
 				327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */,
 				329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */,
@@ -652,7 +656,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -667,7 +674,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

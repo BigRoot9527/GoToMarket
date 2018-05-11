@@ -5,7 +5,7 @@
 //  Created by 許庭瑋 on 2018/5/11.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
-
+import RAMAnimatedTabBarController
 import UIKit
 
 enum TabBar {
@@ -63,14 +63,23 @@ enum TabBar {
     
 }
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: RAMAnimatedTabBarController {
     
     let tabs: [TabBar] = [.quote, .note, .setting]
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.tabBar.tintColor = GoToMarketColor.tabBarTintColor.color()
+//    }
+    
+    override func loadView() {
+        super.loadView()
+        setupTab()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupTab()
+        
     }
 
     private func setupTab() {
@@ -83,18 +92,18 @@ class TabBarViewController: UITabBarController {
             
             let controller = tab.controller()
             
-            let item = UITabBarItem(
+            let item = RAMAnimatedTabBarItem(
                 title: nil,
                 image: tab.image(),
                 selectedImage: tab.selectedImage()
             )
             
             item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
-            
-//            item.image
+
+            item.animation = RAMBounceAnimation()
             
             controller.tabBarItem = item
-            
+
             controllers.append(controller)
         }
         
