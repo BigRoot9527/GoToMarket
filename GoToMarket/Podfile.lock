@@ -2,6 +2,8 @@ PODS:
   - Alamofire (4.7.2)
   - BusyNavigationBar (2.0.0)
   - FoldingCell (3.0.6)
+  - RAMAnimatedTabBarController (3.1.0)
+  - RAMReel (3.0.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
@@ -11,6 +13,8 @@ DEPENDENCIES:
   - Alamofire
   - BusyNavigationBar
   - FoldingCell
+  - RAMAnimatedTabBarController
+  - RAMReel
   - SDWebImage
   - TransitionButton
 
@@ -19,6 +23,8 @@ SPEC REPOS:
     - Alamofire
     - BusyNavigationBar
     - FoldingCell
+    - RAMAnimatedTabBarController
+    - RAMReel
     - SDWebImage
     - TransitionButton
 
@@ -26,9 +32,11 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BusyNavigationBar: b73fd434b95f6198809dcf048b0245ad89ec1b37
   FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
+  RAMAnimatedTabBarController: 3c40472db54eda74d465583f8c7f571b206c54d6
+  RAMReel: a123d736773901a9a3d2ef559c176a50c338b5de
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   TransitionButton: d271030914c84a00b54b4d983446944d2875e7ba
 
-PODFILE CHECKSUM: 46a59ef4efdaf4514e0220930bdbecc006964b93
+PODFILE CHECKSUM: d1cd6fd9ce0a7b8d1e47cc9523ffef467cab8ed1
 
 COCOAPODS: 1.5.0
