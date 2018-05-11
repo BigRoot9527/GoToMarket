@@ -10,7 +10,7 @@ import UIKit
 
 enum GoToMarketColor: String {
     
-    case tabBarTintColor = "E8A142"
+    case tabBarTintColor = "C73737"
     
     func color() -> UIColor {
         

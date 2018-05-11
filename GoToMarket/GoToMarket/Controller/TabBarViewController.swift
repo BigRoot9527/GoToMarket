@@ -35,16 +35,13 @@ enum TabBar {
         switch self {
             
         case .note:
-            break
-            return
+            return #imageLiteral(resourceName: "buy_icon")
             
         case .quote:
-            break
-//            return #imageLiteral(resourceName: "Quote_Icon")
+            return #imageLiteral(resourceName: "comboChart_icon")
             
         case .setting:
-            break
-//            return #imageLiteral(resourceName: "Settings_Icon")
+            return #imageLiteral(resourceName: "services_icon")
         }
         
     }
@@ -53,13 +50,13 @@ enum TabBar {
         switch self {
             
         case .note:
-            return #imageLiteral(resourceName: "Note_Icon").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "buy_icon").withRenderingMode(.alwaysTemplate)
             
         case .quote:
-            return #imageLiteral(resourceName: "Quote_Icon").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "comboChart_icon").withRenderingMode(.alwaysTemplate)
             
         case .setting:
-            return #imageLiteral(resourceName: "Settings_Icon").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "services_icon").withRenderingMode(.alwaysTemplate)
         }
     }
     
