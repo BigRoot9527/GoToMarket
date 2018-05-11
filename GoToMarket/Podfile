@@ -11,6 +11,8 @@ target 'GoToMarket' do
   pod 'BusyNavigationBar'
   pod 'SDWebImage'
   pod 'FoldingCell'
+  pod 'RAMAnimatedTabBarController'
+  pod 'RAMReel'
 
 
 end
