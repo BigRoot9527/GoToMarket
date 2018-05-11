@@ -16,14 +16,27 @@ class ViewController: UIViewController {
         let cropMarketInput = CropMarkets.taichung
         let cropRequestInput = CropQueryType.getInitailQuotes
         
-        LoadingTaskKeeper.shared.saveMarket(cropMarketInput, ofKey: .crop)
-        LoadingTaskKeeper.shared.saveQueryType(cropRequestInput, ofKey: .crop)
+        LoadingTaskKeeper.shared.saveMarket(cropMarketInput.rawValue, ofKey: .crop)
+        LoadingTaskKeeper.shared.saveQueryType(cropRequestInput.rawValue, ofKey: .crop)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let cropMarketOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropMarkets, let cropRequestOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop) as? CropQueryType else {return}
+        guard
+        let cropMarketOutput = LoadingTaskKeeper.shared.getMarket(ofKey: .crop) ,
+        let cropRequestOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop),
+        let market = CropMarkets(rawValue: cropMarketOutput),
+        let type =  CropQueryType(rawValue: cropRequestOutput)
+            else {return}
+        
+        let manager = CropManager(cropQuest: .init(cropRequestType: type, cropMarket: market, historyCropCode: nil))
+        
+        manager.accessCropQuote(success: { _ in
+            print("OK")
+        }) {_ in
+            print("GG")
+        }
     }
 
     override func didReceiveMemoryWarning() {

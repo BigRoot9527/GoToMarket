@@ -28,7 +28,7 @@ struct CropManager {
                 
                 switch task {
                 
-                case CropQueryType.getHistoryQutoes(CropCode: _):
+                case CropQueryType.getHistoryQutoes:
                     success(quotesArray)
                 
                 case CropQueryType.getInitailQuotes:

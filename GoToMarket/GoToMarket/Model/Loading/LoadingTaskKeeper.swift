@@ -16,41 +16,29 @@ class LoadingTaskKeeper {
     static let shared = LoadingTaskKeeper()
     private init() {}
     
-    func saveMarket(_ market: MarketEnum, ofKey key: TaskKeys) {
-        let keyString = key.getMarketKeyString()
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: market)
-        UserDefaults.standard.set(encodedData, forKey: keyString)
-    }
-    
-    func getMarket(ofKey key: TaskKeys) -> MarketEnum? {
-        let keyString = key.getMarketKeyString()
+    func saveMarket(_ marketString: String, ofKey key: TaskKeys) {
         
-        guard let decoded  = UserDefaults.standard.object(forKey: keyString) as? Data, let decodedMarket = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? MarketEnum else { return nil }
-        return decodedMarket
+        let keyString = key.getMarketKeyString()
+        UserDefaults.standard.set(marketString, forKey: keyString)
     }
     
-    func saveQueryType(_ type: QueryTypeEnum, ofKey key: TaskKeys) {
+    func getMarket(ofKey key: TaskKeys) -> String? {
+        
+        let keyString = key.getMarketKeyString()
+        guard let market  = UserDefaults.standard.object(forKey: keyString) as? String else { return nil }
+        return market
+    }
+    
+    func saveQueryType(_ typeString: String, ofKey key: TaskKeys) {
         let keyString = key.getQueryTypeKeyString()
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: type)
-        UserDefaults.standard.set(encodedData, forKey: keyString)
+        UserDefaults.standard.set(typeString, forKey: keyString)
     }
     
-    func getQueryType(ofKey key: TaskKeys) -> QueryTypeEnum? {
+    func getQueryType(ofKey key: TaskKeys) -> String? {
+        
         let keyString = key.getQueryTypeKeyString()
-        guard let decoded  = UserDefaults.standard.object(forKey: keyString) as? Data, let decodedQueryType = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? QueryTypeEnum else { return nil }
-        return decodedQueryType
+        guard let type  = UserDefaults.standard.object(forKey: keyString) as? String else { return nil }
+        return type
     }
-    
-
-//    func getTask(fromKey key: TaskKeys) -> Task? {
-//        switch key {
-//        case .crop:
-//            guard let task = UserDefaults.standard.value(forKey:key.getKeyString()) as? CropTask
-//                else { return nil }
-//            return task
-//        default:
-//            return nil
-//        }
-//    }
     
 }

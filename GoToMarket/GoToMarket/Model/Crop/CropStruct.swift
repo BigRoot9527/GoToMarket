@@ -41,7 +41,7 @@ struct CropRequest: OpenDataRequest {
     
 }
 
-enum CropMarkets: MarketEnum {
+enum CropMarkets:String, MarketEnum {
     typealias ReturnEnum = CropMarkets
     case taipei
     case tauyuan
@@ -51,8 +51,10 @@ enum CropMarkets: MarketEnum {
     case taidong
     case ilan
     
-    static func getAllMarketCases() -> [MarketEnum] {
-        return [CropMarkets.taipei, CropMarkets.tauyuan, CropMarkets.taichung, CropMarkets.nantou, CropMarkets.kaoshung, CropMarkets.taidong, CropMarkets.ilan]
+    static func getAllMarketCases() -> [String] {
+        return [self.taipei.rawValue, self.tauyuan.rawValue,
+                self.taichung.rawValue, self.nantou.rawValue,
+                self.kaoshung.rawValue, self.taidong.rawValue, self.ilan.rawValue]
     }
 
     func getCustomString() -> String {
@@ -96,14 +98,13 @@ enum CropMarkets: MarketEnum {
 }
 
 
-enum CropQueryType: QueryTypeEnum {
+enum CropQueryType:String, QueryTypeEnum {
     
     case updateQuote
     case getInitailQuotes
-    case getHistoryQutoes(CropCode: String)
+    case getHistoryQutoes
     
     func getNSURLQueryItem() -> [URLQueryItem] {
-        let searchCodeTitle = CropApiConstant.searchCropCode
         let fromDateTitle = CropApiConstant.searchFromDate
         let endDateTitle = CropApiConstant.searchEndDate
         switch self {
@@ -117,14 +118,12 @@ enum CropQueryType: QueryTypeEnum {
             let toDateItem =
                 URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
             return [fromDateItem,toDateItem]
-        case .getHistoryQutoes(CropCode: let code):
+        case .getHistoryQutoes:
             let fromDateItem =
                 URLQueryItem(name: fromDateTitle, value: TwDateProvider.getLastMonthString())
             let toDateItem =
                 URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
-            let cropCodeItem =
-                URLQueryItem(name: searchCodeTitle, value: code)
-            return [fromDateItem,toDateItem,cropCodeItem]
+            return [fromDateItem,toDateItem]
         }
     }
     
@@ -132,8 +131,8 @@ enum CropQueryType: QueryTypeEnum {
         return self
     }
     
-    static func getAllQueryTypes() -> [QueryTypeEnum] {
-        return [CropQueryType.updateQuote, CropQueryType.getInitailQuotes, CropQueryType.getHistoryQutoes(CropCode: CropApiConstant.emptyString)]
+    static func getAllQueryTypes() -> [String] {
+        return [self.getHistoryQutoes.rawValue, self.getInitailQuotes.rawValue, self.updateQuote.rawValue]
     }
 }
 

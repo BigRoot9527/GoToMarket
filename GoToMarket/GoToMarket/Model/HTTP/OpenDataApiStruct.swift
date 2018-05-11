@@ -10,12 +10,12 @@ import Foundation
 
 protocol MarketEnum: OpenDataQueryItemConvertable{
     func getCustomString() -> String
-    static func getAllMarketCases() -> [MarketEnum]
+    static func getAllMarketCases() -> [String]
 }
 
 protocol QueryTypeEnum: OpenDataQueryItemConvertable {
     func returnSwichableSelf() -> QueryTypeEnum
-    static func getAllQueryTypes() -> [QueryTypeEnum]
+    static func getAllQueryTypes() -> [String]
     
 }
 
