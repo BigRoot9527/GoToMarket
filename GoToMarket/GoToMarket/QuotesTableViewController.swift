@@ -37,10 +37,13 @@ class QuotesTableViewController: FetchedResultsTableViewController {
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! CustomTableViewCell
         if let crop = fetchedResultsController?.object(at: indexPath) {
-            cell.textLabel?.text = crop.cropName
-            cell.detailTextLabel?.text = String(crop.averagePrice)
+            cell.titleLabel.text = crop.cropName
+            cell.subTitleLabel.text = String(crop.averagePrice)
+            cell.marketLabel.text = crop.marketName
+            cell.dateLabel.text = crop.date
+            
         }
         return cell
     }
