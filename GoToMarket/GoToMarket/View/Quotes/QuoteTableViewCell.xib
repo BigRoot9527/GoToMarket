@@ -182,13 +182,12 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exJ-ah-mdg">
                                 <rect key="frame" x="0.0" y="330" width="355" height="150"/>
-                                <color key="backgroundColor" red="0.94938789320000005" green="0.57451714409999999" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94938789320000005" green="0.57451714409999999" blue="0.72156862749999995" alpha="0.38206335616438358" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="oUE-5O-Ydg"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.24313725490196078" green="0.50980392156862742" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0kW-24-raL" secondAttribute="trailing" id="CVs-r1-5lQ"/>
                             <constraint firstItem="azR-OR-aOg" firstAttribute="leading" secondItem="LHN-20-Fns" secondAttribute="leading" id="FCP-dx-3GB"/>
@@ -222,12 +221,16 @@
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
-                    <integer key="value" value="2"/>
+                    <integer key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="backViewColor">
+                    <color key="value" red="0.3803921569" green="0.65490196079999996" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="containerView" destination="LHN-20-Fns" id="zaz-vb-GPI"/>
+                <outlet property="containerViewTop" destination="T9t-ZM-ZH7" id="mDO-Jd-2ZJ"/>
                 <outlet property="detailCellView" destination="LHN-20-Fns" id="lIq-V5-qfR"/>
-                <outlet property="detailCellViewToContainerTopViewConstraint" destination="T9t-ZM-ZH7" id="mDO-Jd-2ZJ"/>
                 <outlet property="detailHistoryContainerView" destination="exJ-ah-mdg" id="SkX-yZ-jtq"/>
                 <outlet property="detailIntroLabel" destination="o3f-dr-Vck" id="vbb-P1-jgu"/>
                 <outlet property="detailIntroScrollView" destination="Fj3-Va-iKh" id="vt3-nN-3E7"/>
@@ -236,10 +239,11 @@
                 <outlet property="detailItemNewPrice" destination="5oI-dM-uZ2" id="zkE-fv-cNh"/>
                 <outlet property="detailMarkButton" destination="HAG-ff-rtN" id="Hdv-0H-G63"/>
                 <outlet property="detailUpdateTimeLabel" destination="X83-Od-L0a" id="CVQ-EK-4Pn"/>
+                <outlet property="foregroundView" destination="Vxv-tY-Kvd" id="wSK-IK-NSB"/>
+                <outlet property="foregroundViewTop" destination="wBx-ps-Ovg" id="THj-be-6Yw"/>
                 <outlet property="itemNameLabel" destination="Sq8-HR-byx" id="xg7-NM-Q19"/>
                 <outlet property="itemNewPrice" destination="Dx1-ew-wX9" id="AOA-ao-Gr4"/>
                 <outlet property="titleCellView" destination="Vxv-tY-Kvd" id="8g1-rQ-GCl"/>
-                <outlet property="titleCellViewToContainerViewTopConstraint" destination="wBx-ps-Ovg" id="THj-be-6Yw"/>
                 <outlet property="titleMarkButton" destination="cWX-x8-Xyr" id="WKH-Ed-4mj"/>
             </connections>
             <point key="canvasLocation" x="-52.5" y="42"/>

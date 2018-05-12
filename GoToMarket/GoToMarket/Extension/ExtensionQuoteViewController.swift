@@ -48,13 +48,7 @@ extension QuotesViewController {
         return fetchedResultsController?.sections?.count ?? 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            return sections[section].numberOfObjects
-        } else {
-            return 0
-        }
-    }
+
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles
