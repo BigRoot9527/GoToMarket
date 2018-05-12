@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SV0-D8-RnM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,60 +10,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="5c8-sq-KNy">
-            <objects>
-                <viewController id="QZI-ML-tZU" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CX9-v3-Dvr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Ac1-bF-cgi"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="ySa-8d-GmP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nzm-Tg-VJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="610" y="159"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="p3w-DW-XkB">
             <objects>
                 <viewController id="SV0-D8-RnM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EiG-fn-hrv">
+                    <view key="view" contentMode="scaleToFill" id="CNo-JP-c8l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="LXK-qd-ySj"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tca-QW-6oW">
+                                <rect key="frame" x="0.0" y="248" width="375" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGu-QC-hNB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="446.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="BA5-3J-Y2y"/>
+                                        </constraints>
+                                        <mutableString key="text">"番薯葉或稱地瓜葉、甘藷葉，是旋花科番薯屬植物番薯的葉，可作為蔬菜食用。早年種植番薯的農民為求物盡其用，割下番薯葉後多半將它煮熟。亦有農民只摘取嫩葉部分炒熟吃，或加入蒜末，再加一些食鹽食用。番薯葉營養豐富，蛋白質、胡蘿蔔素、鈣、磷、鐵、維生素C等含量均比菠菜、韭菜等常見蔬菜來得高，有助抗氧化，因而也成為現代人心目中的健康蔬菜。\r\n另外番薯葉在早年又被稱為「豬菜」(台語)，因為番薯葉非常容易種植，而且從栽種到成熟的生長期與其他作物相比之下較為短暫，所以曾在農村被用作主流的牲畜飼料。\r\n但是與現在不同的是，在早期並不把此作物當成蔬菜食用。更因為它相當容易得取，價格相對十分便宜，因此農民大都會大量栽種番薯葉作為飼養家豬的主要飼料，這就是「豬菜」這名稱的緣由。唯有家境十分清寒的家庭才會拿此物果腹。。\r\n炒番薯葉近年來已成為大多數酒店餐館裡的菜式。以番薯葉為主料的護國菜是一道潮州菜名菜，富有傳奇性且歷史悠久。在台灣，汆燙後的番薯葉沾醬油吃是常見的吃法之一；較為講究者，則使用蒜末調和醬油以增加口感。"</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89747160673141479" green="0.83275703188012173" blue="0.28319504893814118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dGu-QC-hNB" secondAttribute="bottom" id="6cp-qe-Xbf"/>
+                                    <constraint firstAttribute="trailing" secondItem="dGu-QC-hNB" secondAttribute="trailing" id="7YN-nQ-mzE"/>
+                                    <constraint firstItem="dGu-QC-hNB" firstAttribute="leading" secondItem="Tca-QW-6oW" secondAttribute="leading" id="F5g-yf-EjD"/>
+                                    <constraint firstItem="dGu-QC-hNB" firstAttribute="width" secondItem="Tca-QW-6oW" secondAttribute="width" id="SlT-Gr-sLg"/>
+                                    <constraint firstItem="dGu-QC-hNB" firstAttribute="top" secondItem="Tca-QW-6oW" secondAttribute="top" id="zWv-fc-xnZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Tca-QW-6oW" firstAttribute="trailing" secondItem="8Tm-vI-FeR" secondAttribute="trailing" id="4gx-tL-Mb4"/>
+                            <constraint firstItem="Tca-QW-6oW" firstAttribute="top" secondItem="8Tm-vI-FeR" secondAttribute="top" constant="228" id="DVG-m4-Im4"/>
+                            <constraint firstItem="8Tm-vI-FeR" firstAttribute="bottom" secondItem="Tca-QW-6oW" secondAttribute="bottom" constant="291" id="gUG-GY-wDb"/>
+                            <constraint firstItem="Tca-QW-6oW" firstAttribute="leading" secondItem="8Tm-vI-FeR" secondAttribute="leading" id="yxX-RM-mTO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Tm-vI-FeR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="Settings_Icon" id="4jS-Q7-lTT">
-                        <inset key="imageInsets" minX="0.0" minY="120" maxX="0.0" maxY="100"/>
-                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUW-OT-mkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-506"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="E52-9J-gLy">
-            <objects>
-                <tabBarController id="g1R-7O-bfU" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EBz-PH-tKs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="SV0-D8-RnM" kind="relationship" relationship="viewControllers" id="WTD-tM-Bnl"/>
-                        <segue destination="QZI-ML-tZU" kind="relationship" relationship="viewControllers" id="UtX-ej-WNA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B4t-9p-vxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-342" y="-174"/>
+            <point key="canvasLocation" x="-28" y="-299.10044977511245"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Settings_Icon" width="512" height="512"/>
-    </resources>
 </document>

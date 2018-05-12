@@ -30,6 +30,17 @@ enum TabBar {
         }
     }
     
+    func index() -> Int {
+        switch self {
+        case .quote:
+            return 0
+        case .note:
+            return 1
+        case .setting:
+            return 2
+        }
+    }
+    
     func image() -> UIImage {
         
         switch self {
@@ -93,6 +104,8 @@ class TabBarViewController: RAMAnimatedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeSelectedColor(GoToMarketColor.tabBarTintColor.color(), iconSelectedColor: GoToMarketColor.tabBarTintColor.color())
+        
+        self.tabBar.items![2].badgeValue = "3"
     }
 
     private func setupTab() {
@@ -120,7 +133,6 @@ class TabBarViewController: RAMAnimatedTabBarController {
 
             controllers.append(controller)
         }
-        
         
         setViewControllers(controllers, animated: false)
         
