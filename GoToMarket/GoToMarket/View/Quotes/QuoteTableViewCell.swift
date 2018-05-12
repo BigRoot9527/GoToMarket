@@ -7,18 +7,50 @@
 //
 
 import UIKit
+import FoldingCell
 
-class QuoteTableViewCell: UITableViewCell {
-
+class QuoteTableViewCell: FoldingCell {
+    
+    
+    @IBOutlet weak var titleCellView: RotatedView!
+    @IBOutlet weak var titleCellViewToContainerViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var detailCellView: UIView!
+    @IBOutlet weak var detailCellViewToContainerTopViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var itemNewPrice: UILabel!
+    @IBOutlet weak var detailUpdateTimeLabel: UILabel!
+    @IBOutlet weak var titleMarkButton: UIButton!
+    @IBOutlet weak var detailMarkButton: UIButton!
+    @IBOutlet weak var detailItemImageView: UIImageView!
+    @IBOutlet weak var detailItemNameLabel: UILabel!
+    @IBOutlet weak var detailIntroScrollView: UIScrollView!
+    @IBOutlet weak var detailIntroLabel: UILabel!
+    @IBOutlet weak var detailItemNewPrice: UILabel!
+    @IBOutlet weak var detailHistoryContainerView: UIView!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        //
+        self.foregroundView = titleCellView
+        self.foregroundViewTop = titleCellViewToContainerViewTopConstraint
+        self.containerView = detailCellView
+        self.containerViewTop = detailCellViewToContainerTopViewConstraint
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
+        
+        // durations count equal it itemCount
+        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        return durations[itemIndex]
     }
 
 }

@@ -11,6 +11,7 @@ import CoreData
 
 extension QuotesTableViewController
 {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 1
     }
