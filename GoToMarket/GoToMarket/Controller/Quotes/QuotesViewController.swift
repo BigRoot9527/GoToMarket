@@ -93,13 +93,13 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             self.cellStates = state
             cell.openAnimation {}
             duration = 0.5
-            quotesTableView.reloadRows(at: [indexPath], with: .none)
+//            quotesTableView.reloadRows(at: [indexPath], with: .none)
         } else {// close cell
             state[indexPath.row] = .close
             self.cellStates = state
             cell.closeAnimation {}
             duration = 1.1
-            quotesTableView.reloadRows(at: [indexPath], with: .none)
+//            quotesTableView.reloadRows(at: [indexPath], with: .none)
             
             
         }
@@ -117,7 +117,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         switch state[indexPath.row] {
         case .close:
-            showingCell.closeAnimation {}
+            break
+//            showingCell.closeAnimation {}
         case .open:
             showingCell.openAnimation {}
         }
