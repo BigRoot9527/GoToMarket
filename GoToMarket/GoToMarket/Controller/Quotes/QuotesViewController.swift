@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 private enum cellStatus {
+    
     case open
+    
     case close
 
     func height() -> CGFloat {
@@ -47,11 +49,15 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             switch state[indexPath.row] {
                 
             case .close:
+                print("row: \(indexPath.row) = close")
                 cell.itemNameLabel.text = crop.cropName
                 cell.itemNewPrice.text = String(crop.averagePrice)
 //                cell.titleMarkButton
                 
             case .open:
+                print("row: \(indexPath.row) = open")
+//                cell.itemNameLabel.text = crop.cropName
+//                cell.itemNewPrice.text = String(crop.averagePrice)
 //                cell.detailIntroLabel
 //                cell.detailHistoryContainerView
 //                cell.detailIntroScrollView
@@ -80,28 +86,24 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let state = cellStates else { return 10.0 }
-        print("height = \(state[indexPath.row].height())")
         return state[indexPath.row].height()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = quotesTableView.cellForRow(at: indexPath) as? QuoteTableViewCell,
-            var state = cellStates else { return }
+        guard let cell = self.quotesTableView.cellForRow(at: indexPath) as? QuoteTableViewCell, var state = cellStates else { return }
         var duration = 0.0
         if state[indexPath.row] == .close { // open cell
             state[indexPath.row] = .open
             self.cellStates = state
+            updateCell(atIndexpath: indexPath)
             cell.openAnimation {}
             duration = 0.5
-//            quotesTableView.reloadRows(at: [indexPath], with: .none)
         } else {// close cell
             state[indexPath.row] = .close
             self.cellStates = state
+            updateCell(atIndexpath: indexPath)
             cell.closeAnimation {}
             duration = 1.1
-//            quotesTableView.reloadRows(at: [indexPath], with: .none)
-            
-            
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
@@ -110,17 +112,42 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         }, completion: nil)
     }
     
+    private func updateCell(atIndexpath indexPath: IndexPath) {
+        guard let cell = self.quotesTableView.cellForRow(at: indexPath) as? QuoteTableViewCell, let state = cellStates, let crop = fetchedResultsController?.object(at: indexPath) else { return }
+        switch state[indexPath.row] {
+        case .close:
+            cell.itemNameLabel.text = crop.cropName
+            cell.itemNewPrice.text = String(crop.averagePrice)
+//            cell.titleMarkButton
+        case .open:
+//            cell.itemNameLabel.text = crop.cropName
+//            cell.itemNewPrice.text = String(crop.averagePrice)
+//            cell.detailIntroLabel
+//            cell.detailHistoryContainerView
+//            cell.detailIntroScrollView
+//            cell.detailItemImageView
+//            cell.detailMarkButton
+            cell.detailItemNameLabel.text = crop.cropName
+            cell.detailItemNewPrice.text = String(crop.averagePrice)
+            cell.detailUpdateTimeLabel.text = crop.date
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let showingCell = cell as? QuoteTableViewCell,
             let state = cellStates else { return }
         
         switch state[indexPath.row] {
+            
         case .close:
-            break
-//            showingCell.closeAnimation {}
+//            break
+            showingCell.unfold(false, animated: false, completion: nil)
+            
         case .open:
-            showingCell.openAnimation {}
+//            showingCell.openAnimation{}
+            showingCell.unfold(true, animated: false, completion: nil)
         }
     }
 
@@ -155,16 +182,4 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         let nibContent = UINib(nibName: "QuoteTableViewCell", bundle: nil)
         quotesTableView.register(nibContent, forCellReuseIdentifier: "QuoteTableViewCell")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
