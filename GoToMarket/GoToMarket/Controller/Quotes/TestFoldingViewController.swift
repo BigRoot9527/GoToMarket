@@ -25,9 +25,9 @@ private enum cellStatus {
     }
 }
 
-class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class TestFoldingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
-    @IBOutlet weak var quotesTableView: UITableView!
+    @IBOutlet weak var testFoldingTableView: UITableView!
     private var cellStates: [cellStatus]? {
         didSet {
             print("been set!")
@@ -42,7 +42,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteTableViewCell", for: indexPath) as! QuoteTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TestFoldingTableViewCell", for: indexPath) as! TestFoldingTableViewCell
         if let crop = fetchedResultsController?.object(at: indexPath),
             let state = cellStates {
             
@@ -90,7 +90,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = self.quotesTableView.cellForRow(at: indexPath) as? QuoteTableViewCell, var state = cellStates else { return }
+        guard let cell = self.testFoldingTableView.cellForRow(at: indexPath) as? TestFoldingTableViewCell, var state = cellStates else { return }
         var duration = 0.0
         if state[indexPath.row] == .close { // open cell
             state[indexPath.row] = .open
@@ -113,7 +113,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     private func updateCell(atIndexpath indexPath: IndexPath) {
-        guard let cell = self.quotesTableView.cellForRow(at: indexPath) as? QuoteTableViewCell, let state = cellStates, let crop = fetchedResultsController?.object(at: indexPath) else { return }
+        guard let cell = self.testFoldingTableView.cellForRow(at: indexPath) as? TestFoldingTableViewCell, let state = cellStates, let crop = fetchedResultsController?.object(at: indexPath) else { return }
         switch state[indexPath.row] {
         case .close:
             cell.itemNameLabel.text = crop.cropName
@@ -136,7 +136,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        guard let showingCell = cell as? QuoteTableViewCell,
+        guard let showingCell = cell as? TestFoldingTableViewCell,
             let state = cellStates else { return }
         
         switch state[indexPath.row] {
@@ -155,8 +155,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        quotesTableView.delegate = self
-        quotesTableView.dataSource = self
+        testFoldingTableView.delegate = self
+        testFoldingTableView.dataSource = self
         registerCell()
         updateUI()
     }
@@ -174,12 +174,12 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             )
             fetchedResultsController?.delegate = self
             try? fetchedResultsController?.performFetch()
-            quotesTableView.reloadData()
+            testFoldingTableView.reloadData()
         }
     }
     
     private func registerCell() {
-        let nibContent = UINib(nibName: "QuoteTableViewCell", bundle: nil)
-        quotesTableView.register(nibContent, forCellReuseIdentifier: "QuoteTableViewCell")
+        let nibContent = UINib(nibName: "TestFoldingTableViewCell", bundle: nil)
+        testFoldingTableView.register(nibContent, forCellReuseIdentifier: "TestFoldingTableViewCell")
     }
 }

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qY-DX-EDO">
-                                <rect key="frame" x="164" y="328.5" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="328.5" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="7cP-Vx-XQc" kind="show" id="22K-aY-dIy"/>
@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="-307" y="80"/>
         </scene>
-        <!--Quotes View Controller-->
+        <!--Test Folding View Controller-->
         <scene sceneID="QTJ-ku-lGL">
             <objects>
-                <viewController id="7cP-Vx-XQc" customClass="QuotesViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7cP-Vx-XQc" customClass="TestFoldingViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8PB-7m-7B7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="a77-Sl-SvR"/>
                     <connections>
-                        <outlet property="quotesTableView" destination="KfS-iZ-60O" id="CTF-Wm-ivV"/>
+                        <outlet property="testFoldingTableView" destination="KfS-iZ-60O" id="CTF-Wm-ivV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hQ-F2-aPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

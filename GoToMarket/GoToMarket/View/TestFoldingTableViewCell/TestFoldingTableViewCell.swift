@@ -9,7 +9,7 @@
 import UIKit
 import FoldingCell
 
-class QuoteTableViewCell: FoldingCell {
+class TestFoldingTableViewCell: FoldingCell {
     
     
     @IBOutlet weak var titleCellView: RotatedView!

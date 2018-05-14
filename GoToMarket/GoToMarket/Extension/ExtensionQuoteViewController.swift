@@ -9,16 +9,16 @@
 import UIKit
 import CoreData
 
-extension QuotesViewController {
+extension TestFoldingViewController {
     
     public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        quotesTableView.beginUpdates()
+        testFoldingTableView.beginUpdates()
     }
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .insert: quotesTableView.insertSections([sectionIndex], with: .fade)
-        case .delete: quotesTableView.deleteSections([sectionIndex], with: .fade)
+        case .insert: testFoldingTableView.insertSections([sectionIndex], with: .fade)
+        case .delete: testFoldingTableView.deleteSections([sectionIndex], with: .fade)
         case .move: break
         case .update: break
         }
@@ -27,19 +27,19 @@ extension QuotesViewController {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            quotesTableView.insertRows(at: [newIndexPath!], with: .fade)
+            testFoldingTableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
-            quotesTableView.deleteRows(at: [indexPath!], with: .fade)
+            testFoldingTableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            quotesTableView.reloadRows(at: [indexPath!], with: .fade)
+            testFoldingTableView.reloadRows(at: [indexPath!], with: .fade)
         case .move:
-            quotesTableView.deleteRows(at: [indexPath!], with: .fade)
-            quotesTableView.insertRows(at: [newIndexPath!], with: .fade)
+            testFoldingTableView.deleteRows(at: [indexPath!], with: .fade)
+            testFoldingTableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        quotesTableView.endUpdates()
+        testFoldingTableView.endUpdates()
     }
     
     

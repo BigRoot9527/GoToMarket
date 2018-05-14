@@ -15,7 +15,7 @@ extension UIStoryboard {
     }
     
     static func quotes() -> UIStoryboard {
-        return UIStoryboard(name: "Quotes", bundle: nil)
+        return UIStoryboard(name: "TestFolding", bundle: nil)
     }
     
     static func notes() -> UIStoryboard {
