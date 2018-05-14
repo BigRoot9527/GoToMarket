@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleTableViewCell" rowHeight="101" id="aWa-A2-ina" customClass="TitleTableViewCell" customModule="GoToMarket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWa-A2-ina" id="h0W-nG-fSu">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="100.66666666666667"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nR-LJ-zu8">
+                        <rect key="frame" x="10" y="10" width="355" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZi-0P-mSy">
+                                <rect key="frame" x="20" y="23" width="237" height="34"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6S-nc-QOm">
+                                <rect key="frame" x="257" y="25" width="90" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="VkA-8v-dsn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReB-mE-a4j">
+                                <rect key="frame" x="323" y="0.0" width="22" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3Cl-yG-ynd"/>
+                                    <constraint firstAttribute="width" constant="22" id="DMu-hi-SWL"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="bookMark_yes_icon"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.3803921569" green="0.65490196079999996" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="n6S-nc-QOm" secondAttribute="trailing" constant="8" id="8bn-MO-PXq"/>
+                            <constraint firstItem="gZi-0P-mSy" firstAttribute="centerY" secondItem="0nR-LJ-zu8" secondAttribute="centerY" id="DRi-SX-jdm"/>
+                            <constraint firstItem="n6S-nc-QOm" firstAttribute="leading" secondItem="gZi-0P-mSy" secondAttribute="trailing" id="NCb-dY-R2x"/>
+                            <constraint firstAttribute="height" constant="80" id="QhZ-YH-pZi"/>
+                            <constraint firstItem="gZi-0P-mSy" firstAttribute="leading" secondItem="0nR-LJ-zu8" secondAttribute="leading" constant="20" id="gBP-TK-5dq"/>
+                            <constraint firstAttribute="trailing" secondItem="ReB-mE-a4j" secondAttribute="trailing" constant="10" id="nJH-eb-2k0"/>
+                            <constraint firstItem="n6S-nc-QOm" firstAttribute="centerY" secondItem="0nR-LJ-zu8" secondAttribute="centerY" id="sVy-Oh-kQ1"/>
+                            <constraint firstItem="ReB-mE-a4j" firstAttribute="top" secondItem="0nR-LJ-zu8" secondAttribute="top" id="tJf-3G-95e"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="0nR-LJ-zu8" secondAttribute="trailing" constant="10" id="DdO-mU-JHs"/>
+                    <constraint firstItem="0nR-LJ-zu8" firstAttribute="leading" secondItem="h0W-nG-fSu" secondAttribute="leading" constant="10" id="Y9z-5j-qey"/>
+                    <constraint firstItem="0nR-LJ-zu8" firstAttribute="top" secondItem="h0W-nG-fSu" secondAttribute="top" constant="10" id="htc-i6-EKq"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCell"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleNameLabel" destination="gZi-0P-mSy" id="NR1-Sv-K5v"/>
+                <outlet property="titleTrasitionView" destination="0nR-LJ-zu8" id="O91-qr-1Rm"/>
+            </connections>
+            <point key="canvasLocation" x="22.5" y="18.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookMark_yes_icon" width="64" height="64"/>
+    </resources>
+</document>
