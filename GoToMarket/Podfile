@@ -12,8 +12,7 @@ target 'GoToMarket' do
   pod 'SDWebImage'
   pod 'FoldingCell'
   pod 'RAMAnimatedTabBarController'
-  pod 'ElongationPreview'
-  pod 'RAMReel'
+  pod 'Hero'
 
 
 end
