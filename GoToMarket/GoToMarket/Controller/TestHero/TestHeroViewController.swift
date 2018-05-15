@@ -21,6 +21,7 @@ class TestHeroViewController: UIViewController, UITableViewDelegate, UITableView
         return titleNameArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath) as! TitleTableViewCell
         cell.titleNameLabel.text = titleNameArray[indexPath.row]

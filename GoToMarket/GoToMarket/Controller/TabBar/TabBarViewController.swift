@@ -103,14 +103,14 @@ class TabBarViewController: RAMAnimatedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeSelectedColor(GoToMarketColor.tabBarTintColor.color(), iconSelectedColor: GoToMarketColor.tabBarTintColor.color())
+        changeSelectedColor(GoToMarketColor.newOrange.color(), iconSelectedColor: GoToMarketColor.newOrange.color())
         
         self.tabBar.items![2].badgeValue = "3"
     }
 
     private func setupTab() {
         
-        tabBar.tintColor = GoToMarketColor.tabBarTintColor.color()
+        tabBar.tintColor = GoToMarketColor.newOrange.color()
         
         var controllers: [UIViewController] = []
         

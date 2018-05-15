@@ -10,9 +10,14 @@ import UIKit
 
 enum GoToMarketColor: String {
     
-    case tabBarTintColor = "CA3738"
+    case traditionalRed = "CA3738"
     case traditionalGreen = "61A763"
     case traditionalBlue = "3E82C2"
+    case newDarkBlueGreen = "01585F"
+    case newLightBlueGreen = "039393"
+    case newWhite = "FFFCC4"
+    case newGray = "F0EDBB"
+    case newOrange = "FF3800"
     
     
     func color() -> UIColor {

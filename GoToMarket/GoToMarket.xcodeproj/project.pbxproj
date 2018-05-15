@@ -22,6 +22,8 @@
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6C20A5730900A6BA27 /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B6B20A5730900A6BA27 /* test.storyboard */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
+		3230F3D120AA86C0002812E0 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D020AA86C0002812E0 /* QuoteTableViewCell.xib */; };
+		3230F3D420AA8E91002812E0 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */; };
 		326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */; };
 		326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */; };
 		327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */; };
@@ -89,6 +91,8 @@
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6B20A5730900A6BA27 /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		3230F3D020AA86C0002812E0 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuoteTableViewCell.xib; path = GoToMarket/View/QuoteTableViewCell/QuoteTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingTableViewCell.swift; sourceTree = "<group>"; };
 		326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestFoldingTableViewCell.xib; sourceTree = "<group>"; };
 		327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -201,6 +205,23 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		3230F3CF20AA8652002812E0 /* QuoteTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3230F3D020AA86C0002812E0 /* QuoteTableViewCell.xib */,
+			);
+			name = QuoteTableViewCell;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		3230F3D220AA8E7A002812E0 /* DetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */,
+			);
+			path = DetailTableViewCell;
+			sourceTree = "<group>";
+		};
 		326D78EF20A5D42500EE0887 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +234,8 @@
 		326D78F020A5D47100EE0887 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3230F3D220AA8E7A002812E0 /* DetailTableViewCell */,
+				3230F3CF20AA8652002812E0 /* QuoteTableViewCell */,
 				32F1467B20A9441C00D6ACB8 /* TestHero */,
 				326D78F320A5D4E000EE0887 /* TestFoldingTableViewCell */,
 			);
@@ -504,6 +527,8 @@
 				329BC6CC209700D600CC9096 /* MainTab.storyboard in Resources */,
 				32070B6C20A5730900A6BA27 /* test.storyboard in Resources */,
 				327E1B6720A1F7F60020511A /* Selection.storyboard in Resources */,
+				3230F3D420AA8E91002812E0 /* DetailTableViewCell.xib in Resources */,
+				3230F3D120AA86C0002812E0 /* QuoteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
