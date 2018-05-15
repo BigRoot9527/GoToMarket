@@ -81,10 +81,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-46-gdD">
-                                <rect key="frame" x="350" y="30" width="15" height="15"/>
+                                <rect key="frame" x="340" y="30" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="IcF-Ob-VUq"/>
-                                    <constraint firstAttribute="width" constant="15" id="q4o-cj-UNk"/>
+                                    <constraint firstAttribute="height" constant="25" id="IcF-Ob-VUq"/>
+                                    <constraint firstAttribute="width" constant="25" id="q4o-cj-UNk"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="cancel_icon"/>
                                 <connections>
