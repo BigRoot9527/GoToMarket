@@ -70,7 +70,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         detailVC.hero.isEnabled = true
         
-        detailVC.hero.modalAnimationType = .autoReverse(presenting: .slide(direction: .down))
+        detailVC.hero.modalAnimationType = .selectBy(presenting: .pageIn(direction: .down), dismissing: .fade)
         
         present(detailVC, animated: true, completion: nil)
         

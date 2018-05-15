@@ -10,9 +10,9 @@ import Foundation
 
 enum WeightType: String {
     
-    case KG = "(公斤)"
+    case KG = "(每公斤)"
     
-    case TG = "(台斤)"
+    case TG = "(每台斤)"
     
 }
 

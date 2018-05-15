@@ -9,7 +9,27 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTableViewCellDelegate {
+    
+    
+    func dropDownButtonTapped(sender: UIButton, isExpended: Bool) {
+        print("\(sender) Tapped!, isExpended = \(isExpended)")
+    }
+    
+    
+    
+    func priceInfoButtonTapped(sender: UIButton) {
+        print("\(sender) Tapped!")
+    }
+    
+    func buyingButtonTapped(sender: UIButton, inChart: Bool) {
+        print("\(sender) Tapped!, inBuying = \(inChart)")
+    }
+    
+    func changeWeightButtonTapped(sender: UIButton, showingInKg: Bool) {
+        print("\(sender) Tapped!, showingInKg = \(showingInKg)")
+    }
+    
     
     
     @IBOutlet weak var detailTableView: UITableView!
@@ -30,6 +50,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         guard let crop = objectPassed, let note = crop.note else { return UITableViewCell() }
         
+        cell.delegate = self
+        
 //        cell.detailWikiImageView
 //        cell.detailWikiLabel
         cell.detailNameLabel.text = crop.cropName
@@ -37,8 +59,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.detailMarketLabel.text = crop.marketName
         cell.detailUpdateTimeLabel.text = crop.date
-        cell.detailSellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.averagePrice, andMultipler: note.customMutipler, inWeightType: showingWeightType)
-        cell.detailRealPriceLabel.text = PriceStringProvider.getTruePriceString(fromTruePrice: crop.averagePrice, inWeightType: showingWeightType)
+        cell.detailSellPriceLabel.text = PriceStringProvider.getSellPriceString(
+            fromTruePrice: crop.averagePrice,
+            andMultipler: note.customMutipler,
+            inWeightType: showingWeightType)
+        cell.detailRealPriceLabel.text = PriceStringProvider.getTruePriceString(
+            fromTruePrice: crop.averagePrice,
+            inWeightType: showingWeightType)
         cell.detailWeightTypeLabel.text = showingWeightType.rawValue
 //        cell.detailHistoryPriceView
         
@@ -46,6 +73,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //TODO
         return GoToMarketConstant.detailExpendRowHeight
     }
     

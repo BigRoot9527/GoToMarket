@@ -8,29 +8,56 @@
 
 import UIKit
 
-protocol HeroDetailTableViewCellDelegate: class {
-    func priceInfoButtonTapped()
-    func buyingButtonTapped()
-    func changeWeightButtonTapped()
-    func dropDownButtonTapped()
+protocol DetailTableViewCellDelegate: class {
+    func priceInfoButtonTapped(sender: UIButton)
+    func buyingButtonTapped(sender: UIButton, inChart: Bool)
+    func changeWeightButtonTapped(sender: UIButton, showingInKg: Bool)
+    func dropDownButtonTapped(sender: UIButton, isExpended: Bool)
 }
 
 class DetailTableViewCell: UITableViewCell {
     
-    weak var delegate: HeroDetailTableViewCell?
+    weak var delegate: DetailTableViewCellDelegate?
     
-    var inBuyingChart: Bool = false {
-        didSet {
-            updateBuyingButton()
+    enum wikiLabelState {
+        case none
+        case expended
+        case folded
+        
+        func getTranslationY() -> CGFloat {
+            switch self {
+            case .expended:
+                return 155.0
+            case .folded:
+                return 0.0
+            case .none:
+                return 0.0
+            }
+        }
+        
+        func getRotationAngle() -> CGFloat {
+            switch self {
+            case .expended:
+                return CGFloat.pi
+            case .folded:
+                return 0
+            case .none:
+                return 0
+            }
         }
     }
     
-    var isExpended: Bool = false {
+    var wikiState: wikiLabelState = .folded {
         didSet {
-            showingAnimate()
+            updateWikiUI()
         }
     }
-
+    
+    var isKG: Bool = true {
+        didSet {
+            updateWeightTypeLabel()
+        }
+    }
     
     @IBOutlet weak var detailWikiImageView: UIImageView!
     @IBOutlet weak var detailNameLabel: UILabel!
@@ -39,7 +66,6 @@ class DetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailWikiScrollView: UIScrollView!
     @IBOutlet weak var detailWikiLabel: UILabel!
-    
     
     @IBOutlet weak var detailQuoteInfoView: UIView!
     @IBOutlet weak var detailSellPriceLabel: UILabel!
@@ -69,41 +95,94 @@ class DetailTableViewCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
-    private func updateBuyingButton() {
-        //TODO
-    }
-    
-    private func showingAnimate() {
-        UIView.animate(withDuration: 0.3) {
-            if self.isExpended {
-                self.detailWikiScrollView.transform = CGAffineTransform.init(translationX: 0.0, y: 155)
-                self.detailQuoteInfoView.transform = CGAffineTransform.init(translationX: 0.0, y: 155)
-                self.detailHistoryView.transform = CGAffineTransform.init(translationX: 0.0, y: 155)
-                self.detailDropDownButton.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi)
-            } else {
-                self.detailWikiScrollView.transform = CGAffineTransform.init(translationX: 0.0, y: -155)
-                self.detailQuoteInfoView.transform = CGAffineTransform.init(translationX: 0.0, y: -155)
-                self.detailHistoryView.transform = CGAffineTransform.init(translationX: 0.0, y: -155)
-                self.detailDropDownButton.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi)
-            }
+    private func updateWeightTypeLabel() {
+        if isKG {
+            detailWeightTypeLabel.text = WeightType.KG.rawValue
+        } else {
+            detailWeightTypeLabel.text = WeightType.TG.rawValue
         }
     }
     
+    private func updateWikiUI() {
+        switch wikiState {
+        case .none:
+            detailDropDownButton.isHidden = true
+            detailWikiScrollView.isHidden = true
+        case .expended:
+            detailDropDownButton.isHidden = false
+            detailWikiScrollView.isHidden = false
+            dropDownAnimation()
+        case .folded:
+            detailDropDownButton.isHidden = false
+            detailWikiScrollView.isHidden = false
+            dropDownAnimation()
+        }
+    }
+    
+    private func dropDownAnimation() {
+        
+        UIView.animate(withDuration: GoToMarketConstant.detailDropDownDuration) {
+            
+            self.detailWikiScrollView.transform = CGAffineTransform.init(
+                translationX: 0.0,
+                y: self.wikiState.getTranslationY())
+            
+            self.detailQuoteInfoView.transform = CGAffineTransform.init(
+                translationX: 0.0,
+                y: self.wikiState.getTranslationY())
+            
+            self.detailHistoryView.transform = CGAffineTransform.init(
+                translationX: 0.0,
+                y: self.wikiState.getTranslationY())
+            
+            self.detailDropDownButton.transform = CGAffineTransform.init(
+                rotationAngle: self.wikiState.getRotationAngle())
+        }
+        
+    }
+    
+    @IBAction func didTapDropDownButton(_ sender: UIButton) {
+        switch wikiState {
+        case .expended:
+            wikiState = .folded
+            delegate?.dropDownButtonTapped(sender: sender, isExpended: false)
+        case .folded:
+            wikiState = .expended
+            delegate?.dropDownButtonTapped(sender: sender, isExpended: true)
+        default:
+            return
+        }
+    }
+    
+    
+    //MARK: Delegate
     @IBAction func didTapBuyingButton(_ sender: UIButton) {
-        delegate
+        
+        detailBuyingButton.isSelected = !detailBuyingButton.isSelected
+        
+        delegate?.buyingButtonTapped(sender: sender,
+                                     inChart: detailBuyingButton.isSelected)
     }
     
     
     @IBAction func didTapPriceInfoButton(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3) {
-            self.detailChangeWeightButton.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi)
-        }
+        delegate?.priceInfoButtonTapped(sender: sender)
     }
     
     @IBAction func didTapChangeWeightButton(_ sender: UIButton) {
-    }
-    
-    @IBAction func didTapDropDownButton(_ sender: UIButton) {
+        
+        var angle = CGFloat.pi
+        
+        if isKG {
+            angle = 0
+        }
+        
+        isKG = !isKG
+        
+        UIView.animate(withDuration: 0.3) {
+            self.detailChangeWeightButton.transform = CGAffineTransform.init(rotationAngle: angle)
+        }
+        delegate?.changeWeightButtonTapped(sender: sender, showingInKg: isKG)
     }
     
     

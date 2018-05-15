@@ -16,6 +16,8 @@ class GoToMarketConstant {
     
     static let detailExpendRowHeight: CGFloat = 910.0
     
+    static let detailDropDownDuration: TimeInterval = 0.3
+    
     
     
 }

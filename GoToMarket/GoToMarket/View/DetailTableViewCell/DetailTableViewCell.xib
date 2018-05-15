@@ -60,7 +60,8 @@
                                     <constraint firstAttribute="height" constant="30" id="lFa-cL-Na2"/>
                                     <constraint firstAttribute="width" constant="30" id="riV-7a-H4Y"/>
                                 </constraints>
-                                <state key="normal" image="shopping-cart-3"/>
+                                <state key="normal" image="noShopping"/>
+                                <state key="selected" image="shopping-cart-3"/>
                                 <connections>
                                     <action selector="didTapBuyingButton:" destination="qTD-yn-CwB" eventType="touchUpInside" id="Bm2-R6-JOE"/>
                                 </connections>
@@ -72,10 +73,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eD-Fh-kib">
-                                <rect key="frame" x="181" y="247" width="20" height="20"/>
+                                <rect key="frame" x="181" y="244.5" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="eTT-MR-6vw"/>
-                                    <constraint firstAttribute="width" constant="20" id="h0t-br-kPI"/>
+                                    <constraint firstAttribute="height" constant="25" id="eTT-MR-6vw"/>
+                                    <constraint firstAttribute="width" constant="25" id="h0t-br-kPI"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="drop-down-arrow"/>
                                 <connections>
@@ -176,16 +177,17 @@
                                     <constraint firstAttribute="width" constant="20" id="WjB-ch-8Is"/>
                                     <constraint firstAttribute="height" constant="20" id="krc-qD-onr"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="information"/>
                                 <connections>
                                     <action selector="didTapPriceInfoButton:" destination="qTD-yn-CwB" eventType="touchUpInside" id="aCD-d7-tDq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eY-q6-Scy">
-                                <rect key="frame" x="345" y="127" width="15" height="15"/>
+                                <rect key="frame" x="335" y="117" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="sGW-HU-8Vx"/>
-                                    <constraint firstAttribute="height" constant="15" id="tEb-v1-36r"/>
+                                    <constraint firstAttribute="width" constant="25" id="sGW-HU-8Vx"/>
+                                    <constraint firstAttribute="height" constant="25" id="tEb-v1-36r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
                                 <state key="normal" image="refresh_icon"/>
@@ -193,8 +195,8 @@
                                     <action selector="didTapChangeWeightButton:" destination="qTD-yn-CwB" eventType="touchUpInside" id="iuA-40-p4J"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(公斤)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6f-zi-9au">
-                                <rect key="frame" x="295.5" y="122.5" width="45.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(每公斤)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6f-zi-9au">
+                                <rect key="frame" x="267.5" y="117.5" width="62.5" height="24"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -204,10 +206,10 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="iI0-i4-uia" secondAttribute="bottom" constant="15" id="6Xe-I7-Hju"/>
                             <constraint firstItem="4hN-8r-Mld" firstAttribute="leading" secondItem="Nb3-2h-cyj" secondAttribute="trailing" constant="-35" id="EDA-J2-uHH"/>
+                            <constraint firstItem="1eY-q6-Scy" firstAttribute="leading" secondItem="Q6f-zi-9au" secondAttribute="trailing" constant="5" id="Eoh-Gf-bYd"/>
                             <constraint firstAttribute="bottom" secondItem="fd8-FJ-qgc" secondAttribute="bottom" constant="15" id="K6t-Vi-vxV"/>
                             <constraint firstAttribute="trailing" secondItem="1eY-q6-Scy" secondAttribute="trailing" constant="15" id="NrO-vH-CU5"/>
                             <constraint firstItem="fd8-FJ-qgc" firstAttribute="leading" secondItem="iI0-i4-uia" secondAttribute="trailing" constant="40" id="Pu6-R6-GxO"/>
-                            <constraint firstAttribute="trailing" secondItem="Q6f-zi-9au" secondAttribute="trailing" constant="34" id="b0s-N9-KhI"/>
                             <constraint firstAttribute="bottom" secondItem="1eY-q6-Scy" secondAttribute="bottom" constant="15" id="i5f-f0-4B4"/>
                             <constraint firstItem="fd8-FJ-qgc" firstAttribute="top" secondItem="Gf3-2R-Sgk" secondAttribute="top" constant="15" id="pLN-6I-mLM"/>
                             <constraint firstItem="iI0-i4-uia" firstAttribute="leading" secondItem="Gf3-2R-Sgk" secondAttribute="leading" constant="20" id="q9E-xq-naL"/>
@@ -284,6 +286,7 @@
     <resources>
         <image name="drop-down-arrow" width="64" height="64"/>
         <image name="information" width="64" height="64"/>
+        <image name="noShopping" width="64" height="64"/>
         <image name="pic_1" width="940" height="627"/>
         <image name="refresh_icon" width="64" height="64"/>
         <image name="shopping-cart-3" width="64" height="64"/>
