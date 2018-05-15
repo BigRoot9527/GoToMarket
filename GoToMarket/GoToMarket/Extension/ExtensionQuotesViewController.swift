@@ -1,24 +1,27 @@
 //
-//  ExtensionOfQuoteViewController.swift
+//  ExtensionQuotesViewController.swift
 //  GoToMarket
 //
-//  Created by 許庭瑋 on 2018/5/13.
+//  Created by 許庭瑋 on 2018/5/15.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-extension TestFoldingViewController {
+import UIKit
+import CoreData
+
+extension QuotesViewController {
     
     public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        testFoldingTableView.beginUpdates()
+        quotesTableView.beginUpdates()
     }
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .insert: testFoldingTableView.insertSections([sectionIndex], with: .fade)
-        case .delete: testFoldingTableView.deleteSections([sectionIndex], with: .fade)
+        case .insert: quotesTableView.insertSections([sectionIndex], with: .fade)
+        case .delete: quotesTableView.deleteSections([sectionIndex], with: .fade)
         case .move: break
         case .update: break
         }
@@ -27,19 +30,19 @@ extension TestFoldingViewController {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            testFoldingTableView.insertRows(at: [newIndexPath!], with: .fade)
+            quotesTableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
-            testFoldingTableView.deleteRows(at: [indexPath!], with: .fade)
+            quotesTableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            testFoldingTableView.reloadRows(at: [indexPath!], with: .fade)
+            quotesTableView.reloadRows(at: [indexPath!], with: .fade)
         case .move:
-            testFoldingTableView.deleteRows(at: [indexPath!], with: .fade)
-            testFoldingTableView.insertRows(at: [newIndexPath!], with: .fade)
+            quotesTableView.deleteRows(at: [indexPath!], with: .fade)
+            quotesTableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        testFoldingTableView.endUpdates()
+        quotesTableView.endUpdates()
     }
     
     
@@ -48,16 +51,26 @@ extension TestFoldingViewController {
         return fetchedResultsController?.sections?.count ?? 1
     }
     
-
+    
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles
     }
     
+    
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = fetchedResultsController?.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     
     
 }
+

@@ -9,7 +9,7 @@
 import UIKit
 import Hero
 
-class DetailTableViewCell: UITableViewCell {
+class HeroDetailTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var trasitionView: UIView!

@@ -9,11 +9,11 @@
 import UIKit
 import Hero
 
-class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
+class TestHeroDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     var passedName: String = ""
     
-    var cellReference: DetailTableViewCell?
+    var cellReference: HeroDetailTableViewCell?
     
     
     
@@ -38,8 +38,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 //
 //
     func registerCell() {
-        let nibFile = UINib(nibName: "DetailTableViewCell", bundle: nil)
-        deTailTableView.register(nibFile, forCellReuseIdentifier: "DetailTableViewCell")
+        let nibFile = UINib(nibName: "HeroDetailTableViewCell", bundle: nil)
+        deTailTableView.register(nibFile, forCellReuseIdentifier: "HeroDetailTableViewCell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +47,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeroDetailTableViewCell", for: indexPath) as! HeroDetailTableViewCell
         cell.secondNamelabel.text = passedName
         cellReference = cell
         return cell

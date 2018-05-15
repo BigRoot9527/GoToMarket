@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-439" y="186"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Test Hero Detail View Controller-->
         <scene sceneID="M3c-bc-fJI">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="U06-tH-Nfo" customClass="DetailViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="U06-tH-Nfo" customClass="TestHeroDetailViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Sx-wr-f44">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

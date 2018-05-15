@@ -33,15 +33,15 @@
             </objects>
             <point key="canvasLocation" x="967" y="134"/>
         </scene>
-        <!--Quotes Table View Controller-->
+        <!--Core Data Demo Table View Controller-->
         <scene sceneID="DdG-RU-RrQ">
             <objects>
-                <tableViewController id="mjg-cd-vE0" customClass="QuotesTableViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mjg-cd-vE0" customClass="CoreDataDemoTableViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lGF-Ii-ioi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r6j-c9-lMa">
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r6j-c9-lMa">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>

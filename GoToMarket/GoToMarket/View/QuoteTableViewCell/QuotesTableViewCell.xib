@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleTableViewCell" rowHeight="91" id="wEV-hk-tOa" customClass="TitleTableViewCell" customModule="GoToMarket" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuotesTableViewCell" rowHeight="80" id="wEV-hk-tOa" customClass="QuotesTableViewCell" customModule="GoToMarket" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wEV-hk-tOa" id="2WJ-5A-NAk">
@@ -36,24 +36,23 @@
                                 <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pir-W7-I9k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-cart" translatesAutoresizingMaskIntoConstraints="NO" id="eMU-p0-laf">
                                 <rect key="frame" x="322" y="8" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="q9Q-mf-bng"/>
-                                    <constraint firstAttribute="width" constant="25" id="qs4-nk-W31"/>
+                                    <constraint firstAttribute="width" constant="25" id="8UW-BL-MpG"/>
+                                    <constraint firstAttribute="height" constant="25" id="AGE-NO-55l"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="shopping-cart"/>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.3411764705882353" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1PJ-Fv-GOF" firstAttribute="centerY" secondItem="FEg-YA-b0j" secondAttribute="centerY" id="GH3-aX-UXP"/>
                             <constraint firstItem="eQq-To-6gd" firstAttribute="leading" secondItem="1PJ-Fv-GOF" secondAttribute="trailing" id="Kwc-Jq-l0B"/>
                             <constraint firstAttribute="trailing" secondItem="eQq-To-6gd" secondAttribute="trailing" constant="8" id="dbR-aW-d0O"/>
+                            <constraint firstAttribute="trailing" secondItem="eMU-p0-laf" secondAttribute="trailing" constant="8" id="ggl-iH-IuP"/>
                             <constraint firstItem="1PJ-Fv-GOF" firstAttribute="leading" secondItem="FEg-YA-b0j" secondAttribute="leading" constant="20" id="iJF-hi-enm"/>
-                            <constraint firstAttribute="trailing" secondItem="pir-W7-I9k" secondAttribute="trailing" constant="8" id="sKu-x0-Ppp"/>
+                            <constraint firstItem="eMU-p0-laf" firstAttribute="top" secondItem="FEg-YA-b0j" secondAttribute="top" constant="8" id="mP5-NS-Vs7"/>
                             <constraint firstItem="eQq-To-6gd" firstAttribute="centerY" secondItem="FEg-YA-b0j" secondAttribute="centerY" id="tmI-Vj-IoO"/>
-                            <constraint firstItem="pir-W7-I9k" firstAttribute="top" secondItem="FEg-YA-b0j" secondAttribute="top" constant="8" id="ual-h7-6As"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
@@ -71,10 +70,11 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleNameLabel" destination="1PJ-Fv-GOF" id="HSr-jy-umh"/>
-                <outlet property="titleTrasitionView" destination="FEg-YA-b0j" id="1Tg-PB-Hhq"/>
+                <outlet property="buyingIndicatorImageView" destination="eMU-p0-laf" id="Ztt-H3-mod"/>
+                <outlet property="itemNameLabel" destination="1PJ-Fv-GOF" id="uqC-F7-jiG"/>
+                <outlet property="sellPriceLabel" destination="eQq-To-6gd" id="9Nx-Az-Xad"/>
             </connections>
-            <point key="canvasLocation" x="-41.5" y="73.5"/>
+            <point key="canvasLocation" x="-41.5" y="73"/>
         </tableViewCell>
     </objects>
     <resources>
