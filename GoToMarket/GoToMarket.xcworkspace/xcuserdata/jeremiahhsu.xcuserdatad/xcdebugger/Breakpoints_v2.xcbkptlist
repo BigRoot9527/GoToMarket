@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoToMarket/View/DetailTableViewCell/DetailTableViewCell.swift"
-            timestampString = "548147235.622116"
+            timestampString = "548164749.896167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "didTapChangeWeightButton(_:)"
+            landmarkName = "didTapBuyingButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoToMarket/View/DetailTableViewCell/DetailTableViewCell.swift"
-            timestampString = "548147235.6221811"
+            timestampString = "548164749.896507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
-            landmarkName = "didTapChangeWeightButton(_:)"
+            landmarkName = "didTapBuyingButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoToMarket/Model/HTTP/HTTPRequest.swift"
+            timestampString = "548164749.896759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "urlQueryItems()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

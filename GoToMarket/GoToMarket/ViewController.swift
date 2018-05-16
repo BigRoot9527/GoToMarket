@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         let type =  CropQueryType(rawValue: cropRequestOutput)
             else {return}
         
-        let manager = CropManager(cropQuest: .init(cropRequestType: type, cropMarket: market, historyCropCode: nil))
+        let manager = CropManager(cropRequest: .init(cropRequestType: type, cropMarket: market, historyCropCode: nil))
         
         manager.accessCropQuote(success: { _ in
             print("OK")

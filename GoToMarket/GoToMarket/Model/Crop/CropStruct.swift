@@ -26,10 +26,11 @@ struct CropQuote: Decodable {
 
 struct CropRequest: OpenDataRequest {
     
+    
     var additionalURLQueryItem: URLQueryItem?
     var domainURL: String = CropApiConstant.baseURL
     var market: MarketEnum
-    var requestType: QueryTypeEnum
+    var requestType: OpenDataQueryItemConvertable
     
     init (cropRequestType: CropQueryType, cropMarket: CropMarkets, historyCropCode: String?) {
         self.requestType = cropRequestType
@@ -98,7 +99,7 @@ enum CropMarkets:String, MarketEnum {
 }
 
 
-enum CropQueryType:String, QueryTypeEnum {
+enum CropQueryType:String, OpenDataQueryItemConvertable{
     
     case updateQuote
     case getInitailQuotes
@@ -125,10 +126,6 @@ enum CropQueryType:String, QueryTypeEnum {
                 URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
             return [fromDateItem,toDateItem]
         }
-    }
-    
-    func returnSwichableSelf() -> QueryTypeEnum {
-        return self
     }
     
     static func getAllQueryTypes() -> [String] {

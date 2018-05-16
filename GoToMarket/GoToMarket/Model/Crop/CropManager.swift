@@ -12,19 +12,20 @@ struct CropManager {
     
     private let provider = CropProvider()
     
-    let cropQuest: CropRequest
+    let cropRequest: CropRequest
 
     func accessCropQuote(
         success: @escaping([CropQuote]?) -> Void,
         failure: @escaping(Error) -> Void) {
         
         provider.getCropQuote(
-            request: cropQuest,
+            request: cropRequest,
             success: { cropQuotes in
                 
-                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.cropQuest.market.getCustomString())
+                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.cropRequest.market.getCustomString())
+            
                 
-                let task = self.cropQuest.requestType.returnSwichableSelf()
+                guard let task = self.cropRequest.requestType as? CropQueryType else { return }
                 
                 switch task {
                 

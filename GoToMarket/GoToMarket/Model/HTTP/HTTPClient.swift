@@ -9,11 +9,11 @@
 import Foundation
 import Alamofire
 
-class OpenDataClient {
-    static let shared = OpenDataClient()
+class HttpClient {
+    static let shared = HttpClient()
     private let queue: DispatchQueue
     private init () {
-        queue = DispatchQueue(label: String(describing: OpenDataClient.self) + UUID().uuidString, qos: .default, attributes: .concurrent)
+        queue = DispatchQueue(label: String(describing: HttpClient.self) + UUID().uuidString, qos: .default, attributes: .concurrent)
     }
     @discardableResult
     private func request(
@@ -35,7 +35,7 @@ class OpenDataClient {
     }
     @discardableResult
     func request(
-        _ OpenHTTPRequest: OpenDataRequest,
+        _ OpenHTTPRequest: HTTPRequest,
         success: @escaping (Data) -> Void,
         failure: @escaping (Error) -> Void
         ) -> DataRequest? {

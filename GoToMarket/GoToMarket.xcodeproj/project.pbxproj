@@ -30,6 +30,11 @@
 		3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DE20AAB750002812E0 /* DetailViewController.swift */; };
 		3230F3E120AAB928002812E0 /* ExtensionQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */; };
 		3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E520AAD1CA002812E0 /* PriceStringProvider.swift */; };
+		3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E820AC1340002812E0 /* WikiConstant.swift */; };
+		3230F3EB20AC1509002812E0 /* WikiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EA20AC1509002812E0 /* WikiProvider.swift */; };
+		3230F3ED20AC15BC002812E0 /* WikiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EC20AC15BC002812E0 /* WikiStruct.swift */; };
+		3230F3EF20AC17F5002812E0 /* WikiHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EE20AC17F5002812E0 /* WikiHTTPRequest.swift */; };
+		3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3F020AC1C50002812E0 /* HTTPRequest.swift */; };
 		326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */; };
 		326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */; };
 		327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */; };
@@ -54,7 +59,7 @@
 		329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6E22098496E00CC9096 /* CropDatas+CoreDataProperties.swift */; };
 		329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */; };
 		329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F0209971FF00CC9096 /* GoToMarketError.swift */; };
-		329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */; };
+		329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F220997D3C00CC9096 /* HTTPClient.swift */; };
 		329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F5209986EF00CC9096 /* CropProvider.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
@@ -105,6 +110,11 @@
 		3230F3DE20AAB750002812E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionQuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3E520AAD1CA002812E0 /* PriceStringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStringProvider.swift; sourceTree = "<group>"; };
+		3230F3E820AC1340002812E0 /* WikiConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiConstant.swift; sourceTree = "<group>"; };
+		3230F3EA20AC1509002812E0 /* WikiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiProvider.swift; sourceTree = "<group>"; };
+		3230F3EC20AC15BC002812E0 /* WikiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiStruct.swift; sourceTree = "<group>"; };
+		3230F3EE20AC17F5002812E0 /* WikiHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiHTTPRequest.swift; sourceTree = "<group>"; };
+		3230F3F020AC1C50002812E0 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingTableViewCell.swift; sourceTree = "<group>"; };
 		326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestFoldingTableViewCell.xib; sourceTree = "<group>"; };
 		327A4DEF209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuyingList+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -131,7 +141,7 @@
 		329BC6E22098496E00CC9096 /* CropDatas+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropDatas+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODHTTPRequest.swift; sourceTree = "<group>"; };
 		329BC6F0209971FF00CC9096 /* GoToMarketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketError.swift; sourceTree = "<group>"; };
-		329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODHTTPClient.swift; sourceTree = "<group>"; };
+		329BC6F220997D3C00CC9096 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		329BC6F5209986EF00CC9096 /* CropProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProvider.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
@@ -270,6 +280,16 @@
 			path = TestFolding;
 			sourceTree = "<group>";
 		};
+		3230F3E720AC11B8002812E0 /* Wiki */ = {
+			isa = PBXGroup;
+			children = (
+				3230F3E820AC1340002812E0 /* WikiConstant.swift */,
+				3230F3EA20AC1509002812E0 /* WikiProvider.swift */,
+				3230F3EC20AC15BC002812E0 /* WikiStruct.swift */,
+			);
+			path = Wiki;
+			sourceTree = "<group>";
+		};
 		326D78EF20A5D42500EE0887 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +394,7 @@
 		329BC6E52098991C00CC9096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3230F3E720AC11B8002812E0 /* Wiki */,
 				327E1B6920A1FFF50020511A /* Loading */,
 				32F87A2620A175B5005207CD /* BuyingList */,
 				32F87A2520A174F9005207CD /* Ingredient */,
@@ -405,7 +426,9 @@
 			children = (
 				32070B4A20A44CA700A6BA27 /* OpenDataApiStruct.swift */,
 				329BC6EE2099710400CC9096 /* ODHTTPRequest.swift */,
-				329BC6F220997D3C00CC9096 /* ODHTTPClient.swift */,
+				3230F3EE20AC17F5002812E0 /* WikiHTTPRequest.swift */,
+				3230F3F020AC1C50002812E0 /* HTTPRequest.swift */,
+				329BC6F220997D3C00CC9096 /* HTTPClient.swift */,
 				32BB0C582099EB95001ECF52 /* URLCoder.swift */,
 			);
 			path = HTTP;
@@ -626,7 +649,10 @@
 			files = (
 				32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */,
 				327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */,
+				3230F3EF20AC17F5002812E0 /* WikiHTTPRequest.swift in Sources */,
 				327A4DF7209C48D200B3EEE9 /* BuyingList+CoreDataClass.swift in Sources */,
+				3230F3EB20AC1509002812E0 /* WikiProvider.swift in Sources */,
+				3230F3ED20AC15BC002812E0 /* WikiStruct.swift in Sources */,
 				329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */,
 				3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */,
 				32070B4B20A44CA700A6BA27 /* OpenDataApiStruct.swift in Sources */,
@@ -651,6 +677,7 @@
 				32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */,
 				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
+				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
 				32070B5120A52D6000A6BA27 /* CustomTableViewCell.swift in Sources */,
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
 				32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */,
@@ -674,9 +701,10 @@
 				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
 				32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */,
-				329BC6F320997D3C00CC9096 /* ODHTTPClient.swift in Sources */,
+				329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */,
 				32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */,
 				329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */,
+				3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */,
 				327A4DF8209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift in Sources */,
 				32070B4D20A4621A00A6BA27 /* LoadingIndexConstant.swift in Sources */,
 			);

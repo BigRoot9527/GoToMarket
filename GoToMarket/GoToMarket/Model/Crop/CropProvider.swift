@@ -12,7 +12,7 @@ import UIKit
 
 struct CropProvider {
     
-    private weak var httpClient = OpenDataClient.shared
+    private weak var httpClient = HttpClient.shared
     private let decoder = JSONDecoder()
     private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     

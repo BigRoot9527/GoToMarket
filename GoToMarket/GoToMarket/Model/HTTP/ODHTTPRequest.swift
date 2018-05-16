@@ -8,34 +8,16 @@
 
 import Foundation
 
-protocol OpenDataRequest {
-    var domainURL: String { get set }
-    var requestType: QueryTypeEnum { get set }
+
+
+protocol OpenDataRequest: HTTPRequest {
+
     var market: MarketEnum { get set }
     var additionalURLQueryItem: URLQueryItem? { get set }
-    //Optional
-    func domainURLString() -> String
-    func urlQueryItems() -> [URLQueryItem]
-    func request() throws -> URLRequest
+    
 }
 
 extension OpenDataRequest {
-
-    func request() throws -> URLRequest {
-        var components = URLComponents(string: domainURLString())
-        components?.queryItems = urlQueryItems()
-        
-        guard let openDataUrl = components?.url else {
-            throw GoToMarketError.OpenDataServerError
-        }
-        var request = URLRequest(url: openDataUrl)
-        request.httpMethod = "GET"
-        return request
-    }
-    
-    func domainURLString() -> String {
-        return domainURL
-    }
     
     func urlQueryItems() -> [URLQueryItem] {
         var returnArray = requestType.getNSURLQueryItem() + market.getNSURLQueryItem()
@@ -44,6 +26,9 @@ extension OpenDataRequest {
         }
         return returnArray
     }
+
+    
+
 }
 
 

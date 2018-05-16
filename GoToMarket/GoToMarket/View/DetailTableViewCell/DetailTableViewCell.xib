@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="139" width="375" height="150"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwx-gk-DcQ">
-                                <rect key="frame" x="10" y="0.0" width="355" height="605"/>
+                                <rect key="frame" x="10" y="0.0" width="355" height="378"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ZLE-fg-guh"/>
                                 </constraints>
-                                <mutableString key="text">"番薯葉或稱地瓜葉、甘藷葉，是旋花科番薯屬植物番薯的葉，可作為蔬菜食用。早年種植番薯的農民為求物盡其用，割下番薯葉後多半將它煮熟。亦有農民只摘取嫩葉部分炒熟吃，或加入蒜末，再加一些食鹽食用。番薯葉營養豐富，蛋白質、胡蘿蔔素、鈣、磷、鐵、維生素C等含量均比菠菜、韭菜等常見蔬菜來得高，有助抗氧化，因而也成為現代人心目中的健康蔬菜。\r\n另外番薯葉在早年又被稱為「豬菜」(台語)，因為番薯葉非常容易種植，而且從栽種到成熟的生長期與其他作物相比之下較為短暫，所以曾在農村被用作主流的牲畜飼料。\r\n但是與現在不同的是，在早期並不把此作物當成蔬菜食用。更因為它相當容易得取，價格相對十分便宜，因此農民大都會大量栽種番薯葉作為飼養家豬的主要飼料，這就是「豬菜」這名稱的緣由。唯有家境十分清寒的家庭才會拿此物果腹。。\r\n炒番薯葉近年來已成為大多數酒店餐館裡的菜式。以番薯葉為主料的護國菜是一道潮州菜名菜，富有傳奇性且歷史悠久。在台灣，汆燙後的番薯葉沾醬油吃是常見的吃法之一；較為講究者，則使用蒜末調和醬油以增加口感。"</mutableString>
+                                <mutableString key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</mutableString>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

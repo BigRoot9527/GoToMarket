@@ -13,11 +13,11 @@ protocol MarketEnum: OpenDataQueryItemConvertable{
     static func getAllMarketCases() -> [String]
 }
 
-protocol QueryTypeEnum: OpenDataQueryItemConvertable {
-    func returnSwichableSelf() -> QueryTypeEnum
-    static func getAllQueryTypes() -> [String]
-    
-}
+//protocol QueryTypeEnum: OpenDataQueryItemConvertable {
+//    func returnSwichableSelf() -> QueryTypeEnum
+//    static func getAllQueryTypesString() -> [String]
+//    
+//}
 
 protocol OpenDataQueryItemConvertable {
     func getNSURLQueryItem() -> [URLQueryItem]
