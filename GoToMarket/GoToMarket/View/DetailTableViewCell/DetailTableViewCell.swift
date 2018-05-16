@@ -132,9 +132,6 @@ class DetailTableViewCell: UITableViewCell {
             self.detailHistoryView.transform = CGAffineTransform.init(
                 translationX: 0.0,
                 y: self.wikiState.getTranslationY())
-            
-            self.detailDropDownButton.transform = CGAffineTransform.init(
-                rotationAngle: self.wikiState.getRotationAngle())
         }
         
     }
