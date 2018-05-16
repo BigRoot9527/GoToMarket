@@ -46,13 +46,11 @@ class DetailTableViewCell: UITableViewCell {
             }
         }
     }
-    
     var wikiState: wikiLabelState = .folded {
         didSet {
             updateWikiUI()
         }
     }
-    
     var isKG: Bool = true {
         didSet {
             updateWeightTypeLabel()
