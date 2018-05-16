@@ -103,7 +103,7 @@
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuotesTableViewCell.xib; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
-		3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesTableViewCell.swift; path = GoToMarket/View/DetailTableViewCell/QuotesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesTableViewCell.swift; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3230F3D720AAB242002812E0 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
 		3230F3DC20AAB734002812E0 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
@@ -225,11 +225,10 @@
 		3230F3CF20AA8652002812E0 /* QuoteTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */,
 				3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */,
+				3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */,
 			);
-			name = QuoteTableViewCell;
-			path = "New Group1";
+			path = QuoteTableViewCell;
 			sourceTree = "<group>";
 		};
 		3230F3D220AA8E7A002812E0 /* DetailTableViewCell */ = {
