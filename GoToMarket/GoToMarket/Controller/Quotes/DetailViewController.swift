@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTableViewCellDelegate {
     
@@ -15,8 +16,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func dropDownButtonTapped(sender: UIButton, isExpended: Bool) {
         print("\(sender) Tapped!, isExpended = \(isExpended)")
     }
-    
-    
     
     func priceInfoButtonTapped(sender: UIButton) {
         print("\(sender) Tapped!")
@@ -31,12 +30,15 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var closeButton: UIButton!
     
     var objectPassed: CropDatas?
     var showingWeightType: WeightType = .KG
+    let manager = WikiManager()
+    let dispatchGroup = DispatchGroup()
+    var wikiText: String?
+    var wikiImageUrl: URL?
     
     
     //MARK: TableView
@@ -52,8 +54,15 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.delegate = self
         
-//        cell.detailWikiImageView
-//        cell.detailWikiLabel
+        cell.detailWikiImageView.sd_setImage(with: wikiImageUrl)
+        
+        if let text = wikiText {
+            cell.detailWikiLabel.text = text
+            cell.wikiTextState = .folded
+        } else {
+            cell.wikiTextState = .none
+        }
+        
         cell.detailNameLabel.text = crop.cropName
 //        cell.inBuyingChart = note.
         
@@ -95,11 +104,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailTableView.dataSource = self
         detailTableView.delegate = self
         registerCell()
+        loadWikiData()
         updateUI()
-    }
-    
-    private func updateUI() {
-        
     }
     
     private func registerCell() {
@@ -107,6 +113,52 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailTableView.register(nibFile,
                                  forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
     }
+    
+    private func loadWikiData() {
+        guard let itemData = objectPassed else { return }
+        
+        dispatchGroup.enter()
+        manager.getWikiImageUrl(
+            fromItemName: itemData.cropName,
+            success: { [weak self] (url) in
+            
+            self?.wikiImageUrl = url
+            
+            self?.dispatchGroup.leave()
+            
+        }) { [weak self] (error) in
+            
+            print(error)
+            
+            self?.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        manager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
+            
+            self?.wikiText = text
+            
+            self?.dispatchGroup.leave()
+            
+        }) { [weak self] (error) in
+            
+            print(error)
+            
+            self?.dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.detailTableView.reloadData()
+        }
+        
+        
+    }
+    
+    private func updateUI() {
+        
+    }
+    
+
     
     @IBAction func didTabCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

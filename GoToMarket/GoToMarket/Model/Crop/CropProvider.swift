@@ -20,8 +20,8 @@ struct CropProvider {
     func getCropQuote(
         request: CropRequest,
         success: @escaping([CropQuote]) -> Void,
-        failure: @escaping(Error) -> Void )
-    {
+        failure: @escaping(Error) -> Void ) {
+        
         print("request.urlString() = \(try? request.request())")
         httpClient?.request(request,
         success: { data in

@@ -46,11 +46,19 @@ class DetailTableViewCell: UITableViewCell {
             }
         }
     }
-    var wikiState: wikiLabelState = .folded {
+    var wikiTextState: wikiLabelState = .folded {
         didSet {
             updateWikiUI()
         }
     }
+    //TODO: activity indicator when loading Text and image
+    //TODO: placeHoulder image when no image (no text is done by remove button)
+    //TODO: maybe aspect fit is better
+    //TODO: design of wiki text label
+    //TODO: hight of wiki text label
+    
+    
+    
     var isKG: Bool = true {
         didSet {
             updateWeightTypeLabel()
@@ -102,7 +110,7 @@ class DetailTableViewCell: UITableViewCell {
     }
     
     private func updateWikiUI() {
-        switch wikiState {
+        switch wikiTextState {
         case .none:
             detailDropDownButton.isHidden = true
             detailWikiScrollView.isHidden = true
@@ -123,26 +131,26 @@ class DetailTableViewCell: UITableViewCell {
             
             self.detailWikiScrollView.transform = CGAffineTransform.init(
                 translationX: 0.0,
-                y: self.wikiState.getTranslationY())
+                y: self.wikiTextState.getTranslationY())
             
             self.detailQuoteInfoView.transform = CGAffineTransform.init(
                 translationX: 0.0,
-                y: self.wikiState.getTranslationY())
+                y: self.wikiTextState.getTranslationY())
             
             self.detailHistoryView.transform = CGAffineTransform.init(
                 translationX: 0.0,
-                y: self.wikiState.getTranslationY())
+                y: self.wikiTextState.getTranslationY())
         }
         
     }
     
     @IBAction func didTapDropDownButton(_ sender: UIButton) {
-        switch wikiState {
+        switch wikiTextState {
         case .expended:
-            wikiState = .folded
+            wikiTextState = .folded
             delegate?.dropDownButtonTapped(sender: sender, isExpended: false)
         case .folded:
-            wikiState = .expended
+            wikiTextState = .expended
             delegate?.dropDownButtonTapped(sender: sender, isExpended: true)
         default:
             return

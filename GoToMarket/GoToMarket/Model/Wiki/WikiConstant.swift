@@ -7,11 +7,13 @@
 //
 
 struct WikiApiConstant {
+
+    static let wikiImageBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/pageimage/"
+
+    static let wikiTextBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/abstract/"
     
+    static let regexForImageUrl = "(http[^\\s]+(jpg|jpeg|png|tiff)\\b)"
     
-    static let baseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/pageimage/"
+    static let noResponseString = "null"
     
-//    static let wikiImageBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/pageimage/"
-//
-//    static let wikiTextBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/abstract/"
 }

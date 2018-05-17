@@ -77,7 +77,7 @@ enum CropMarkets:String, MarketEnum {
         }
     }
 
-    func getNSURLQueryItem() -> [URLQueryItem] {
+    func getNSURLQueryItem() -> [URLQueryItem]? {
         let marketTitle = CropApiConstant.fixedSearchMarket
         switch self {
         case .taipei:
@@ -105,7 +105,7 @@ enum CropQueryType:String, OpenDataQueryItemConvertable{
     case getInitailQuotes
     case getHistoryQutoes
     
-    func getNSURLQueryItem() -> [URLQueryItem] {
+    func getNSURLQueryItem() -> [URLQueryItem]? {
         let fromDateTitle = CropApiConstant.searchFromDate
         let endDateTitle = CropApiConstant.searchEndDate
         switch self {

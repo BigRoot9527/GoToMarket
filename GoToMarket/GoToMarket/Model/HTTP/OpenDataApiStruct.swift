@@ -14,5 +14,5 @@ protocol MarketEnum: OpenDataQueryItemConvertable{
 }
 
 protocol OpenDataQueryItemConvertable {
-    func getNSURLQueryItem() -> [URLQueryItem]
+    func getNSURLQueryItem() -> [URLQueryItem]?
 }

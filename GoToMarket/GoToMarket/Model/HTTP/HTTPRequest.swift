@@ -14,17 +14,23 @@ protocol HTTPRequest {
     var requestType: OpenDataQueryItemConvertable { get set }
     //Optional
     func domainURLString() -> String
-    func urlQueryItems() -> [URLQueryItem]
+    func urlQueryItems() -> [URLQueryItem]?
     func request() throws -> URLRequest
 }
 
 extension HTTPRequest {
     
     func request() throws -> URLRequest {
-        var components = URLComponents(string: domainURLString())
-        components?.queryItems = urlQueryItems()
         
-        guard let openDataUrl = components?.url else {
+        guard var components = URLComponents(string: domainURLString()) else {
+            throw GoToMarketError.OpenDataServerError
+        }
+        
+        if let items = urlQueryItems() {
+            components.queryItems = items
+        }
+        
+        guard let openDataUrl = components.url else {
             throw GoToMarketError.OpenDataServerError
         }
         var request = URLRequest(url: openDataUrl)
@@ -36,7 +42,7 @@ extension HTTPRequest {
         return domainURL
     }
     
-    func urlQueryItems() -> [URLQueryItem] {
+    func urlQueryItems() -> [URLQueryItem]? {
         return requestType.getNSURLQueryItem()
     }
     
