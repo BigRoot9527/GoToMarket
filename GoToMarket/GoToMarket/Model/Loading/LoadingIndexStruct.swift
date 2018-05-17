@@ -12,16 +12,18 @@ enum TaskKeys {
     case crop
     case pig
     case chicken
-    func getQueryTypeKeyString() -> String {
+    
+    func getUpdateDateKeyString() -> String {
         switch self {
         case .crop:
-            return "Crop-QueryType"
+            return "Crop-Date"
         case .pig:
-            return "Pig-QueryType"
+            return "Pig-Date"
         case .chicken:
-            return "Chicken-QueryType"
+            return "Chicken-Date"
         }
     }
+    
     func getMarketKeyString() -> String {
         switch self {
         case .crop:

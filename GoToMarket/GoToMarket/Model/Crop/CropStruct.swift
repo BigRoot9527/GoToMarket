@@ -43,7 +43,7 @@ struct CropRequest: OpenDataRequest {
 }
 
 enum CropMarkets:String, MarketEnum {
-    typealias ReturnEnum = CropMarkets
+
     case taipei
     case tauyuan
     case taichung
@@ -51,12 +51,6 @@ enum CropMarkets:String, MarketEnum {
     case kaoshung
     case taidong
     case ilan
-    
-    static func getAllMarketCases() -> [String] {
-        return [self.taipei.rawValue, self.tauyuan.rawValue,
-                self.taichung.rawValue, self.nantou.rawValue,
-                self.kaoshung.rawValue, self.taidong.rawValue, self.ilan.rawValue]
-    }
 
     func getCustomString() -> String {
         switch self {

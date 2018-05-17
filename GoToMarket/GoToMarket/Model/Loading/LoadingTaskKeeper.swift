@@ -29,16 +29,23 @@ class LoadingTaskKeeper {
         return market
     }
     
-    func saveQueryType(_ typeString: String, ofKey key: TaskKeys) {
-        let keyString = key.getQueryTypeKeyString()
-        UserDefaults.standard.set(typeString, forKey: keyString)
+    func saveUpdateDate(ofKey key: TaskKeys) {
+        
+        let updateToday = Date()
+        let keyString = key.getUpdateDateKeyString()
+        UserDefaults.standard.set(updateToday, forKey: keyString)
     }
     
-    func getQueryType(ofKey key: TaskKeys) -> String? {
+    func getUpdateDate(ofKey key: TaskKeys) -> Date? {
         
-        let keyString = key.getQueryTypeKeyString()
-        guard let type  = UserDefaults.standard.object(forKey: keyString) as? String else { return nil }
-        return type
+        let keyString = key.getUpdateDateKeyString()
+        guard let date  = UserDefaults.standard.object(forKey: keyString) as? Date else { return nil }
+        return date
+    }
+    
+    func resetData(ofKey key: TaskKeys) {
+        UserDefaults.standard.removeObject(forKey: key.getMarketKeyString())
+        UserDefaults.standard.removeObject(forKey: key.getUpdateDateKeyString())
     }
     
 }

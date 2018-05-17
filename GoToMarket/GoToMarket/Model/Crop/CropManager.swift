@@ -13,57 +13,87 @@ struct CropManager {
     private let provider = CropProvider()
 
     func getCropDataBase(
-        task: CropQueryType,
-        market: CropMarkets,
+        fromMarket marketInput: CropMarkets?,
         success: @escaping(Bool) -> Void,
         failure: @escaping(Error) -> Void) {
         
-        let dataRequest = CropRequest(cropRequestType: task, cropMarket: market, historyCropCode: nil)
+        let lastUpdateDate: Date? = LoadingTaskKeeper.shared.getUpdateDate(ofKey: .crop)
         
+        var requestMarket: CropMarkets
+        
+        //Check if is the First Load Update of Market
+        var isFirstTimeUpdate: Bool
+        
+        //Market: UserDefault > Input > Error
+        if let string = LoadingTaskKeeper.shared.getMarket(ofKey: .crop),
+            let defaultMarket = CropMarkets(rawValue: string) {
+            requestMarket = defaultMarket
+            isFirstTimeUpdate = false
+        }
+        else {
+            guard let inputMarket = marketInput else {
+                failure(GoToMarketError.MarketError)
+            }
+            requestMarket = inputMarket
+            isFirstTimeUpdate = true
+        }
+        
+        let dataRequest = CropRequest(
+            cropRequestType: .updateQuote(lastUpdateDate: lastUpdateDate),
+            cropMarket: requestMarket,
+            historyCropCode: nil)
+
         provider.getCropQuote(
             request: dataRequest,
             success: { cropQuotes in
                 
-                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: dataRequest.market.getCustomString())
+                let quotesArray = self.provider.marketValidate(
+                    fromCropArray: cropQuotes,
+                    ofMarketString: dataRequest.market.getCustomString())
                 
-                switch task {
-
-                case CropQueryType.getInitailQuotes:
-                    self.provider.resetAllData(with: quotesArray,
-                                               success: { success(true) },
-                                               failure: { error in failure(error) })
-                case CropQueryType.updateQuote:
-                    self.provider.updateDatabase(with: quotesArray,
-                                                 success: { success(true) },
-                                                 failure: { error in
-                                                    failure(error) })
-                default:
-                    success(false)
+                //Set update time to today
+                LoadingTaskKeeper.shared.saveUpdateDate(ofKey: .crop)
+                //Set the Crop market first time ( if defaul market = nil & market been input )
+                LoadingTaskKeeper.shared.saveMarket(usedMarket.rawValue, ofKey: .crop)
+                
+                if isFirstTimeUpdate {
+                    self.provider.resetAllData(
+                        with: quotesArray,
+                        success: { success(true) },
+                        failure: { error in failure(error) })
+                } else {
+                    self.provider.updateDatabase(
+                        with: quotesArray,
+                        success: { success(true) },
+                        failure: { error in failure(error) })
                 }
+                
         }, failure: { error in
             failure(error)
         })
     }
     
     func getHistoryCropArray(
-        market: CropMarkets,
         CropCode: String,
+        HistoryPeriod period: HistoryPeriod,
         success: @escaping([CropQuote]) -> Void,
         failure: @escaping(Error) -> Void) {
         
-        let historyRequest = CropRequest(cropRequestType: .getHistoryQutoes, cropMarket: market, historyCropCode: CropCode)
+        guard
+            let string = LoadingTaskKeeper.shared.getMarket(ofKey: .crop),
+            let defaultMarket = CropMarkets(rawValue: string)
+        else {
+            failure(GoToMarketError.MarketError)
+        }
+        
+        let historyRequest = CropRequest(
+            cropRequestType: .getHistoryQutoes(period),
+            cropMarket: defaultMarket,
+            historyCropCode: CropCode)
         
         provider.getCropQuote(
             request: historyRequest,
-            success: { quoteArray in
-                
-                success(quoteArray)
-                
-        }, failure: { error in
-            
-            failure(error)
-        })
-    }
-    
-    
+            success: { quoteArray in success(quoteArray) },
+            failure: { error in failure(error) })
+    } 
 }
