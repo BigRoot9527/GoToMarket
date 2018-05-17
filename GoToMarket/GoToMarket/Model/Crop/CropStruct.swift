@@ -98,38 +98,51 @@ enum CropMarkets:String, MarketEnum {
     }
 }
 
-enum HistoryPeriod {
-    case sinceLastMonth
-    case sinceLastSeason
+enum HistoryPeriod: Int {
+    case fromLastMonth = 1
+    case fromLastSeason = 3
 }
 
 
-enum CropQueryType: OpenDataQueryItemConvertable{
+enum CropQueryType: OpenDataQueryItemConvertable {
     
-    case updateQuote(lastUpdateDate: Date)
-    case getInitailQuotes
-    case getHistoryQutoes
+    case updateQuote(lastUpdateDate: Date?)
+    case getHistoryQutoes(HistoryPeriod)
     
     func getNSURLQueryItem() -> [URLQueryItem]? {
         let fromDateTitle = CropApiConstant.searchFromDate
         let endDateTitle = CropApiConstant.searchEndDate
         switch self {
-        case .updateQuote:
+        
+        case .updateQuote(let date):
+            
             let fromDateItem =
-                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getTodayString())
-            return [fromDateItem]
-        case .getInitailQuotes:
-            let fromDateItem =
-                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getLastWeekString())
+                URLQueryItem(
+                    name: fromDateTitle,
+                    value: TwDateProvider.getUpdateStartDateString(fromLastDate: date))
+            
             let toDateItem =
-                URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
+                URLQueryItem(
+                    name: endDateTitle,
+                    value: TwDateProvider.getTodayString())
+            
             return [fromDateItem,toDateItem]
-        case .getHistoryQutoes:
+            
+            
+        case .getHistoryQutoes(let period):
+            
             let fromDateItem =
-                URLQueryItem(name: fromDateTitle, value: TwDateProvider.getLastMonthString())
+                URLQueryItem(
+                    name: fromDateTitle,
+                    value: TwDateProvider.getMonthsAgoString(fromMonthsAgo: period.rawValue))
+            
             let toDateItem =
-                URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
+                URLQueryItem(
+                    name: endDateTitle,
+                    value: TwDateProvider.getTodayString())
+            
             return [fromDateItem,toDateItem]
+            
         }
     }
 }

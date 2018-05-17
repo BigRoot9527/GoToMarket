@@ -10,13 +10,13 @@ import Foundation
 
 class TwDateProvider {
     
-    static func getUpdateStartDateString(fromLastDate lastDate: Date?) -> String {
+    static func getUpdateStartDateString(fromLastDate lastUpdateDate: Date?) -> String {
         let today = Date()
         guard
-            let lastDay = lastDate,
+            let lastDay = lastUpdateDate,
             let days = daysBetween(lastDate: lastDay, newDate: today),
-            days < 14 else {
-            return getDaysAgoString(fromDaysAgo: 14)
+            days < 7 else {
+            return getDaysAgoString(fromDaysAgo: 7)
         }
         return twDateConverter(inputDate: lastDay)
     }
@@ -26,20 +26,19 @@ class TwDateProvider {
         return twDateConverter(inputDate: today)
     }
     
-    static func getDaysAgoString(fromDaysAgo day: Int) -> String {
-        guard let daysAgo = Calendar.current.date(byAdding: .weekOfYear, value: -day, to: Date()) else {
-            return "error: gettwoWeeksAgoString Fail"
-        }
-        return twDateConverter(inputDate: daysAgo)
-    }
-    
     static func getMonthsAgoString(fromMonthsAgo month: Int) -> String {
         guard let MonthsAgo = Calendar.current.date(byAdding: .month, value: -month, to: Date()) else {
-            return "error: getMonthlyAgoString Fail"
+            return "error: getMonthsAgoString Fail"
         }
         return twDateConverter(inputDate: MonthsAgo)
     }
     
+    private static func getDaysAgoString(fromDaysAgo day: Int) -> String {
+        guard let daysAgo = Calendar.current.date(byAdding: .weekOfYear, value: -day, to: Date()) else {
+            return "error: getDaysAgoString Fail"
+        }
+        return twDateConverter(inputDate: daysAgo)
+    }
     
     private static func daysBetween(lastDate: Date, newDate: Date) -> Int? {
         

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         
         let cropMarketInput = CropMarkets.taichung
-        let cropRequestInput = CropQueryType.getInitailQuotes
+        let cropRequestInput = CropQueryType.updateQuote(lastUpdateDate: nil)
         
         LoadingTaskKeeper.shared.saveMarket(cropMarketInput.rawValue, ofKey: .crop)
         LoadingTaskKeeper.shared.saveQueryType(cropRequestInput.rawValue, ofKey: .crop)
