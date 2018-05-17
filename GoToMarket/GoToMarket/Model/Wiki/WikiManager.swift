@@ -58,7 +58,7 @@ struct WikiManager {
             success: { data in
                                 
             guard
-                let responseString = String(data: data, encoding: String.Encoding.utf8),
+                let responseString = String(data: data, encoding: String.Encoding.utf8) as String? ,
                 responseString != WikiApiConstant.noResponseString
                 else {
                     DispatchQueue.main.async {
@@ -68,6 +68,7 @@ struct WikiManager {
             }
                 DispatchQueue.main.async {
                     success(responseString)
+                    //TODO: replace the utf8 /r/n to NString /n
                 }
         },
             failure: { error in
