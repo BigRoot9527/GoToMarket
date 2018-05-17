@@ -11,44 +11,59 @@ import Foundation
 struct CropManager {
     
     private let provider = CropProvider()
-    
-    let cropRequest: CropRequest
 
-    func accessCropQuote(
-        success: @escaping([CropQuote]?) -> Void,
+    func getCropDataBase(
+        task: CropQueryType,
+        market: CropMarkets,
+        success: @escaping(Bool) -> Void,
         failure: @escaping(Error) -> Void) {
         
+        let dataRequest = CropRequest(cropRequestType: task, cropMarket: market, historyCropCode: nil)
+        
         provider.getCropQuote(
-            request: cropRequest,
+            request: dataRequest,
             success: { cropQuotes in
                 
-                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: self.cropRequest.market.getCustomString())
-            
-                
-                guard let task = self.cropRequest.requestType as? CropQueryType else { return }
+                let quotesArray = self.provider.marketValidate(fromCropArray: cropQuotes, ofMarketString: dataRequest.market.getCustomString())
                 
                 switch task {
-                
-                case CropQueryType.getHistoryQutoes:
-                    success(quotesArray)
-                
+
                 case CropQueryType.getInitailQuotes:
                     self.provider.resetAllData(with: quotesArray,
-                                               success: { success(nil) },
+                                               success: { success(true) },
                                                failure: { error in failure(error) })
                 case CropQueryType.updateQuote:
                     self.provider.updateDatabase(with: quotesArray,
-                                                 success: { success(nil) },
+                                                 success: { success(true) },
                                                  failure: { error in
                                                     failure(error) })
                 default:
-                    break
+                    success(false)
                 }
         }, failure: { error in
             failure(error)
         })
     }
     
+    func getHistoryCropArray(
+        market: CropMarkets,
+        CropCode: String,
+        success: @escaping([CropQuote]) -> Void,
+        failure: @escaping(Error) -> Void) {
+        
+        let historyRequest = CropRequest(cropRequestType: .getHistoryQutoes, cropMarket: market, historyCropCode: CropCode)
+        
+        provider.getCropQuote(
+            request: historyRequest,
+            success: { quoteArray in
+                
+                success(quoteArray)
+                
+        }, failure: { error in
+            
+            failure(error)
+        })
+    }
     
     
 }

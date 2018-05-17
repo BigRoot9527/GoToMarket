@@ -9,9 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let manager = CropManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let cropMarketInput = CropMarkets.taichung
         let cropRequestInput = CropQueryType.getInitailQuotes
@@ -30,11 +33,9 @@ class ViewController: UIViewController {
         let type =  CropQueryType(rawValue: cropRequestOutput)
             else {return}
         
-        let manager = CropManager(cropRequest: .init(cropRequestType: type, cropMarket: market, historyCropCode: nil))
-        
-        manager.accessCropQuote(success: { _ in
-            print("OK")
-        }) {_ in
+        manager.getCropDataBase(task: type, market: market, success: { bool in
+            print(bool)
+        }) { _ in
             print("GG")
         }
     }
