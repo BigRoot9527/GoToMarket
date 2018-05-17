@@ -105,7 +105,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailTableView.delegate = self
         registerCell()
         loadWikiData()
-        updateUI()
     }
     
     private func registerCell() {
@@ -153,11 +152,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
     }
-    
-    private func updateUI() {
-        
-    }
-    
 
     
     @IBAction func didTabCloseButton(_ sender: UIButton) {

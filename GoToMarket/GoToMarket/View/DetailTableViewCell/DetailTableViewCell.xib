@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCell" rowHeight="760" id="qTD-yn-CwB" customClass="DetailTableViewCell" customModule="GoToMarket" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="760"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCell" rowHeight="755" id="qTD-yn-CwB" customClass="DetailTableViewCell" customModule="GoToMarket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="755"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qTD-yn-CwB" id="1hI-2g-iEu">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="759.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="754.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-Uq-6VR">
@@ -26,7 +26,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ZLE-fg-guh"/>
                                 </constraints>
-                                <mutableString key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</mutableString>
+                                <string key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</string>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -280,7 +280,7 @@
                 <outlet property="detailWikiLabel" destination="Wwx-gk-DcQ" id="FO4-0j-Yxk"/>
                 <outlet property="detailWikiScrollView" destination="VEY-Uq-6VR" id="2Dq-Cj-vdx"/>
             </connections>
-            <point key="canvasLocation" x="-32.5" y="174"/>
+            <point key="canvasLocation" x="-32.5" y="171.5"/>
         </tableViewCell>
     </objects>
     <resources>

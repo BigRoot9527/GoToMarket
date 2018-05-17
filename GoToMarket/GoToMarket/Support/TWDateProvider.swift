@@ -9,27 +9,48 @@
 import Foundation
 
 class TwDateProvider {
+    
+    static func getUpdateStartDateString(fromLastDate lastDate: Date?) -> String {
+        let today = Date()
+        guard
+            let lastDay = lastDate,
+            let days = daysBetween(lastDate: lastDay, newDate: today),
+            days < 14 else {
+            return getDaysAgoString(fromDaysAgo: 14)
+        }
+        return twDateConverter(inputDate: lastDay)
+    }
 
     static func getTodayString() -> String {
         let today = Date()
-        return TwDateConverter(inputDate: today)
+        return twDateConverter(inputDate: today)
     }
     
-    static func getLastWeekString() -> String {
-        guard let lastWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: Date()) else {
-            return "error: getLastWeekString Fail"
+    static func getDaysAgoString(fromDaysAgo day: Int) -> String {
+        guard let daysAgo = Calendar.current.date(byAdding: .weekOfYear, value: -day, to: Date()) else {
+            return "error: gettwoWeeksAgoString Fail"
         }
-        return TwDateConverter(inputDate: lastWeek)
+        return twDateConverter(inputDate: daysAgo)
     }
     
-    static func getLastMonthString() -> String {
-        guard let lastMonth = Calendar.current.date(byAdding: .month, value: 1, to: Date()) else {
-            return "error: getLastMonthString Fail"
+    static func getMonthsAgoString(fromMonthsAgo month: Int) -> String {
+        guard let MonthsAgo = Calendar.current.date(byAdding: .month, value: -month, to: Date()) else {
+            return "error: getMonthlyAgoString Fail"
         }
-        return TwDateConverter(inputDate: lastMonth)
+        return twDateConverter(inputDate: MonthsAgo)
     }
     
-    private static func TwDateConverter(inputDate: Date) -> String {
+    
+    private static func daysBetween(lastDate: Date, newDate: Date) -> Int? {
+        
+        let calendar = NSCalendar.current
+        
+        let components = calendar.dateComponents([.day], from: lastDate, to: newDate)
+        
+        return components.day
+    }
+    
+    private static func twDateConverter(inputDate: Date) -> String {
         let calendar = Calendar.current
         let year = calendar.component(.year, from:inputDate)
         let month = calendar.component(.month, from:inputDate)

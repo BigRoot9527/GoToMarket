@@ -115,6 +115,44 @@
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="250.52473763118442"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="fhU-j1-URo">
+            <objects>
+                <viewController id="Pnq-Jd-UC4" customClass="ChartViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OmF-4p-RuH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhB-Wl-ovj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tOY-5I-TGc">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BdZ-cC-Zyy" firstAttribute="bottom" secondItem="UhB-Wl-ovj" secondAttribute="bottom" id="B7P-V0-ilO"/>
+                            <constraint firstItem="UhB-Wl-ovj" firstAttribute="leading" secondItem="BdZ-cC-Zyy" secondAttribute="leading" id="EJ7-zC-woP"/>
+                            <constraint firstItem="UhB-Wl-ovj" firstAttribute="top" secondItem="BdZ-cC-Zyy" secondAttribute="top" id="GQE-ye-BVV"/>
+                            <constraint firstItem="BdZ-cC-Zyy" firstAttribute="trailing" secondItem="UhB-Wl-ovj" secondAttribute="trailing" id="UPk-Ce-kLc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BdZ-cC-Zyy"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="231"/>
+                    <connections>
+                        <outlet property="chartCollectionView" destination="UhB-Wl-ovj" id="C3w-eZ-yBb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUh-TC-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="54"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cancel_icon" width="64" height="64"/>

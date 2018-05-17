@@ -67,6 +67,9 @@
 		32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */; };
 		32BB0C5F209AC450001ECF52 /* CoreDataDemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5E209AC450001ECF52 /* CoreDataDemoTableViewController.swift */; };
 		32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D81CD820AC7B9900514F31 /* ExtensionString.swift */; };
+		32DB8BD320AD9BF300EFE687 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */; };
+		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
+		32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */; };
 		32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */; };
 		32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4862120A7515600DA531C /* TestFoldingViewController.swift */; };
 		32E4862420A7540200DA531C /* ExtensionTestFoldingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */; };
@@ -148,6 +151,9 @@
 		32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionOfNSFetchResultsController.swift; sourceTree = "<group>"; };
 		32BB0C5E209AC450001ECF52 /* CoreDataDemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDemoTableViewController.swift; sourceTree = "<group>"; };
 		32D81CD820AC7B9900514F31 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
+		32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
 		32E4862120A7515600DA531C /* TestFoldingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingViewController.swift; sourceTree = "<group>"; };
 		32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTestFoldingViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 			children = (
 				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
 				3230F3DE20AAB750002812E0 /* DetailViewController.swift */,
+				32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 		326D78F020A5D47100EE0887 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */,
 				3230F3D220AA8E7A002812E0 /* DetailTableViewCell */,
 				3230F3CF20AA8652002812E0 /* QuoteTableViewCell */,
 			);
@@ -441,6 +449,15 @@
 			path = Crop;
 			sourceTree = "<group>";
 		};
+		32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */,
+				32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */,
+			);
+			path = ChartCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		32F1467B20A9441C00D6ACB8 /* TestHero */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +587,7 @@
 				32070B5520A53DD200A6BA27 /* Notes.storyboard in Resources */,
 				32070B6220A5556300A6BA27 /* TabBar.storyboard in Resources */,
 				329BC6D4209700D700CC9096 /* LaunchScreen.storyboard in Resources */,
+				32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */,
 				32070B5320A53DBB00A6BA27 /* TestFolding.storyboard in Resources */,
 				326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */,
 				32070B5920A53E2300A6BA27 /* Settings.storyboard in Resources */,
@@ -674,6 +692,7 @@
 				32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */,
 				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
+				32DB8BD320AD9BF300EFE687 /* ChartViewController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
 				32070B5120A52D6000A6BA27 /* CustomTableViewCell.swift in Sources */,
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
@@ -682,6 +701,7 @@
 				32070B5E20A5524F00A6BA27 /* MarketTableViewController.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
+				32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */,
 				32F87A2C20A19BAB005207CD /* IngredientStruct.swift in Sources */,
 				32F1468A20A949CE00D6ACB8 /* HeroDetailTableViewCell.swift in Sources */,
 				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
@@ -851,7 +871,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -867,7 +890,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

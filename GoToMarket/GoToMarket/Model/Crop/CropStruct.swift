@@ -98,10 +98,15 @@ enum CropMarkets:String, MarketEnum {
     }
 }
 
+enum HistoryPeriod {
+    case sinceLastMonth
+    case sinceLastSeason
+}
 
-enum CropQueryType:String, OpenDataQueryItemConvertable{
+
+enum CropQueryType: OpenDataQueryItemConvertable{
     
-    case updateQuote
+    case updateQuote(lastUpdateDate: Date)
     case getInitailQuotes
     case getHistoryQutoes
     
@@ -126,10 +131,6 @@ enum CropQueryType:String, OpenDataQueryItemConvertable{
                 URLQueryItem(name: endDateTitle, value: TwDateProvider.getTodayString())
             return [fromDateItem,toDateItem]
         }
-    }
-    
-    static func getAllQueryTypes() -> [String] {
-        return [self.getHistoryQutoes.rawValue, self.getInitailQuotes.rawValue, self.updateQuote.rawValue]
     }
 }
 

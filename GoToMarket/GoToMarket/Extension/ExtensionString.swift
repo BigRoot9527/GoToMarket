@@ -45,7 +45,16 @@ extension String {
             .urlQueryAllowed)
         return encodeUrlString ?? ""
     }
-    func urlDecoded() -> String {
+    
+    public func urlDecoded() -> String {
         return self.removingPercentEncoding ?? ""
     }
+    
+    public func trimedEscaping() -> String {
+        let trimedR = self.replacingOccurrences(of: "\\r", with: "")
+        let trimedN = trimedR.replacingOccurrences(of: "\\n", with: "\n")
+        return trimedN
+    }
+    
+    
 }

@@ -67,7 +67,7 @@ struct WikiManager {
                     return
             }
                 DispatchQueue.main.async {
-                    success(responseString)
+                    success(responseString.trimedEscaping())
                     //TODO: replace the utf8 /r/n to NString /n
                 }
         },
