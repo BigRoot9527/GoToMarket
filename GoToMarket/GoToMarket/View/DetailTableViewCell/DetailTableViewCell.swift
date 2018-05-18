@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol DetailTableViewCellDelegate: class {
-    func priceInfoButtonTapped(sender: UIButton)
-    func buyingButtonTapped(sender: UIButton, inChart: Bool)
-    func changeWeightButtonTapped(sender: UIButton, showingInKg: Bool)
-    func dropDownButtonTapped(sender: UIButton, isExpended: Bool)
-}
 
 class DetailTableViewCell: UITableViewCell {
     
@@ -67,10 +61,10 @@ class DetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailWikiImageView: UIImageView!
     @IBOutlet weak var detailNameLabel: UILabel!
-    @IBOutlet weak var detailDropDownButton: UIButton!
+    @IBOutlet weak var detailDropDownButton: UIButton!//
     @IBOutlet weak var detailBuyingButton: UIButton!
     
-    @IBOutlet weak var detailWikiScrollView: UIScrollView!
+    @IBOutlet weak var detailWikiScrollView: UIScrollView!//
     @IBOutlet weak var detailWikiLabel: UILabel!
     
     @IBOutlet weak var detailQuoteInfoView: UIView!
@@ -79,7 +73,7 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var detailUpdateTimeLabel: UILabel!
     @IBOutlet weak var detailMarketLabel: UILabel!
     @IBOutlet weak var detailPriceInfoButton: UIButton!
-    @IBOutlet weak var detailWeightTypeLabel: UILabel!
+    @IBOutlet weak var detailWeightTypeLabel: UILabel!//
     @IBOutlet weak var detailChangeWeightButton: UIButton!
     
     

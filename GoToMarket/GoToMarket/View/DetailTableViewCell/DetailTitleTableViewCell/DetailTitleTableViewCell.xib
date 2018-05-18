@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="314" id="ULt-Pj-jlM" customClass="DetailTitleTableViewCell" customModule="GoToMarket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="314"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ULt-Pj-jlM" id="3Xf-iR-rmo">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="313.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-n8-S2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="313.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xi-2C-dnA">
+                                <rect key="frame" x="20" y="264.5" width="151" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="TIR-IA-k8s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-8G-ekL">
+                                <rect key="frame" x="315" y="266.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4cI-gA-1ns"/>
+                                    <constraint firstAttribute="height" constant="30" id="N5E-Ke-fuD"/>
+                                </constraints>
+                                <state key="normal" image="noShopping"/>
+                                <state key="selected" image="shopping-cart-3"/>
+                                <connections>
+                                    <action selector="didTapBuyingButton:" destination="ULt-Pj-jlM" eventType="touchUpInside" id="Xgo-hX-sGH"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_1" translatesAutoresizingMaskIntoConstraints="NO" id="iwq-cM-EHC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iwq-cM-EHC" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" id="47y-8g-MLX"/>
+                            <constraint firstItem="iwq-cM-EHC" firstAttribute="top" secondItem="JWt-n8-S2J" secondAttribute="top" id="CeI-te-Vgj"/>
+                            <constraint firstAttribute="trailing" secondItem="iwq-cM-EHC" secondAttribute="trailing" id="Czl-yc-djU"/>
+                            <constraint firstItem="1Xi-2C-dnA" firstAttribute="top" secondItem="iwq-cM-EHC" secondAttribute="bottom" constant="15" id="Lg0-1c-vUB"/>
+                            <constraint firstItem="1Xi-2C-dnA" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" constant="20" id="ea1-Ut-VGf"/>
+                            <constraint firstAttribute="bottom" secondItem="1Xi-2C-dnA" secondAttribute="bottom" constant="15" id="teg-xg-oQz"/>
+                            <constraint firstItem="bPW-8G-ekL" firstAttribute="centerY" secondItem="1Xi-2C-dnA" secondAttribute="centerY" id="uGc-aO-lYt"/>
+                            <constraint firstAttribute="trailing" secondItem="bPW-8G-ekL" secondAttribute="trailing" constant="30" id="zO0-iQ-tr5"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="JWt-n8-S2J" secondAttribute="trailing" id="9kj-T1-u8E"/>
+                    <constraint firstAttribute="bottom" secondItem="JWt-n8-S2J" secondAttribute="bottom" id="YS2-85-mhS"/>
+                    <constraint firstItem="JWt-n8-S2J" firstAttribute="top" secondItem="3Xf-iR-rmo" secondAttribute="top" id="cza-sG-6YW"/>
+                    <constraint firstItem="JWt-n8-S2J" firstAttribute="leading" secondItem="3Xf-iR-rmo" secondAttribute="leading" id="pJM-5b-5p6"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="detailBuyingButton" destination="bPW-8G-ekL" id="Nag-xx-ylw"/>
+                <outlet property="detailNameLabel" destination="1Xi-2C-dnA" id="Snm-RU-JiH"/>
+                <outlet property="detailWikiImageView" destination="iwq-cM-EHC" id="Hv1-a4-Fj6"/>
+            </connections>
+            <point key="canvasLocation" x="-30" y="-42"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="noShopping" width="64" height="64"/>
+        <image name="pic_1" width="940" height="627"/>
+        <image name="shopping-cart-3" width="64" height="64"/>
+    </resources>
+</document>
