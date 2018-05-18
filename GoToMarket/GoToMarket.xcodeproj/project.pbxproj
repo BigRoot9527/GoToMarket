@@ -58,6 +58,7 @@
 		329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F0209971FF00CC9096 /* GoToMarketError.swift */; };
 		329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F220997D3C00CC9096 /* HTTPClient.swift */; };
 		329BC6F6209986EF00CC9096 /* CropProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6F5209986EF00CC9096 /* CropProvider.swift */; };
+		32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
@@ -140,6 +141,7 @@
 		329BC6F0209971FF00CC9096 /* GoToMarketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketError.swift; sourceTree = "<group>"; };
 		329BC6F220997D3C00CC9096 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		329BC6F5209986EF00CC9096 /* CropProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropProvider.swift; sourceTree = "<group>"; };
+		32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionArray.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */,
 				32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */,
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
+				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				32F87A2A20A19AA6005207CD /* IngredientConstant.swift in Sources */,
 				3230F3D820AAB242002812E0 /* DetailTableViewCell.swift in Sources */,
 				327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */,
+				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
 				32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,

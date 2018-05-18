@@ -95,6 +95,15 @@ enum CropMarkets:String, MarketEnum {
 enum HistoryPeriod: Int {
     case fromLastMonth = 1
     case fromLastSeason = 3
+    
+    func getLineChartLabelText() -> String {
+        switch self {
+        case .fromLastMonth:
+            return GoToMarketConstant.oneMonthChartLabelName
+        case .fromLastSeason:
+            return GoToMarketConstant.oneSeasonChartLabelName
+        }
+    }
 }
 
 

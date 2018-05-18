@@ -7,12 +7,67 @@
 //
 
 import UIKit
+import Charts
 
 class ChartCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var chartView: LineChartView!
+    
+    
+    
+    func setChart(dataPoints: [String], values: [Double], period: HistoryPeriod) {
+        
+        let average = values.average
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(
+            values: dataEntries,
+            label: period.getLineChartLabelText())
+        
+        lineChartDataSet.setColor(GoToMarketColor.newLightBlueGreen.color())
+        lineChartDataSet.mode = .cubicBezier
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.drawValuesEnabled = false
+        lineChartDataSet.lineWidth = 3.0
+        
+        let averageLine = ChartLimitLine(
+            limit: average,
+            label:
+                GoToMarketConstant.lineCharLimitLineNamePrefix
+                    + String(format:"%.2f", average)
+                    + GoToMarketConstant.lineCharLimitLineNamePostfix
+        )
+        averageLine.lineWidth = 1.5
+        averageLine.lineDashLengths = [5,5]
+        averageLine.labelPosition = .rightTop
+        averageLine.valueFont = .systemFont(ofSize: 12)
+        averageLine.valueTextColor = GoToMarketColor.newOrange.color()
+        averageLine.lineColor = GoToMarketColor.newOrange.color()
+        
+        
 
-    @IBOutlet weak var chartView: BarChartView!
+        
+        var dataSets = [IChartDataSet]()
+        dataSets.append(lineChartDataSet)
+        
+        let lineChartData = LineChartData(dataSets: dataSets)
+        
+        chartView.data = lineChartData
+        chartView.leftAxis.addLimitLine(averageLine)
+        
+        let fromDate = dataPoints.first ?? ""
+        let toDate = dataPoints.last ?? ""
+        chartView.chartDescription?.text =
+            GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
+    }
+    
+    
     
     
 }

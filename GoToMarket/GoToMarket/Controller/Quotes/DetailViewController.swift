@@ -48,9 +48,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = detailTableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self), for: indexPath) as! DetailTableViewCell
+        let cell = detailTableView.dequeueReusableCell(
+            withIdentifier: String(describing: DetailTableViewCell.self),
+            for: indexPath) as! DetailTableViewCell
+        
         
         guard let crop = objectPassed, let note = crop.note else { return UITableViewCell() }
+        //TODO: to return loading image
         
         cell.delegate = self
         
@@ -77,6 +81,27 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             inWeightType: showingWeightType)
         cell.detailWeightTypeLabel.text = showingWeightType.rawValue
 //        cell.detailHistoryPriceView
+        
+        let chartVC = storyboard?.instantiateViewController(withIdentifier: String(describing: ChartViewController.self)) as! ChartViewController
+        
+        addChildViewController(chartVC)
+        
+        chartVC.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        cell.detailHistoryPriceContentView.addSubview(chartVC.view)
+        
+        NSLayoutConstraint.activate([
+            
+            chartVC.view.topAnchor.constraint(equalTo: cell.detailHistoryPriceContentView.topAnchor),
+            chartVC.view.leadingAnchor.constraint(equalTo: cell.detailHistoryPriceContentView.leadingAnchor),
+            chartVC.view.bottomAnchor.constraint(equalTo: cell.detailHistoryPriceContentView.bottomAnchor),
+            chartVC.view.trailingAnchor.constraint(equalTo: cell.detailHistoryPriceContentView.trailingAnchor)
+            
+        ])
+        
+        chartVC.didMove(toParentViewController: self)
+        
+        chartVC.itemCode = crop.cropCode
         
         return cell
     }

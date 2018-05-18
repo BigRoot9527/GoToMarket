@@ -8,6 +8,8 @@
 
 struct WikiApiConstant {
 
+    //TODO: get data from real Wiki REST api
+    //https://zh.wikipedia.org/api/rest_v1/page/summary/香蕉
     static let wikiImageBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/pageimage/"
 
     static let wikiTextBaseUrl = "http://signalr.tn.edu.tw/OWikipedia/api/abstract/"
@@ -15,5 +17,6 @@ struct WikiApiConstant {
     static let regexForImageUrl = "(http[^\\s]+(jpg|jpeg|png|tiff)\\b)"
     
     static let noResponseString = "null"
+    
     
 }

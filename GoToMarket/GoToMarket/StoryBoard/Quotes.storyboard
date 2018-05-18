@@ -118,15 +118,15 @@
         <!--Chart View Controller-->
         <scene sceneID="fhU-j1-URo">
             <objects>
-                <viewController id="Pnq-Jd-UC4" customClass="ChartViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartViewController" id="Pnq-Jd-UC4" customClass="ChartViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OmF-4p-RuH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhB-Wl-ovj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhB-Wl-ovj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tOY-5I-TGc">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gah-Q6-xwu">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -144,14 +144,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BdZ-cC-Zyy"/>
                     </view>
-                    <size key="freeformSize" width="375" height="231"/>
+                    <size key="freeformSize" width="375" height="221"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="chartCollectionView" destination="UhB-Wl-ovj" id="C3w-eZ-yBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUh-TC-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="54"/>
+            <point key="canvasLocation" x="1438" y="56"/>
         </scene>
     </scenes>
     <resources>

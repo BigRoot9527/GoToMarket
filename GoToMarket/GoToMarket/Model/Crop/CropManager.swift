@@ -33,6 +33,7 @@ struct CropManager {
         else {
             guard let inputMarket = marketInput else {
                 failure(GoToMarketError.MarketError)
+                return
             }
             requestMarket = inputMarket
             isFirstTimeUpdate = true
@@ -54,7 +55,7 @@ struct CropManager {
                 //Set update time to today
                 LoadingTaskKeeper.shared.saveUpdateDate(ofKey: .crop)
                 //Set the Crop market first time ( if defaul market = nil & market been input )
-                LoadingTaskKeeper.shared.saveMarket(usedMarket.rawValue, ofKey: .crop)
+                LoadingTaskKeeper.shared.saveMarket(requestMarket.rawValue, ofKey: .crop)
                 
                 if isFirstTimeUpdate {
                     self.provider.resetAllData(
@@ -84,6 +85,7 @@ struct CropManager {
             let defaultMarket = CropMarkets(rawValue: string)
         else {
             failure(GoToMarketError.MarketError)
+            return
         }
         
         let historyRequest = CropRequest(
@@ -93,7 +95,7 @@ struct CropManager {
         
         provider.getCropQuote(
             request: historyRequest,
-            success: { quoteArray in success(quoteArray) },
+            success: { quoteArray in success(quoteArray.reversed()) },
             failure: { error in failure(error) })
     } 
 }

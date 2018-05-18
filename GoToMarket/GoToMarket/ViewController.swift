@@ -15,29 +15,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let cropMarketInput = CropMarkets.taichung
-        let cropRequestInput = CropQueryType.updateQuote(lastUpdateDate: nil)
-        
-        LoadingTaskKeeper.shared.saveMarket(cropMarketInput.rawValue, ofKey: .crop)
-        LoadingTaskKeeper.shared.saveQueryType(cropRequestInput.rawValue, ofKey: .crop)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        guard
-        let cropMarketOutput = LoadingTaskKeeper.shared.getMarket(ofKey: .crop) ,
-        let cropRequestOutput = LoadingTaskKeeper.shared.getQueryType(ofKey: .crop),
-        let market = CropMarkets(rawValue: cropMarketOutput),
-        let type =  CropQueryType(rawValue: cropRequestOutput)
-            else {return}
-        
-        manager.getCropDataBase(task: type, market: market, success: { bool in
+        manager.getCropDataBase(fromMarket: .taipei, success: { (bool) in
             print(bool)
-        }) { _ in
-            print("GG")
+        }) { (error) in
+            print(error)
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

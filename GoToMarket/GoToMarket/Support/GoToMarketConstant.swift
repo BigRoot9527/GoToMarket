@@ -18,6 +18,16 @@ class GoToMarketConstant {
     
     static let detailDropDownDuration: TimeInterval = 0.3
     
+    static let oneMonthChartLabelName: String = "近一月內批發均價"
+    
+    static let oneSeasonChartLabelName: String = "近三月內批發均價"
+    
+    static let lineCharLimitLineNamePrefix: String = "平均："
+    
+    static let lineCharLimitLineNamePostfix: String = "元／Kg"
+    
+    static let lineChartDescriptionString: String = "資料顯示日期："
+    
     
     
 }
