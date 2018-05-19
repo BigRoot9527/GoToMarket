@@ -266,10 +266,8 @@
 		3230F3DB20AAB67B002812E0 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				32B1E39220AEEA5100336B09 /* DetailRowType.swift */,
-				3230F3DE20AAB750002812E0 /* DetailViewController.swift */,
 				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
-				32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */,
+				32B1E39720AFF73200336B09 /* Detail */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -500,6 +498,16 @@
 				32B1E38E20AED57100336B09 /* DetailHistoryTableViewCell.xib */,
 			);
 			path = DetailHistoryTableViewCell;
+			sourceTree = "<group>";
+		};
+		32B1E39720AFF73200336B09 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */,
+				3230F3DE20AAB750002812E0 /* DetailViewController.swift */,
+				32B1E39220AEEA5100336B09 /* DetailRowType.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */ = {

@@ -76,6 +76,7 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     private func setCollectionViewLayout() {
+        
         let fullScreenSize = UIScreen.main.bounds.size
         ChartViewFlowLayout.itemSize = CGSize(width: fullScreenSize.width - 7, height: 210.0)
         ChartViewFlowLayout.minimumInteritemSpacing = (fullScreenSize.width) * 0 / 375
