@@ -54,7 +54,9 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         //MARK: TODO
         cell.inBuyingChart = true
         
-        cell.hero.modifiers = [.useNoSnapshot]
+        cell.contentView.hero.id = nil
+        
+        cell.hero.isEnabled = false
         
         return cell
     }
@@ -66,6 +68,11 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
+        
+        quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = true
+        
+        quotesTableView.cellForRow(at: indexPath)?.contentView.hero.id = "titleCellView"
+    
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
         
@@ -79,6 +86,14 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
+        
+        quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
+        
+    }
+    
     
     
     
@@ -87,9 +102,11 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
+        self.hero.isEnabled = true
         registerCell()
         fetchData()
         updateUI()
+//        quotesTableView.hero.modifiers = [HeroModifier.whenPresenting(.fade)]
     }
     
     private func updateUI() {

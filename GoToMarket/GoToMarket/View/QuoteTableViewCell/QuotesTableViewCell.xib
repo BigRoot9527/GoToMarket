@@ -54,9 +54,6 @@
                             <constraint firstItem="eMU-p0-laf" firstAttribute="top" secondItem="FEg-YA-b0j" secondAttribute="top" constant="8" id="mP5-NS-Vs7"/>
                             <constraint firstItem="eQq-To-6gd" firstAttribute="centerY" secondItem="FEg-YA-b0j" secondAttribute="centerY" id="tmI-Vj-IoO"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
