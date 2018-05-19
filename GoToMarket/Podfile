@@ -14,6 +14,7 @@ target 'GoToMarket' do
   pod 'RAMAnimatedTabBarController'
   pod 'Hero'
   pod 'Charts'
+  pod 'lottie-ios'
 
 
 end

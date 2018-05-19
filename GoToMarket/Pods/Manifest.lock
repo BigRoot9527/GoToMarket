@@ -6,6 +6,7 @@ PODS:
   - Charts/Core (3.1.1)
   - FoldingCell (3.0.6)
   - Hero (1.2.0)
+  - lottie-ios (2.5.0)
   - RAMAnimatedTabBarController (3.1.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - Charts
   - FoldingCell
   - Hero
+  - lottie-ios
   - RAMAnimatedTabBarController
   - SDWebImage
   - TransitionButton
@@ -29,6 +31,7 @@ SPEC REPOS:
     - Charts
     - FoldingCell
     - Hero
+    - lottie-ios
     - RAMAnimatedTabBarController
     - SDWebImage
     - TransitionButton
@@ -39,10 +42,11 @@ SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   RAMAnimatedTabBarController: 3c40472db54eda74d465583f8c7f571b206c54d6
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   TransitionButton: d271030914c84a00b54b4d983446944d2875e7ba
 
-PODFILE CHECKSUM: 2c000f29a2f66cc92b1b2547625faa3dd7597fd1
+PODFILE CHECKSUM: 860987ed296c63ebcd2d14772b9ad598a8405a11
 
 COCOAPODS: 1.5.0
