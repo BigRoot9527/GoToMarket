@@ -5,14 +5,14 @@
 //  Created by 許庭瑋 on 2018/5/19.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
-
+import TransitionButton
 import UIKit
 
 class MarketSettingViewController: UIViewController, MarketsTableViewControllerDelegate {
     
     @IBOutlet weak var itemTypeImageView: UIImageView!
     @IBOutlet weak var noticeLabel: UILabel!
-    @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var enterButton: TransitionButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var marketsView: UIView!
     
@@ -108,30 +108,56 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
         
         if isFirstTime {
             
-            startLoadData()
+            startLoadData(ofMarket: willLoadMarket)
             
         } else {
             
             makeComfirm()
-            
         }
     }
     
     @IBAction func didTapCancelButton(_ sender: UIButton) {
         
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    private func startLoadData() {
+    private func startLoadData(ofMarket marketString: String) {
         
         noticeLabel.textColor = UIColor.black
         
         noticeLabel.text = GoToMarketConstant.loadingText
         
+        cancelButton.isEnabled = false
         
+        cancelButton.isEnabled = false
+        
+        enterButton.startAnimation()
+        
+        //TODO: Make other itemType manager & marketEnum swichable
+        let manager = CropManager()
+        
+        let market = CropMarkets(rawValue: marketString)
+        
+        manager.getCropDataBase(fromMarket: market, success: { [weak self] isSucceeded in
+            
+            self?.enterButton.stopAnimation(animationStyle: .expand, completion: {
+                
+                self?.dismiss(animated: true, completion: nil)
+            })
+        }) { [weak self] error in
+            
+            self?.noticeLabel.text = error.localizedDescription
+            
+            self?.enterButton.stopAnimation(
+                animationStyle: .shake,
+                revertAfterDelay: 1000,
+                completion: {
+                
+                    self?.setupUI()
+            })
+
+        }
         
     }
-    
-    
     
 }
