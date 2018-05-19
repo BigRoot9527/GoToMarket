@@ -9,6 +9,7 @@
 import Foundation
 
 enum TaskKeys {
+    
     case crop
     case pig
     case chicken
@@ -38,10 +39,20 @@ enum TaskKeys {
     func getMarketsOfItem() -> [String] {
         switch self {
         case .crop:
-            return 
+            return CropMarkets.allValues.map{ $0.rawValue.capitalized }
         default:
-            return CropMarkets
+            return [ "地區一", " 地區二", "地區三" ]
         }
     }
-    static let allCases = [crop]
+    
+    func getTaskItemTypeName() -> String {
+        switch self {
+        case .crop:
+            return GoToMarketConstant.itemTypeNameForCrops
+        default:
+            return "喵喵"
+        }
+    }
+    
+    static let allCases = [crop, pig, chicken]
 }

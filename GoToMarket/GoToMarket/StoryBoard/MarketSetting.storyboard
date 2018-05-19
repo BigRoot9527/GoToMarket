@@ -39,7 +39,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92e-JF-QIz">
                                         <rect key="frame" x="0.0" y="295" width="275" height="192"/>
                                         <connections>
-                                            <segue destination="otG-tn-gsg" kind="embed" id="OfE-oE-CLs"/>
+                                            <segue destination="otG-tn-gsg" kind="embed" identifier="SegueToMarketsTVC" id="OfE-oE-CLs"/>
                                         </connections>
                                     </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇農產品資料來源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-Lb-3By">
@@ -59,12 +59,18 @@
                                                 <color key="backgroundColor" red="0.086274509799999996" green="0.81960784310000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="確定"/>
+                                                <connections>
+                                                    <action selector="didTapEnterButton:" destination="9n1-bd-vEB" eventType="touchUpInside" id="fgd-yG-peG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBP-vc-zkk">
                                                 <rect key="frame" x="137.5" y="0.0" width="108.5" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="取消"/>
+                                                <connections>
+                                                    <action selector="didTapCancelButton:" destination="9n1-bd-vEB" eventType="touchUpInside" id="OmP-wi-N2D"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -108,9 +114,9 @@
                     <connections>
                         <outlet property="cancelButton" destination="rBP-vc-zkk" id="rC5-Sr-Kqr"/>
                         <outlet property="enterButton" destination="gwh-R3-Ddz" id="Tud-Df-viB"/>
-                        <outlet property="itemInfoLabel" destination="Deg-Lb-3By" id="9gI-UL-tiF"/>
                         <outlet property="itemTypeImageView" destination="Rz3-jU-xo7" id="SdN-q0-Aec"/>
                         <outlet property="marketsView" destination="92e-JF-QIz" id="Uid-lN-d4U"/>
+                        <outlet property="noticeLabel" destination="Deg-Lb-3By" id="9gI-UL-tiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5g-Bz-QbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="275" height="192"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" textLabel="erQ-93-ypZ" style="IBUITableViewCellStyleDefault" id="J3W-da-HkD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="marketCell" textLabel="erQ-93-ypZ" style="IBUITableViewCellStyleDefault" id="J3W-da-HkD">
                                         <rect key="frame" x="0.0" y="28" width="275" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J3W-da-HkD" id="J7U-Sk-1ih">
@@ -158,10 +164,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zff-ZE-RnL"/>
                     </view>
+                    <connections>
+                        <outlet property="marketsTableView" destination="TVZ-7b-dOt" id="UtZ-kS-A6N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPP-6P-3KN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="-9"/>
+            <point key="canvasLocation" x="903" y="24"/>
         </scene>
     </scenes>
     <resources>

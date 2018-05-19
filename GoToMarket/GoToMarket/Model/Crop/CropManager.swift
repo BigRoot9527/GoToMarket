@@ -50,7 +50,7 @@ struct CropManager {
                 
                 let quotesArray = self.provider.marketValidate(
                     fromCropArray: cropQuotes,
-                    ofMarketString: dataRequest.market.getCustomString())
+                    ofMarketString: requestMarket.rawValue)
                 
                 //Set update time to today
                 LoadingTaskKeeper.shared.saveUpdateDate(ofKey: .crop)

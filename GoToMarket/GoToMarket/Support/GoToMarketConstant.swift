@@ -30,6 +30,22 @@ class GoToMarketConstant {
     
     static let lineChartDescriptionString: String = "資料顯示日期："
     
+    static let noMarketsDataText: String = "沒有市場資料"
+    
+    static let alreadyLoadedMarket: String = " (目前設定)"
+    
+    static let plzMakeChoiceText: String = "請選擇"
+    
+    static let informationSourceText: String = "資料來源"
+    
+    static let loadingText: String = "載入中"
+    
+    static let allowEnterButtonTitle: String = "確定"
+    
+    static let plzChooseAMarketWarning: String = "請選擇資料來源市場"
+    
+    static let itemTypeNameForCrops: String = "『農作物』"
+    
     
     
 }

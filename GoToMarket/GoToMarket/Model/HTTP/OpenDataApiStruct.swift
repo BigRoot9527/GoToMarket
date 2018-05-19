@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MarketEnum: OpenDataQueryItemConvertable {
-    func getCustomString() -> String
+    func getItemTypeName() -> String
 }
 
 protocol OpenDataQueryItemConvertable {
