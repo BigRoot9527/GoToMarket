@@ -42,7 +42,7 @@ struct CropRequest: OpenDataRequest {
     
 }
 
-enum CropMarkets:String, MarketEnum {
+enum CropMarkets:String, MarketEnum, EnumCollection {
 
     case taipei
     case tauyuan

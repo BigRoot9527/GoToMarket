@@ -1,23 +1,22 @@
 //
-//  MarketSelectionViewController.swift
+//  MarketsTableViewController.swift
 //  GoToMarket
 //
-//  Created by 許庭瑋 on 2018/5/11.
+//  Created by 許庭瑋 on 2018/5/19.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
 
 import UIKit
 
-class MarketTableViewController: UITableViewController {
+class MarketsTableViewController: UITableViewController {
 
+    
+    var itemTypePassed: TaskKeys?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {

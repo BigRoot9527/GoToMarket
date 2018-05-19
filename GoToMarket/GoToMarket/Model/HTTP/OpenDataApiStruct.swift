@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MarketEnum: OpenDataQueryItemConvertable{
+protocol MarketEnum: OpenDataQueryItemConvertable {
     func getCustomString() -> String
 }
 

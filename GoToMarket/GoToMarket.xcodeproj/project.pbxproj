@@ -14,7 +14,6 @@
 		32070B5520A53DD200A6BA27 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5420A53DD200A6BA27 /* Notes.storyboard */; };
 		32070B5720A53E0000A6BA27 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5620A53E0000A6BA27 /* Detail.storyboard */; };
 		32070B5920A53E2300A6BA27 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5820A53E2300A6BA27 /* Settings.storyboard */; };
-		32070B5E20A5524F00A6BA27 /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B5D20A5524F00A6BA27 /* MarketTableViewController.swift */; };
 		32070B6220A5556300A6BA27 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B6120A5556300A6BA27 /* TabBar.storyboard */; };
 		32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6320A5616800A6BA27 /* TabBarViewController.swift */; };
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
@@ -40,7 +39,7 @@
 		327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */; };
 		327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */; };
 		327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0220A0566400B3EEE9 /* NoteManager.swift */; };
-		327E1B6720A1F7F60020511A /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327E1B6620A1F7F60020511A /* Selection.storyboard */; };
+		327E1B6720A1F7F60020511A /* MarketSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327E1B6620A1F7F60020511A /* MarketSetting.storyboard */; };
 		327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */; };
 		327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */; };
 		329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329BC6C6209700D600CC9096 /* AppDelegate.swift */; };
@@ -67,6 +66,9 @@
 		32B1E38F20AED57100336B09 /* DetailHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32B1E38E20AED57100336B09 /* DetailHistoryTableViewCell.xib */; };
 		32B1E39120AED98100336B09 /* DetailTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */; };
 		32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39220AEEA5100336B09 /* DetailRowType.swift */; };
+		32B1E39A20B02AC900336B09 /* MarketSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39920B02AC900336B09 /* MarketSettingViewController.swift */; };
+		32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39D20B02C2B00336B09 /* MarketsTableViewController.swift */; };
+		32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39F20B034B100336B09 /* EnumCollection.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
@@ -103,7 +105,6 @@
 		32070B5420A53DD200A6BA27 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
 		32070B5620A53E0000A6BA27 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		32070B5820A53E2300A6BA27 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		32070B5D20A5524F00A6BA27 /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		32070B6120A5556300A6BA27 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		32070B6320A5616800A6BA27 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
@@ -129,7 +130,7 @@
 		327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteConstant.swift; sourceTree = "<group>"; };
 		327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteProvider.swift; sourceTree = "<group>"; };
 		327A4E0220A0566400B3EEE9 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
-		327E1B6620A1F7F60020511A /* Selection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Selection.storyboard; sourceTree = "<group>"; };
+		327E1B6620A1F7F60020511A /* MarketSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketSetting.storyboard; sourceTree = "<group>"; };
 		327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndexStruct.swift; sourceTree = "<group>"; };
 		327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTaskKeeper.swift; sourceTree = "<group>"; };
 		329BC6C3209700D600CC9096 /* GoToMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +159,9 @@
 		32B1E38E20AED57100336B09 /* DetailHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		32B1E39220AEEA5100336B09 /* DetailRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRowType.swift; sourceTree = "<group>"; };
+		32B1E39920B02AC900336B09 /* MarketSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketSettingViewController.swift; sourceTree = "<group>"; };
+		32B1E39D20B02C2B00336B09 /* MarketsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsTableViewController.swift; sourceTree = "<group>"; };
+		32B1E39F20B034B100336B09 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,19 +207,11 @@
 		32070B5C20A551D600A6BA27 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				32B1E39820B023E100336B09 /* MarketSetting */,
 				326D78EF20A5D42500EE0887 /* TabBar */,
 				3230F3DB20AAB67B002812E0 /* Quotes */,
-				32070B5F20A554DE00A6BA27 /* Selection */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		32070B5F20A554DE00A6BA27 /* Selection */ = {
-			isa = PBXGroup;
-			children = (
-				32070B5D20A5524F00A6BA27 /* MarketTableViewController.swift */,
-			);
-			path = Selection;
 			sourceTree = "<group>";
 		};
 		32070B6520A566C900A6BA27 /* Extension */ = {
@@ -238,6 +234,7 @@
 				329BC6F0209971FF00CC9096 /* GoToMarketError.swift */,
 				32BB0C5220999814001ECF52 /* TWDateProvider.swift */,
 				3230F3E520AAD1CA002812E0 /* PriceStringProvider.swift */,
+				32B1E39F20B034B100336B09 /* EnumCollection.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -360,7 +357,7 @@
 				32070B5420A53DD200A6BA27 /* Notes.storyboard */,
 				32070B5820A53E2300A6BA27 /* Settings.storyboard */,
 				32070B5620A53E0000A6BA27 /* Detail.storyboard */,
-				327E1B6620A1F7F60020511A /* Selection.storyboard */,
+				327E1B6620A1F7F60020511A /* MarketSetting.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -508,6 +505,15 @@
 				32B1E39220AEEA5100336B09 /* DetailRowType.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		32B1E39820B023E100336B09 /* MarketSetting */ = {
+			isa = PBXGroup;
+			children = (
+				32B1E39920B02AC900336B09 /* MarketSettingViewController.swift */,
+				32B1E39D20B02C2B00336B09 /* MarketsTableViewController.swift */,
+			);
+			path = MarketSetting;
 			sourceTree = "<group>";
 		};
 		32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */ = {
@@ -662,7 +668,7 @@
 				32070B5720A53E0000A6BA27 /* Detail.storyboard in Resources */,
 				32F1468420A947FA00D6ACB8 /* TestHero.storyboard in Resources */,
 				329BC6CC209700D600CC9096 /* MainTab.storyboard in Resources */,
-				327E1B6720A1F7F60020511A /* Selection.storyboard in Resources */,
+				327E1B6720A1F7F60020511A /* MarketSetting.storyboard in Resources */,
 				3230F3D120AA86C0002812E0 /* QuotesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,6 +753,7 @@
 				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
 				32F87A2E20A1A296005207CD /* BuyinListStruct.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
+				32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */,
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
 				32F87A2820A18437005207CD /* BuyingListConstant.swift in Sources */,
 				32F87A2A20A19AA6005207CD /* IngredientConstant.swift in Sources */,
@@ -765,7 +772,6 @@
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
 				32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */,
 				327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */,
-				32070B5E20A5524F00A6BA27 /* MarketTableViewController.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
 				32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */,
@@ -780,6 +786,7 @@
 				327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */,
 				32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */,
 				326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */,
+				32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */,
 				32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */,
 				32F87A2420A173C7005207CD /* Ingredient+CoreDataProperties.swift in Sources */,
 				32B1E38520AED4F400336B09 /* DetailIntroTableViewCell.swift in Sources */,
@@ -790,6 +797,7 @@
 				329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */,
 				32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */,
 				329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */,
+				32B1E39A20B02AC900336B09 /* MarketSettingViewController.swift in Sources */,
 				3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */,
 				327A4DF8209C48D200B3EEE9 /* BuyingList+CoreDataProperties.swift in Sources */,
 			);

@@ -34,5 +34,14 @@ enum TaskKeys {
             return "Chicken-Market"
         }
     }
+    
+    func getMarketsOfItem() -> [String] {
+        switch self {
+        case .crop:
+            return 
+        default:
+            return CropMarkets
+        }
+    }
     static let allCases = [crop]
 }
