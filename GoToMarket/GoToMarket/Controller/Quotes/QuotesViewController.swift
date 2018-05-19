@@ -54,6 +54,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         //MARK: TODO
         cell.inBuyingChart = true
         
+        cell.hero.modifiers = [.useNoSnapshot]
+        
         return cell
     }
     
@@ -71,7 +73,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         detailVC.hero.isEnabled = true
         
-        detailVC.hero.modalAnimationType = .selectBy(presenting: .pageIn(direction: .down), dismissing: .fade)
+        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
         present(detailVC, animated: true, completion: nil)
         

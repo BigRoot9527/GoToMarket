@@ -65,10 +65,10 @@
                     <constraint firstAttribute="trailing" secondItem="FEg-YA-b0j" secondAttribute="trailing" id="YbR-vb-SsU"/>
                     <constraint firstItem="FEg-YA-b0j" firstAttribute="leading" secondItem="2WJ-5A-NAk" secondAttribute="leading" id="opW-4a-lC1"/>
                 </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCell"/>
-                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCell"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="buyingIndicatorImageView" destination="eMU-p0-laf" id="Ztt-H3-mod"/>
                 <outlet property="itemNameLabel" destination="1PJ-Fv-GOF" id="uqC-F7-jiG"/>

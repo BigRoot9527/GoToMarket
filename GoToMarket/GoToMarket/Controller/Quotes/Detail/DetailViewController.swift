@@ -138,6 +138,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         chartVC.didMove(toParentViewController: self)
         
         chartVC.itemCode = code
+        //TODO: not to always been reuse and reload the api data
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
