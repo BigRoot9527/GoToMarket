@@ -15,6 +15,12 @@ class ChartCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var chartView: LineChartView!
     
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        chartView.noDataTextColor = GoToMarketColor.newDarkBlueGreen.color()
+        chartView.noDataText = "～資料下載中～"
+    }
+    
     
     func setChart(dataPoints: [String], values: [Double], period: HistoryPeriod) {
         

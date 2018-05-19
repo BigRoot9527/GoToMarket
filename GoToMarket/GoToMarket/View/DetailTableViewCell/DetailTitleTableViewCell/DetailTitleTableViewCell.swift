@@ -13,8 +13,6 @@ class DetailTitleTableViewCell: UITableViewCell {
     //TODO: placeHoulder image when no image (no text is done by remove button)
     //TODO: maybe aspect fit is better
 
-    
-    @IBOutlet weak var detailWikiImageView: UIImageView!
     @IBOutlet weak var detailNameLabel: UILabel!
     //isSelected = true >> Yellow(inChart)
     @IBOutlet weak var detailBuyingButton: UIButton!

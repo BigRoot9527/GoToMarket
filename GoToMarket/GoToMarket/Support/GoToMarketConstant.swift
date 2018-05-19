@@ -10,13 +10,15 @@ import UIKit
 
 class GoToMarketConstant {
     
-    static let quotesRowHeight: CGFloat = 80.0
+    static let quotesRowHeight: CGFloat = 65.0
     
-    static let detailFoldedRowHeight: CGFloat = 755.0
-    
-    static let detailExpendRowHeight: CGFloat = 910.0
+//    static let detailFoldedRowHeight: CGFloat = 755.0
+//    
+//    static let detailExpendRowHeight: CGFloat = 910.0
     
     static let detailDropDownDuration: TimeInterval = 0.3
+    
+    static let marketPlaceholderPictureUrl: URL? = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wroclaw_Daily_Market.jpg/640px-Wroclaw_Daily_Market.jpg")
     
     static let oneMonthChartLabelName: String = "近一月內批發均價"
     

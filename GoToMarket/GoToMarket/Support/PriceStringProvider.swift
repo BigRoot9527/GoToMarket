@@ -8,26 +8,17 @@
 
 import Foundation
 
-enum WeightType: String {
-    
-    case KG = "(每公斤)"
-    
-    case TG = "(每台斤)"
-    
-}
-
 class PriceStringProvider {
     
     class func getSellPriceString(
         fromTruePrice truePrice: Double,
         andMultipler mutipler: Double,
-        inWeightType type: WeightType) -> String {
+        inKg isKg: Bool) -> String {
         
-        switch type {
-        case .KG:
+        if isKg {
             let count = truePrice * mutipler
             return String(format: "%.1f", count)
-        case .TG:
+        } else {
             let count = truePrice * mutipler / 0.6
             return String(format: "%.1f", count)
         }
@@ -35,19 +26,16 @@ class PriceStringProvider {
     
     class func getTruePriceString(
         fromTruePrice truePrice: Double,
-        inWeightType type: WeightType) -> String {
+        inKg isKg: Bool) -> String {
         
-        switch type {
-        case .KG:
+        if isKg {
             let count = truePrice
             return String(format: "%.1f", count)
-        case .TG:
+        } else {
             let count = truePrice / 0.6
             return String(format: "%.1f", count)
         }
     }
 
-    
-    
     
 }

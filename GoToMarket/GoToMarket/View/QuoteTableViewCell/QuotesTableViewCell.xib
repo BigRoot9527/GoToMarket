@@ -19,16 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FEg-YA-b0j">
-                        <rect key="frame" x="10" y="5" width="355" height="69.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PJ-Fv-GOF">
-                                <rect key="frame" x="20" y="18" width="232" height="34"/>
+                                <rect key="frame" x="20" y="23" width="252" height="34"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
                                 <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-To-6gd">
-                                <rect key="frame" x="252" y="20" width="95" height="29"/>
+                                <rect key="frame" x="272" y="25" width="95" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="NsK-Rn-zoJ"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-cart-3" translatesAutoresizingMaskIntoConstraints="NO" id="eMU-p0-laf">
-                                <rect key="frame" x="329" y="8" width="18" height="18"/>
+                                <rect key="frame" x="349" y="8" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="18" id="8UW-BL-MpG"/>
                                     <constraint firstAttribute="height" constant="18" id="AGE-NO-55l"/>
@@ -60,10 +60,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="FEg-YA-b0j" secondAttribute="bottom" constant="5" id="HLU-Sc-3hV"/>
-                    <constraint firstItem="FEg-YA-b0j" firstAttribute="top" secondItem="2WJ-5A-NAk" secondAttribute="top" constant="5" id="bYb-mA-xmE"/>
-                    <constraint firstAttribute="trailing" secondItem="FEg-YA-b0j" secondAttribute="trailing" constant="10" id="sLz-hG-zRR"/>
-                    <constraint firstItem="FEg-YA-b0j" firstAttribute="leading" secondItem="2WJ-5A-NAk" secondAttribute="leading" constant="10" id="xNb-k5-SKo"/>
+                    <constraint firstAttribute="bottom" secondItem="FEg-YA-b0j" secondAttribute="bottom" id="9P1-p0-YD4"/>
+                    <constraint firstItem="FEg-YA-b0j" firstAttribute="top" secondItem="2WJ-5A-NAk" secondAttribute="top" id="Nqp-DF-bcp"/>
+                    <constraint firstAttribute="trailing" secondItem="FEg-YA-b0j" secondAttribute="trailing" id="YbR-vb-SsU"/>
+                    <constraint firstItem="FEg-YA-b0j" firstAttribute="leading" secondItem="2WJ-5A-NAk" secondAttribute="leading" id="opW-4a-lC1"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCell"/>

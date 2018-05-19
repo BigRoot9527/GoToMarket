@@ -21,9 +21,7 @@
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		3230F3D120AA86C0002812E0 /* QuotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */; };
-		3230F3D420AA8E91002812E0 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */; };
 		3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */; };
-		3230F3D820AAB242002812E0 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3D720AAB242002812E0 /* DetailTableViewCell.swift */; };
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
 		3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DC20AAB734002812E0 /* QuotesViewController.swift */; };
 		3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DE20AAB750002812E0 /* DetailViewController.swift */; };
@@ -68,6 +66,7 @@
 		32B1E38D20AED56800336B09 /* DetailHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E38C20AED56800336B09 /* DetailHistoryTableViewCell.swift */; };
 		32B1E38F20AED57100336B09 /* DetailHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32B1E38E20AED57100336B09 /* DetailHistoryTableViewCell.xib */; };
 		32B1E39120AED98100336B09 /* DetailTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */; };
+		32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E39220AEEA5100336B09 /* DetailRowType.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
@@ -111,9 +110,7 @@
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuotesTableViewCell.xib; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
-		3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesTableViewCell.swift; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		3230F3D720AAB242002812E0 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
 		3230F3DC20AAB734002812E0 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3DE20AAB750002812E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +157,7 @@
 		32B1E38C20AED56800336B09 /* DetailHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		32B1E38E20AED57100336B09 /* DetailHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		32B1E39220AEEA5100336B09 /* DetailRowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRowType.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -256,13 +254,11 @@
 		3230F3D220AA8E7A002812E0 /* DetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */,
 				32B1E37C20AED36E00336B09 /* DetailTitleTableViewCell */,
 				32B1E37D20AED38100336B09 /* DetailIntroTableViewCell */,
 				32B1E37E20AED3A400336B09 /* DetailQuotesTableViewCell */,
 				32B1E37F20AED3DE00336B09 /* DetailHistoryTableViewCell */,
-				3230F3D320AA8E91002812E0 /* DetailTableViewCell.xib */,
-				3230F3D720AAB242002812E0 /* DetailTableViewCell.swift */,
-				32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */,
 			);
 			path = DetailTableViewCell;
 			sourceTree = "<group>";
@@ -270,8 +266,9 @@
 		3230F3DB20AAB67B002812E0 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
+				32B1E39220AEEA5100336B09 /* DetailRowType.swift */,
 				3230F3DE20AAB750002812E0 /* DetailViewController.swift */,
+				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
 				32DB8BD220AD9BF300EFE687 /* ChartViewController.swift */,
 			);
 			path = Quotes;
@@ -658,7 +655,6 @@
 				32F1468420A947FA00D6ACB8 /* TestHero.storyboard in Resources */,
 				329BC6CC209700D600CC9096 /* MainTab.storyboard in Resources */,
 				327E1B6720A1F7F60020511A /* Selection.storyboard in Resources */,
-				3230F3D420AA8E91002812E0 /* DetailTableViewCell.xib in Resources */,
 				3230F3D120AA86C0002812E0 /* QuotesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,7 +742,6 @@
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
 				32F87A2820A18437005207CD /* BuyingListConstant.swift in Sources */,
 				32F87A2A20A19AA6005207CD /* IngredientConstant.swift in Sources */,
-				3230F3D820AAB242002812E0 /* DetailTableViewCell.swift in Sources */,
 				327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */,
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
@@ -754,6 +749,7 @@
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
 				32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */,
 				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,
+				32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
 				32DB8BD320AD9BF300EFE687 /* ChartViewController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,

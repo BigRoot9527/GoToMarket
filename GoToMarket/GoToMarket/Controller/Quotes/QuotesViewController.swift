@@ -21,6 +21,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
+    var showInKg: Bool = true
     
     private func fetchData() {
         if let context = container?.viewContext {
@@ -48,7 +49,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         cell.itemNameLabel.text = crop.cropName
         
-        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.averagePrice, andMultipler: note.customMutipler, inWeightType: .KG)
+        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.averagePrice, andMultipler: note.customMutipler, inKg: showInKg)
         
         //MARK: TODO
         cell.inBuyingChart = true

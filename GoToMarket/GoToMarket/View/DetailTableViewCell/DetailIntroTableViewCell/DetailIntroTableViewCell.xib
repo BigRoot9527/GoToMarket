@@ -19,24 +19,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9x2-fV-aQn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="183.5"/>
-                        <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="10" y="10" width="355" height="163.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Rm2-R3-oAm"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Rm2-R3-oAm"/>
                         </constraints>
-                        <string key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</string>
+                        <mutableString key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</mutableString>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9x2-fV-aQn" firstAttribute="leading" secondItem="rqp-rK-57N" secondAttribute="leading" id="IZC-nd-7Sa"/>
-                    <constraint firstAttribute="trailing" secondItem="9x2-fV-aQn" secondAttribute="trailing" id="Z8i-c0-SdT"/>
-                    <constraint firstItem="9x2-fV-aQn" firstAttribute="top" secondItem="rqp-rK-57N" secondAttribute="top" id="goj-C8-TDL"/>
-                    <constraint firstAttribute="bottom" secondItem="9x2-fV-aQn" secondAttribute="bottom" id="lbD-qo-rUG"/>
+                    <constraint firstItem="9x2-fV-aQn" firstAttribute="leading" secondItem="rqp-rK-57N" secondAttribute="leading" constant="10" id="IZC-nd-7Sa"/>
+                    <constraint firstItem="9x2-fV-aQn" firstAttribute="top" secondItem="rqp-rK-57N" secondAttribute="top" constant="10" id="LaZ-zp-310"/>
+                    <constraint firstAttribute="bottom" secondItem="9x2-fV-aQn" secondAttribute="bottom" constant="10" id="Vtj-DV-1EJ"/>
+                    <constraint firstAttribute="trailing" secondItem="9x2-fV-aQn" secondAttribute="trailing" constant="10" id="Z8i-c0-SdT"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="detailWikiLabel" destination="9x2-fV-aQn" id="8F6-iV-w3G"/>
             </connections>
