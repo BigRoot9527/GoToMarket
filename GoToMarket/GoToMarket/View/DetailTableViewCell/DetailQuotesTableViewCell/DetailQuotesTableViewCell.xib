@@ -24,25 +24,25 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k7q-AH-Mcg">
                                 <rect key="frame" x="20" y="15" width="140" height="169.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="資料來源：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOS-cB-elG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗估零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="38.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UX-Ot-LAo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公告批發均價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2g-hW-cGk">
                                         <rect key="frame" x="0.0" y="43.5" width="140" height="39"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗估零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="資料來源：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOS-cB-elG">
                                         <rect key="frame" x="0.0" y="87.5" width="140" height="38.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公告批發均價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2g-hW-cGk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UX-Ot-LAo">
                                         <rect key="frame" x="0.0" y="131" width="140" height="38.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -53,23 +53,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nBk-eg-ZJR">
                                 <rect key="frame" x="200" y="15" width="95" height="169.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台北二" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyQ-TZ-T18">
-                                        <rect key="frame" x="0.0" y="0.0" width="95" height="38.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
-                                        <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="107.08.04" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0D-ES-lGH">
-                                        <rect key="frame" x="0.0" y="43.5" width="95" height="39"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="95" id="qQs-GN-PPE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-o0-w8I">
-                                        <rect key="frame" x="0.0" y="87.5" width="95" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="95" id="0Dr-q0-iJP"/>
                                         </constraints>
@@ -78,9 +63,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-B0-Ywn">
-                                        <rect key="frame" x="0.0" y="131" width="95" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="95" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="95" id="mxr-4w-70m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台北二" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyQ-TZ-T18">
+                                        <rect key="frame" x="0.0" y="87.5" width="95" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
+                                        <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="107.08.04" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0D-ES-lGH">
+                                        <rect key="frame" x="0.0" y="131" width="95" height="38.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="95" id="qQs-GN-PPE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -89,7 +89,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqR-5P-n5u">
-                                <rect key="frame" x="260" y="111.5" width="20" height="20"/>
+                                <rect key="frame" x="260" y="24" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6r4-6T-2sz"/>
                                     <constraint firstAttribute="width" constant="20" id="RcZ-B3-qcy"/>
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnL-Io-BCu">
-                                <rect key="frame" x="274" y="164" width="86" height="20"/>
+                                <rect key="frame" x="274" y="68" width="86" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="SJf-ct-Hmy"/>
                                     <constraint firstAttribute="height" constant="20" id="gIt-QH-8yQ"/>
@@ -118,20 +118,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ZnL-Io-BCu" secondAttribute="bottom" constant="15" id="0V9-zS-3Vg"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="5aY-Au-T37"/>
                             <constraint firstItem="xqR-5P-n5u" firstAttribute="centerY" secondItem="ol8-o0-w8I" secondAttribute="centerY" id="B7M-g1-P96"/>
                             <constraint firstAttribute="bottom" secondItem="nBk-eg-ZJR" secondAttribute="bottom" constant="15" id="CUf-dn-1H1"/>
                             <constraint firstAttribute="bottom" secondItem="k7q-AH-Mcg" secondAttribute="bottom" constant="15" id="CWc-Lw-yoJ"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="leading" secondItem="yeT-yR-bCD" secondAttribute="leading" constant="20" id="WZu-uz-2z1"/>
+                            <constraint firstItem="ZnL-Io-BCu" firstAttribute="centerY" secondItem="sqF-B0-Ywn" secondAttribute="centerY" id="YpV-Wa-EWW"/>
                             <constraint firstItem="xqR-5P-n5u" firstAttribute="leading" secondItem="ol8-o0-w8I" secondAttribute="trailing" constant="-35" id="eNO-5d-bZb"/>
                             <constraint firstItem="nBk-eg-ZJR" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="laK-BP-KBC"/>
+                            <constraint firstAttribute="trailing" secondItem="ZnL-Io-BCu" secondAttribute="trailing" constant="15" id="mIO-6p-3Xk"/>
                             <constraint firstItem="nBk-eg-ZJR" firstAttribute="leading" secondItem="k7q-AH-Mcg" secondAttribute="trailing" constant="40" id="rDz-gZ-4w8"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ZnL-Io-BCu" secondAttribute="trailing" constant="15" id="CnB-6j-48Q"/>
                     <constraint firstAttribute="bottom" secondItem="yeT-yR-bCD" secondAttribute="bottom" id="UFp-7v-e8V"/>
                     <constraint firstItem="yeT-yR-bCD" firstAttribute="top" secondItem="U2F-fD-IV4" secondAttribute="top" id="dXQ-Jv-buv"/>
                     <constraint firstAttribute="trailing" secondItem="yeT-yR-bCD" secondAttribute="trailing" id="pMD-GW-7Ih"/>

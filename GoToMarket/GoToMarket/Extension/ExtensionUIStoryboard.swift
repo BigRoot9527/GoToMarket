@@ -26,5 +26,14 @@ extension UIStoryboard {
         return UIStoryboard(name: "Settings", bundle: nil)
     }
     
+    static func marketSetting() -> UIStoryboard {
+        return UIStoryboard(name: "MarketSetting", bundle: nil )
+    }
+    
+    static func loading() -> UIStoryboard {
+        return UIStoryboard(name: "Loading", bundle: nil )
+    }
+    
+    
     
 }

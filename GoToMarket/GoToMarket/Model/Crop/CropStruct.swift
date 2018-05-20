@@ -97,12 +97,14 @@ enum CropQueryType: OpenDataQueryItemConvertable {
             let fromDateItem =
                 URLQueryItem(
                     name: fromDateTitle,
-                    value: TwDateProvider.getUpdateStartDateString(fromLastDate: date))
+                    value: TwDateProvider.getUpdateStartDateString(fromLastDate: date)
+            )
             
             let toDateItem =
                 URLQueryItem(
                     name: endDateTitle,
-                    value: TwDateProvider.getTodayString())
+                    value: TwDateProvider.getTodayString()
+            )
             
             return [fromDateItem,toDateItem]
             

@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var objectPassed: CropDatas?
     let manager = WikiManager()
-    let rowTypes: [DetailRowType] = [.title, .intro, .quotes, .history]
+    let rowTypes: [DetailRowType] = [.title, .intro, .history, .quotes ]
     var wikiText: String = "Wiki說明下載中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?

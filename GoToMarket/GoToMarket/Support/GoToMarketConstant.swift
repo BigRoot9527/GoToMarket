@@ -38,7 +38,21 @@ class GoToMarketConstant {
     
     static let informationSourceText: String = "資料來源"
     
-    static let loadingText: String = "載入中"
+    static let nowInitText: String = "正在初始化"
+    
+    static let nowLoadingText: String = "正在下載"
+    
+    static let nowUpdatingText: String = "正在更新"
+    
+    static let finishLoadingText: String = "下載完成"
+    
+    static let finishUpdatingText: String = "更新完成"
+    
+    static let failUpdatingText: String = "更新失敗"
+    
+    static let failLoadingText: String = "下載失敗"
+    
+    static let dataSourceText: String = "資料"
     
     static let allowEnterButtonTitle: String = "確定"
     

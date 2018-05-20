@@ -54,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqE-Rc-L3P">
                                         <rect key="frame" x="14" y="257" width="246" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-R3-Ddz" customClass="TransitionButton" customModule="TransitionButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-R3-Ddz">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
                                                 <color key="backgroundColor" red="0.086274509799999996" green="0.81960784310000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,7 +113,7 @@
                     <navigationItem key="navigationItem" id="Ejf-Oi-LGk"/>
                     <connections>
                         <outlet property="cancelButton" destination="rBP-vc-zkk" id="rC5-Sr-Kqr"/>
-                        <outlet property="enterButton" destination="gwh-R3-Ddz" id="F7n-zJ-YXE"/>
+                        <outlet property="enterButton" destination="gwh-R3-Ddz" id="Cjc-Vr-zEv"/>
                         <outlet property="itemTypeImageView" destination="Rz3-jU-xo7" id="SdN-q0-Aec"/>
                         <outlet property="marketsView" destination="92e-JF-QIz" id="Uid-lN-d4U"/>
                         <outlet property="noticeLabel" destination="Deg-Lb-3By" id="9gI-UL-tiF"/>
@@ -170,22 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPP-6P-3KN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="71"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="iZm-3h-G7X">
-            <objects>
-                <viewController id="Z20-Km-Rzp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rQn-Mp-Bgi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Nhj-Ad-d9x"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cs3-eE-flY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1780" y="-144"/>
+            <point key="canvasLocation" x="1002" y="71"/>
         </scene>
     </scenes>
     <resources>

@@ -23,7 +23,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var showInKg: Bool = true
     
-    private func fetchData() {
+    private func fetchAndReloadData() {
         if let context = container?.viewContext {
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(key: "averagePrice", ascending: true)]
@@ -89,9 +89,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
-        
         quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
-        
     }
     
     
@@ -100,23 +98,48 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hero.isEnabled = true
+        
+        setupTableView()
+        
+        updateUI()
+        
+        checkAndUpdateApi()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchAndReloadData()
+        
+    }
+    
+    private func setupTableView() {
+        
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
-        self.hero.isEnabled = true
-        registerCell()
-        fetchData()
-        updateUI()
-//        quotesTableView.hero.modifiers = [HeroModifier.whenPresenting(.fade)]
+        
+        let nibFile = UINib(nibName: "QuotesTableViewCell", bundle: nil)
+        
+        quotesTableView.register(nibFile,
+                                 forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
     }
+    
     
     private func updateUI() {
         
     }
     
-    private func registerCell() {
-        let nibFile = UINib(nibName: "QuotesTableViewCell", bundle: nil)
-        quotesTableView.register(nibFile,
-                                 forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
+    private func checkAndUpdateApi() {
+        
+        let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
+        
+        //TODO: Switch item type
+        loadingVC.itemType = TaskKeys.crop
+        
+        present(loadingVC, animated: true, completion: nil)
+        
     }
 
 }

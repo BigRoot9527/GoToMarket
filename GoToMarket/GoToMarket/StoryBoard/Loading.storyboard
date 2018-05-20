@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cJ9-Gj-Vz3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="Ex5-ll-2Cs">
+            <objects>
+                <viewController id="cJ9-Gj-Vz3" customClass="LoadingViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3wj-0h-tJ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chr-xv-MiE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jxj-Bd-ZCu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-qt-QRY">
+                                            <rect key="frame" x="87" y="223.5" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="H6A-35-Wtz"/>
+                                                <constraint firstAttribute="width" secondItem="nvz-qt-QRY" secondAttribute="height" multiplier="1:1" id="llU-Fb-kUW"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在更新農產品資料..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a95-Qe-bac">
+                                            <rect key="frame" x="-0.5" y="446" width="375" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nvz-qt-QRY" firstAttribute="centerX" secondItem="jxj-Bd-ZCu" secondAttribute="centerX" id="G7T-bB-elF"/>
+                                        <constraint firstItem="a95-Qe-bac" firstAttribute="width" secondItem="jxj-Bd-ZCu" secondAttribute="width" id="SF2-4D-62H"/>
+                                        <constraint firstItem="a95-Qe-bac" firstAttribute="top" secondItem="nvz-qt-QRY" secondAttribute="bottom" constant="22.5" id="hvB-Mk-2f8"/>
+                                        <constraint firstItem="a95-Qe-bac" firstAttribute="centerX" secondItem="jxj-Bd-ZCu" secondAttribute="centerX" id="lWG-j7-qy6"/>
+                                        <constraint firstItem="nvz-qt-QRY" firstAttribute="centerY" secondItem="jxj-Bd-ZCu" secondAttribute="centerY" id="sdd-bw-A1v"/>
+                                    </constraints>
+                                </view>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37962863869863012" colorSpace="custom" customColorSpace="sRGB"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Chr-xv-MiE" firstAttribute="top" secondItem="co8-nH-Cem" secondAttribute="top" id="7Zd-Ue-WoB"/>
+                            <constraint firstItem="Chr-xv-MiE" firstAttribute="leading" secondItem="co8-nH-Cem" secondAttribute="leading" id="AZL-ii-0Uf"/>
+                            <constraint firstItem="co8-nH-Cem" firstAttribute="trailing" secondItem="Chr-xv-MiE" secondAttribute="trailing" id="QEN-ON-9d8"/>
+                            <constraint firstItem="co8-nH-Cem" firstAttribute="bottom" secondItem="Chr-xv-MiE" secondAttribute="bottom" id="pTI-vT-d87"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="co8-nH-Cem"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationContainerView" destination="nvz-qt-QRY" id="5QJ-tb-m3d"/>
+                        <outlet property="infoLabel" destination="a95-Qe-bac" id="XEb-Pp-GXC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sU-2j-PsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6732" y="-3820.8395802098953"/>
+        </scene>
+    </scenes>
+</document>

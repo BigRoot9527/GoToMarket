@@ -5,21 +5,24 @@
 //  Created by 許庭瑋 on 2018/5/19.
 //  Copyright © 2018年 許庭瑋. All rights reserved.
 //
-import TransitionButton
 import UIKit
 
 class MarketSettingViewController: UIViewController, MarketsTableViewControllerDelegate {
     
     @IBOutlet weak var itemTypeImageView: UIImageView!
     @IBOutlet weak var noticeLabel: UILabel!
-    @IBOutlet weak var enterButton: TransitionButton!
+    @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var marketsView: UIView!
     
     var childMarketsTVC: MarketsTableViewController?
+    var isFirstTime: Bool = true
+    
+    //MARK: Input&Output
     var itemTypePassed: TaskKeys?
     var willLoadMarketPassed: String?
-    var isFirstTime: Bool = true
+    
+    //MARK: Output
     var passingLoadedMarket: String?
     
 
@@ -108,11 +111,11 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
         
         if isFirstTime {
             
-            startLoadData(ofMarket: willLoadMarket)
+            initLoadingVC(ofMarket: willLoadMarket)
             
         } else {
             
-            makeComfirm()
+            makeComfirm(ofMarket: willLoadMarket)
         }
     }
     
@@ -121,42 +124,32 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
         dismiss(animated: true, completion: nil)
     }
     
-    private func startLoadData(ofMarket marketString: String) {
+    private func initLoadingVC(ofMarket marketString: String) {
         
-        noticeLabel.textColor = UIColor.black
+        weak var presentingVC = self.presentingViewController
         
-        noticeLabel.text = GoToMarketConstant.loadingText
-        
-        cancelButton.isEnabled = false
-        
-        cancelButton.isEnabled = false
-        
-        enterButton.startAnimation()
-        
-        //TODO: Make other itemType manager & marketEnum swichable
-        let manager = CropManager()
-        
-        let market = CropMarkets(rawValue: marketString)
-        
-        manager.getCropDataBase(fromMarket: market, success: { [weak self] isSucceeded in
+        self.dismiss(animated: true) { [weak self] in
             
-            self?.enterButton.stopAnimation(animationStyle: .expand, completion: {
-                
-                self?.dismiss(animated: true, completion: nil)
-            })
-        }) { [weak self] error in
+            let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
             
-            self?.noticeLabel.text = error.localizedDescription
+            loadingVC.itemType = self?.itemTypePassed
             
-            self?.enterButton.stopAnimation(
-                animationStyle: .shake,
-                revertAfterDelay: 1000,
-                completion: {
-                
-                    self?.setupUI()
-            })
-
+            loadingVC.marketPassed = self?.willLoadMarketPassed
+            
+            presentingVC?.present(loadingVC, animated: true, completion: nil)
+            
         }
+        
+    }
+    
+    private func makeComfirm(ofMarket marketString: String) {
+        
+        
+        //TODO: present comfirm VC
+        
+        //if yes
+        initLoadingVC(ofMarket: marketString)
+        
         
     }
     

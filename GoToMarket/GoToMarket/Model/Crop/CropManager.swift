@@ -13,7 +13,7 @@ struct CropManager {
     private let provider = CropProvider()
 
     func getCropDataBase(
-        fromMarket marketInput: CropMarkets?,
+        fromMarket input: CropMarkets?,
         success: @escaping(Bool) -> Void,
         failure: @escaping(Error) -> Void) {
         
@@ -21,22 +21,30 @@ struct CropManager {
         
         var requestMarket: CropMarkets
         
-        //Check if is the First Load Update of Market
+        //Check if is the First Load of Market
         var isFirstTimeUpdate: Bool
         
-        //Market: UserDefault > Input > Error
-        if let string = LoadingTaskKeeper.shared.getMarket(ofKey: .crop),
-            let defaultMarket = CropMarkets(rawValue: string) {
-            requestMarket = defaultMarket
-            isFirstTimeUpdate = false
-        }
-        else {
-            guard let inputMarket = marketInput else {
-                failure(GoToMarketError.MarketError)
-                return
-            }
+        //Market: Input != nil > reset
+        //Input == nil default != nil > update
+        // all nil > error
+        
+        if let inputMarket = input {
+            
             requestMarket = inputMarket
             isFirstTimeUpdate = true
+            
+        } else {
+            
+            guard let defaultString = LoadingTaskKeeper.shared.getMarket(ofKey: .crop),
+                let defaultMarket = CropMarkets(rawValue: defaultString) else {
+                    
+                    failure(GoToMarketError.MarketError)
+                    return
+            }
+            
+            requestMarket = defaultMarket
+            isFirstTimeUpdate = false
+            
         }
         
         let dataRequest = CropRequest(
@@ -60,17 +68,45 @@ struct CropManager {
                 if isFirstTimeUpdate {
                     self.provider.resetAllData(
                         with: quotesArray,
-                        success: { success(true) },
-                        failure: { error in failure(error) })
-                } else {
+                        
+                        success: {
+                            
+                            DispatchQueue.main.async {
+                                success(true)
+                            } },
+                        
+                        failure: { error in
+                            
+                            DispatchQueue.main.async {
+                                failure(error)
+                            } })
+                }
+                else
+                {
                     self.provider.updateDatabase(
                         with: quotesArray,
-                        success: { success(true) },
-                        failure: { error in failure(error) })
+                        
+                        success: {
+                            
+                            DispatchQueue.main.async {
+                                success(true)
+                            }
+                    },
+                        
+                        failure: { error in
+                            
+                            DispatchQueue.main.async {
+                                failure(error)
+                            }
+                    })
                 }
                 
-        }, failure: { error in
-            failure(error)
+        },
+            failure: { error in
+            
+            DispatchQueue.main.async {
+                failure(error)
+            }
         })
     }
     
@@ -95,7 +131,18 @@ struct CropManager {
         
         provider.getCropQuote(
             request: historyRequest,
-            success: { quoteArray in success(quoteArray.reversed()) },
-            failure: { error in failure(error) })
+            
+            success: { quoteArray in
+                
+                DispatchQueue.main.async {
+                    //to make array old >>> new
+                    success(quoteArray.reversed())
+                } },
+            
+            failure: { error in
+                
+                DispatchQueue.main.async {
+                    failure(error)
+                } })
     } 
 }
