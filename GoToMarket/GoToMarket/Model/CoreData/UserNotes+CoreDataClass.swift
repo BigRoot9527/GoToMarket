@@ -19,8 +19,8 @@ public class UserNotes: NSManagedObject {
         ) -> UserNotes
     {
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
-        //cropCode是必須的，因為cropData被刪掉重建後，雖然為同一個作物，
-        //但因自動編號已經被改掉，所以無法直接順利的配對會去(已經是不同的cropData了)
+        //Note cropCode是必須的，因為cropData被刪掉重建後，雖然為同一個作物，
+        //但因自動編號已經被改掉，所以無法直接順利的配對回去(已經是不同的cropData了)
         request.predicate = NSPredicate(format: "(cropCode = %@)", cropData.cropCode)
         do {
             let maches = try context.fetch(request)

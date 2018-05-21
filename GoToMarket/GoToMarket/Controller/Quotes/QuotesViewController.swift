@@ -22,6 +22,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var showInKg: Bool = true
+    var isUpdated: Bool = false
     
     private func fetchAndReloadData() {
         if let context = container?.viewContext {
@@ -105,7 +106,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         updateUI()
         
-        checkAndUpdateApi()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +114,18 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         fetchAndReloadData()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isUpdated {
+            
+            checkAndUpdateApi()
+            
+            isUpdated = true
+        
+        }
     }
     
     private func setupTableView() {
@@ -133,12 +146,28 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     private func checkAndUpdateApi() {
         
-        let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
+        if LoadingTaskKeeper.shared.getMarket(ofKey: TaskKeys.crop) == nil {
+            
+            let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
+            
+            //TODO: Switch item type
+            settingVC.itemTypeInput = TaskKeys.crop
+            
+            settingVC.hero.modalAnimationType = .fade
+            
+            present(settingVC, animated: true, completion: nil)
+            
+        } else {
         
-        //TODO: Switch item type
-        loadingVC.itemType = TaskKeys.crop
-        
-        present(loadingVC, animated: true, completion: nil)
+            let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
+            
+            //TODO: Switch item type
+            loadingVC.itemTypeInput = TaskKeys.crop
+            
+            loadingVC.hero.modalAnimationType = .fade
+            
+            present(loadingVC, animated: true, completion: nil)
+        }
         
     }
 

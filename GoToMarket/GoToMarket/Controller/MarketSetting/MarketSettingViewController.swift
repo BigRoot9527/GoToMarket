@@ -7,67 +7,52 @@
 //
 import UIKit
 
-class MarketSettingViewController: UIViewController, MarketsTableViewControllerDelegate {
+class MarketSettingViewController: UIViewController {
     
     @IBOutlet weak var itemTypeImageView: UIImageView!
     @IBOutlet weak var noticeLabel: UILabel!
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var marketsView: UIView!
+    @IBOutlet weak var marketsPickerView: UIPickerView!
     
     var childMarketsTVC: MarketsTableViewController?
     var isFirstTime: Bool = true
+    var pickerMarketArray: [String]?
     
-    //MARK: Input&Output
-    var itemTypePassed: TaskKeys?
-    var willLoadMarketPassed: String?
+    //MARK: Input
+    var itemTypeInput: TaskKeys?
     
-    //MARK: Output
-    var passingLoadedMarket: String?
+    //MARK: Input from pickerView & Output
+    var willLoadMarketOutput: String?
+    
+    //MARK: Output to pickerView
+    var defaulMarket: String?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         checkIfIsFirstLoading()
         setupUI()
+        getPickerMarketArray()
+        marketsPickerView.dataSource = self
+        marketsPickerView.delegate = self
+        
     }
     
-    override func viewDidLayoutSubviews() {
-        
-        passDataToChild()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        switch segue.destination {
-            
-        case let marketsTVC as MarketsTableViewController:
-            
-            childMarketsTVC = marketsTVC
-     
-        default:
-            
-            break
-        }
-    }
-    
-    private func passDataToChild() {
-        
-        childMarketsTVC?.itemTypePassed = self.itemTypePassed
-        
-        childMarketsTVC?.loadedMarketPassed = self.passingLoadedMarket
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func checkIfIsFirstLoading() {
         
-        guard let key = itemTypePassed else { return }
+        guard let key = itemTypeInput else { return }
         
         if let marketName = LoadingTaskKeeper.shared.getMarket(ofKey: key) {
             
             isFirstTime = false
             
-            passingLoadedMarket = marketName
+            defaulMarket = marketName
         }
     }
     
@@ -86,7 +71,7 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
             cancelButton.isEnabled = true
         }
         
-        guard let typeName = itemTypePassed?.getTaskItemTypeName() else { return }
+        guard let typeName = itemTypeInput?.getTaskItemTypeName() else { return }
         
         noticeLabel.textColor = UIColor.black
         
@@ -96,18 +81,38 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
             + GoToMarketConstant.informationSourceText
     }
     
-    func didSelectMarket(sender: UITableView, marketText: String?) {
+    private func getPickerMarketArray() {
         
-        willLoadMarketPassed = marketText
+        //Not first time
+        if let willBeTopMarket = defaulMarket {
+            
+            guard
+                var originMarketArray = itemTypeInput?.getMarketsOfItem(),
+                let index = originMarketArray.index(of: willBeTopMarket)
+                else { return }
+            
+            let removedString = originMarketArray.remove(at: index)
+            
+            originMarketArray.insert(removedString, at: 0)
+            
+            pickerMarketArray = originMarketArray
         
-        enterButton.setTitle(GoToMarketConstant.allowEnterButtonTitle, for: .normal)
+        } else {
+            //First time
+            guard var originMarketArray = itemTypeInput?.getMarketsOfItem() else { return }
+            
+            originMarketArray.insert(GoToMarketConstant.plzChooseAMarketWarning, at: 0)
+            
+            pickerMarketArray = originMarketArray
+            
+        }
+    
         
-        enterButton.isEnabled = true
     }
     
     @IBAction func didTapEnterButton(_ sender: UIButton) {
         
-        guard let willLoadMarket = willLoadMarketPassed else { return }
+        guard let willLoadMarket = willLoadMarketOutput else { return }
         
         if isFirstTime {
             
@@ -128,13 +133,17 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
         
         weak var presentingVC = self.presentingViewController
         
+        self.hero.modalAnimationType = .fade
+        
         self.dismiss(animated: true) { [weak self] in
             
             let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
             
-            loadingVC.itemType = self?.itemTypePassed
+            loadingVC.itemTypeInput = self?.itemTypeInput
             
-            loadingVC.marketPassed = self?.willLoadMarketPassed
+            loadingVC.marketInput = self?.willLoadMarketOutput
+            
+            loadingVC.hero.isEnabled = true
             
             presentingVC?.present(loadingVC, animated: true, completion: nil)
             
@@ -154,3 +163,79 @@ class MarketSettingViewController: UIViewController, MarketsTableViewControllerD
     }
     
 }
+
+//MARK: - UIPickerViewDataSource
+extension MarketSettingViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        guard let customArray = pickerMarketArray else {
+            return 1
+        }
+        return customArray.count
+    }
+    
+    
+}
+
+//MARK: - UIPickerViewDelegate
+extension MarketSettingViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        guard let customArray = pickerMarketArray else {
+            return nil
+        }
+        
+        var market = customArray[row]
+        
+        if market == defaulMarket {
+            
+            market += GoToMarketConstant.alreadyLoadedMarket
+        }
+        
+        return market
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+        
+        guard let customArray = pickerMarketArray else { return }
+        
+        var market = customArray[row]
+        
+        //Has Default
+        if market == defaulMarket {
+            
+            market += GoToMarketConstant.alreadyLoadedMarket
+            
+            enterButton.setTitle(GoToMarketConstant.plzMakeChoiceText, for: .normal)
+            
+            enterButton.isEnabled = false
+        
+        //First time placeholder
+        } else if market == GoToMarketConstant.plzChooseAMarketWarning {
+            
+            enterButton.setTitle(GoToMarketConstant.plzMakeChoiceText, for: .normal)
+            
+            enterButton.isEnabled = false
+            
+        } else {
+            
+            willLoadMarketOutput = market
+            
+            enterButton.setTitle(GoToMarketConstant.allowEnterButtonTitle, for: .normal)
+            
+            enterButton.isEnabled = true
+            
+        }
+        
+        noticeLabel.text = market
+        
+    }
+}
+

@@ -17,7 +17,7 @@ struct CropManager {
         success: @escaping(Bool) -> Void,
         failure: @escaping(Error) -> Void) {
         
-        let lastUpdateDate: Date? = LoadingTaskKeeper.shared.getUpdateDate(ofKey: .crop)
+        let lastUpdateDate: Date?
         
         var requestMarket: CropMarkets
         
@@ -26,12 +26,12 @@ struct CropManager {
         
         //Market: Input != nil > reset
         //Input == nil default != nil > update
-        // all nil > error
-        
+        //all nil > error
         if let inputMarket = input {
             
             requestMarket = inputMarket
             isFirstTimeUpdate = true
+            lastUpdateDate = nil
             
         } else {
             
@@ -44,6 +44,7 @@ struct CropManager {
             
             requestMarket = defaultMarket
             isFirstTimeUpdate = false
+            lastUpdateDate = LoadingTaskKeeper.shared.getUpdateDate(ofKey: .crop)
             
         }
         

@@ -36,12 +36,6 @@
                                             <constraint firstAttribute="width" secondItem="Rz3-jU-xo7" secondAttribute="height" multiplier="1:1" id="Ine-If-xJa"/>
                                         </constraints>
                                     </imageView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92e-JF-QIz">
-                                        <rect key="frame" x="0.0" y="295" width="275" height="192"/>
-                                        <connections>
-                                            <segue destination="otG-tn-gsg" kind="embed" identifier="SegueToMarketsTVC" id="OfE-oE-CLs"/>
-                                        </connections>
-                                    </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇農產品資料來源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-Lb-3By">
                                         <rect key="frame" x="0.0" y="222" width="275" height="31"/>
                                         <constraints>
@@ -77,20 +71,23 @@
                                             <constraint firstItem="gwh-R3-Ddz" firstAttribute="width" secondItem="rBP-vc-zkk" secondAttribute="width" id="vtK-0z-H9E"/>
                                         </constraints>
                                     </stackView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="177-Gs-Xyg">
+                                        <rect key="frame" x="0.0" y="287" width="275" height="200"/>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="177-Gs-Xyg" secondAttribute="bottom" id="13v-BU-gow"/>
                                     <constraint firstItem="Deg-Lb-3By" firstAttribute="top" secondItem="Rz3-jU-xo7" secondAttribute="bottom" constant="7" id="8bK-GL-Z6v"/>
-                                    <constraint firstAttribute="trailing" secondItem="92e-JF-QIz" secondAttribute="trailing" id="G39-r8-cU6"/>
+                                    <constraint firstItem="177-Gs-Xyg" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" id="IMn-d5-flU"/>
+                                    <constraint firstAttribute="trailing" secondItem="177-Gs-Xyg" secondAttribute="trailing" id="LLF-u2-aw9"/>
                                     <constraint firstItem="Deg-Lb-3By" firstAttribute="width" secondItem="IZr-1U-9Ny" secondAttribute="width" id="PBf-0k-xAs"/>
-                                    <constraint firstItem="92e-JF-QIz" firstAttribute="top" secondItem="sqE-Rc-L3P" secondAttribute="bottom" constant="8" id="Qa6-mF-B5q"/>
                                     <constraint firstAttribute="trailing" secondItem="rBP-vc-zkk" secondAttribute="trailing" constant="15" id="R0B-M7-5Ji"/>
                                     <constraint firstAttribute="trailing" secondItem="sqE-Rc-L3P" secondAttribute="trailing" constant="15" id="RY7-TT-fvM"/>
                                     <constraint firstItem="Rz3-jU-xo7" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="XzR-gD-4yh"/>
-                                    <constraint firstItem="92e-JF-QIz" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" id="fdS-qL-p9P"/>
+                                    <constraint firstItem="177-Gs-Xyg" firstAttribute="top" secondItem="sqE-Rc-L3P" secondAttribute="bottom" id="ftS-Ha-oUU"/>
                                     <constraint firstItem="Rz3-jU-xo7" firstAttribute="top" secondItem="IZr-1U-9Ny" secondAttribute="top" constant="20" id="gJi-H5-bAo"/>
                                     <constraint firstItem="Rz3-jU-xo7" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" constant="40" id="j3U-Y3-uA8"/>
-                                    <constraint firstAttribute="bottom" secondItem="92e-JF-QIz" secondAttribute="bottom" id="nIG-vs-Ffe"/>
                                     <constraint firstItem="Deg-Lb-3By" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="olw-Zj-GFC"/>
                                     <constraint firstItem="sqE-Rc-L3P" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="sYO-7r-9yM"/>
                                     <constraint firstItem="rBP-vc-zkk" firstAttribute="top" secondItem="Deg-Lb-3By" secondAttribute="bottom" constant="4" id="xE5-KG-3PG"/>
@@ -111,66 +108,20 @@
                         <viewLayoutGuide key="safeArea" id="Ktq-cE-C5S"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ejf-Oi-LGk"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="cancelButton" destination="rBP-vc-zkk" id="rC5-Sr-Kqr"/>
                         <outlet property="enterButton" destination="gwh-R3-Ddz" id="Cjc-Vr-zEv"/>
                         <outlet property="itemTypeImageView" destination="Rz3-jU-xo7" id="SdN-q0-Aec"/>
-                        <outlet property="marketsView" destination="92e-JF-QIz" id="Uid-lN-d4U"/>
+                        <outlet property="marketsPickerView" destination="177-Gs-Xyg" id="TxO-gG-h3e"/>
                         <outlet property="noticeLabel" destination="Deg-Lb-3By" id="9gI-UL-tiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5g-Bz-QbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="309.60000000000002" y="-142.57871064467767"/>
-        </scene>
-        <!--Markets Table View Controller-->
-        <scene sceneID="fmf-R6-qmq">
-            <objects>
-                <viewController id="otG-tn-gsg" customClass="MarketsTableViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j9E-Xp-cRg">
-                        <rect key="frame" x="0.0" y="0.0" width="275" height="192"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TVZ-7b-dOt">
-                                <rect key="frame" x="0.0" y="0.0" width="275" height="192"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="marketCell" textLabel="erQ-93-ypZ" style="IBUITableViewCellStyleDefault" id="J3W-da-HkD">
-                                        <rect key="frame" x="0.0" y="28" width="275" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J3W-da-HkD" id="J7U-Sk-1ih">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="請選擇品項" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="erQ-93-ypZ">
-                                                    <rect key="frame" x="25" y="0.0" width="235" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="19"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="TVZ-7b-dOt" secondAttribute="trailing" id="0F1-C0-mwk"/>
-                            <constraint firstItem="TVZ-7b-dOt" firstAttribute="leading" secondItem="j9E-Xp-cRg" secondAttribute="leading" id="DCg-JO-Dh7"/>
-                            <constraint firstItem="TVZ-7b-dOt" firstAttribute="top" secondItem="j9E-Xp-cRg" secondAttribute="top" id="Maa-Eo-ep4"/>
-                            <constraint firstAttribute="bottom" secondItem="TVZ-7b-dOt" secondAttribute="bottom" id="odZ-De-BSJ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="zff-ZE-RnL"/>
-                    </view>
-                    <connections>
-                        <outlet property="marketsTableView" destination="TVZ-7b-dOt" id="UtZ-kS-A6N"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPP-6P-3KN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1002" y="71"/>
         </scene>
     </scenes>
     <resources>

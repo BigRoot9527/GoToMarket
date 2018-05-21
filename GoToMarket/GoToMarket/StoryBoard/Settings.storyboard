@@ -31,6 +31,9 @@
                         <viewLayoutGuide key="safeArea" id="O0X-UV-qjd"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Vm-Kq-995"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvG-d0-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

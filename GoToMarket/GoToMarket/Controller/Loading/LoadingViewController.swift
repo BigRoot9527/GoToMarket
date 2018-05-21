@@ -19,8 +19,8 @@ class LoadingViewController: UIViewController {
     var showingAnimation: LOTAnimationView?
     
     //MARK: Input
-    var itemType: TaskKeys?
-    var marketPassed: String?
+    var itemTypeInput: TaskKeys?
+    var marketInput: String?
     
 
     
@@ -29,19 +29,24 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         
         showInitAnimationAndLabel()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         doingCheckingList()
-
+        
     }
 
     
     //MARK: LoadingTasks
     private func doingCheckingList() {
         
-        guard let type = itemType else { return }
+        guard let type = itemTypeInput else { return }
         
         //check marketPassed > reset
-        if let iuputMarket =  marketPassed {
+        if let iuputMarket =  marketInput {
             
             infoLabel.text =
             GoToMarketConstant.nowLoadingText
@@ -127,9 +132,13 @@ class LoadingViewController: UIViewController {
         
         weak var presentingVC = self.presentingViewController
         
-        self.dismiss(animated: true) {
+        self.hero.modalAnimationType = .fade
+        
+        self.dismiss(animated: true) { [weak self] in
             
-            let settingMarketVC = UIStoryboard.marketSetting().instantiateInitialViewController()!
+            let settingMarketVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
+            
+            settingMarketVC.itemTypeInput = self?.itemTypeInput
             
             presentingVC?.present(settingMarketVC, animated: true, completion: nil)
             

@@ -60,6 +60,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="co8-nH-Cem"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="animationContainerView" destination="nvz-qt-QRY" id="5QJ-tb-m3d"/>
                         <outlet property="infoLabel" destination="a95-Qe-bac" id="XEb-Pp-GXC"/>

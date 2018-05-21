@@ -57,6 +57,7 @@ class MarketsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
+        
     }
 
     // MARK: - Table view data source

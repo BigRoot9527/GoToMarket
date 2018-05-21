@@ -27,7 +27,9 @@ class SettingViewController: UIViewController {
         
         let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
         
-        settingVC.itemTypePassed = TaskKeys.crop
+        settingVC.itemTypeInput = TaskKeys.crop
+        
+        settingVC.hero.modalAnimationType = .fade
         
         present(settingVC, animated: true, completion: nil)
         

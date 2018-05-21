@@ -26,6 +26,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var wikiText: String = "Wiki說明下載中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
+    //TODO: another collection view to let user know that there's two kinds of chart
     
     
     func buyingButtonTapped(sender: UIButton) {
