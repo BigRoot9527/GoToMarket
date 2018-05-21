@@ -226,5 +226,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dismiss(animated: true, completion: nil)
     }
     
+    
 
 }

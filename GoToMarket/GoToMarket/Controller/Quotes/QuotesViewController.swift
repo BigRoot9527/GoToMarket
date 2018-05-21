@@ -23,6 +23,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var showInKg: Bool = true
     var isUpdated: Bool = false
+    //to prevent animation from been canceled, set to true when user Start watching detail
+    var stopReloadWhenViewAppear: Bool = false
     
     private func fetchAndReloadData() {
         if let context = container?.viewContext {
@@ -51,6 +53,12 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.itemNameLabel.text = crop.cropName
         
         cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler, inKg: showInKg)
+        
+        if crop.newAveragePrice == 0 {
+            cell.priceIndicator = 1
+        } else {
+            cell.priceIndicator = crop.newAveragePrice / crop.lastAveragePrice
+        }
         
         //MARK: TODO
         cell.inBuyingChart = true
@@ -85,12 +93,15 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         present(detailVC, animated: true, completion: nil)
         
+        stopReloadWhenViewAppear = true
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 
         quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
         quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
+
     }
     
     
@@ -112,7 +123,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !isUpdated {
+        if !stopReloadWhenViewAppear {
             
             fetchAndReloadData()
         }
@@ -124,9 +135,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         if !isUpdated {
             
             checkAndUpdateApi()
-            
             isUpdated = true
-        
         }
     }
     
