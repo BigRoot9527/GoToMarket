@@ -7,14 +7,13 @@ target 'GoToMarket' do
 
   # Pods for GoToMarket
   pod 'Alamofire'
-  pod 'TransitionButton'
-  pod 'BusyNavigationBar'
   pod 'SDWebImage'
   pod 'FoldingCell'
   pod 'RAMAnimatedTabBarController'
   pod 'Hero'
   pod 'Charts'
   pod 'lottie-ios'
+  pod 'SwipeCellKit'
 
 
 end
