@@ -9,8 +9,11 @@
 import UIKit
 import CoreData
 import Hero
+import SwipeCellKit
 
-class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
+    
+
     
 
     //MARK: IBOutlet
@@ -59,10 +62,13 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         } else {
             cell.priceIndicator = crop.newAveragePrice / crop.lastAveragePrice
         }
+        //SwipeCellKit
+        cell.delegate = self
         
         //MARK: TODO
-        cell.inBuyingChart = true
+        cell.inBuyingChart = false
         
+        //Hero
         cell.contentView.hero.id = nil
         
         cell.hero.isEnabled = false
@@ -87,8 +93,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         detailVC.objectPassed = crop
         
+        //Hero
         detailVC.hero.isEnabled = true
-        
         detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
         present(detailVC, animated: true, completion: nil)
@@ -98,11 +104,50 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-
+        
+        //Hero
         quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
         quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
 
     }
+    
+    //MARK: SwipeCellKit
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        
+        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
+        
+        let selectAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            
+            selectedCell.inBuyingChart = !selectedCell.inBuyingChart
+            
+        }
+        
+        selectAction.image = !selectedCell.inBuyingChart ?
+                #imageLiteral(resourceName: "shopping-cart-3").resizeImage(newWidth: 35) : #imageLiteral(resourceName: "shopping-cart-white").resizeImage(newWidth: 35)
+            
+        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
+                GoToMarketColor.newLightBlueGreen.color() : GoToMarketColor.pitchRed.color()
+
+        return [selectAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        
+        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
+        
+        var options = SwipeTableOptions()
+        
+        options.expansionStyle = .selection
+        options.transitionStyle = .reveal
+        options.buttonVerticalAlignment = .center
+        options.backgroundColor = !selectedCell.inBuyingChart ? GoToMarketColor.newLightBlueGreen.color() : GoToMarketColor.pitchRed.color()
+        
+        return options
+
+    }
+    
     
     
     

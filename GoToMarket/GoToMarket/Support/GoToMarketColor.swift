@@ -18,6 +18,8 @@ enum GoToMarketColor: String {
     case newWhite = "FFFCC4"
     case newGray = "F0EDBB"
     case newOrange = "FF3800"
+    case pitchRed = "FF5F5F"
+    
     
     
     func color() -> UIColor {

@@ -74,6 +74,7 @@
 		32B1E3B320B17F7D00336B09 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 32B1E3B220B17F7D00336B09 /* loading.json */; };
 		32B1E3B520B1814200336B09 /* AnimationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3B420B1814200336B09 /* AnimationConstant.swift */; };
 		32B1E3B820B1AB1B00336B09 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */; };
+		32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
@@ -166,6 +167,7 @@
 		32B1E3B220B17F7D00336B09 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		32B1E3B420B1814200336B09 /* AnimationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstant.swift; sourceTree = "<group>"; };
 		32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */,
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
+				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -757,6 +760,7 @@
 				32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */,
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,
 				327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */,
+				32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,
 				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
 				32B1E3AD20B16F2C00336B09 /* LoadingViewController.swift in Sources */,
@@ -951,7 +955,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -967,7 +974,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class QuotesTableViewCell: UITableViewCell {
+class QuotesTableViewCell: SwipeTableViewCell {
     
     //Input
     var inBuyingChart: Bool = false {
