@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BusyNavigationBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,7 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TransitionButton.xcscheme</key>
+		<key>SwipeCellKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double BusyNavigationBarVersionNumber;
-FOUNDATION_EXPORT const unsigned char BusyNavigationBarVersionString[];
+FOUNDATION_EXPORT double SwipeCellKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SwipeCellKitVersionString[];
 

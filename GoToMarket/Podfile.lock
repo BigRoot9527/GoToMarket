@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.7.2)
-  - BusyNavigationBar (2.0.0)
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
@@ -11,42 +10,39 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
-  - TransitionButton (0.4.0)
+  - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
   - Alamofire
-  - BusyNavigationBar
   - Charts
   - FoldingCell
   - Hero
   - lottie-ios
   - RAMAnimatedTabBarController
   - SDWebImage
-  - TransitionButton
+  - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - BusyNavigationBar
     - Charts
     - FoldingCell
     - Hero
     - lottie-ios
     - RAMAnimatedTabBarController
     - SDWebImage
-    - TransitionButton
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  BusyNavigationBar: b73fd434b95f6198809dcf048b0245ad89ec1b37
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   FoldingCell: 4848ec8a2056d5751bfb710df14521fc64d48ad7
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   RAMAnimatedTabBarController: 3c40472db54eda74d465583f8c7f571b206c54d6
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  TransitionButton: d271030914c84a00b54b4d983446944d2875e7ba
+  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 860987ed296c63ebcd2d14772b9ad598a8405a11
+PODFILE CHECKSUM: 862ca52f489c06901c611913e2d99d7fe01fab38
 
 COCOAPODS: 1.5.0
