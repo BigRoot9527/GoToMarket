@@ -19,8 +19,11 @@ extension UserNotes {
 
     @NSManaged public var customMutipler: Double
     @NSManaged public var muliplerWeight: Double
-    @NSManaged public var favorite: Bool
-    @NSManaged public var cropCode: String
+    @NSManaged public var isInChart: Bool
+    @NSManaged public var itemCode: String
+    @NSManaged public var isFinished: Bool
+    @NSManaged public var buyingAmount: Int16
+    @NSManaged public var itemType: String?
     @NSManaged public var cropData: CropDatas?
 
 }

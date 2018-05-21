@@ -17,10 +17,12 @@ extension CropDatas {
     }
 
     @NSManaged public var date: String
+    @NSManaged public var itemType: String
     @NSManaged public var cropCode: String
     @NSManaged public var cropName: String
     @NSManaged public var marketName: String?
-    @NSManaged public var averagePrice: Double
+    @NSManaged public var newAveragePrice: Double
+    @NSManaged public var lastAveragePrice: Double
     @NSManaged public var note: UserNotes?
 
 }

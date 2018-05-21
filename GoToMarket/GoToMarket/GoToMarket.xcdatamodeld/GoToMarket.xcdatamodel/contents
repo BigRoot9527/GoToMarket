@@ -1,44 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BuyingList" representedClassName=".BuyingList" syncable="YES">
-        <attribute name="alldone" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="budget" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="createTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quota" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="list" inverseEntity="Ingredient" syncable="YES"/>
-    </entity>
     <entity name="CropDatas" representedClassName=".CropDatas" syncable="YES">
-        <attribute name="averagePrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="cropCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cropName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastAveragePrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="marketName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newAveragePrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserNotes" inverseName="cropData" inverseEntity="UserNotes" syncable="YES"/>
     </entity>
-    <entity name="Ingredient" representedClassName=".Ingredient" syncable="YES">
-        <attribute name="actualPricePerKG" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="buyingKg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="itemCodeUnique" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="itemType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="listUuid" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="savedPridictPricePerKG" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BuyingList" inverseName="ingredients" inverseEntity="BuyingList" syncable="YES"/>
-    </entity>
     <entity name="UserNotes" representedClassName=".UserNotes" syncable="YES">
-        <attribute name="cropCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buyingAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="customMutipler" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" customClassName="." syncable="YES"/>
-        <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFinished" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isInChart" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="muliplerWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="cropData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CropDatas" inverseName="note" inverseEntity="CropDatas" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BuyingList" positionX="1717" positionY="896" width="128" height="148"/>
-        <element name="CropDatas" positionX="1330" positionY="1118" width="128" height="133"/>
-        <element name="Ingredient" positionX="1539" positionY="893" width="128" height="178"/>
-        <element name="UserNotes" positionX="1582" positionY="1160" width="128" height="118"/>
+        <element name="CropDatas" positionX="1584" positionY="1406" width="128" height="163"/>
+        <element name="UserNotes" positionX="1807" positionY="1386" width="128" height="163"/>
     </elements>
 </model>

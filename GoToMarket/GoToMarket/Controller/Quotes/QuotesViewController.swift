@@ -27,7 +27,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     private func fetchAndReloadData() {
         if let context = container?.viewContext {
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key: "averagePrice", ascending: true)]
+            request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
             //request.predicate = NSPredicate(format:)
             fetchedResultsController = NSFetchedResultsController<CropDatas>(
                 fetchRequest: request,
@@ -50,7 +50,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         cell.itemNameLabel.text = crop.cropName
         
-        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.averagePrice, andMultipler: note.customMutipler, inKg: showInKg)
+        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler, inKg: showInKg)
         
         //MARK: TODO
         cell.inBuyingChart = true

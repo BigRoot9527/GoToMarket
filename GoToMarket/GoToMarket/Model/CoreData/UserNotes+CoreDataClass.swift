@@ -19,9 +19,12 @@ public class UserNotes: NSManagedObject {
         ) -> UserNotes
     {
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
-        //Note cropCode是必須的，因為cropData被刪掉重建後，雖然為同一個作物，
+        //Note itemCode是必須的，因為cropData被刪掉重建後，雖然為同一個作物，
         //但因自動編號已經被改掉，所以無法直接順利的配對回去(已經是不同的cropData了)
-        request.predicate = NSPredicate(format: "(cropCode = %@)", cropData.cropCode)
+        request.predicate = NSPredicate(
+            format: "(itemCode = %@) AND (itemType = %@)",
+            cropData.cropCode,
+            cropData.itemType)
         do {
             let maches = try context.fetch(request)
             if maches.count > 0 {
@@ -31,20 +34,30 @@ public class UserNotes: NSManagedObject {
                     }
                 }
                 //單向: 用cropData找Note, 不能用note找cropData
-                maches[0].cropData = cropData
+                maches[0].buyingAmount = NoteConstant.initialBuyingAmount
+                maches[0].isFinished = NoteConstant.initialIsFinished
+                maches[0].isInChart = NoteConstant.initialIsInChart
+                
                 maches[0].customMutipler = NoteConstant.initailMultipler
                 maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
+                
+                maches[0].cropData = cropData
                 return maches[0]
             }
         } catch {
             print(error)
         }
         let newNote = UserNotes(context: context)
-        newNote.favorite = NoteConstant.initailFavorite
-        newNote.cropCode = cropData.cropCode
+        newNote.buyingAmount = NoteConstant.initialBuyingAmount
+        newNote.isFinished = NoteConstant.initialIsFinished
+        newNote.isInChart = NoteConstant.initialIsInChart
+        
         newNote.customMutipler = NoteConstant.initailMultipler
         newNote.muliplerWeight = NoteConstant.initailMultiplerWeight
+        
         newNote.cropData = cropData
+        newNote.itemType = cropData.itemType
+        newNote.itemCode = cropData.cropCode
         return newNote
     }
     
@@ -78,7 +91,7 @@ public class UserNotes: NSManagedObject {
         ) throws -> UserNotes
     {
         guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { throw GoToMarketError.FetchError }
-        fetchedNote.favorite = bool
+        fetchedNote.isInChart = bool
         return fetchedNote
     }
     
@@ -90,7 +103,7 @@ public class UserNotes: NSManagedObject {
         guard
             let note = self.fetchNote(matching: cropCode, in: context)
             else { throw GoToMarketError.FetchError }
-        return note.favorite
+        return note.isInChart
     }
     
     class func getPredictPrice(
@@ -100,7 +113,7 @@ public class UserNotes: NSManagedObject {
     {
         guard
             let note = self.fetchNote(matching: cropCode, in: context),
-            let quote = note.cropData?.averagePrice
+            let quote = note.cropData?.newAveragePrice
             else { throw GoToMarketError.FetchError }
         let multipler = note.customMutipler
         return multipler * quote
@@ -115,7 +128,7 @@ public class UserNotes: NSManagedObject {
         guard
             let note = self.fetchNote(matching: cropCode, in: context),
             //quoteBuyingDay ~> V1.0使用當日行情(假設使用者是當天買的時候就校正)，未來使用API打使用者指定日期(今日or之前)，取得特定市場該作物的當日行情
-            let quoteBuyingDay = note.cropData?.averagePrice
+            let quoteBuyingDay = note.cropData?.newAveragePrice
             //沒有cropData => 無法取得現在行情價 => 無法計算現在的mutipler => 無法machine learning
         else { throw GoToMarketError.FetchError }
         

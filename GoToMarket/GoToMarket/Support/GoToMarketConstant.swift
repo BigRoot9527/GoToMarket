@@ -60,6 +60,8 @@ class GoToMarketConstant {
     
     static let itemTypeNameForCrops: String = "『農作物』"
     
+    static let itemTypeCoreDataNameForCrops: String = "crop"
+    
     
     
 }

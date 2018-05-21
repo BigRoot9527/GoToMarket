@@ -16,7 +16,11 @@ public class CropDatas: NSManagedObject
                           in context: NSManagedObjectContext) -> CropDatas? {
         
         let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
-        request.predicate = NSPredicate(format: "(cropCode = %@) AND (marketName = %@)", quoteInfo.cropCode, quoteInfo.marketName)
+        request.predicate = NSPredicate(
+            format: "(cropCode = %@) AND (marketName = %@) AND (itemType = %@)",
+            quoteInfo.cropCode,
+            quoteInfo.marketName,
+            GoToMarketConstant.itemTypeCoreDataNameForCrops)
         do {
             let maches = try context.fetch(request)
             if maches.count > 0 {
@@ -40,7 +44,8 @@ public class CropDatas: NSManagedObject
     {
         if let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context)
         {
-            fetchedQuote.averagePrice = quoteInfo.averagePrice
+            fetchedQuote.lastAveragePrice = fetchedQuote.newAveragePrice
+            fetchedQuote.newAveragePrice = quoteInfo.averagePrice
             fetchedQuote.date = quoteInfo.date
             fetchedQuote.cropName = quoteInfo.cropName
             return fetchedQuote
@@ -50,9 +55,11 @@ public class CropDatas: NSManagedObject
             let newCrop = CropDatas(context: context)
             newCrop.cropCode = quoteInfo.cropCode
             newCrop.cropName = quoteInfo.cropName
-            newCrop.averagePrice = quoteInfo.averagePrice
+            newCrop.lastAveragePrice = quoteInfo.averagePrice
+            newCrop.newAveragePrice = quoteInfo.averagePrice
             newCrop.date = quoteInfo.date
             newCrop.marketName = quoteInfo.marketName
+            newCrop.itemType = GoToMarketConstant.itemTypeCoreDataNameForCrops
             newCrop.note = UserNotes.findOrCreateNoteFromData(matching: newCrop, in: context)
             return newCrop
         }

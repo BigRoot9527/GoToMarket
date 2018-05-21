@@ -51,7 +51,7 @@ class TestFoldingViewController: UIViewController,UITableViewDelegate,UITableVie
             case .close:
                 print("row: \(indexPath.row) = close")
                 cell.itemNameLabel.text = crop.cropName
-                cell.itemNewPrice.text = String(crop.averagePrice)
+                cell.itemNewPrice.text = String(crop.newAveragePrice)
 //                cell.titleMarkButton
                 
             case .open:
@@ -64,7 +64,7 @@ class TestFoldingViewController: UIViewController,UITableViewDelegate,UITableVie
 //                cell.detailItemImageView
 //                cell.detailMarkButton
                 cell.detailItemNameLabel.text = crop.cropName
-                cell.detailItemNewPrice.text = String(crop.averagePrice)
+                cell.detailItemNewPrice.text = String(crop.newAveragePrice)
                 cell.detailUpdateTimeLabel.text = crop.date
             }
         }
@@ -117,7 +117,7 @@ class TestFoldingViewController: UIViewController,UITableViewDelegate,UITableVie
         switch state[indexPath.row] {
         case .close:
             cell.itemNameLabel.text = crop.cropName
-            cell.itemNewPrice.text = String(crop.averagePrice)
+            cell.itemNewPrice.text = String(crop.newAveragePrice)
 //            cell.titleMarkButton
         case .open:
 //            cell.itemNameLabel.text = crop.cropName
@@ -128,7 +128,7 @@ class TestFoldingViewController: UIViewController,UITableViewDelegate,UITableVie
 //            cell.detailItemImageView
 //            cell.detailMarkButton
             cell.detailItemNameLabel.text = crop.cropName
-            cell.detailItemNewPrice.text = String(crop.averagePrice)
+            cell.detailItemNewPrice.text = String(crop.newAveragePrice)
             cell.detailUpdateTimeLabel.text = crop.date
             
         }
