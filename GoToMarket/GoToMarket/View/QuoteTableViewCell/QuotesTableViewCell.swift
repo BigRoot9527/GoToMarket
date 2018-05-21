@@ -10,15 +10,23 @@ import UIKit
 
 class QuotesTableViewCell: UITableViewCell {
     
+    //Input
     var inBuyingChart: Bool = false {
         didSet {
             updateIndicator()
+        }
+    }
+    //Input
+    var priceIndicator: Double? {
+        didSet {
+            updatePriceMark()
         }
     }
     
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var sellPriceLabel: UILabel!
     @IBOutlet weak var buyingIndicatorImageView: UIImageView!
+    @IBOutlet weak var priceMarkImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,12 +41,42 @@ class QuotesTableViewCell: UITableViewCell {
     
     private func updateIndicator() {
         if inBuyingChart {
+            
             buyingIndicatorImageView.isHidden = false
+            
         } else {
+            
             buyingIndicatorImageView.isHidden = true
         }
+    }
+    
+    private func updatePriceMark() {
+        
+        guard let rate = priceIndicator else { return }
+        
+        switch rate {
+        
+        case ..<0.7:
+            priceMarkImageView.image = #imageLiteral(resourceName: "down3")
+        case 0.7..<0.9:
+            priceMarkImageView.image = #imageLiteral(resourceName: "down2")
+        case 0.9..<1:
+            priceMarkImageView.image = #imageLiteral(resourceName: "down1")
+        case 1..<1.000001 :
+            priceMarkImageView.image = #imageLiteral(resourceName: "equal")
+        case 1.000001..<1.1:
+            priceMarkImageView.image = #imageLiteral(resourceName: "up1")
+        case 1.1 ..< 1.3:
+            priceMarkImageView.image = #imageLiteral(resourceName: "up2")
+        default :
+            priceMarkImageView.image = #imageLiteral(resourceName: "up3")
+
+        }
+        
+        
         
     }
+    
     
 
 }

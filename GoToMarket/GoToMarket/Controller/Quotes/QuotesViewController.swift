@@ -88,7 +88,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
+
         quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
         quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
     }
@@ -112,8 +112,10 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchAndReloadData()
-        
+        if !isUpdated {
+            
+            fetchAndReloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
