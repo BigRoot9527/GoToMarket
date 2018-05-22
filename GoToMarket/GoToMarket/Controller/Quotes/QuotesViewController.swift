@@ -122,17 +122,17 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         style: .default,
         title: nil)
         { [weak self] action, indexPath in
+            
+            note.isInCart = !note.isInCart
+            
+            selectedCell.inBuyingChart = note.isInCart
+            
+            try? self?.container?.viewContext.save()
 
             self?.showingCartAnimation(
                 isInChart: note.isInCart,
                 fromCellFrame: selectedCell.frame,
                 completion: {
-                    
-                    note.isInCart = !note.isInCart
-                    
-                    selectedCell.inBuyingChart = note.isInCart
-                    
-                    try? self?.container?.viewContext.save()
                     
                     self?.postCartNotification()
             })
@@ -258,19 +258,19 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
         self.view.addSubview(animationView)
         
-        animationView.frame = isInChart ?
+        animationView.frame = !isInChart ?
             CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 35, height: 35) :
             CGRect(x: 10, y: convertedRect.origin.y + 5, width: 35, height: 35)
         
         let fromPoint = animationView.center
         
-        let endPoint = isInChart ?
+        let endPoint = !isInChart ?
             CGPoint(x: -20, y: rootViewPoint.y - 100 ) :
             CGPoint(x: rootViewPoint.x, y: rootViewPoint.y)
         
-        let fator: CGFloat = isInChart ? -1 : 0.5
+        let fator: CGFloat = !isInChart ? -1 : 0.5
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             
             animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
             
@@ -286,7 +286,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         animationView.animatePath(
             fromPoint: fromPoint,
             toPoint:   endPoint,
-            duration:  1.0,
+            duration:  0.6,
             factor:    fator)
         
         CATransaction.commit()
