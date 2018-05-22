@@ -11,7 +11,12 @@ import UIKit
 extension UIView {
     
     //MARK: Animation
-    func animatePath(fromPoint start : CGPoint, toPoint end: CGPoint, duration time: Double, factor: CGFloat) {
+    func animatePath(
+        fromPoint start : CGPoint,
+        toPoint end: CGPoint,
+        duration time: Double,
+        factor: CGFloat)
+    {
         // The animation
         let animation = CAKeyframeAnimation(keyPath: "position")
         

@@ -53,7 +53,10 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         cell.itemNameLabel.text = crop.cropName
         
-        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler, inKg: showInKg)
+        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(
+            fromTruePrice: crop.newAveragePrice,
+            andMultipler: note.customMutipler,
+            inKg: showInKg)
         
         if crop.newAveragePrice == 0 {
             cell.priceIndicator = 1
@@ -127,9 +130,9 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
                     
                     note.isInCart = !note.isInCart
                     
-                    try? self?.container?.viewContext.save()
+                    selectedCell.inBuyingChart = note.isInCart
                     
-                    self?.quotesTableView.reloadRows(at: [indexPath], with: .none)
+                    try? self?.container?.viewContext.save()
                     
                     self?.postCartNotification()
             })
@@ -170,7 +173,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.hero.isEnabled = true
         
         setupTableView()
-
         
         updateUI()
     }
@@ -248,22 +250,23 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         completion: @escaping () -> Void ) {
         
         let screenSize = UIScreen.main.bounds
-        let originpoint = CGPoint(x: screenSize.width / 2, y: screenSize.height)
+        let rootViewPoint = CGPoint(x: screenSize.width / 2, y: screenSize.height)
         
-        let convertedPoint = quotesTableView.convert(originpoint, from: nil)
+        let convertedRect = self.view.convert(cellFrame, from: quotesTableView)
+//        let convertedPoint = self.view.convert(originpoint, from: nil)
         
         let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
-        quotesTableView.addSubview(animationView)
+        self.view.addSubview(animationView)
         
         animationView.frame = isInChart ?
-            CGRect(x: convertedPoint.x - 40 , y: convertedPoint.y, width: 35, height: 35) :
-            CGRect(x: 10, y: cellFrame.origin.y + 5, width: 35, height: 35)
+            CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 35, height: 35) :
+            CGRect(x: 10, y: convertedRect.origin.y + 5, width: 35, height: 35)
         
         let fromPoint = animationView.center
         
         let endPoint = isInChart ?
-            CGPoint(x: -20, y: convertedPoint.y - 100 ) :
-            CGPoint(x: convertedPoint.x, y: convertedPoint.y)
+            CGPoint(x: -20, y: rootViewPoint.y - 100 ) :
+            CGPoint(x: rootViewPoint.x, y: rootViewPoint.y)
         
         let fator: CGFloat = isInChart ? -1 : 0.5
         

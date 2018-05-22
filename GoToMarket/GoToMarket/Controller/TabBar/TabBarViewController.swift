@@ -153,8 +153,6 @@ class TabBarViewController: RAMAnimatedTabBarController {
         self.tabBar.items![1].badgeValue = count > 0 ? String(count) : nil
         let animationItem: RAMAnimatedTabBarItem = self.tabBar.items![1] as! RAMAnimatedTabBarItem
         playBounceAnimation(imageView: (animationItem.iconView?.icon)!)
-        
-        
     }
     
     func playBounceAnimation(imageView : UIImageView) {
