@@ -19,6 +19,7 @@
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
+		3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */; };
 		3230F3D120AA86C0002812E0 /* QuotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */; };
 		3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */; };
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
@@ -110,6 +111,7 @@
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtnesionUIView.swift; sourceTree = "<group>"; };
 		3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuotesTableViewCell.xib; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesTableViewCell.swift; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
+				3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
 				32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */,
 				327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */,
+				3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
 				32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */,

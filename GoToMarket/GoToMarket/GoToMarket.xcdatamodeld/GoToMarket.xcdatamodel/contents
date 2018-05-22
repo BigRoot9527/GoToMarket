@@ -14,7 +14,7 @@
         <attribute name="buyingAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="customMutipler" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" customClassName="." syncable="YES"/>
         <attribute name="isFinished" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isInChart" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isInCart" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="itemCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="muliplerWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -22,6 +22,6 @@
     </entity>
     <elements>
         <element name="CropDatas" positionX="1584" positionY="1406" width="128" height="163"/>
-        <element name="UserNotes" positionX="1807" positionY="1386" width="128" height="163"/>
+        <element name="UserNotes" positionX="1807" positionY="1386" width="128" height="165"/>
     </elements>
 </model>

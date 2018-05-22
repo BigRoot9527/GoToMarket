@@ -69,7 +69,7 @@ class LoadingViewController: UIViewController {
         } else {
             
             
-            askForFirstSet()
+            askForMarket()
         }
         
     }
@@ -128,7 +128,7 @@ class LoadingViewController: UIViewController {
     }
     
     
-    private func askForFirstSet() {
+    private func askForMarket() {
         
         weak var presentingVC = self.presentingViewController
         

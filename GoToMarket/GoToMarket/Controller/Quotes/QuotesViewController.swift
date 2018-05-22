@@ -13,9 +13,7 @@ import SwipeCellKit
 
 
 class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
-    
 
-    
 
     //MARK: IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
@@ -45,6 +43,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
+    
     //MARK: TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -65,7 +64,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.delegate = self
         
         //MARK: TODO
-        cell.inBuyingChart = false
+        cell.inBuyingChart = note.isInCart
         
         //Hero
         cell.contentView.hero.id = String(describing: indexPath)
@@ -82,11 +81,18 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
-    
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
         
         detailVC.objectInput = crop
+        
+        detailVC.didTapBuyingCallBack = { [weak self] bool -> () in
+            
+            crop.note?.isInCart = bool
+            
+            try? self?.container?.viewContext.save()
+            
+        }
         
         //Hero
         detailVC.hero.isEnabled = true
@@ -94,7 +100,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
         present(detailVC, animated: true, completion: nil)
-        
     }
     
     
@@ -103,53 +108,40 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         guard orientation == .right else { return nil }
         
-        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
+        guard
+            orientation == .right,
+            let crop = fetchedResultsController?.object(at: indexPath) ,
+            let note = crop.note,
+            let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as? QuotesTableViewCell
+            else { return nil }
         
-        let selectAction = SwipeAction(style: .default, title: nil) { [weak self] action, indexPath in
-            
-            selectedCell.inBuyingChart = !selectedCell.inBuyingChart
-            
-            let animationView = UIImageView(image: #imageLiteral(resourceName: "shopping-cart-3"))
-            
-            let cellbounds = selectedCell.bounds
-            
-            let screenSize = UIScreen.main.bounds
-            let screenWidth = screenSize.width
-            let screenHeight = screenSize.height
-            
-            selectedCell.addSubview(animationView)
-            
-            animationView.frame = CGRect(x: screenWidth - 40, y: cellbounds.origin.y + 5, width: 35, height: 35)
-            
-            UIView.animate(withDuration: 0.5, animations: {
+        let selectAction = SwipeAction(
+        style: .default,
+        title: nil)
+        { [weak self] action, indexPath in
 
-                animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-
+            self?.showingCartAnimation(
+                isInChart: note.isInCart,
+                fromCellFrame: selectedCell.frame,
+                completion: {
+                    
+                    note.isInCart = !note.isInCart
+                    
+                    try? self?.container?.viewContext.save()
+                    
+                    self?.quotesTableView.reloadRows(at: [indexPath], with: .none)
+                    
+                    self?.postCartNotification()
             })
-            
-            let fromPoint = animationView.center
-            
-            let endPoint = CGPoint(x: screenWidth / 2, y: screenHeight - 10)
-            
-            
-            CATransaction.begin()
-            CATransaction.setCompletionBlock {
-                print("finished")
-                
-            }
-            self?.animate(view: animationView, fromPoint: fromPoint, toPoint: endPoint)
-            CATransaction.commit()
-            
-            
-            
-
         }
         
         selectAction.image = !selectedCell.inBuyingChart ?
-                #imageLiteral(resourceName: "shopping-cart-3").resizeImage(newWidth: 35) : #imageLiteral(resourceName: "shopping-cart-white").resizeImage(newWidth: 35)
+            #imageLiteral(resourceName: "add_icon").resizeImage(newWidth: 35) :
+            #imageLiteral(resourceName: "minus_icon").resizeImage(newWidth: 35)
             
         selectAction.backgroundColor = !selectedCell.inBuyingChart ?
-                GoToMarketColor.newLightBlueGreen.color() : GoToMarketColor.pitchRed.color()
+            GoToMarketColor.newLightBlueGreen.color() :
+            GoToMarketColor.pitchRed.color()
 
         return [selectAction]
     }
@@ -163,53 +155,14 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         options.expansionStyle = .selection
         options.transitionStyle = .reveal
         options.buttonVerticalAlignment = .center
-        options.backgroundColor = !selectedCell.inBuyingChart ? GoToMarketColor.newLightBlueGreen.color() : GoToMarketColor.pitchRed.color()
+        options.backgroundColor = !selectedCell.inBuyingChart ?
+            GoToMarketColor.newLightBlueGreen.color() :
+            GoToMarketColor.pitchRed.color()
         
         return options
+    }
+    
 
-    }
-    
-    //MARK: Animation
-    func animate(view : UIView, fromPoint start : CGPoint, toPoint end: CGPoint) {
-        // The animation
-        let animation = CAKeyframeAnimation(keyPath: "position")
-        
-        // Animation's path
-        let path = UIBezierPath()
-        
-        // Move the "cursor" to the start
-        path.move(to: start)
-        
-        // Calculate the control points
-        let factor : CGFloat = 0.5
-        
-        let deltaX : CGFloat = end.x - start.x
-        let deltaY : CGFloat = end.y - start.y
-        
-        let c1 = CGPoint(x: start.x + deltaX * factor, y: start.y)
-        let c2 = CGPoint(x: end.x                    , y: end.y - deltaY * factor)
-        
-        // Draw a curve towards the end, using control points
-        path.addCurve(to: end, controlPoint1: c1, controlPoint2: c2)
-        
-        // Use this path as the animation's path (casted to CGPath)
-        animation.path = path.cgPath;
-        
-        // The other animations properties
-        animation.fillMode              = kCAFillModeForwards
-        animation.isRemovedOnCompletion = false
-        animation.duration              = 1
-        animation.timingFunction        = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
-        
-        // Apply it
-        view.layer.zPosition = 0
-        view.layer.add(animation, forKey:"trash")
-    }
-    
-    
-    
-    
-    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -217,16 +170,17 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.hero.isEnabled = true
         
         setupTableView()
+
         
         updateUI()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
             fetchAndReloadData()
+        
+            postCartNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -235,6 +189,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         if !isUpdated {
             
             checkAndUpdateApi()
+            
             isUpdated = true
         }
     }
@@ -244,10 +199,13 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
         
-        let nibFile = UINib(nibName: "QuotesTableViewCell", bundle: nil)
+        let nibFile = UINib(
+            nibName: "QuotesTableViewCell",
+            bundle: nil)
         
-        quotesTableView.register(nibFile,
-                                 forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
+        quotesTableView.register(
+            nibFile,
+            forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
     }
     
     
@@ -279,7 +237,69 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             present(loadingVC, animated: true, completion: nil)
         }
-        
     }
+    
+    
+    //MARK: Animation
+    
+    private func showingCartAnimation(
+        isInChart:Bool,
+        fromCellFrame cellFrame: CGRect,
+        completion: @escaping () -> Void ) {
+        
+        let screenSize = UIScreen.main.bounds
+        let originpoint = CGPoint(x: screenSize.width / 2, y: screenSize.height)
+        
+        let convertedPoint = quotesTableView.convert(originpoint, from: nil)
+        
+        let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
+        quotesTableView.addSubview(animationView)
+        
+        animationView.frame = isInChart ?
+            CGRect(x: convertedPoint.x - 40 , y: convertedPoint.y, width: 35, height: 35) :
+            CGRect(x: 10, y: cellFrame.origin.y + 5, width: 35, height: 35)
+        
+        let fromPoint = animationView.center
+        
+        let endPoint = isInChart ?
+            CGPoint(x: -20, y: convertedPoint.y - 100 ) :
+            CGPoint(x: convertedPoint.x, y: convertedPoint.y)
+        
+        let fator: CGFloat = isInChart ? -1 : 0.5
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            
+            animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            
+        })
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            animationView.removeFromSuperview()
+            
+            completion()
 
+        }
+        animationView.animatePath(
+            fromPoint: fromPoint,
+            toPoint:   endPoint,
+            duration:  1.0,
+            factor:    fator)
+        
+        CATransaction.commit()
+    }
+    
+    
+    //MARK:Notification
+    private func postCartNotification() {
+        
+        guard let count = fetchedResultsController?.fetchedObjects?.filter(
+            { $0.note?.isInCart == true }).count else { return }
+        
+        NotificationCenter.default.post(
+            name: GoToMarketConstant.cartNotificationName,
+            object: self,
+            userInfo: ["CartCount": count])
+
+    }
 }

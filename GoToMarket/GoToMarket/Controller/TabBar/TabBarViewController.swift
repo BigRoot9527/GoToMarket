@@ -106,6 +106,12 @@ class TabBarViewController: RAMAnimatedTabBarController {
         changeSelectedColor(GoToMarketColor.newOrange.color(), iconSelectedColor: GoToMarketColor.newOrange.color())
         
         self.tabBar.items![2].badgeValue = "3"
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(responseToCart(notification:)),
+            name: GoToMarketConstant.cartNotificationName,
+            object: nil)
     }
 
     private func setupTab() {
@@ -136,6 +142,29 @@ class TabBarViewController: RAMAnimatedTabBarController {
         
         setViewControllers(controllers, animated: false)
         
+    }
+    
+    @objc private func responseToCart(notification: Notification) {
+        
+        guard
+            let infoPassed = notification.userInfo as? [String: AnyObject],
+            let count = infoPassed["CartCount"] as? Int else { return }
+        
+        self.tabBar.items![1].badgeValue = count > 0 ? String(count) : nil
+        let animationItem: RAMAnimatedTabBarItem = self.tabBar.items![1] as! RAMAnimatedTabBarItem
+        playBounceAnimation(imageView: (animationItem.iconView?.icon)!)
+        
+        
+    }
+    
+    func playBounceAnimation(imageView : UIImageView) {
+        
+        let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        bounceAnimation.values = [1.0 ,1.4, 0.9, 1.15, 0.95, 1.02, 1.0]
+        bounceAnimation.duration = TimeInterval(1)
+        bounceAnimation.calculationMode = kCAAnimationCubic
+        
+        imageView.layer.add(bounceAnimation, forKey: "bounceAnimation")
     }
 
 }

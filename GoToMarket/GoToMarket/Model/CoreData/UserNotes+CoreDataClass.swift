@@ -36,7 +36,7 @@ public class UserNotes: NSManagedObject {
                 //單向: 用cropData找Note, 不能用note找cropData
                 maches[0].buyingAmount = NoteConstant.initialBuyingAmount
                 maches[0].isFinished = NoteConstant.initialIsFinished
-                maches[0].isInChart = NoteConstant.initialIsInChart
+                maches[0].isInCart = NoteConstant.initialIsInChart
                 
                 maches[0].customMutipler = NoteConstant.initailMultipler
                 maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
@@ -50,7 +50,7 @@ public class UserNotes: NSManagedObject {
         let newNote = UserNotes(context: context)
         newNote.buyingAmount = NoteConstant.initialBuyingAmount
         newNote.isFinished = NoteConstant.initialIsFinished
-        newNote.isInChart = NoteConstant.initialIsInChart
+        newNote.isInCart = NoteConstant.initialIsInChart
         
         newNote.customMutipler = NoteConstant.initailMultipler
         newNote.muliplerWeight = NoteConstant.initailMultiplerWeight
@@ -91,7 +91,7 @@ public class UserNotes: NSManagedObject {
         ) throws -> UserNotes
     {
         guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { throw GoToMarketError.FetchError }
-        fetchedNote.isInChart = bool
+        fetchedNote.isInCart = bool
         return fetchedNote
     }
     
@@ -103,7 +103,7 @@ public class UserNotes: NSManagedObject {
         guard
             let note = self.fetchNote(matching: cropCode, in: context)
             else { throw GoToMarketError.FetchError }
-        return note.isInChart
+        return note.isInCart
     }
     
     class func getPredictPrice(

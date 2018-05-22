@@ -23,6 +23,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //Input
     var objectInput: CropDatas?
     var titleHeroIdInput: String?
+    var didTapBuyingCallBack: ((Bool) -> Void)?
     
     let manager = WikiManager()
     let rowTypes: [DetailRowType] = [.title, .intro, .history, .quotes ]
@@ -30,19 +31,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
     //TODO: another collection view to let user know that there's two kinds of chart
-    
-    
-    func buyingButtonTapped(sender: UIButton) {
-        print("\(sender) Tapped!")
-    }
-    
-    func changeWeightButtonTapped(sender: UIButton) {
-        print("\(sender) Tapped!")
-    }
-    
-    func priceInfoButtonTapped(sender: UIButton) {
-        print("\(sender) Tapped!")
-    }
     
     
     //MARK: TableView
@@ -63,17 +51,21 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case .title:
             
             let cell = detailTableView.dequeueReusableCell(
-                withIdentifier: String(describing: DetailTitleTableViewCell.self),
-                for: indexPath) as! DetailTitleTableViewCell
+                withIdentifier: String(
+                                describing: DetailTitleTableViewCell.self),
+                                for: indexPath)
+                as! DetailTitleTableViewCell
             
             if let heroID = titleHeroIdInput {
+                
                 cell.contentView.hero.id = heroID
             }
             
             cell.delegate = self
             
             cell.detailNameLabel.text = crop.cropName
-//            cell.inBuyingChart = note.
+            
+            cell.isInCartInput = crop.note?.isInCart
             
             return cell
             
@@ -156,15 +148,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
         if detailTableView.contentOffset.y < -50 {
             
             dismiss(animated: true, completion: nil)
-            
         }
-        
     }
-    
-    
     
     
     //MARK: LifeCycle
@@ -219,18 +208,31 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self?.detailTableView.reloadRows(at: [index], with: .fade)
             
-        }) { [weak self] (error) in
+        }) { (error) in
             
             print(error)
-            
         }
-        
-        
     }
-
     
+    
+    //MARK: IBAction
     @IBAction func didTabCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Delegate
+    func buyingButtonTapped(sender: UIButton) {
+        //TODO: message for user to know adding succeed
+        guard let callBack = didTapBuyingCallBack else { return }
+        callBack(sender.isSelected)
+    }
+    
+    func changeWeightButtonTapped(sender: UIButton) {
+        print("\(sender) Tapped!")
+    }
+    
+    func priceInfoButtonTapped(sender: UIButton) {
+        print("\(sender) Tapped!")
     }
     
     

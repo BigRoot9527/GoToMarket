@@ -15,6 +15,7 @@ class GoToMarketConstant {
 //    static let detailFoldedRowHeight: CGFloat = 755.0
 //    
 //    static let detailExpendRowHeight: CGFloat = 910.0
+    static let cartNotificationName = Notification.Name("CartCount")
     
     static let detailDropDownDuration: TimeInterval = 0.3
     

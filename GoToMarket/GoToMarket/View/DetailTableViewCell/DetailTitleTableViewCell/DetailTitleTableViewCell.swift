@@ -14,8 +14,13 @@ class DetailTitleTableViewCell: UITableViewCell {
     //TODO: maybe aspect fit is better
 
     @IBOutlet weak var detailNameLabel: UILabel!
-    //isSelected = true >> Yellow(inChart)
     @IBOutlet weak var detailBuyingButton: UIButton!
+    
+    var isInCartInput: Bool? {
+        didSet{
+            setUI()
+        }
+    }
     
     weak var delegate: DetailTableViewCellDelegate?
     
@@ -34,7 +39,13 @@ class DetailTitleTableViewCell: UITableViewCell {
     }
     
     private func setUI() {
+        
         self.selectionStyle = UITableViewCellSelectionStyle.none
+        
+        if let bool = isInCartInput {
+            
+            detailBuyingButton.isSelected = bool
+        }
     }
     
 }
