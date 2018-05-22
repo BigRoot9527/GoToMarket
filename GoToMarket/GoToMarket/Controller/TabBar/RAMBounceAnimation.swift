@@ -14,7 +14,7 @@ class RAMBounceAnimation : RAMItemAnimation {
         textLabel.textColor = GoToMarketColor.newOrange.color()
         icon.tintColor = GoToMarketColor.newOrange.color()
     }
-
+ 
     override func deselectAnimation(_ icon: UIImageView, textLabel: UILabel, defaultTextColor: UIColor, defaultIconColor: UIColor) {
         textLabel.textColor = defaultTextColor
         icon.tintColor = defaultIconColor

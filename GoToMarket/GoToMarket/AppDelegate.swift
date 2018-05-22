@@ -14,13 +14,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static let shared = UIApplication.shared.delegate as! AppDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         print("Database URL = \(NSPersistentContainer.defaultDirectoryURL())")
         
+        switchToTaabBarStoryBoard()
         return true
+    }
+    
+    func switchToTaabBarStoryBoard() {
+        
+        if !Thread.current.isMainThread {
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                self?.switchToTaabBarStoryBoard()
+            }
+            
+            return
+        }
+        
+        window?.rootViewController = UIStoryboard.tabBar().instantiateInitialViewController()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

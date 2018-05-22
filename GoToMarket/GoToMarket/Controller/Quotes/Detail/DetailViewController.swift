@@ -20,7 +20,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var detailWikiImageView: UIImageView!
     //TODO: placeHolder and loading Image
     
-    var objectPassed: CropDatas?
+    //Input
+    var objectInput: CropDatas?
+    var titleHeroIdInput: String?
+    
     let manager = WikiManager()
     let rowTypes: [DetailRowType] = [.title, .intro, .history, .quotes ]
     var wikiText: String = "Wiki說明下載中...."
@@ -52,7 +55,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let showingType = rowTypes[indexPath.row]
         
-        guard let crop = objectPassed, let note = crop.note else { return UITableViewCell() }
+        guard let crop = objectInput, let note = crop.note else { return UITableViewCell() }
         //TODO: to return loading image
         
         switch showingType {
@@ -62,6 +65,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cell = detailTableView.dequeueReusableCell(
                 withIdentifier: String(describing: DetailTitleTableViewCell.self),
                 for: indexPath) as! DetailTitleTableViewCell
+            
+            if let heroID = titleHeroIdInput {
+                cell.contentView.hero.id = heroID
+            }
             
             cell.delegate = self
             
@@ -186,7 +193,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func loadWikiData() {
-        guard let itemData = objectPassed else { return }
+        guard let itemData = objectInput else { return }
         
         manager.getWikiImageUrl(
             

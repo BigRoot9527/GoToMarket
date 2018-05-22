@@ -50,9 +50,6 @@
                             <constraint firstItem="bPW-8G-ekL" firstAttribute="centerY" secondItem="1Xi-2C-dnA" secondAttribute="centerY" id="uGc-aO-lYt"/>
                             <constraint firstAttribute="trailing" secondItem="bPW-8G-ekL" secondAttribute="trailing" constant="30" id="zO0-iQ-tr5"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

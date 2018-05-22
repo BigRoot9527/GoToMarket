@@ -10,8 +10,8 @@ import UIKit
 
 extension UIStoryboard {
     
-    static func selectionStoryboard() -> UIStoryboard {
-        return UIStoryboard(name: "Selection", bundle: nil)
+    static func tabBar() -> UIStoryboard {
+        return UIStoryboard(name: "TabBar", bundle: nil)
     }
     
     static func quotes() -> UIStoryboard {

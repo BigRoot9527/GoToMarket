@@ -11,6 +11,7 @@ import CoreData
 import Hero
 import SwipeCellKit
 
+
 class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
     
 
@@ -26,8 +27,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var showInKg: Bool = true
     var isUpdated: Bool = false
-    //to prevent animation from been canceled, set to true when user Start watching detail
-    var stopReloadWhenViewAppear: Bool = false
     
     private func fetchAndReloadData() {
         if let context = container?.viewContext {
@@ -69,9 +68,9 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.inBuyingChart = false
         
         //Hero
-        cell.contentView.hero.id = nil
+        cell.contentView.hero.id = String(describing: indexPath)
         
-        cell.hero.isEnabled = false
+        cell.hero.isEnabled = true
         
         return cell
     }
@@ -83,33 +82,21 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
-        
-        quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = true
-        
-        quotesTableView.cellForRow(at: indexPath)?.contentView.hero.id = "titleCellView"
     
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
         
-        detailVC.objectPassed = crop
+        detailVC.objectInput = crop
         
         //Hero
         detailVC.hero.isEnabled = true
+        detailVC.titleHeroIdInput = String(describing: indexPath)
         detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
         present(detailVC, animated: true, completion: nil)
         
-        stopReloadWhenViewAppear = true
-        
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-        //Hero
-        quotesTableView.cellForRow(at: indexPath)?.hero.isEnabled = false
-        quotesTableView.cellForRow(at: indexPath)?.hero.id = nil
-
-    }
     
     //MARK: SwipeCellKit
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
@@ -118,10 +105,44 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
         
-        let selectAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+        let selectAction = SwipeAction(style: .default, title: nil) { [weak self] action, indexPath in
             
             selectedCell.inBuyingChart = !selectedCell.inBuyingChart
             
+            let animationView = UIImageView(image: #imageLiteral(resourceName: "shopping-cart-3"))
+            
+            let cellbounds = selectedCell.bounds
+            
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            let screenHeight = screenSize.height
+            
+            selectedCell.addSubview(animationView)
+            
+            animationView.frame = CGRect(x: screenWidth - 40, y: cellbounds.origin.y + 5, width: 35, height: 35)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+
+                animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+
+            })
+            
+            let fromPoint = animationView.center
+            
+            let endPoint = CGPoint(x: screenWidth / 2, y: screenHeight - 10)
+            
+            
+            CATransaction.begin()
+            CATransaction.setCompletionBlock {
+                print("finished")
+                
+            }
+            self?.animate(view: animationView, fromPoint: fromPoint, toPoint: endPoint)
+            CATransaction.commit()
+            
+            
+            
+
         }
         
         selectAction.image = !selectedCell.inBuyingChart ?
@@ -148,6 +169,43 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     }
     
+    //MARK: Animation
+    func animate(view : UIView, fromPoint start : CGPoint, toPoint end: CGPoint) {
+        // The animation
+        let animation = CAKeyframeAnimation(keyPath: "position")
+        
+        // Animation's path
+        let path = UIBezierPath()
+        
+        // Move the "cursor" to the start
+        path.move(to: start)
+        
+        // Calculate the control points
+        let factor : CGFloat = 0.5
+        
+        let deltaX : CGFloat = end.x - start.x
+        let deltaY : CGFloat = end.y - start.y
+        
+        let c1 = CGPoint(x: start.x + deltaX * factor, y: start.y)
+        let c2 = CGPoint(x: end.x                    , y: end.y - deltaY * factor)
+        
+        // Draw a curve towards the end, using control points
+        path.addCurve(to: end, controlPoint1: c1, controlPoint2: c2)
+        
+        // Use this path as the animation's path (casted to CGPath)
+        animation.path = path.cgPath;
+        
+        // The other animations properties
+        animation.fillMode              = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        animation.duration              = 1
+        animation.timingFunction        = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
+        
+        // Apply it
+        view.layer.zPosition = 0
+        view.layer.add(animation, forKey:"trash")
+    }
+    
     
     
     
@@ -168,10 +226,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !stopReloadWhenViewAppear {
-            
             fetchAndReloadData()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -183,7 +238,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             isUpdated = true
         }
     }
-    
+
     private func setupTableView() {
         
         quotesTableView.dataSource = self
