@@ -15,7 +15,7 @@ struct NoteConstant
     static let firstInputMultiplerWeight: Double = 1.0
     static let maximunWeightPerTrain: Double = 1.0
     static let confidenceConstant: Double = 2.0
-    static let initialIsInChart: Bool = false
+    static let initialIsInCart: Bool = false
     static let initialBuyingAmount: Int16 = 0
     static let initialIsFinished: Bool = false
     

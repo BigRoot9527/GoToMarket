@@ -286,7 +286,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         animationView.animatePath(
             fromPoint: fromPoint,
             toPoint:   endPoint,
-            duration:  0.6,
+            duration:  0.8,
             factor:    fator)
         
         CATransaction.commit()

@@ -36,7 +36,7 @@ public class UserNotes: NSManagedObject {
                 //單向: 用cropData找Note, 不能用note找cropData
                 maches[0].buyingAmount = NoteConstant.initialBuyingAmount
                 maches[0].isFinished = NoteConstant.initialIsFinished
-                maches[0].isInCart = NoteConstant.initialIsInChart
+                maches[0].isInCart = NoteConstant.initialIsInCart
                 
                 maches[0].customMutipler = NoteConstant.initailMultipler
                 maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
@@ -50,7 +50,7 @@ public class UserNotes: NSManagedObject {
         let newNote = UserNotes(context: context)
         newNote.buyingAmount = NoteConstant.initialBuyingAmount
         newNote.isFinished = NoteConstant.initialIsFinished
-        newNote.isInCart = NoteConstant.initialIsInChart
+        newNote.isInCart = NoteConstant.initialIsInCart
         
         newNote.customMutipler = NoteConstant.initailMultipler
         newNote.muliplerWeight = NoteConstant.initailMultiplerWeight

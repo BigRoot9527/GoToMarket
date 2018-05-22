@@ -226,8 +226,8 @@
 				32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */,
 				3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */,
 				32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */,
-				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
+				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
 				3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */,
 			);
