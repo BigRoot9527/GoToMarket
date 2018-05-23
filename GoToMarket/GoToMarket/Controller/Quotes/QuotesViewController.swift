@@ -28,6 +28,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     private func fetchAndReloadData() {
         if let context = container?.viewContext {
+            context.reset()
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
             //request.predicate = NSPredicate(format:)
@@ -297,7 +298,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     private func postCartNotification() {
         
         guard let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.note?.isInCart == true }).count else { return }
+            { $0.note?.isInCart == true && $0.note?.cropData != nil }).count else { return }
         
         NotificationCenter.default.post(
             name: GoToMarketConstant.cartNotificationName,

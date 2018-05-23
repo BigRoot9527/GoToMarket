@@ -87,6 +87,12 @@ class LoadingViewController: UIViewController {
                     labelText: GoToMarketConstant.finishLoadingText,
                     completion: {
                         self?.dismiss(animated: true, completion: nil)
+                        
+                        //Set Cart count to 0
+                        NotificationCenter.default.post(
+                            name: GoToMarketConstant.cartNotificationName,
+                            object: self,
+                            userInfo: ["CartCount": 0])
                 })
                 
         }) { [weak self] error in

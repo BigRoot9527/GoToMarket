@@ -9,32 +9,14 @@
 import UIKit
 import CoreData
 
-private enum noteCellStatus {
-    
-    case open
-    
-    case close
-    
-    func height() -> CGFloat {
-        switch self {
-        case .open:
-            return 210.0
-        case .close:
-            return 110.0
-        }
-    }
-}
-
-
 class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var noteTableView: UITableView!
     
-    private var noteCellState: [noteCellStatus]? {
-        didSet {
-            print("been set!")
-        }
-    }
+    //MARK: FoldingCell
+    private var openedCellIndex: IndexPath?
+    private let openedCellHeight: CGFloat = 210.0
+    private let closedCellHeight: CGFloat = 110.0
     
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { fetchAndReloadData() } }
@@ -46,7 +28,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         noteTableView.delegate = self
         noteTableView.dataSource = self
-        noteTableView.estimatedRowHeight = noteCellStatus.close.height()
+        noteTableView.estimatedRowHeight = closedCellHeight
         registerCell()
     }
     
@@ -66,7 +48,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             request.sortDescriptors = [NSSortDescriptor(key: "isFinished", ascending: true)]
             
-            request.predicate = NSPredicate(format: "isInCart = true")
+            request.predicate = NSPredicate(format: "(isInCart = true) AND (cropData != nil)")
             
             fetchedResultsController = NSFetchedResultsController<UserNotes>(
                 fetchRequest: request,
@@ -99,13 +81,6 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
             
             let count = sections[section].numberOfObjects
-            
-            if noteCellState == nil {
-                
-                noteCellState = (0 ..< count).map{ _ in .close }
-                
-            }
-            
             print("count = \(count)")
             
             return count
@@ -130,96 +105,83 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let state = noteCellState else {
+        print("index.row = \(indexPath.row)")
+        
+        if indexPath == openedCellIndex {
             
-            return 10.0
+            return openedCellHeight
+            
+        } else {
+            
+            return closedCellHeight
         }
-        
-        print(indexPath.row)
-        
-        return state[indexPath.row].height()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard
-            let cell = self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell,
-            var state = noteCellState else { return }
+        guard let cell = self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell else { return }
         
         if cell.isAnimating() {
             
             return
         }
         
-        var duration = 0.0
+        let duration = 0.3
         
-        if state[indexPath.row] == .close { // open cell
-            
-            state[indexPath.row] = .open
-            
-            self.noteCellState = state
-            
-            setupCell(atIndexpath: indexPath, cellBeforeInit: nil)
-            
-            cell.unfold(true, animated: true, completion: nil)
-            
-            duration = 0.3
-            
-            UIView.animate(
-                withDuration: duration,
-                delay: 0,
-                animations: {
-                    
-                    tableView.beginUpdates()
-                    tableView.endUpdates()
-                    
-            }, completion: nil)
-            
-        } else {// close cell
-            
-            state[indexPath.row] = .close
-            
-            self.noteCellState = state
-            
-            setupCell(atIndexpath: indexPath, cellBeforeInit: nil)
+        if indexPath == openedCellIndex {
             
             cell.unfold(false, animated: true, completion: nil)
             
-            duration = 0.3
+            openedCellIndex = nil
             
-            UIView.animate(
-                withDuration: duration,
-                delay: 0,
-                animations: {
-                    
-                    tableView.beginUpdates()
-                    tableView.endUpdates()
-                    
-            }, completion: nil)
+        } else if openedCellIndex == nil {
+            
+            cell.unfold(true, animated: true, completion: nil)
+            
+            openedCellIndex = indexPath
+            
+        } else {
+            
+            cell.unfold(true, animated: true, completion: nil)
+            
+            if
+                let openedCell = noteTableView.cellForRow(at: openedCellIndex!) as? NoteTableViewCell,
+                let oldOpenedIndex = openedCellIndex {
+                
+                openedCell.unfold(false, animated: true, completion: nil)
+                
+                setupCell(atIndexpath: oldOpenedIndex, cellBeforeInit: nil)
+            }
+            
+            openedCellIndex = indexPath
+            
         }
         
-        print("didSelect indexpath = \(indexPath)")
-        
-        
+        setupCell(atIndexpath: indexPath, cellBeforeInit: nil)
+            
+        UIView.animate(
+            withDuration: duration,
+            delay: 0,
+            animations: {
+                
+                tableView.beginUpdates()
+                tableView.endUpdates()
+                
+        }, completion: nil)
     }
     
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        guard
-            let showingCell = cell as? NoteTableViewCell,
-            let state = noteCellState
-            else { return }
+        guard let showingCell = cell as? NoteTableViewCell else { return }
 
-        switch state[indexPath.row] {
-
-        case .close:
-            //                        break
-            showingCell.unfold(false, animated: false, completion: nil)
-
-        case .open:
-            //            showingCell.openAnimation{}
+        if indexPath == openedCellIndex {
+            
             showingCell.unfold(true, animated: false, completion: nil)
+            
+        } else {
+            
+            showingCell.unfold(false, animated: false, completion: nil)
         }
     }
     
@@ -227,21 +189,18 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func setupCell(atIndexpath indexPath: IndexPath, cellBeforeInit newCell: NoteTableViewCell?) {
         
         guard
-            let state = noteCellState,
             let note = fetchedResultsController?.object(at: indexPath),
+            let cropData = note.cropData,
             let cell = newCell ?? self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell
             else { return }
 
-        switch state[indexPath.row] {
-            
-        case .close:
-            
+        if indexPath != openedCellIndex {
+
             print("row: \(indexPath.row) = close")
             cell.topBuyingAmountLabel.text = String(note.buyingAmount)
             cell.topFinishButton.isSelected = note.isFinished
             //TODO
             cell.topWeightTypeLabel.text = "(每公斤)"
-//            cell.unfold(false, animated: false, completion: nil)
             
             if let cropData = note.cropData {
                 
@@ -249,22 +208,17 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.topItemNameLabel.text = cropData.cropName
             }
             
-            
-        case .open:
+        } else {
             
             cell.bottomFinishButton.isSelected = note.isFinished
             //TODO
             cell.bottomWeightTypeLabel.text = "(每公斤)"
             cell.bottomBuyingAmountTextField.text = String(note.buyingAmount)
-//            cell.unfold(true, animated: false, completion: nil)
-            
-            if let cropData = note.cropData {
-                
-                cell.bottomItemNameLabel.text = cropData.cropName
-                cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
-                cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
-                cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
-            }
+
+            cell.bottomItemNameLabel.text = cropData.cropName
+            cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
+            cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
+            cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
         }
     }
 }
