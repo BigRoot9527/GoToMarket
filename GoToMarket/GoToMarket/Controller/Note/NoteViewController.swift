@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var noteTableView: UITableView!
     
@@ -219,6 +219,15 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
             cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
             cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
+            cell.bottomBuyingAmountTextField.delegate = self
         }
+    }
+    
+    //MARK: TextField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = "0123456789"
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
     }
 }
