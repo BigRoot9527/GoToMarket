@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Database URL = \(NSPersistentContainer.defaultDirectoryURL())")
         
+        IQKeyboardManager.shared.enable = true
         switchToTaabBarStoryBoard()
         return true
     }
