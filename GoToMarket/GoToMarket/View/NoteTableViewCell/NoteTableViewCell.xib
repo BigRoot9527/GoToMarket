@@ -12,14 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="335" id="2Y7-gV-Foe">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="335" id="2Y7-gV-Foe" customClass="NoteTableViewCell" customModule="GoToMarket" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="335"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Y7-gV-Foe" id="YIt-PQ-tT0">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="334.66666666666669"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CN-re-34S">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2CN-re-34S" customClass="RotatedView" customModule="FoldingCell">
                         <rect key="frame" x="10" y="10" width="300" height="100"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrV-nn-HlH">
@@ -53,7 +53,8 @@
                                     <constraint firstAttribute="width" secondItem="Co6-Bn-UXO" secondAttribute="height" multiplier="1:1" id="4gn-1E-Rk5"/>
                                     <constraint firstAttribute="width" constant="35" id="qtI-7u-NVB"/>
                                 </constraints>
-                                <state key="normal" image="confirm_icon"/>
+                                <state key="normal" image="unconfirm2_icon"/>
+                                <state key="selected" image="confirm_icon"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="756" text="335.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVO-Us-vUC">
                                 <rect key="frame" x="153" y="40.333333333333336" width="127" height="19.333333333333336"/>
@@ -107,7 +108,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltc-hI-QJK">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -117,7 +118,8 @@
                                             <constraint firstAttribute="width" secondItem="ol4-dE-p22" secondAttribute="height" multiplier="26:25" constant="1" id="7fE-om-llB"/>
                                             <constraint firstAttribute="width" constant="26" id="hHz-UL-2Cs"/>
                                         </constraints>
-                                        <state key="normal" image="confirm_icon"/>
+                                        <state key="normal" image="unconfirm2_icon"/>
+                                        <state key="selected" image="confirm_icon"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAj-G9-YO2">
                                         <rect key="frame" x="258" y="6.6666666666666714" width="22" height="22"/>
@@ -141,15 +143,13 @@
                                     <constraint firstAttribute="trailing" secondItem="Ltc-hI-QJK" secondAttribute="trailing" id="pp5-UQ-OTc"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(每公斤)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-5H-GeG">
-                                <rect key="frame" x="224" y="43" width="68" height="21.666666666666671"/>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ji4-6a-VXP">
+                                <rect key="frame" x="196" y="153" width="94" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="BcT-0i-C0t"/>
+                                    <constraint firstAttribute="height" constant="29" id="awm-sC-7NI"/>
+                                    <constraint firstAttribute="width" secondItem="ji4-6a-VXP" secondAttribute="height" multiplier="94:29" id="qVY-wx-Tkp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stepper>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Lfg-WI-98P">
                                 <rect key="frame" x="126.33333333333334" y="46.666666666666657" width="70" height="95"/>
                                 <subviews>
@@ -223,20 +223,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ji4-6a-VXP">
-                                <rect key="frame" x="196" y="153" width="94" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(每公斤)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-5H-GeG">
+                                <rect key="frame" x="212" y="84" width="68" height="21.666666666666671"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="awm-sC-7NI"/>
-                                    <constraint firstAttribute="width" secondItem="ji4-6a-VXP" secondAttribute="height" multiplier="94:29" id="qVY-wx-Tkp"/>
+                                    <constraint firstAttribute="width" constant="68" id="BcT-0i-C0t"/>
                                 </constraints>
-                            </stepper>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="E9h-5S-JWH" firstAttribute="leading" secondItem="f5Q-yo-72m" secondAttribute="leading" id="0Wh-NS-2HI"/>
                             <constraint firstItem="ZI9-VD-jxs" firstAttribute="leading" secondItem="f5Q-yo-72m" secondAttribute="leading" constant="10" id="2GR-Un-iuX"/>
                             <constraint firstItem="E9h-5S-JWH" firstAttribute="top" secondItem="f5Q-yo-72m" secondAttribute="top" id="56d-vw-8lP"/>
-                            <constraint firstItem="FWb-5H-GeG" firstAttribute="top" secondItem="E9h-5S-JWH" secondAttribute="bottom" constant="8" id="60h-Zo-Gr9"/>
                             <constraint firstItem="Lfg-WI-98P" firstAttribute="leading" secondItem="ZI9-VD-jxs" secondAttribute="trailing" constant="8" id="HED-p5-uoy"/>
                             <constraint firstItem="vmp-77-pfK" firstAttribute="leading" secondItem="HOO-x9-ybP" secondAttribute="leading" id="HTZ-VY-9eV"/>
                             <constraint firstAttribute="trailing" secondItem="E9h-5S-JWH" secondAttribute="trailing" id="JzX-4v-RoI"/>
@@ -245,8 +246,9 @@
                             <constraint firstItem="vmp-77-pfK" firstAttribute="centerY" secondItem="jo6-2t-5Tc" secondAttribute="centerY" id="TyS-9M-YFC"/>
                             <constraint firstAttribute="height" constant="200" id="WBu-c1-wkf"/>
                             <constraint firstItem="ViR-rH-ur3" firstAttribute="centerY" secondItem="r78-gS-tuW" secondAttribute="centerY" id="ZOL-qS-1lL"/>
+                            <constraint firstItem="FWb-5H-GeG" firstAttribute="centerY" secondItem="VbU-DG-f5l" secondAttribute="centerY" id="bl8-5b-26R"/>
                             <constraint firstItem="ZI9-VD-jxs" firstAttribute="top" secondItem="Ltc-hI-QJK" secondAttribute="bottom" constant="9" id="l0R-jp-fmf"/>
-                            <constraint firstAttribute="trailing" secondItem="FWb-5H-GeG" secondAttribute="trailing" constant="8" id="lKX-Xi-VGf"/>
+                            <constraint firstAttribute="trailing" secondItem="FWb-5H-GeG" secondAttribute="trailing" constant="20" id="nLq-UT-169"/>
                             <constraint firstItem="ViR-rH-ur3" firstAttribute="leading" secondItem="r78-gS-tuW" secondAttribute="trailing" id="qeZ-5F-hOl"/>
                             <constraint firstItem="ji4-6a-VXP" firstAttribute="centerY" secondItem="vmp-77-pfK" secondAttribute="centerY" id="rTD-Wl-83t"/>
                         </constraints>
@@ -261,20 +263,41 @@
                     <constraint firstAttribute="trailing" secondItem="f5Q-yo-72m" secondAttribute="trailing" constant="10" id="daM-Yy-B1V"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
+                    <integer key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="bottomBuyingAmountStepper" destination="ji4-6a-VXP" id="Dnu-SI-RhC"/>
+                <outlet property="bottomBuyingAmountTextField" destination="vmp-77-pfK" id="hi7-kg-sNJ"/>
+                <outlet property="bottomCellView" destination="f5Q-yo-72m" id="bxi-Nk-Axa"/>
+                <outlet property="bottomCellViewToContentViewTopConstraint" destination="Wvv-dV-0cE" id="d4d-YV-Pwk"/>
+                <outlet property="bottomDeleteButton" destination="pAj-G9-YO2" id="lgM-ay-j64"/>
+                <outlet property="bottomFinishButton" destination="ol4-dE-p22" id="RgR-SO-ebA"/>
+                <outlet property="bottomItemNameLabel" destination="Ltc-hI-QJK" id="4uK-FJ-sjx"/>
+                <outlet property="bottomLastRealPriceLabel" destination="HOO-x9-ybP" id="2od-ZU-JxJ"/>
+                <outlet property="bottomNewRealPriceLabel" destination="VbU-DG-f5l" id="QRX-yy-lRT"/>
+                <outlet property="bottomPriceInfoButton" destination="ViR-rH-ur3" id="53g-0Q-mWx"/>
+                <outlet property="bottomSellPriceLabel" destination="r78-gS-tuW" id="Kle-2Z-v6b"/>
+                <outlet property="bottomWeightTypeLabel" destination="FWb-5H-GeG" id="jfd-oc-hDV"/>
+                <outlet property="topBuyingAmountLabel" destination="gNA-Gq-A4i" id="OTp-94-rwh"/>
+                <outlet property="topCellPriceLabel" destination="pVO-Us-vUC" id="sJd-8M-ZJC"/>
+                <outlet property="topCellView" destination="2CN-re-34S" id="dyw-S4-X0b"/>
+                <outlet property="topCellViewToContentViewTopConstraint" destination="byU-lp-B48" id="hFe-AO-sGD"/>
+                <outlet property="topFinishButton" destination="Co6-Bn-UXO" id="BiX-v3-fKs"/>
+                <outlet property="topItemNameLabel" destination="ejV-LV-vfJ" id="aNs-9c-3FJ"/>
+                <outlet property="topWeightTypeLabel" destination="pOJ-fq-RkB" id="gWQ-fj-2MI"/>
+            </connections>
             <point key="canvasLocation" x="191.5" y="-14.5"/>
         </tableViewCell>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x6G-rJ-w1U">
-            <rect key="frame" x="0.0" y="0.0" width="131" height="27"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="365" y="-18"/>
-        </label>
     </objects>
     <resources>
         <image name="confirm_icon" width="128" height="128"/>
         <image name="garbage_icon" width="64" height="64"/>
         <image name="information" width="64" height="64"/>
+        <image name="unconfirm2_icon" width="128" height="128"/>
     </resources>
 </document>

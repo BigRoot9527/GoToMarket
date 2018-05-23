@@ -21,6 +21,8 @@
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */; };
 		3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */; };
+		3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */; };
+		3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */; };
 		3230F3D120AA86C0002812E0 /* QuotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */; };
 		3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */; };
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
@@ -114,6 +116,8 @@
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtnesionUIView.swift; sourceTree = "<group>"; };
 		3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
+		3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		3230F3D020AA86C0002812E0 /* QuotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuotesTableViewCell.xib; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		3230F3D520AAB025002812E0 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesTableViewCell.swift; path = GoToMarket/View/QuoteTableViewCell/QuotesTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		32070B5C20A551D600A6BA27 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3217C15A20B4FEBE006B9DA7 /* Note */,
 				32B1E3B620B1AB0700336B09 /* Setting */,
 				32B1E3AB20B16EE100336B09 /* Loading */,
 				32B1E39820B023E100336B09 /* MarketSetting */,
@@ -251,8 +256,17 @@
 			isa = PBXGroup;
 			children = (
 				3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */,
+				3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */,
 			);
 			path = NoteTableViewCell;
+			sourceTree = "<group>";
+		};
+		3217C15A20B4FEBE006B9DA7 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */,
+			);
+			path = Note;
 			sourceTree = "<group>";
 		};
 		3230F3CF20AA8652002812E0 /* QuoteTableViewCell */ = {
@@ -813,10 +827,12 @@
 				32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */,
 				326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */,
 				32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */,
+				3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */,
 				32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */,
 				32B1E38520AED4F400336B09 /* DetailIntroTableViewCell.swift in Sources */,
 				32B1E38B20AED55800336B09 /* DetailQuotesTableViewCell.swift in Sources */,
 				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
+				3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
 				32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */,
 				329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */,
