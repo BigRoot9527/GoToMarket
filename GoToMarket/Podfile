@@ -8,7 +8,6 @@ target 'GoToMarket' do
   # Pods for GoToMarket
   pod 'Alamofire'
   pod 'SDWebImage'
-  pod 'FoldingCell'
   pod 'RAMAnimatedTabBarController'
   pod 'Hero'
   pod 'Charts'
