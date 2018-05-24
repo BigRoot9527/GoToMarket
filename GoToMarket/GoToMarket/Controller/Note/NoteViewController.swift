@@ -245,11 +245,18 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         openedCellIndex = nil
         
-        noteTableView.reloadRows(at: [tappedIndexPath], with: .fade)
+        guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
         
-        showingCartAnimation(isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
+        if tappedIndexPath.row < count {
             
-            guard let count = self?.fetchedResultsController?.fetchedObjects?.count else { return }
+            noteTableView.reloadRows(at: [tappedIndexPath], with: .fade)
+            
+        } else {
+            
+            noteTableView.reloadData()
+            
+        }
+        showingCartAnimation(isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
             
             self?.postCartNotification(count: count)
         }
