@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate,NoteTableViewCellDelegate {
     
     @IBOutlet weak var noteTableView: UITableView!
     
@@ -29,6 +29,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         noteTableView.delegate = self
         noteTableView.dataSource = self
         noteTableView.estimatedRowHeight = closedCellHeight
+        noteTableView.rowHeight = UITableViewAutomaticDimension
         registerCell()
     }
     
@@ -76,7 +77,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         )
     }
     
-    //MARK: TableView
+    //MARK: TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
             
@@ -102,6 +103,36 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    private func setupCell(atIndexpath indexPath: IndexPath, cellBeforeInit newCell: NoteTableViewCell?) {
+        
+        guard
+            let note = fetchedResultsController?.object(at: indexPath),
+            let cropData = note.cropData,
+            let cell = newCell ?? self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell
+            else { return }
+        print("row: \(indexPath.row) = close")
+        
+        cell.delegate = self
+        
+        cell.topBuyingAmountLabel.text = String(note.buyingAmount)
+        cell.topFinishButton.isSelected = note.isFinished
+        //TODO
+        cell.topWeightTypeLabel.text = "(每公斤)"
+        cell.topCellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
+        cell.topItemNameLabel.text = cropData.cropName
+        
+        cell.bottomFinishButton.isSelected = note.isFinished
+        //TODO
+        cell.bottomWeightTypeLabel.text = "(每公斤)"
+        cell.bottomBuyingAmountTextField.text = String(note.buyingAmount)
+        
+        cell.bottomItemNameLabel.text = cropData.cropName
+        cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
+        cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
+        cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
+        cell.bottomBuyingAmountTextField.delegate = self
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -117,6 +148,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    //MARK: TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let cell = self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell else { return }
@@ -126,29 +158,29 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         }
         
-        let duration = 0.3
+        let duration = 0.25
         
         if indexPath == openedCellIndex {
             
-            cell.unfold(false, animated: true, completion: nil)
+            cell.unfold(false, animated: false, completion: nil)
             
             openedCellIndex = nil
             
         } else if openedCellIndex == nil {
             
-            cell.unfold(true, animated: true, completion: nil)
+            cell.unfold(true, animated: false, completion: nil)
             
             openedCellIndex = indexPath
             
         } else {
             
-            cell.unfold(true, animated: true, completion: nil)
+            cell.unfold(true, animated: false, completion: nil)
             
             if
                 let openedCell = noteTableView.cellForRow(at: openedCellIndex!) as? NoteTableViewCell,
                 let oldOpenedIndex = openedCellIndex {
                 
-                openedCell.unfold(false, animated: true, completion: nil)
+                openedCell.unfold(false, animated: false, completion: nil)
                 
                 setupCell(atIndexpath: oldOpenedIndex, cellBeforeInit: nil)
             }
@@ -186,48 +218,85 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    private func setupCell(atIndexpath indexPath: IndexPath, cellBeforeInit newCell: NoteTableViewCell?) {
-        
-        guard
-            let note = fetchedResultsController?.object(at: indexPath),
-            let cropData = note.cropData,
-            let cell = newCell ?? self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell
-            else { return }
 
-        if indexPath != openedCellIndex {
-
-            print("row: \(indexPath.row) = close")
-            cell.topBuyingAmountLabel.text = String(note.buyingAmount)
-            cell.topFinishButton.isSelected = note.isFinished
-            //TODO
-            cell.topWeightTypeLabel.text = "(每公斤)"
-            
-            if let cropData = note.cropData {
-                
-                cell.topCellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
-                cell.topItemNameLabel.text = cropData.cropName
-            }
-            
-        } else {
-            
-            cell.bottomFinishButton.isSelected = note.isFinished
-            //TODO
-            cell.bottomWeightTypeLabel.text = "(每公斤)"
-            cell.bottomBuyingAmountTextField.text = String(note.buyingAmount)
-
-            cell.bottomItemNameLabel.text = cropData.cropName
-            cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
-            cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
-            cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
-            cell.bottomBuyingAmountTextField.delegate = self
-        }
-    }
     
     //MARK: TextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = "0123456789"
-        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-        let typedCharacterSet = CharacterSet(charactersIn: string)
-        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+        let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        
+        if newText.isEmpty {
+            
+            return true
+        }
+        
+        if let intValue = Int(newText) {
+            
+            switch intValue {
+            case ..<999:
+                return true
+            case 999...:
+                textField.text = "999"
+                return false
+            default:
+                return false
+            }
+        }
+        
+        return false
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField.text == "0" {
+            textField.text = ""
+        }
+        
+        noteTableView.isScrollEnabled = false
+        noteTableView.allowsSelection = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        noteTableView.isScrollEnabled = true
+        noteTableView.allowsSelection = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    //MARK: NoteTableViewCellDelegates
+    func didTapFinishedButton(sender: UIButton, fromCell: NoteTableViewCell) {
+        
+        guard
+            let tappedIndexPath = noteTableView.indexPath(for: fromCell),
+            let note = fetchedResultsController?.object(at: tappedIndexPath)
+            else { return }
+        
+        sender.isSelected = !sender.isSelected
+        
+        note.isFinished = sender.isSelected
+        
+        try? self.container?.viewContext.save()
+        
+        fetchAndReloadData()
+    }
+    
+    func didTapDeleteButton(sender: UIButton, fromCell: NoteTableViewCell) {
+        print("QQ")
+    }
+    
+    func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
+        print("QQ")
+    }
+    
+    func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {
+        print("QQ")
+    }
+
+    
+    
+    
 }

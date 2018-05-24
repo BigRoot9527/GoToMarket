@@ -9,6 +9,25 @@
 import UIKit
 import FoldingCell
 
+protocol NoteTableViewCellDelegate: class {
+    
+    func didTapFinishedButton(
+        sender: UIButton,
+        fromCell: NoteTableViewCell)
+    
+    func didTapDeleteButton(
+        sender: UIButton,
+        fromCell: NoteTableViewCell)
+    
+    func didTapStepper(
+        sender: UIStepper,
+        fromCell: NoteTableViewCell)
+    
+    func didTapPriceInfoButton(
+        sender: UIButton,
+        fromCell: NoteTableViewCell)
+}
+
 class NoteTableViewCell: FoldingCell {
     
     
@@ -37,22 +56,8 @@ class NoteTableViewCell: FoldingCell {
     @IBOutlet weak var bottomBuyingAmountTextField: UITextField!
     @IBOutlet weak var bottomBuyingAmountStepper: UIStepper!
     
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-////
-//        super.containerView = bottomCellView
-//        super.foregroundView = topCellView
-//        super.foregroundViewTop = topCellViewToContentViewTopConstraint
-//        super.containerViewTop = bottomCellViewToContentViewTopConstraint
-//        containerView = bottomCellView
-//        foregroundView = topCellView
-//        foregroundViewTop = topCellViewToContentViewTopConstraint
-//        containerViewTop = bottomCellViewToContentViewTopConstraint
-////
-//////        fatalError("init(coder:) has not been implemented")
-//        
-//    }
-//    
+    weak var delegate: NoteTableViewCellDelegate?
+
     override func awakeFromNib() {
         
         self.containerView = bottomCellView
@@ -70,8 +75,33 @@ class NoteTableViewCell: FoldingCell {
     override func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
         
         // durations count equal it itemCount
-        let durations = [0.25, 0.25] // timing animation for each view
+        let durations = [0.3, 0.3] // timing animation for each view
         return durations[itemIndex]
     }
-
+    
+    
+    //MARK: IBActions
+    
+    @IBAction func didTapTopIsFinishedButton(_ sender: UIButton) {
+        delegate?.didTapFinishedButton(sender: sender, fromCell: self)
+    }
+    
+    
+    @IBAction func didTapBottomIsFinishedButton(_ sender: UIButton) {
+        delegate?.didTapFinishedButton(sender: sender, fromCell: self)
+    }
+    
+    @IBAction func didTapBottomDeleteButton(_ sender: UIButton) {
+        delegate?.didTapDeleteButton(sender: sender, fromCell: self)
+    }
+    
+    @IBAction func didTapBottomPriceInfoButton(_ sender: UIButton) {
+        delegate?.didTapPriceInfoButton(sender: sender, fromCell: self)
+    }
+    
+    @IBAction func didTapBottomStepper(_ sender: UIStepper) {
+        delegate?.didTapStepper(sender: sender, fromCell: self)
+    }
+    
+    
 }
