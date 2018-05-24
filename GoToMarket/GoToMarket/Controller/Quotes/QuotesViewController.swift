@@ -130,9 +130,15 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             self?.showingCartAnimation(
                 isInChart: note.isInCart,
                 fromCellFrame: selectedCell.frame,
+                cellTableView: self?.quotesTableView,
                 completion: {
                     
-                    self?.postCartNotification()
+                    guard
+                        let count = self?.fetchedResultsController?.fetchedObjects?.filter(
+                        { $0.note?.isInCart == true && $0.note?.cropData != nil }).count
+                        else { return }
+                    
+                    self?.postCartNotification(count: count)
             })
         }
         
@@ -178,9 +184,13 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-            fetchAndReloadData()
+        fetchAndReloadData()
         
-            postCartNotification()
+        if let count = fetchedResultsController?.fetchedObjects?.filter(
+            { $0.note?.isInCart == true && $0.note?.cropData != nil }).count {
+            
+            postCartNotification(count: count)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -237,70 +247,5 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             present(loadingVC, animated: true, completion: nil)
         }
-    }
-    
-    
-    //MARK: Animation
-    
-    private func showingCartAnimation(
-        isInChart:Bool,
-        fromCellFrame cellFrame: CGRect,
-        completion: @escaping () -> Void ) {
-        
-        let screenSize = UIScreen.main.bounds
-        let rootViewPoint = CGPoint(x: screenSize.width / 2, y: screenSize.height)
-        
-        let convertedRect = self.view.convert(cellFrame, from: quotesTableView)
-//        let convertedPoint = self.view.convert(originpoint, from: nil)
-        
-        let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
-        self.view.addSubview(animationView)
-        
-        animationView.frame = !isInChart ?
-            CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 35, height: 35) :
-            CGRect(x: 10, y: convertedRect.origin.y + 5, width: 35, height: 35)
-        
-        let fromPoint = animationView.center
-        
-        let endPoint = !isInChart ?
-            CGPoint(x: -20, y: rootViewPoint.y - 100 ) :
-            CGPoint(x: rootViewPoint.x, y: rootViewPoint.y)
-        
-        let fator: CGFloat = !isInChart ? -1 : 0.5
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            
-            animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-            
-        })
-        
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            animationView.removeFromSuperview()
-            
-            completion()
-
-        }
-        animationView.animatePath(
-            fromPoint: fromPoint,
-            toPoint:   endPoint,
-            duration:  0.8,
-            factor:    fator)
-        
-        CATransaction.commit()
-    }
-    
-    
-    //MARK:Notification
-    private func postCartNotification() {
-        
-        guard let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.note?.isInCart == true && $0.note?.cropData != nil }).count else { return }
-        
-        NotificationCenter.default.post(
-            name: GoToMarketConstant.cartNotificationName,
-            object: self,
-            userInfo: ["CartCount": count])
-
     }
 }

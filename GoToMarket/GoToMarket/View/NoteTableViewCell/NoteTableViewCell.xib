@@ -260,9 +260,6 @@
                 </constraints>
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
-                    <integer key="value" value="2"/>
-                </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="NO"/>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
             </userDefinedRuntimeAttributes>

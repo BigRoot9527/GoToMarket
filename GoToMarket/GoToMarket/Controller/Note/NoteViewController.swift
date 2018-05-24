@@ -243,6 +243,17 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         noteTableView.deleteRows(at: [tappedIndexPath], with: .fade)
         
+        openedCellIndex = nil
+        
+        noteTableView.reloadRows(at: [tappedIndexPath], with: .fade)
+        
+        showingCartAnimation(isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
+            
+            guard let count = self?.fetchedResultsController?.fetchedObjects?.count else { return }
+            
+            self?.postCartNotification(count: count)
+        }
+        
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {

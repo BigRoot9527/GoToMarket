@@ -99,6 +99,7 @@
 		32F1468A20A949CE00D6ACB8 /* HeroDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468920A949CE00D6ACB8 /* HeroDetailTableViewCell.swift */; };
 		32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468C20A94A6100D6ACB8 /* TestHeroViewController.swift */; };
 		32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468E20A94D4800D6ACB8 /* TestHeroDetailViewController.swift */; };
+		32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +197,7 @@
 		32F1468920A949CE00D6ACB8 /* HeroDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailTableViewCell.swift; sourceTree = "<group>"; };
 		32F1468C20A94A6100D6ACB8 /* TestHeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeroViewController.swift; sourceTree = "<group>"; };
 		32F1468E20A94D4800D6ACB8 /* TestHeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeroDetailViewController.swift; sourceTree = "<group>"; };
+		32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
 				3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */,
+				32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
 				327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */,
+				32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */,
 				32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */,
 				326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */,
 				32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */,
@@ -989,7 +993,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1005,7 +1012,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
