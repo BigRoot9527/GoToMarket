@@ -105,8 +105,6 @@ class TabBarViewController: RAMAnimatedTabBarController {
         super.viewDidLoad()
         changeSelectedColor(GoToMarketColor.newOrange.color(), iconSelectedColor: GoToMarketColor.newOrange.color())
         
-        self.tabBar.items![2].badgeValue = "3"
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(responseToCart(notification:)),
