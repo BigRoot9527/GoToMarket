@@ -25,7 +25,14 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var container: NSPersistentContainer? =
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { fetchAndReloadData() } }
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer  {
+            didSet {
+                fetchData()
+                noteTableView.reloadData()
+        }
+        
+    }
+    
     var fetchedResultsController: NSFetchedResultsController<UserNotes>?
     
     //MARK: LifeCycle
@@ -43,11 +50,14 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchAndReloadData()
+        fetchData()
+        noteTableView.reloadData()
+        
+        
     }
 
     //MARK: CoreData
-    private func fetchAndReloadData() {
+    private func fetchData() {
         
         if let context = container?.viewContext {
             
@@ -68,7 +78,6 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             try? fetchedResultsController?.performFetch()
             
-            noteTableView.reloadData()
         }
     }
 
@@ -217,12 +226,23 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         note.isFinished = sender.isSelected
         
         try? self.container?.viewContext.save()
-        
-        fetchAndReloadData()
     }
     
     func didTapDeleteButton(sender: UIButton, fromCell: NoteTableViewCell) {
-        print("QQ")
+        
+        guard
+            let tappedIndexPath = noteTableView.indexPath(for: fromCell),
+            let note = fetchedResultsController?.object(at: tappedIndexPath)
+            else { return }
+        
+        note.isInCart = false
+        
+        try? self.container?.viewContext.save()
+        
+        fetchData()
+        
+        noteTableView.deleteRows(at: [tappedIndexPath], with: .fade)
+        
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
@@ -232,6 +252,10 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {
         print("QQ")
     }
+    
+    
+    //MARK: Animation&Notification
+    
 
     
     
