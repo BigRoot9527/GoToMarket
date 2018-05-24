@@ -12,7 +12,17 @@ import Hero
 import SwipeCellKit
 
 
-class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
+class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate, UISearchResultsUpdating {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let searchString = searchController.searchBar.text else { return }
+        
+        fetchAndReloadData(filterText: searchString)
+        
+    }
+    
 
 
     //MARK: IBOutlet
@@ -26,12 +36,23 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var showInKg: Bool = true
     var isUpdated: Bool = false
     
-    private func fetchAndReloadData() {
+    private func fetchAndReloadData(filterText: String?) {
+        
         if let context = container?.viewContext {
+            
             context.reset()
+            
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
+            
             request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
-            //request.predicate = NSPredicate(format:)
+            
+            if
+                let filter = filterText,
+                filter != GoToMarketConstant.emptyString
+            {
+                request.predicate = NSPredicate(format: "cropName CONTAINS %@", filter)
+            }
+            
             fetchedResultsController = NSFetchedResultsController<CropDatas>(
                 fetchRequest: request,
                 managedObjectContext: context,
@@ -177,13 +198,15 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         setupTableView()
         
+        setupNav()
+        
         updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchAndReloadData()
+        fetchAndReloadData(filterText: nil)
         
         if let count = fetchedResultsController?.fetchedObjects?.filter(
             { $0.note?.isInCart == true && $0.note?.cropData != nil }).count {
@@ -217,9 +240,25 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
     }
     
+    private func setupNav() {
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        navigationItem.searchController = searchController
+        
+        definesPresentationContext = true
+    }
+    
     
     private func updateUI() {
         
+        quotesTableView.separatorStyle = .none
     }
     
     private func checkAndUpdateApi() {

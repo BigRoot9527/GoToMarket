@@ -17,6 +17,8 @@ class GoToMarketConstant {
 //    static let detailExpendRowHeight: CGFloat = 910.0
     static let cartNotificationName = Notification.Name("CartCount")
     
+    static let emptyString: String = ""
+    
     static let detailDropDownDuration: TimeInterval = 0.3
     
     static let marketPlaceholderPictureUrl: URL? = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wroclaw_Daily_Market.jpg/640px-Wroclaw_Daily_Market.jpg")
