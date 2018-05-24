@@ -27,6 +27,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     //MARK: IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
+    @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
     
     
     //MARK: CoreData
@@ -241,7 +242,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     private func setupNav() {
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -253,12 +253,15 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         navigationItem.searchController = searchController
         
         definesPresentationContext = true
+        
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     
     private func updateUI() {
         
         quotesTableView.separatorStyle = .none
+        weightTypeNavBarButton.title = PriceStringProvider.shared.getWeightTypeButtonString()
     }
     
     private func checkAndUpdateApi() {
@@ -286,4 +289,16 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             present(loadingVC, animated: true, completion: nil)
         }
     }
+    
+    //MARK: IBAction
+    
+    @IBAction func didTapWeightTypeNavBarButton(_ sender: UIBarButtonItem) {
+        
+        PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
+        
+        sender.title = PriceStringProvider.shared.getWeightTypeButtonString()
+        
+        quotesTableView.reloadData()
+    }
+    
 }

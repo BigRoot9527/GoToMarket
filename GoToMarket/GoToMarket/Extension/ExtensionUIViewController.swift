@@ -29,7 +29,7 @@ extension UIViewController {
         
         if !isInChart {
             
-            animationFrame = CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 35, height: 35)
+            animationFrame = CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 50, height: 50)
             
             endPoint = CGPoint(x: -20, y: rootViewPoint.y - 100 )
             
@@ -44,7 +44,7 @@ extension UIViewController {
             
             let convertedRect = self.view.convert(cellFrame, from: inputTable)
             
-            animationFrame = CGRect(x: 10, y: convertedRect.origin.y + 5, width: 35, height: 35)
+            animationFrame = CGRect(x: 10, y: convertedRect.origin.y + 5, width: 50, height: 50)
             
             endPoint = CGPoint(x: rootViewPoint.x, y: rootViewPoint.y)
             
@@ -57,7 +57,7 @@ extension UIViewController {
         
         let fromPoint = animationView.center
         
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             
             animationView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
             
@@ -73,7 +73,7 @@ extension UIViewController {
         animationView.animatePath(
             fromPoint: fromPoint,
             toPoint:   endPoint,
-            duration:  0.8,
+            duration:  0.9,
             factor:    factor)
         
         CATransaction.commit()

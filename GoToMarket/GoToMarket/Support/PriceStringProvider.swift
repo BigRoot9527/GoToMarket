@@ -24,7 +24,7 @@ class PriceStringProvider {
             let count = truePrice * mutipler
             return String(format: "%.1f", count)
         } else {
-            let count = truePrice * mutipler / 0.6
+            let count = truePrice * mutipler * 0.6
             return String(format: "%.1f", count)
         }
     }
@@ -37,7 +37,7 @@ class PriceStringProvider {
             let count = truePrice
             return String(format: "%.1f", count)
         } else {
-            let count = truePrice / 0.6
+            let count = truePrice * 0.6
             return String(format: "%.1f", count)
         }
     }

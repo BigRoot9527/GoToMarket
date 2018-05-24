@@ -32,12 +32,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM"/>
+                    <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="POl-j3-e6h">
+                            <connections>
+                                <action selector="didTapWeightTypeNavBarButton:" destination="dyT-ZU-lsL" id="dcr-e1-YQF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
+                        <outlet property="weightTypeNavBarButton" destination="POl-j3-e6h" id="PEK-sY-LE7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcD-vu-esY" userLabel="First Responder" sceneMemberID="firstResponder"/>

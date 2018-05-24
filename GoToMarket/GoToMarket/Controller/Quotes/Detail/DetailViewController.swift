@@ -91,6 +91,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.detailMarketLabel.text = crop.marketName
             cell.detailUpdateTimeLabel.text = crop.date
+            cell.detailChangeWeightButton.isSelected = PriceStringProvider.shared.showInKg
             cell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
                 fromTruePrice: crop.newAveragePrice,
                 andMultipler: note.customMutipler)
@@ -225,8 +226,19 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         callBack(sender.isSelected)
     }
     
-    func changeWeightButtonTapped(sender: UIButton) {
-        print("\(sender) Tapped!")
+    func changeWeightButtonTapped(sender: UIButton, fromCell: DetailQuotesTableViewCell) {
+        
+        PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
+        
+        guard
+            let cropData = objectInput,
+            let note = cropData.note else { return }
+        
+        fromCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
+            fromTruePrice: cropData.newAveragePrice,
+            andMultipler: note.customMutipler)
+        
+        fromCell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(fromTruePrice: cropData.newAveragePrice)
     }
     
     func priceInfoButtonTapped(sender: UIButton) {

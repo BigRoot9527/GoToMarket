@@ -44,7 +44,7 @@ class DetailQuotesTableViewCell: UITableViewCell {
         
         detailChangeWeightButton.isSelected = !detailChangeWeightButton.isSelected
         
-        delegate?.changeWeightButtonTapped(sender: sender)
+        delegate?.changeWeightButtonTapped(sender: sender, fromCell: self)
     }
 
 }
