@@ -23,15 +23,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PJ-Fv-GOF">
-                                <rect key="frame" x="20" y="23" width="248" height="34"/>
+                                <rect key="frame" x="20" y="23" width="236" height="34"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
                                 <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQq-To-6gd">
-                                <rect key="frame" x="297" y="25" width="70" height="29"/>
+                                <rect key="frame" x="287" y="25" width="80" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="NsK-Rn-zoJ"/>
+                                    <constraint firstAttribute="width" constant="80" id="NsK-Rn-zoJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up3" translatesAutoresizingMaskIntoConstraints="NO" id="RxH-d0-Ngb">
-                                <rect key="frame" x="268" y="22" width="19" height="37"/>
+                                <rect key="frame" x="256" y="22" width="19" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RxH-d0-Ngb" secondAttribute="height" multiplier="15:28" id="BzX-ay-vf5"/>
                                     <constraint firstAttribute="width" constant="19" id="U9y-dm-Tur"/>
@@ -57,7 +57,7 @@
                             <constraint firstItem="RxH-d0-Ngb" firstAttribute="leading" secondItem="1PJ-Fv-GOF" secondAttribute="trailing" id="0Pc-Bx-7IG"/>
                             <constraint firstItem="RxH-d0-Ngb" firstAttribute="centerY" secondItem="FEg-YA-b0j" secondAttribute="centerY" id="Ci4-wD-nUF"/>
                             <constraint firstItem="1PJ-Fv-GOF" firstAttribute="centerY" secondItem="FEg-YA-b0j" secondAttribute="centerY" id="GH3-aX-UXP"/>
-                            <constraint firstItem="eQq-To-6gd" firstAttribute="leading" secondItem="RxH-d0-Ngb" secondAttribute="trailing" constant="10" id="HcD-Lh-2Rp"/>
+                            <constraint firstItem="eQq-To-6gd" firstAttribute="leading" secondItem="RxH-d0-Ngb" secondAttribute="trailing" constant="12" id="HcD-Lh-2Rp"/>
                             <constraint firstAttribute="trailing" secondItem="eQq-To-6gd" secondAttribute="trailing" constant="8" id="dbR-aW-d0O"/>
                             <constraint firstAttribute="trailing" secondItem="eMU-p0-laf" secondAttribute="trailing" constant="8" id="ggl-iH-IuP"/>
                             <constraint firstItem="1PJ-Fv-GOF" firstAttribute="leading" secondItem="FEg-YA-b0j" secondAttribute="leading" constant="20" id="iJF-hi-enm"/>
