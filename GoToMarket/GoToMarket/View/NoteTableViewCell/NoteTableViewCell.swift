@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FoldingCell
 
 protocol NoteTableViewCellDelegate: class {
     
@@ -28,21 +27,19 @@ protocol NoteTableViewCellDelegate: class {
         fromCell: NoteTableViewCell)
 }
 
-class NoteTableViewCell: FoldingCell {
+class NoteTableViewCell: UITableViewCell {
     
-    
-    //MARK: FoldingCell
-    @IBOutlet weak var topCellView: RotatedView!
-    @IBOutlet weak var topCellViewToContentViewTopConstraint: NSLayoutConstraint!
+    //MARK: ChangingCell
+    @IBOutlet weak var topCellView: UIView!
+    @IBOutlet weak var topCellViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomCellView: UIView!
-    @IBOutlet weak var bottomCellViewToContentViewTopConstraint: NSLayoutConstraint!
     
     //MARK: TopViewOutlets
     @IBOutlet weak var topFinishButton: UIButton!
     @IBOutlet weak var topItemNameLabel: UILabel!
-    @IBOutlet weak var topCellPriceLabel: UILabel!
+    @IBOutlet weak var topSellPriceLabel: UILabel!
     @IBOutlet weak var topBuyingAmountLabel: UILabel!
-    @IBOutlet weak var topWeightTypeLabel: UILabel!
+    //TODO 上次購買價
     
     //MARK: BottomViewOutlets
     @IBOutlet weak var bottomFinishButton: UIButton!
@@ -52,36 +49,76 @@ class NoteTableViewCell: FoldingCell {
     @IBOutlet weak var bottomNewRealPriceLabel: UILabel!
     @IBOutlet weak var bottomLastRealPriceLabel: UILabel!
     @IBOutlet weak var bottomPriceInfoButton: UIButton!
-    @IBOutlet weak var bottomWeightTypeLabel: UILabel!
     @IBOutlet weak var bottomBuyingAmountTextField: UITextField!
     @IBOutlet weak var bottomBuyingAmountStepper: UIStepper!
     
     weak var delegate: NoteTableViewCellDelegate?
-
-    override func awakeFromNib() {
+    
+    let topCellOriginHeight: CGFloat = 100
+    let bottomCellHeight: CGFloat = 200
+    
+    var isOpened: Bool = true {
         
-        self.containerView = bottomCellView
-        self.foregroundView = topCellView
-        self.foregroundViewTop = topCellViewToContentViewTopConstraint
-        self.containerViewTop = bottomCellViewToContentViewTopConstraint
-        super.awakeFromNib()
+        didSet {
+            changingCell()
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func setupCellView(
+        showingOpened: Bool,
+        showingTop: Bool = false,
+        buttonShowFinished: Bool,
+        itemName: String,
+        truePrice: Double,
+        multipler: Double,
+        lastTruePrice: Double,
+        buyingAmount: Int16,
+        buttonsDelegate: NoteTableViewCellDelegate,
+        bottomTextFieldDelegate: UITextFieldDelegate) {
+        
+        isOpened = showingOpened
+        
+        topFinishButton.isSelected = buttonShowFinished
+        topItemNameLabel.text = itemName
+        topSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
+            fromTruePrice: truePrice,
+            andMultipler: multipler)
+        topBuyingAmountLabel.text = String(buyingAmount)
+        
+        bottomFinishButton.isSelected = buttonShowFinished
+        bottomItemNameLabel.text = itemName
+        bottomSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
+            fromTruePrice: truePrice,
+            andMultipler: multipler)
+        bottomNewRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
+            fromTruePrice: truePrice)
+        bottomLastRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
+            fromTruePrice: lastTruePrice)
+        bottomBuyingAmountTextField.text = String(buyingAmount)
+        
+        bottomBuyingAmountTextField.delegate = bottomTextFieldDelegate
+        
+        delegate = buttonsDelegate
     }
     
-    override func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.selectionStyle = UITableViewCellSelectionStyle.none
+    }
+    
+    
+    private func changingCell() {
         
-        // durations count equal it itemCount
-        let durations = [0.3, 0.3] // timing animation for each view
-        return durations[itemIndex]
+        topCellViewHeightConstraint.constant = isOpened ? 0 : topCellOriginHeight 
+        
+        bottomCellView.alpha = isOpened ? 1 : 0
+        
+        self.layoutIfNeeded()
     }
     
     
     //MARK: IBActions
-    
     @IBAction func didTapTopIsFinishedButton(_ sender: UIButton) {
         delegate?.didTapFinishedButton(sender: sender, fromCell: self)
     }

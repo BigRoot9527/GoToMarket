@@ -63,6 +63,10 @@ class GoToMarketConstant {
     
     static let itemTypeCoreDataNameForCrops: String = "crop"
     
+    static let kgWeightTypeButtonString: String = "元／公斤"
+    
+    static let tgWeightTypeButtonString: String = "元／台斤"
+    
     
     
 }

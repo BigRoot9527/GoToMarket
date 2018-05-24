@@ -54,10 +54,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         cell.itemNameLabel.text = crop.cropName
         
-        cell.sellPriceLabel.text = PriceStringProvider.getSellPriceString(
-            fromTruePrice: crop.newAveragePrice,
-            andMultipler: note.customMutipler,
-            inKg: showInKg)
+        cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler)
         
         if crop.newAveragePrice == 0 {
             cell.priceIndicator = 1

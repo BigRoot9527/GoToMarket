@@ -91,13 +91,11 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.detailMarketLabel.text = crop.marketName
             cell.detailUpdateTimeLabel.text = crop.date
-            cell.detailSellPriceLabel.text = PriceStringProvider.getSellPriceString(
+            cell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
                 fromTruePrice: crop.newAveragePrice,
-                andMultipler: note.customMutipler,
-                inKg: showInKg)
-            cell.detailRealPriceLabel.text = PriceStringProvider.getTruePriceString(
-                fromTruePrice: crop.newAveragePrice,
-                inKg: showInKg)
+                andMultipler: note.customMutipler)
+            cell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
+                fromTruePrice: crop.newAveragePrice)
             
             return cell
 

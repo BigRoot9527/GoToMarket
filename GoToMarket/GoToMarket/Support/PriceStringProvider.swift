@@ -10,12 +10,17 @@ import Foundation
 
 class PriceStringProvider {
     
-    class func getSellPriceString(
+    static let shared = PriceStringProvider()
+    private init() {}
+    
+    var showInKg: Bool = true
+    
+    func getSellPriceString(
         fromTruePrice truePrice: Double,
-        andMultipler mutipler: Double,
-        inKg isKg: Bool) -> String {
+        andMultipler mutipler: Double
+        ) -> String {
         
-        if isKg {
+        if showInKg {
             let count = truePrice * mutipler
             return String(format: "%.1f", count)
         } else {
@@ -24,11 +29,11 @@ class PriceStringProvider {
         }
     }
     
-    class func getTruePriceString(
-        fromTruePrice truePrice: Double,
-        inKg isKg: Bool) -> String {
+    func getTruePriceString(
+        fromTruePrice truePrice: Double
+        ) -> String {
         
-        if isKg {
+        if showInKg {
             let count = truePrice
             return String(format: "%.1f", count)
         } else {
@@ -36,6 +41,16 @@ class PriceStringProvider {
             return String(format: "%.1f", count)
         }
     }
+    
+    func getWeightTypeButtonString() -> String {
+        
+        let string = showInKg ? 
+            GoToMarketConstant.kgWeightTypeButtonString :
+            GoToMarketConstant.tgWeightTypeButtonString
+        
+        return string
+    }
+    
 
     
 }

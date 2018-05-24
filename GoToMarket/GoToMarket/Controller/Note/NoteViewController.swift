@@ -13,10 +13,16 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var noteTableView: UITableView!
     
-    //MARK: FoldingCell
-    private var openedCellIndex: IndexPath?
+    //MARK: ChangeCellView
     private let openedCellHeight: CGFloat = 210.0
     private let closedCellHeight: CGFloat = 110.0
+    
+    private var openedCellIndex: IndexPath? {
+        didSet {
+            setupCell(index: oldValue, toOpen: false)
+            setupCell(index: openedCellIndex, toOpen: true)
+        }
+    }
     
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { fetchAndReloadData() } }
@@ -95,44 +101,28 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: String(describing: NoteTableViewCell.self),
-            for: indexPath) as! NoteTableViewCell
+                withIdentifier: String(describing: NoteTableViewCell.self),
+                for: indexPath) as! NoteTableViewCell
+        guard
+            let note = fetchedResultsController?.object(at: indexPath),
+            let cropData = note.cropData
+            else { return UITableViewCell() }
         
-        setupCell(atIndexpath: indexPath, cellBeforeInit: cell)
+        cell.setupCellView(
+            showingOpened: indexPath == openedCellIndex,
+            buttonShowFinished: note.isFinished,
+            itemName: cropData.cropName,
+            truePrice: cropData.newAveragePrice,
+            multipler: note.customMutipler,
+            lastTruePrice: cropData.lastAveragePrice,
+            buyingAmount: note.buyingAmount,
+            buttonsDelegate: self,
+            bottomTextFieldDelegate: self
+        )
         
         return cell
     }
-    
-    private func setupCell(atIndexpath indexPath: IndexPath, cellBeforeInit newCell: NoteTableViewCell?) {
-        
-        guard
-            let note = fetchedResultsController?.object(at: indexPath),
-            let cropData = note.cropData,
-            let cell = newCell ?? self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell
-            else { return }
-        print("row: \(indexPath.row) = close")
-        
-        cell.delegate = self
-        
-        cell.topBuyingAmountLabel.text = String(note.buyingAmount)
-        cell.topFinishButton.isSelected = note.isFinished
-        //TODO
-        cell.topWeightTypeLabel.text = "(每公斤)"
-        cell.topCellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
-        cell.topItemNameLabel.text = cropData.cropName
-        
-        cell.bottomFinishButton.isSelected = note.isFinished
-        //TODO
-        cell.bottomWeightTypeLabel.text = "(每公斤)"
-        cell.bottomBuyingAmountTextField.text = String(note.buyingAmount)
-        
-        cell.bottomItemNameLabel.text = cropData.cropName
-        cell.bottomSellPriceLabel.text = String(cropData.newAveragePrice * note.customMutipler)
-        cell.bottomNewRealPriceLabel.text = String(cropData.newAveragePrice)
-        cell.bottomLastRealPriceLabel.text = String(cropData.lastAveragePrice)
-        cell.bottomBuyingAmountTextField.delegate = self
-    }
-    
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -151,73 +141,20 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let cell = self.noteTableView.cellForRow(at: indexPath) as? NoteTableViewCell else { return }
+        openedCellIndex = indexPath == openedCellIndex ? nil : indexPath
         
-        if cell.isAnimating() {
-            
-            return
-        }
-        
-        let duration = 0.25
-        
-        if indexPath == openedCellIndex {
-            
-            cell.unfold(false, animated: false, completion: nil)
-            
-            openedCellIndex = nil
-            
-        } else if openedCellIndex == nil {
-            
-            cell.unfold(true, animated: false, completion: nil)
-            
-            openedCellIndex = indexPath
-            
-        } else {
-            
-            cell.unfold(true, animated: false, completion: nil)
-            
-            if
-                let openedCell = noteTableView.cellForRow(at: openedCellIndex!) as? NoteTableViewCell,
-                let oldOpenedIndex = openedCellIndex {
-                
-                openedCell.unfold(false, animated: false, completion: nil)
-                
-                setupCell(atIndexpath: oldOpenedIndex, cellBeforeInit: nil)
-            }
-            
-            openedCellIndex = indexPath
-            
-        }
-        
-        setupCell(atIndexpath: indexPath, cellBeforeInit: nil)
-            
-        UIView.animate(
-            withDuration: duration,
-            delay: 0,
-            animations: {
-                
-                tableView.beginUpdates()
-                tableView.endUpdates()
-                
-        }, completion: nil)
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //MARK: Open-Close Switch
+    private func setupCell(index: IndexPath?, toOpen: Bool) {
         
-        guard let showingCell = cell as? NoteTableViewCell else { return }
-
-        if indexPath == openedCellIndex {
-            
-            showingCell.unfold(true, animated: false, completion: nil)
-            
-        } else {
-            
-            showingCell.unfold(false, animated: false, completion: nil)
-        }
+        guard let openIndex = index , let cell = noteTableView.cellForRow(at: openIndex) as? NoteTableViewCell else { return } 
+        
+        cell.isOpened = toOpen
     }
-    
-    
 
     
     //MARK: TextField
