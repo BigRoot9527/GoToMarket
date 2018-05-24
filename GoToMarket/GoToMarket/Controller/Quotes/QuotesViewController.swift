@@ -91,8 +91,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             crop.note?.isInCart = bool
             
-            try? self?.container?.viewContext.save()
-            
+            try? crop.note?.setInCart(isInCart: bool, inContext: self?.container?.viewContext)
         }
         
         //Hero
@@ -125,7 +124,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             selectedCell.inBuyingChart = note.isInCart
             
-            try? self?.container?.viewContext.save()
+            try? note.setInCart(isInCart: note.isInCart, inContext: self?.container?.viewContext)
 
             self?.showingCartAnimation(
                 isInChart: note.isInCart,

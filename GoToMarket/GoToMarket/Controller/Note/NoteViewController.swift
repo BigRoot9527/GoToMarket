@@ -61,6 +61,8 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let context = container?.viewContext {
             
+            context.reset()
+            
             let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
             
             request.sortDescriptors = [NSSortDescriptor(key: "isFinished", ascending: true)]
@@ -81,7 +83,6 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    
     private func registerCell() {
         
         let nibContent = UINib(nibName: "NoteTableViewCell", bundle: nil)
@@ -152,8 +153,13 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         openedCellIndex = indexPath == openedCellIndex ? nil : indexPath
         
+        
+        
         tableView.beginUpdates()
+        
         tableView.endUpdates()
+        
+        noteTableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     
@@ -235,9 +241,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             let note = fetchedResultsController?.object(at: tappedIndexPath)
             else { return }
         
-        note.isInCart = false
-        
-        try? self.container?.viewContext.save()
+        try? note.setInCart(isInCart: false, inContext: self.container?.viewContext)
         
         fetchData()
         
@@ -270,9 +274,6 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {
         print("QQ")
     }
-    
-    
-    //MARK: Animation&Notification
     
 
     

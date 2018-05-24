@@ -84,6 +84,18 @@ public class UserNotes: NSManagedObject {
         return nil
     }
     
+    //MARK: managed function
+    func setInCart(isInCart: Bool, inContext context: NSManagedObjectContext?) throws {
+        
+        guard let iputContext = context else { throw GoToMarketError.ValidContext }
+        
+        self.isInCart = isInCart
+        self.isFinished = NoteConstant.initialIsFinished
+        self.buyingAmount = NoteConstant.initialBuyingAmount
+
+        try iputContext.save()
+    }
+    
     class func setFavoriteState(
         matching cropCode: String,
         toState bool: Bool,
