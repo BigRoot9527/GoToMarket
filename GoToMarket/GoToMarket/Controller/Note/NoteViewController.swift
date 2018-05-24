@@ -127,7 +127,8 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             lastTruePrice: cropData.lastAveragePrice,
             buyingAmount: note.buyingAmount,
             buttonsDelegate: self,
-            bottomTextFieldDelegate: self
+            bottomTextFieldDelegate: self,
+            bottomTextFieldTag: indexPath
         )
         
         return cell
@@ -174,25 +175,12 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: TextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         
-        if newText.isEmpty {
-            
-            return true
-        }
+        if newText.isEmpty { return true }
         
-        if let intValue = Int(newText) {
-            
-            switch intValue {
-            case ..<999:
-                return true
-            case 999...:
-                textField.text = "999"
-                return false
-            default:
-                return false
-            }
-        }
+        if Int(newText) != nil { return true }
         
         return false
     }
@@ -208,16 +196,29 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        
         noteTableView.isScrollEnabled = true
         noteTableView.allowsSelection = true
+        
+        let index = IndexPath(row: textField.tag, section: 0)
+        
+        guard let note = fetchedResultsController?.object(at: index) else { return }
+        
+        let text = textField.text ?? "0"
+
+        note.buyingAmount = Int16(text) ?? 0
+        
+        try? self.container?.viewContext.save()
+        
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
-        
         return true
     }
+    
     
     //MARK: NoteTableViewCellDelegates
     func didTapFinishedButton(sender: UIButton, fromCell: NoteTableViewCell) {
@@ -249,17 +250,10 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         openedCellIndex = nil
         
+        noteTableView.reloadData()
+        
         guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
         
-        if tappedIndexPath.row < count {
-            
-            noteTableView.reloadRows(at: [tappedIndexPath], with: .fade)
-            
-        } else {
-            
-            noteTableView.reloadData()
-            
-        }
         showingCartAnimation(isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
             
             self?.postCartNotification(count: count)
@@ -268,7 +262,21 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
-        print("QQ")
+        
+        fromCell.bottomBuyingAmountTextField.text = "\(Int(sender.value))"
+        
+        let textFieldString = fromCell.bottomBuyingAmountTextField.text ?? "0"
+        
+        sender.value = Double(textFieldString) ?? 0.0
+        
+        guard
+            let tappedIndexPath = noteTableView.indexPath(for: fromCell),
+            let note = fetchedResultsController?.object(at: tappedIndexPath)
+            else { return }
+        
+        note.buyingAmount = Int16(sender.value)
+        
+        try? self.container?.viewContext.save()
     }
     
     func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {

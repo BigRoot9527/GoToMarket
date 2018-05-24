@@ -63,6 +63,14 @@ class NoteTableViewCell: UITableViewCell {
             changingCell()
         }
     }
+    
+    var isFinished: (Bool, TimeInterval) = (false, 0) {
+        
+        didSet {
+            changingCollor(isFinished: isFinished.0, duration: isFinished.1)
+        }
+        
+    }
 
     func setupCellView(
         showingOpened: Bool,
@@ -74,7 +82,8 @@ class NoteTableViewCell: UITableViewCell {
         lastTruePrice: Double,
         buyingAmount: Int16,
         buttonsDelegate: NoteTableViewCellDelegate,
-        bottomTextFieldDelegate: UITextFieldDelegate) {
+        bottomTextFieldDelegate: UITextFieldDelegate,
+        bottomTextFieldTag: IndexPath) {
         
         isOpened = showingOpened
         
@@ -86,6 +95,7 @@ class NoteTableViewCell: UITableViewCell {
         topBuyingAmountLabel.text = String(buyingAmount)
         
         bottomFinishButton.isSelected = buttonShowFinished
+        isFinished = (buttonShowFinished, 0)
         bottomItemNameLabel.text = itemName
         bottomSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
             fromTruePrice: truePrice,
@@ -99,12 +109,31 @@ class NoteTableViewCell: UITableViewCell {
         bottomBuyingAmountTextField.delegate = bottomTextFieldDelegate
         
         delegate = buttonsDelegate
+        
+        bottomBuyingAmountTextField.tag = bottomTextFieldTag.row
+        
+        setupStepper()
     }
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = UITableViewCellSelectionStyle.none
+    }
+    
+    private func setupStepper() {
+        
+        let textFieldString = bottomBuyingAmountTextField.text ?? "0"
+        
+        bottomBuyingAmountStepper.value = Double(textFieldString) ?? 0.0
+        
+        bottomBuyingAmountStepper.minimumValue = 0
+        
+        bottomBuyingAmountStepper.maximumValue = 999
+        
+        bottomBuyingAmountStepper.stepValue = 1
+        
+        bottomBuyingAmountStepper.autorepeat = true
     }
     
     
@@ -118,14 +147,40 @@ class NoteTableViewCell: UITableViewCell {
     }
     
     
+    private func changingCollor(isFinished: Bool, duration: TimeInterval) {
+        
+        UIView.animate(withDuration: duration) { [weak self] in
+            
+            if isFinished {
+                
+                self?.topCellView.backgroundColor = GoToMarketColor.finishedNoteCellColor.color()
+                
+                self?.bottomCellView.backgroundColor = GoToMarketColor.finishedNoteCellColor.color()
+                
+            } else {
+                
+                self?.topCellView.backgroundColor = GoToMarketColor.defaultNoteCellColor.color()
+
+                self?.bottomCellView.backgroundColor = GoToMarketColor.defaultNoteCellColor.color()
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    
     //MARK: IBActions
     @IBAction func didTapTopIsFinishedButton(_ sender: UIButton) {
         delegate?.didTapFinishedButton(sender: sender, fromCell: self)
+        isFinished = (sender.isSelected, 0.3)
     }
     
     
     @IBAction func didTapBottomIsFinishedButton(_ sender: UIButton) {
         delegate?.didTapFinishedButton(sender: sender, fromCell: self)
+        isFinished = (sender.isSelected, 0.3)
     }
     
     @IBAction func didTapBottomDeleteButton(_ sender: UIButton) {
@@ -140,5 +195,25 @@ class NoteTableViewCell: UITableViewCell {
         delegate?.didTapStepper(sender: sender, fromCell: self)
     }
     
-    
+    @IBAction func textfieldChanged(_ sender: UITextField) {
+        
+        if
+            let textFieldString = sender.text,
+            let textFieldDouble = Double(textFieldString) {
+            
+            if textFieldDouble > 999 {
+                
+                sender.text = "999"
+                
+                bottomBuyingAmountStepper.value = 999
+            }
+            
+            bottomBuyingAmountStepper.value = textFieldDouble
+            
+        } else {
+            
+            bottomBuyingAmountStepper.value =  0.0
+            
+        }
+    }
 }

@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jrV-nn-HlH" firstAttribute="top" secondItem="2CN-re-34S" secondAttribute="top" id="3ag-1Q-Kay"/>
                             <constraint firstAttribute="bottom" secondItem="jrV-nn-HlH" secondAttribute="bottom" id="6cB-Rg-Hx0"/>
@@ -229,6 +229,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textfieldChanged:" destination="2Y7-gV-Foe" eventType="editingChanged" id="mTc-HM-Vao"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

@@ -20,6 +20,8 @@ enum GoToMarketColor: String {
     case newOrange = "FF3800"
     case pitchRed = "FF5F5F"
     case yellowCartColor = "DDA639"
+    case defaultNoteCellColor = "EBEBF1"
+    case finishedNoteCellColor = "96D192"
     
     
     
