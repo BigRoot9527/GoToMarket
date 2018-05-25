@@ -69,6 +69,8 @@ class GoToMarketConstant {
     
     static let tgWeightTypeButtonString: String = "元／台斤"
     
+    static let cropBasicNSSortDecriptor: NSSortDescriptor = NSSortDescriptor(key: "newAveragePrice", ascending: true)
+    
     
     
 }

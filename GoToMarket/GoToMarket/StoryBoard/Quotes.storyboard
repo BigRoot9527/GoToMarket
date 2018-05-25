@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="-60" y="251.42428785607197"/>
         </scene>
-        <!--Quote Tool Bar View Controller-->
+        <!--Tool Bar View Controller-->
         <scene sceneID="c7d-iT-nMb">
             <objects>
-                <viewController id="Nsm-oF-SF3" customClass="QuoteToolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nsm-oF-SF3" customClass="toolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Jl-ni-fx6">
                         <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,6 +231,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="7hr-Cl-edP" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="CvJ-Km-64c"/>
+                                    <constraint firstItem="KyK-dL-ZlZ" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="iF0-Qq-CZs"/>
+                                    <constraint firstItem="DxZ-3H-Fp0" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="wHV-jx-dAO"/>
+                                    <constraint firstItem="ouv-x0-hWK" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="wq7-I3-etx"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,6 +246,7 @@
                             <constraint firstAttribute="trailing" secondItem="f55-IQ-Mjy" secondAttribute="trailing" id="oxo-s1-cUc"/>
                             <constraint firstItem="f55-IQ-Mjy" firstAttribute="leading" secondItem="6Jl-ni-fx6" secondAttribute="leading" id="yuT-Np-dMp"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="TeS-0Q-jJe"/>
                     </view>
                     <connections>
                         <outlet property="scrollUpButton" destination="DxZ-3H-Fp0" id="xiD-E0-C4H"/>
@@ -250,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDi-Na-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="-202"/>
+            <point key="canvasLocation" x="1444" y="-249"/>
         </scene>
     </scenes>
     <resources>
