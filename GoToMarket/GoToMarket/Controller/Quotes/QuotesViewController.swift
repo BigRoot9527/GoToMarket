@@ -11,18 +11,15 @@ import CoreData
 import Hero
 import SwipeCellKit
 
-
-class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
+class QuotesViewController: UIViewController {
     
     var showInKg: Bool = true
-
 
     //MARK: IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
     @IBOutlet weak var toolBarView: UIView!
     @IBOutlet weak var toolBarViewHeightConstraint: NSLayoutConstraint!
-    
     
     //MARK: CoreData
     var container: NSPersistentContainer? =
@@ -31,160 +28,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     var isUpdated: Bool = false
     var filterText: String?
     
-    private func fetchAndReloadData() {
-        
-        if let context = container?.viewContext {
-            
-            context.reset()
-            
-            let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
-            
-            request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
-            
-            if
-                let filter = filterText,
-                filter != GoToMarketConstant.emptyString
-            {
-                request.predicate = NSPredicate(format: "cropName CONTAINS %@", filter)
-            }
-            
-            fetchedResultsController = NSFetchedResultsController<CropDatas>(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
-            fetchedResultsController?.delegate = self
-            try? fetchedResultsController?.performFetch()
-            quotesTableView.reloadData()
-        }
-    }
-    
-    
-    //MARK: TableView
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuotesTableViewCell.self), for: indexPath) as! QuotesTableViewCell
-        
-        guard let crop = fetchedResultsController?.object(at: indexPath) , let note = crop.note else { return UITableViewCell() }
-        
-        cell.itemNameLabel.text = crop.cropName
-        
-        cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler)
-        
-        if crop.newAveragePrice == 0 {
-            cell.priceIndicator = 1
-        } else {
-            cell.priceIndicator = crop.newAveragePrice / crop.lastAveragePrice
-        }
-        //SwipeCellKit
-        cell.delegate = self
-        
-        //MARK: TODO
-        cell.inBuyingChart = note.isInCart
-        
-        //Hero
-        cell.contentView.hero.id = String(describing: indexPath)
-        
-        cell.hero.isEnabled = true
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return GoToMarketConstant.quotesRowHeight
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
-        
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
-        
-        detailVC.objectInput = crop
-        
-        detailVC.didTapBuyingCallBack = { [weak self] bool -> () in
-            
-            crop.note?.isInCart = bool
-            
-            try? crop.note?.setInCart(isInCart: bool, inContext: self?.container?.viewContext)
-        }
-        
-        //Hero
-        detailVC.hero.isEnabled = true
-        detailVC.titleHeroIdInput = String(describing: indexPath)
-        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
-        
-        present(detailVC, animated: true, completion: nil)
-    }
-    
-    
-    //MARK: SwipeCellKit
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
-        guard orientation == .right else { return nil }
-        
-        guard
-            orientation == .right,
-            let crop = fetchedResultsController?.object(at: indexPath) ,
-            let note = crop.note,
-            let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as? QuotesTableViewCell
-            else { return nil }
-        
-        let selectAction = SwipeAction(
-        style: .default,
-        title: nil)
-        { [weak self] action, indexPath in
-            
-            note.isInCart = !note.isInCart
-            
-            selectedCell.inBuyingChart = note.isInCart
-            
-            try? note.setInCart(isInCart: note.isInCart, inContext: self?.container?.viewContext)
-
-            self?.showingCartAnimation(
-                isInChart: note.isInCart,
-                fromCellFrame: selectedCell.frame,
-                cellTableView: self?.quotesTableView,
-                completion: {
-                    
-                    guard
-                        let count = self?.fetchedResultsController?.fetchedObjects?.filter(
-                        { $0.note?.isInCart == true && $0.note?.cropData != nil }).count
-                        else { return }
-                    
-                    self?.postCartNotification(count: count)
-            })
-        }
-        
-        selectAction.image = !selectedCell.inBuyingChart ?
-            #imageLiteral(resourceName: "add_icon").resizeImage(newWidth: 35) :
-            #imageLiteral(resourceName: "minus_icon").resizeImage(newWidth: 35)
-            
-        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
-            GoToMarketColor.newLightBlueGreen.color() :
-            GoToMarketColor.pitchRed.color()
-
-        return [selectAction]
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        
-        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
-        
-        var options = SwipeTableOptions()
-        
-        options.expansionStyle = .selection
-        options.transitionStyle = .reveal
-        options.buttonVerticalAlignment = .center
-        options.backgroundColor = !selectedCell.inBuyingChart ?
-            GoToMarketColor.newLightBlueGreen.color() :
-            GoToMarketColor.pitchRed.color()
-        
-        return options
-    }
-    
-
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,6 +79,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     private func setupNav() {
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
@@ -287,7 +131,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     //MARK: IBAction
-    
     @IBAction func didTapWeightTypeNavBarButton(_ sender: UIBarButtonItem) {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
@@ -297,7 +140,6 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         quotesTableView.reloadData()
     }
     
-    
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
         toolBarViewHeightConstraint.constant = toolBarViewHeightConstraint.constant == 0 ?
@@ -306,12 +148,178 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         UIView.animate(withDuration: 0.3) { [weak self] in
             
             self?.view.layoutIfNeeded()
-            
         }
+    }
+}
+
+
+//MARK: NSFetchedResultsControllerDelegate
+extension QuotesViewController: NSFetchedResultsControllerDelegate {
+    
+    private func fetchAndReloadData() {
         
+        if let context = container?.viewContext {
+            
+            context.reset()
+            
+            let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
+            
+            request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
+            
+            if
+                let filter = filterText,
+                filter != GoToMarketConstant.emptyString
+            {
+                request.predicate = NSPredicate(format: "cropName CONTAINS %@", filter)
+            }
+            
+            fetchedResultsController = NSFetchedResultsController<CropDatas>(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+            fetchedResultsController?.delegate = self
+            try? fetchedResultsController?.performFetch()
+            quotesTableView.reloadData()
+        }
+    }
+}
+
+
+//MARK: UITableViewDataSource
+extension QuotesViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: QuotesTableViewCell.self), for: indexPath) as! QuotesTableViewCell
+        
+        guard let crop = fetchedResultsController?.object(at: indexPath) , let note = crop.note else { return UITableViewCell() }
+        
+        cell.itemNameLabel.text = crop.cropName
+        
+        cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler)
+        
+        if crop.newAveragePrice == 0 {
+            cell.priceIndicator = 1
+        } else {
+            cell.priceIndicator = crop.newAveragePrice / crop.lastAveragePrice
+        }
+        //SwipeCellKit
+        cell.delegate = self
+        
+        //MARK: TODO
+        cell.inBuyingChart = note.isInCart
+        
+        //Hero
+        cell.contentView.hero.id = String(describing: indexPath)
+        
+        cell.hero.isEnabled = true
+        
+        return cell
+    }
+}
+
+
+//MARK: UITableViewDelegate
+extension QuotesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return GoToMarketConstant.quotesRowHeight
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
+        
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
+        
+        detailVC.objectInput = crop
+        
+        detailVC.didTapBuyingCallBack = { [weak self] bool -> () in
+            
+            crop.note?.isInCart = bool
+            
+            try? crop.note?.setInCart(isInCart: bool, inContext: self?.container?.viewContext)
+        }
+        
+        //Hero
+        detailVC.hero.isEnabled = true
+        detailVC.titleHeroIdInput = String(describing: indexPath)
+        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
+        
+        present(detailVC, animated: true, completion: nil)
+    }
 }
+
+
+//MARK: SwipeCellKit
+extension QuotesViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        
+        guard
+            orientation == .right,
+            let crop = fetchedResultsController?.object(at: indexPath) ,
+            let note = crop.note,
+            let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as? QuotesTableViewCell
+            else { return nil }
+        
+        let selectAction = SwipeAction(
+            style: .default,
+            title: nil)
+        { [weak self] action, indexPath in
+            
+            note.isInCart = !note.isInCart
+            
+            selectedCell.inBuyingChart = note.isInCart
+            
+            try? note.setInCart(isInCart: note.isInCart, inContext: self?.container?.viewContext)
+            
+            self?.showingCartAnimation(
+                isInChart: note.isInCart,
+                fromCellFrame: selectedCell.frame,
+                cellTableView: self?.quotesTableView,
+                completion: {
+                    
+                    guard
+                        let count = self?.fetchedResultsController?.fetchedObjects?.filter(
+                        { $0.note?.isInCart == true && $0.note?.cropData != nil }).count
+                        else { return }
+                    
+                    self?.postCartNotification(count: count)
+            })
+        }
+        
+        selectAction.image = !selectedCell.inBuyingChart ?
+            #imageLiteral(resourceName: "add_icon").resizeImage(newWidth: 35) :
+            #imageLiteral(resourceName: "minus_icon").resizeImage(newWidth: 35)
+        
+        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
+            GoToMarketColor.newLightBlueGreen.color() :
+            GoToMarketColor.pitchRed.color()
+        
+        return [selectAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        
+        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
+        
+        var options = SwipeTableOptions()
+        
+        options.expansionStyle = .selection
+        options.transitionStyle = .reveal
+        options.buttonVerticalAlignment = .center
+        options.backgroundColor = !selectedCell.inBuyingChart ?
+            GoToMarketColor.newLightBlueGreen.color() :
+            GoToMarketColor.pitchRed.color()
+        
+        return options
+    }
+}
+
 
 //MARK: UISearchResultsUpdating
 extension QuotesViewController: UISearchResultsUpdating {
@@ -327,6 +335,7 @@ extension QuotesViewController: UISearchResultsUpdating {
     }
     
 }
+
 
 //MARK: UISearchBarDelegate
 extension QuotesViewController: UISearchBarDelegate {
