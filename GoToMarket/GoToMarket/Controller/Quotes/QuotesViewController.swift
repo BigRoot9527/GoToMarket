@@ -200,12 +200,12 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         setupTableView()
         
         setupNav()
-        
-        updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        updateUI()
         
         fetchAndReloadData(filterText: nil)
         
