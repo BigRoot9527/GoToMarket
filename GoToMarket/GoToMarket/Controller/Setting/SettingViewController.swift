@@ -12,7 +12,17 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
+        
+        settingVC.itemTypeInput = TaskKeys.crop
+        
+        settingVC.hero.modalAnimationType = .fade
+        
+        present(settingVC, animated: true, completion: nil)
 
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -25,15 +35,12 @@ class SettingViewController: UIViewController {
     @IBAction func didTapChangeCropButton(_ sender: UIButton) {
         
         
-        let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
-        
-        settingVC.itemTypeInput = TaskKeys.crop
-        
-        settingVC.hero.modalAnimationType = .fade
-        
-        present(settingVC, animated: true, completion: nil)
-        
+//        let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
+//
+//        settingVC.itemTypeInput = TaskKeys.crop
+//
+//        settingVC.hero.modalAnimationType = .fade
+//
+//        present(settingVC, animated: true, completion: nil)
     }
-    
-
 }
