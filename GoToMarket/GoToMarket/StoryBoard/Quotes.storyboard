@@ -54,20 +54,20 @@
         <!--Detail View Controller-->
         <scene sceneID="BNw-R2-Vj4">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="cch-IM-OVv" customClass="DetailViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="cch-IM-OVv" customClass="DetailViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMZ-A9-HW0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-sM-4Fd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bFg-ji-Oip">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-sM-4Fd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" id="bFg-ji-Oip">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </tableView>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-46-gdD">
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-46-gdD">
                                 <rect key="frame" x="340" y="30" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="IcF-Ob-VUq"/>
@@ -86,7 +86,7 @@
                             <constraint firstItem="dQQ-sM-4Fd" firstAttribute="leading" secondItem="ITl-0F-5vU" secondAttribute="leading" id="hez-yf-n7k"/>
                             <constraint firstItem="ITl-0F-5vU" firstAttribute="top" secondItem="wgT-46-gdD" secondAttribute="top" constant="-10" id="mke-mB-ZBg"/>
                             <constraint firstItem="ITl-0F-5vU" firstAttribute="bottom" secondItem="dQQ-sM-4Fd" secondAttribute="bottom" id="vIY-Tu-Hyh"/>
-                            <constraint firstItem="dQQ-sM-4Fd" firstAttribute="top" secondItem="ITl-0F-5vU" secondAttribute="top" id="xiL-6V-b2K"/>
+                            <constraint firstItem="dQQ-sM-4Fd" firstAttribute="top" secondItem="dMZ-A9-HW0" secondAttribute="top" id="xiL-6V-b2K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ITl-0F-5vU"/>
                     </view>
@@ -165,5 +165,6 @@
     </scenes>
     <resources>
         <image name="cancel_icon" width="64" height="64"/>
+        <image name="placeholder-image" width="800" height="600"/>
     </resources>
 </document>

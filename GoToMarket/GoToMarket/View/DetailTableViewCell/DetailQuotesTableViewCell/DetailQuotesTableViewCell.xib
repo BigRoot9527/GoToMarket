@@ -147,7 +147,7 @@
                 <outlet property="detailSellPriceLabel" destination="ol8-o0-w8I" id="cYH-TB-bbc"/>
                 <outlet property="detailUpdateTimeLabel" destination="y0D-ES-lGH" id="4RC-E1-1BN"/>
             </connections>
-            <point key="canvasLocation" x="90.5" y="29.5"/>
+            <point key="canvasLocation" x="90.5" y="29"/>
         </tableViewCell>
     </objects>
     <resources>

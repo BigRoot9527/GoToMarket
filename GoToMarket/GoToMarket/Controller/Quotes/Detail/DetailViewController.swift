@@ -184,12 +184,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let itemData = objectInput else { return }
         
         manager.getWikiImageUrl(
-            
             fromItemName: itemData.cropName,
             success: { [weak self] (url) in
                 
-            let imageUrl = url ?? GoToMarketConstant.marketPlaceholderPictureUrl
-            self?.detailWikiImageView.sd_setImage(with: imageUrl)
+                let imageUrl = url ?? GoToMarketConstant.marketPlaceholderPictureUrl
+            
+                self?.detailWikiImageView.sd_setImage(with: imageUrl)
 
         }) { (error) in
             
