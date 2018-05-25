@@ -12,32 +12,26 @@ import Hero
 import SwipeCellKit
 
 
-class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate, UISearchResultsUpdating {
+class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, NSFetchedResultsControllerDelegate, SwipeTableViewCellDelegate {
     
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        guard let searchString = searchController.searchBar.text else { return }
-        
-        fetchAndReloadData(filterText: searchString)
-        
-    }
-    
+    var showInKg: Bool = true
 
 
     //MARK: IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
+    @IBOutlet weak var toolBarView: UIView!
+    @IBOutlet weak var toolBarViewHeightConstraint: NSLayoutConstraint!
     
     
     //MARK: CoreData
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
-    var showInKg: Bool = true
     var isUpdated: Bool = false
+    var filterText: String?
     
-    private func fetchAndReloadData(filterText: String?) {
+    private func fetchAndReloadData() {
         
         if let context = container?.viewContext {
             
@@ -207,7 +201,7 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         updateUI()
         
-        fetchAndReloadData(filterText: nil)
+        fetchAndReloadData()
         
         if let count = fetchedResultsController?.fetchedObjects?.filter(
             { $0.note?.isInCart == true && $0.note?.cropData != nil }).count {
@@ -247,6 +241,8 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         let searchController = UISearchController(searchResultsController: nil)
         
         searchController.searchResultsUpdater = self
+        
+        searchController.searchBar.delegate = self
         
         searchController.dimsBackgroundDuringPresentation = false
         
@@ -299,6 +295,50 @@ class QuotesViewController: UIViewController,UITableViewDelegate,UITableViewData
         sender.title = PriceStringProvider.shared.getWeightTypeButtonString()
         
         quotesTableView.reloadData()
+    }
+    
+    
+    @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
+        
+        toolBarViewHeightConstraint.constant = toolBarViewHeightConstraint.constant == 0 ?
+            50 : 0
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            
+            self?.view.layoutIfNeeded()
+            
+        }
+        
+    }
+    
+}
+
+//MARK: UISearchResultsUpdating
+extension QuotesViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let searchString = searchController.searchBar.text else { return }
+        
+        self.filterText = searchString
+        
+        fetchAndReloadData()
+        
+    }
+    
+}
+
+//MARK: UISearchBarDelegate
+extension QuotesViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        quotesTableView.allowsSelection = false
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        quotesTableView.allowsSelection = true
     }
     
 }

@@ -20,19 +20,34 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfS-ap-ht6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-Wh-7xF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Aub-h0-MPD"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MfS-ap-ht6" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="FPi-w1-48O"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="WQ1-2v-LjE"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="MfS-ap-ht6" secondAttribute="trailing" id="dvq-gt-ktc"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="MfS-ap-ht6" secondAttribute="bottom" id="v8b-bx-ETd"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="vWC-5D-mI2"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="wGm-CX-Zvf"/>
                             <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="yV7-5n-DQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="gpt-5K-jIV">
+                            <connections>
+                                <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="POl-j3-e6h">
                             <connections>
                                 <action selector="didTapWeightTypeNavBarButton:" destination="dyT-ZU-lsL" id="dcr-e1-YQF"/>
@@ -44,12 +59,14 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
+                        <outlet property="toolBarView" destination="pWi-Wh-7xF" id="tD4-Et-lOu"/>
+                        <outlet property="toolBarViewHeightConstraint" destination="Aub-h0-MPD" id="kP6-gn-Ec9"/>
                         <outlet property="weightTypeNavBarButton" destination="POl-j3-e6h" id="PEK-sY-LE7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcD-vu-esY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879.20000000000005" y="251.42428785607197"/>
+            <point key="canvasLocation" x="724" y="251"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="BNw-R2-Vj4">
