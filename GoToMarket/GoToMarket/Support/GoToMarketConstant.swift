@@ -10,7 +10,7 @@ import UIKit
 
 class GoToMarketConstant {
     
-    static let quotesRowHeight: CGFloat = 65.0
+    static let quotesRowHeight: CGFloat = 70.0
     
 //    static let detailFoldedRowHeight: CGFloat = 755.0
 //    
