@@ -25,9 +25,7 @@ enum GoToMarketColor: String {
     case sortButtonAcendingColor = "FF7876"
     case sortButtonDecendingColor = "6CA2FF"
     case sortButtonNoneColor = "E9DBFF"
-    
-    
-    
+
     func color() -> UIColor {
         
         var cString: String = self.rawValue.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

@@ -11,10 +11,7 @@ import CoreData
 import SDWebImage
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTableViewCellDelegate {
-    
-   
-    
-    
+
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var detailWikiImageView: UIImageView!
@@ -158,6 +155,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         detailTableView.dataSource = self
         detailTableView.delegate = self
         registerCells()

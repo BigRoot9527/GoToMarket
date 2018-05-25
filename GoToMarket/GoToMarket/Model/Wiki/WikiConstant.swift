@@ -18,5 +18,4 @@ struct WikiApiConstant {
     
     static let noResponseString = "null"
     
-    
 }

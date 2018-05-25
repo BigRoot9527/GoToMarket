@@ -17,20 +17,19 @@ enum TabBar {
     case setting
     
     func controller() -> UIViewController {
+        
         switch self {
-            
         case .note:
             return UIStoryboard.notes().instantiateInitialViewController()!
-            
         case .quote:
             return UIStoryboard.quotes().instantiateInitialViewController()!
-            
         case .setting:
             return UIStoryboard.settings().instantiateInitialViewController()!
         }
     }
     
     func index() -> Int {
+        
         switch self {
         case .quote:
             return 0
@@ -44,13 +43,10 @@ enum TabBar {
     func image() -> UIImage {
         
         switch self {
-            
         case .note:
             return #imageLiteral(resourceName: "buy_icon")
-            
         case .quote:
             return #imageLiteral(resourceName: "comboChart_icon")
-            
         case .setting:
             return #imageLiteral(resourceName: "services_icon")
         }
@@ -58,27 +54,24 @@ enum TabBar {
     }
     
     func selectedImage() -> UIImage {
+        
         switch self {
-            
         case .note:
             return #imageLiteral(resourceName: "buy_icon").withRenderingMode(.alwaysTemplate)
-            
         case .quote:
             return #imageLiteral(resourceName: "comboChart_icon").withRenderingMode(.alwaysTemplate)
-            
         case .setting:
             return #imageLiteral(resourceName: "services_icon").withRenderingMode(.alwaysTemplate)
         }
     }
     
     func title() -> String {
+        
         switch self {
         case .note:
             return "清單"
-            
         case .quote:
             return "行情"
-            
         case .setting:
             return "設定"
         }
@@ -91,18 +84,15 @@ class TabBarViewController: RAMAnimatedTabBarController {
     
     let tabs: [TabBar] = [.quote, .note, .setting]
     
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self.tabBar.tintColor = GoToMarketColor.tabBarTintColor.color()
-//    }
-    
     override func loadView() {
         super.loadView()
+        
         setupTab()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         changeSelectedColor(GoToMarketColor.newOrange.color(), iconSelectedColor: GoToMarketColor.newOrange.color())
         
         NotificationCenter.default.addObserver(
@@ -146,7 +136,11 @@ class TabBarViewController: RAMAnimatedTabBarController {
         
         guard
             let infoPassed = notification.userInfo as? [String: AnyObject],
-            let count = infoPassed["CartCount"] as? Int else { return }
+            let count = infoPassed["CartCount"] as? Int
+            else {
+                print("ERROR:\(#file, #line)")
+                return
+        }
         
         self.tabBar.items![1].badgeValue = count > 0 ? String(count) : nil
         let animationItem: RAMAnimatedTabBarItem = self.tabBar.items![1] as! RAMAnimatedTabBarItem

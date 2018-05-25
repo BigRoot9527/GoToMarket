@@ -69,15 +69,8 @@ class QuotesTableViewCell: SwipeTableViewCell {
             priceMarkImageView.image = #imageLiteral(resourceName: "up1")
         case 1.1 ..< 1.3:
             priceMarkImageView.image = #imageLiteral(resourceName: "up2")
-        default :
+        default:
             priceMarkImageView.image = #imageLiteral(resourceName: "up3")
-
         }
-        
-        
-        
     }
-    
-    
-
 }

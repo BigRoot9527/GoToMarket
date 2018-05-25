@@ -10,9 +10,7 @@ import Foundation
 
 struct WikiRequest: HTTPRequest {
     
-    
     var requestType: OpenDataQueryItemConvertable
-
     var domainURL: String
     
     init(requestType type: WikiQueryType) {

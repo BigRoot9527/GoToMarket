@@ -8,13 +8,9 @@
 
 import Foundation
 
-
-
 protocol OpenDataRequest: HTTPRequest {
-
     var market: MarketEnum { get set }
     var additionalURLQueryItem: URLQueryItem? { get set }
-    
 }
 
 extension OpenDataRequest {
@@ -36,9 +32,4 @@ extension OpenDataRequest {
         }
         return returnArray
     }
-
-    
-
 }
-
-

@@ -28,7 +28,6 @@ class MarketSettingViewController: UIViewController {
     //MARK: Output to pickerView
     var defaulMarket: String?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,11 +38,7 @@ class MarketSettingViewController: UIViewController {
         marketsPickerView.delegate = self
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+
     private func checkIfIsFirstLoading() {
         
         guard let key = itemTypeInput else { return }
@@ -61,15 +56,7 @@ class MarketSettingViewController: UIViewController {
         enterButton.setTitle(GoToMarketConstant.plzMakeChoiceText, for: .normal)
         
         enterButton.isEnabled = false
-        
-        if isFirstTime {
-            
-            cancelButton.isEnabled = false
-            
-        } else {
-            
-            cancelButton.isEnabled = true
-        }
+        cancelButton.isEnabled = isFirstTime ? false : true
         
         guard let typeName = itemTypeInput?.getTaskItemTypeName() else { return }
         
@@ -153,15 +140,11 @@ class MarketSettingViewController: UIViewController {
     
     private func makeComfirm(ofMarket marketString: String) {
         
-        
         //TODO: present comfirm VC
         
         //if yes
         initLoadingVC(ofMarket: marketString)
-        
-        
     }
-    
 }
 
 //MARK: - UIPickerViewDataSource
@@ -178,8 +161,6 @@ extension MarketSettingViewController: UIPickerViewDataSource {
         }
         return customArray.count
     }
-    
-    
 }
 
 //MARK: - UIPickerViewDelegate
@@ -238,4 +219,3 @@ extension MarketSettingViewController: UIPickerViewDelegate {
         
     }
 }
-

@@ -81,7 +81,6 @@ enum HistoryPeriod: Int {
     }
 }
 
-
 enum CropQueryType: OpenDataQueryItemConvertable {
     
     case updateQuote(lastUpdateDate: Date?)
@@ -126,5 +125,3 @@ enum CropQueryType: OpenDataQueryItemConvertable {
         }
     }
 }
-
-

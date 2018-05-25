@@ -58,18 +58,15 @@ class NoteTableViewCell: UITableViewCell {
     let bottomCellHeight: CGFloat = 200
     
     var isOpened: Bool = true {
-        
         didSet {
             changingCell()
         }
     }
     
     var isFinished: (Bool, TimeInterval) = (false, 0) {
-        
         didSet {
             changingCollor(isFinished: isFinished.0, duration: isFinished.1)
         }
-        
     }
 
     func setupCellView(
@@ -118,6 +115,7 @@ class NoteTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
     
@@ -126,13 +124,9 @@ class NoteTableViewCell: UITableViewCell {
         let textFieldString = bottomBuyingAmountTextField.text ?? "0"
         
         bottomBuyingAmountStepper.value = Double(textFieldString) ?? 0.0
-        
         bottomBuyingAmountStepper.minimumValue = 0
-        
         bottomBuyingAmountStepper.maximumValue = 999
-        
         bottomBuyingAmountStepper.stepValue = 1
-        
         bottomBuyingAmountStepper.autorepeat = true
     }
     
@@ -164,10 +158,7 @@ class NoteTableViewCell: UITableViewCell {
                 self?.bottomCellView.backgroundColor = GoToMarketColor.defaultNoteCellColor.color()
                 
             }
-            
-            
         }
-        
     }
     
     

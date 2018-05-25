@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     
     //MARK: Animation
@@ -79,7 +78,6 @@ extension UIViewController {
         CATransaction.commit()
     }
     
-    
     //MARK:Notification
     func postCartNotification(count: Int) {
         
@@ -89,10 +87,4 @@ extension UIViewController {
             userInfo: ["CartCount": count])
         
     }
-    
-    
-    
-    
-    
-    
 }

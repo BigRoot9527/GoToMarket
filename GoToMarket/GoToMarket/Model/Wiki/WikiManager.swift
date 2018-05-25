@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct WikiManager {
     
     private weak var httpClient = HttpClient.shared

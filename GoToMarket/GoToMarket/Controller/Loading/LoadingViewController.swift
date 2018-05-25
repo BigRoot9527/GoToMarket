@@ -21,25 +21,19 @@ class LoadingViewController: UIViewController {
     //MARK: Input
     var itemTypeInput: TaskKeys?
     var marketInput: String?
-    
 
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         showInitAnimationAndLabel()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         doingCheckingList()
-        
     }
 
-    
     //MARK: LoadingTasks
     private func doingCheckingList() {
         
@@ -148,9 +142,7 @@ class LoadingViewController: UIViewController {
         }
         
     }
-    
-    
-    
+
     //MARK: Animations
     private func showInitAnimationAndLabel() {
         
@@ -199,7 +191,6 @@ class LoadingViewController: UIViewController {
         }
     }
     
-    
     private func setupAnimationView(forName name: String) -> LOTAnimationView {
         
         let animationView = LOTAnimationView(name: name)
@@ -211,8 +202,5 @@ class LoadingViewController: UIViewController {
         animationContainerView.addSubview(animationView)
         
         return animationView
-        
     }
-
-
 }

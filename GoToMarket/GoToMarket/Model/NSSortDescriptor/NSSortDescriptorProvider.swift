@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct NSSortDescriptorProvider {
 
     func getNSSortDescriptor(sortButtons:[SortButton]) -> [NSSortDescriptor] {

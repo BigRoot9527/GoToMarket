@@ -24,12 +24,11 @@ class DetailTitleTableViewCell: UITableViewCell {
     
     weak var delegate: DetailTableViewCellDelegate?
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setUI()
     }
-
     
     @IBAction func didTapBuyingButton(_ sender: UIButton) {
         

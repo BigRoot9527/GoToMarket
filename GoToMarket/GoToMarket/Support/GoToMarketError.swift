@@ -13,4 +13,9 @@ enum GoToMarketError: String, Error {
     case FetchError = "No Fetch Data of Quote Info while dealling with not initail data "
     case MarketError = "Need A Specified Market to search for Data"
     case ValidContext = "Context No available"
+    
+    //TODO
+    var localizedDescription: String {
+        return "love u"
+    }
 }

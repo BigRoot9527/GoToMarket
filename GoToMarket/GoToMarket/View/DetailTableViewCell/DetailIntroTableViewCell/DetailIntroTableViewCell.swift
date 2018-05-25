@@ -10,11 +10,8 @@ import UIKit
 
 class DetailIntroTableViewCell: UITableViewCell {
 
-    
-    
     @IBOutlet weak var detailWikiLabel: UILabel!
-    
-    
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
@@ -29,5 +26,4 @@ class DetailIntroTableViewCell: UITableViewCell {
     private func setUI() {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
-
 }

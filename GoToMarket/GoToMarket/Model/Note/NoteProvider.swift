@@ -10,8 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-enum NoteRequestProvider{
-    
+enum NoteRequestProvider {
     case getFavoriteState(ofCode: String)
     case setFavoriteState(ofCode: String, isFavorite: Bool)
     case getPredictPricePerKG(ofCode: String)
@@ -19,14 +18,13 @@ enum NoteRequestProvider{
 }
 
 
-struct NoteProvider
-{
+struct NoteProvider {
     private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
     func getFevorite(
         toCropCode code: String,
         success: @escaping(Bool) -> Void,
-        failure: @escaping(Error) -> Void )
+        failure: @escaping(Error) -> Void)
     {
         if let context = container?.viewContext
         {
@@ -85,20 +83,5 @@ struct NoteProvider
             
             try? context.save()
         }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
 }

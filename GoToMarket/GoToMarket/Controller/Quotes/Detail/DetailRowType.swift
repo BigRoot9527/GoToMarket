@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
 enum DetailRowType {
-    
     case title
     case intro
     case quotes
@@ -29,5 +27,4 @@ enum DetailRowType {
             return 300.0
         }
     }
-    
 }

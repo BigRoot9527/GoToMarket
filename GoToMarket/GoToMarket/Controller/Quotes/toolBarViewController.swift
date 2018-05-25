@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 protocol ToolBarViewControllertDelegate: class {
     
     func sortButtonsTapped(
@@ -24,7 +22,6 @@ protocol ToolBarViewControllertDelegate: class {
 }
 
 class toolBarViewController: UIViewController {
-    
     
     @IBOutlet weak var scrollUpButton: UIButton!
     @IBOutlet weak var sortByNameButton: UIButton!
@@ -56,9 +53,7 @@ class toolBarViewController: UIViewController {
             sortByCartButton.tintColor = cartButton.getTintColor()
         }
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,9 +101,4 @@ class toolBarViewController: UIViewController {
         
         cartButton.state.next()
     }
-    
-    
-    
-    
-
 }

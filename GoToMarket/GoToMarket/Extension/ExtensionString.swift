@@ -12,7 +12,7 @@ extension String {
     
     //getting string array through regular expression
     
-    public func matchesString(fromRegex regex: String) -> [String]? {
+    func matchesString(fromRegex regex: String) -> [String]? {
         
         do {
             let regularExpression = try NSRegularExpression(pattern: regex, options: [])
@@ -25,7 +25,7 @@ extension String {
         }
     }
     
-    public func trimed() -> String {
+    func trimed() -> String {
         
         let targetOne = "-"
         let targetTwo = "("
@@ -40,21 +40,19 @@ extension String {
         }
     }
     
-    public func urlEncoded() -> String {
+    func urlEncoded() -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
             .urlQueryAllowed)
         return encodeUrlString ?? ""
     }
     
-    public func urlDecoded() -> String {
+    func urlDecoded() -> String {
         return self.removingPercentEncoding ?? ""
     }
     
-    public func trimedEscaping() -> String {
+    func trimedEscaping() -> String {
         let trimedR = self.replacingOccurrences(of: "\\r", with: "")
         let trimedN = trimedR.replacingOccurrences(of: "\\n", with: "\n")
         return trimedN
     }
-    
-    
 }

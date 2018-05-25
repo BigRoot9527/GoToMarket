@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoToMarketConstant {
+struct GoToMarketConstant {
     
     static let quotesRowHeight: CGFloat = 70.0
     
@@ -70,7 +70,4 @@ class GoToMarketConstant {
     static let tgWeightTypeButtonString: String = "元／台斤"
     
     static let cropBasicNSSortDecriptor: NSSortDescriptor = NSSortDescriptor(key: "newAveragePrice", ascending: true)
-    
-    
-    
 }

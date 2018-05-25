@@ -25,14 +25,8 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
             loadHistoryData()
         }
     }
-    
-    
-    
+
     @IBOutlet weak var chartCollectionView: UICollectionView!
-    
-    
-    
-    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loadingHistoryType.count
@@ -60,19 +54,15 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
         
     }
-    
 
-    
-    
-    
     //LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         registerCell()
         chartCollectionView.delegate = self
         chartCollectionView.dataSource = self
         setCollectionViewLayout()
-        
     }
     
     private func setCollectionViewLayout() {

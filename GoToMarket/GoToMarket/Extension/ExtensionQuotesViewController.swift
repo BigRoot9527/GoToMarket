@@ -22,8 +22,7 @@ extension QuotesViewController {
         switch type {
         case .insert: quotesTableView.insertSections([sectionIndex], with: .fade)
         case .delete: quotesTableView.deleteSections([sectionIndex], with: .fade)
-        case .move: break
-        case .update: break
+        case .move, .update: break
         }
     }
     
@@ -44,19 +43,14 @@ extension QuotesViewController {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         quotesTableView.endUpdates()
     }
-    
-    
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 1
     }
-    
-    
-    
+
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles
     }
-    
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
@@ -69,8 +63,4 @@ extension QuotesViewController {
             return 0
         }
     }
-    
-    
-    
 }
-

@@ -95,7 +95,6 @@
 		32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */; };
 		32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */; };
 		32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4862120A7515600DA531C /* TestFoldingViewController.swift */; };
-		32E4862420A7540200DA531C /* ExtensionTestFoldingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */; };
 		32F1467E20A945DD00D6ACB8 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F1467D20A945DD00D6ACB8 /* TitleTableViewCell.xib */; };
 		32F1468120A9464F00D6ACB8 /* HeroDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F1468020A9464F00D6ACB8 /* HeroDetailTableViewCell.xib */; };
 		32F1468420A947FA00D6ACB8 /* TestHero.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F1468320A947FA00D6ACB8 /* TestHero.storyboard */; };
@@ -197,7 +196,6 @@
 		32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
 		32E4862120A7515600DA531C /* TestFoldingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingViewController.swift; sourceTree = "<group>"; };
-		32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTestFoldingViewController.swift; sourceTree = "<group>"; };
 		32F1467D20A945DD00D6ACB8 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		32F1468020A9464F00D6ACB8 /* HeroDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailTableViewCell.xib; sourceTree = "<group>"; };
 		32F1468320A947FA00D6ACB8 /* TestHero.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestHero.storyboard; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 			children = (
 				32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */,
 				3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */,
-				32E4862320A7540200DA531C /* ExtensionTestFoldingViewController.swift */,
 				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
@@ -807,7 +804,6 @@
 				32B1E38D20AED56800336B09 /* DetailHistoryTableViewCell.swift in Sources */,
 				3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */,
 				32070B4B20A44CA700A6BA27 /* OpenDataApiStruct.swift in Sources */,
-				32E4862420A7540200DA531C /* ExtensionTestFoldingViewController.swift in Sources */,
 				3230F3E120AAB928002812E0 /* ExtensionQuotesViewController.swift in Sources */,
 				32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */,
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,

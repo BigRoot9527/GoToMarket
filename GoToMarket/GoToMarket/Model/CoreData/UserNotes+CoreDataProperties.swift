@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension UserNotes {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserNotes> {
@@ -25,5 +24,4 @@ extension UserNotes {
     @NSManaged public var buyingAmount: Int16
     @NSManaged public var itemType: String?
     @NSManaged public var cropData: CropDatas?
-
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol HTTPRequest {
     var domainURL: String { get set }
     var requestType: OpenDataQueryItemConvertable { get set }
@@ -44,7 +43,5 @@ extension HTTPRequest {
     
     func urlQueryItems() -> [URLQueryItem]? {
         return requestType.getNSURLQueryItem()
-    }
-    
-    
+    } 
 }

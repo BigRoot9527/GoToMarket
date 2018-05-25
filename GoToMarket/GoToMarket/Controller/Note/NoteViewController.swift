@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate,NoteTableViewCellDelegate {
+class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate, NoteTableViewCellDelegate {
     
     @IBOutlet weak var noteTableView: UITableView!
     
@@ -153,11 +153,8 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         openedCellIndex = indexPath == openedCellIndex ? nil : indexPath
-        
-        
-        
+
         tableView.beginUpdates()
-        
         tableView.endUpdates()
         
         noteTableView.reloadRows(at: [indexPath], with: .fade)
@@ -209,7 +206,6 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         note.buyingAmount = Int16(text) ?? 0
         
         try? self.container?.viewContext.save()
-        
         
     }
     
@@ -282,9 +278,4 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {
         print("QQ")
     }
-    
-
-    
-    
-    
 }

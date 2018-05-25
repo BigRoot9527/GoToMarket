@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 public class UserNotes: NSManagedObject {
     
     class func findOrCreateNoteFromData(

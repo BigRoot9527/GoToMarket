@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct NoteConstant
-{
+struct NoteConstant {
+    
     static let initailMultipler: Double = 2.0
     static let initailMultiplerWeight: Double = 0.0
     static let firstInputMultiplerWeight: Double = 1.0

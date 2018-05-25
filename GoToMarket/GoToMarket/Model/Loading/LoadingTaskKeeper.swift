@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 class LoadingTaskKeeper {
     
     static let shared = LoadingTaskKeeper()

@@ -23,6 +23,7 @@ class DetailQuotesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setUI()
     }
     

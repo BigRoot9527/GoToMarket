@@ -51,10 +51,4 @@ extension UIView {
         self.layer.zPosition = 0
         self.layer.add(animation, forKey:"trash")
     }
-
-    
-    
-    
-    
-    
 }

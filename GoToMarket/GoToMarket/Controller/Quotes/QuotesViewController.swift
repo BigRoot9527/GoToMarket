@@ -15,18 +15,18 @@ class QuotesViewController: UIViewController {
     
     var showInKg: Bool = true
 
-    //MARK: IBOutlet
+    //MARK: - IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
     @IBOutlet weak var toolBarViewHeightConstraint: NSLayoutConstraint!
     
-    //MARK: CoreData
+    //MARK: - CoreData
     var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var isUpdated: Bool = false
     var filterText: String?
-    
+
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,6 @@ class QuotesViewController: UIViewController {
         self.hero.isEnabled = true
         
         setupTableView()
-        
         setupNav()
     }
     
@@ -82,17 +81,12 @@ class QuotesViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
-        
         searchController.searchResultsUpdater = self
-        
         searchController.searchBar.delegate = self
-        
         searchController.dimsBackgroundDuringPresentation = false
-        
         navigationItem.searchController = searchController
         
         definesPresentationContext = true
-        
         navigationItem.hidesSearchBarWhenScrolling = true
     }
     
@@ -110,7 +104,7 @@ class QuotesViewController: UIViewController {
             let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
             
             //TODO: Switch item type
-            settingVC.itemTypeInput = TaskKeys.crop
+            settingVC.itemTypeInput = .crop
             
             settingVC.hero.modalAnimationType = .fade
             
@@ -121,7 +115,7 @@ class QuotesViewController: UIViewController {
             let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
             
             //TODO: Switch item type
-            loadingVC.itemTypeInput = TaskKeys.crop
+            loadingVC.itemTypeInput = .crop
             
             loadingVC.hero.modalAnimationType = .fade
             
@@ -184,7 +178,6 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-
 
 //MARK: UITableViewDataSource
 extension QuotesViewController: UITableViewDataSource {
@@ -265,10 +258,7 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
             let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as? QuotesTableViewCell
             else { return nil }
         
-        let selectAction = SwipeAction(
-            style: .default,
-            title: nil)
-        { [weak self] action, indexPath in
+        let selectAction = SwipeAction(style: .default, title: nil) { [weak self] action, indexPath in
             
             note.isInCart = !note.isInCart
             

@@ -11,12 +11,11 @@ import Charts
 
 class ChartCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var chartView: LineChartView!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         chartView.noDataTextColor = GoToMarketColor.newDarkBlueGreen.color()
         chartView.noDataText = "～資料下載中～"
     }
@@ -42,23 +41,17 @@ class ChartCollectionViewCell: UICollectionViewCell {
         lineChartDataSet.drawValuesEnabled = false
         lineChartDataSet.lineWidth = 3.0
         
-        let averageLine = ChartLimitLine(
-            limit: average,
-            label:
-                GoToMarketConstant.lineCharLimitLineNamePrefix
-                    + String(format:"%.2f", average)
-                    + GoToMarketConstant.lineCharLimitLineNamePostfix
-        )
+        let label = GoToMarketConstant.lineCharLimitLineNamePrefix
+            + String(format:"%.2f", average)
+            + GoToMarketConstant.lineCharLimitLineNamePostfix
+        let averageLine = ChartLimitLine(limit: average, label: label)
         averageLine.lineWidth = 1.5
         averageLine.lineDashLengths = [5,5]
         averageLine.labelPosition = .rightTop
         averageLine.valueFont = .systemFont(ofSize: 12)
         averageLine.valueTextColor = GoToMarketColor.newOrange.color()
         averageLine.lineColor = GoToMarketColor.newOrange.color()
-        
-        
 
-        
         var dataSets = [IChartDataSet]()
         dataSets.append(lineChartDataSet)
         
@@ -72,9 +65,4 @@ class ChartCollectionViewCell: UICollectionViewCell {
         chartView.chartDescription?.text =
             GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
     }
-    
-    
-    
-    
 }
-

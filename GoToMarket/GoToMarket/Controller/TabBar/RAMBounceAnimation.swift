@@ -7,7 +7,7 @@
 //
 import RAMAnimatedTabBarController
 
-class RAMBounceAnimation : RAMItemAnimation {
+class RAMBounceAnimation: RAMItemAnimation {
 
     override func playAnimation(_ icon: UIImageView, textLabel: UILabel) {
         playBounceAnimation(icon)

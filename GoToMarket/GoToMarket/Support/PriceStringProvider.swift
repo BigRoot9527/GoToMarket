@@ -50,7 +50,4 @@ class PriceStringProvider {
         
         return string
     }
-    
-
-    
 }
