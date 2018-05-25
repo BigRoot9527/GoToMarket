@@ -22,6 +22,9 @@ enum GoToMarketColor: String {
     case yellowCartColor = "DDA639"
     case defaultNoteCellColor = "EBEBF1"
     case finishedNoteCellColor = "96D192"
+    case sortButtonAcendingColor = "FF7876"
+    case sortButtonDecendingColor = "6CA2FF"
+    case sortButtonNoneColor = "E9DBFF"
     
     
     

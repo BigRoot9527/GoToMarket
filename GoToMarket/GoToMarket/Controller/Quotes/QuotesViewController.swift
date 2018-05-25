@@ -18,7 +18,6 @@ class QuotesViewController: UIViewController {
     //MARK: IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
-    @IBOutlet weak var toolBarView: UIView!
     @IBOutlet weak var toolBarViewHeightConstraint: NSLayoutConstraint!
     
     //MARK: CoreData

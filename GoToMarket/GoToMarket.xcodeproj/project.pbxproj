@@ -19,6 +19,7 @@
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
+		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */; };
 		3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */; };
 		3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */; };
@@ -115,6 +116,7 @@
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtnesionUIView.swift; sourceTree = "<group>"; };
 		3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
+				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
 				32B1E39720AFF73200336B09 /* Detail */,
 			);
 			path = Quotes;
@@ -791,6 +794,7 @@
 				3230F3E120AAB928002812E0 /* ExtensionQuotesViewController.swift in Sources */,
 				32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */,
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,
+				32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */,
 				327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */,
 				32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,
@@ -991,7 +995,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1007,7 +1014,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4752Z4M68V;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
