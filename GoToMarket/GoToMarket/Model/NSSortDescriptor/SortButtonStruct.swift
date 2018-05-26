@@ -19,6 +19,7 @@ struct SortButton: SortParametersGettable {
     
     var state: ToolButtonState
     var representAttribute: String
+    var buttonImage: UIImage
     
     enum ToolButtonState {
         
@@ -29,13 +30,13 @@ struct SortButton: SortParametersGettable {
             switch self {
                 
             case .ascending:
-                self = .descending
-                
-            case .descending:
                 self = .none
                 
-            case .none:
+            case .descending:
                 self = .ascending
+                
+            case .none:
+                self = .descending
             }
         }
     }
@@ -65,5 +66,10 @@ struct SortButton: SortParametersGettable {
         case .none:
             return nil
         }
+    }
+    
+    func getImage() -> UIImage {
+        
+        return buttonImage.withRenderingMode(.alwaysTemplate)
     }
 }

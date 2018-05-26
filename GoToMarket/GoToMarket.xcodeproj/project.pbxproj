@@ -19,7 +19,7 @@
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
-		32136E6E20B7EC2500663C6E /* toolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* toolBarViewController.swift */; };
+		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7320B83DEC00663C6E /* SortButtonStruct.swift */; };
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
 		32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7820B84ACA00663C6E /* NSSortDescriptorManager.swift */; };
@@ -32,7 +32,6 @@
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
 		3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DC20AAB734002812E0 /* QuotesViewController.swift */; };
 		3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DE20AAB750002812E0 /* DetailViewController.swift */; };
-		3230F3E120AAB928002812E0 /* ExtensionQuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */; };
 		3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E520AAD1CA002812E0 /* PriceStringProvider.swift */; };
 		3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3E820AC1340002812E0 /* WikiConstant.swift */; };
 		3230F3EB20AC1509002812E0 /* WikiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EA20AC1509002812E0 /* WikiManager.swift */; };
@@ -118,7 +117,7 @@
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
-		32136E6D20B7EC2500663C6E /* toolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolBarViewController.swift; sourceTree = "<group>"; };
+		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E7320B83DEC00663C6E /* SortButtonStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonStruct.swift; sourceTree = "<group>"; };
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
 		32136E7820B84ACA00663C6E /* NSSortDescriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorManager.swift; sourceTree = "<group>"; };
@@ -131,7 +130,6 @@
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
 		3230F3DC20AAB734002812E0 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3DE20AAB750002812E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionQuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3E520AAD1CA002812E0 /* PriceStringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceStringProvider.swift; sourceTree = "<group>"; };
 		3230F3E820AC1340002812E0 /* WikiConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiConstant.swift; sourceTree = "<group>"; };
 		3230F3EA20AC1509002812E0 /* WikiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiManager.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */,
-				3230F3E020AAB928002812E0 /* ExtensionQuotesViewController.swift */,
 				32B1E37A20AEC1C200336B09 /* ExtensionArray.swift */,
 				32D81CD820AC7B9900514F31 /* ExtensionString.swift */,
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
@@ -312,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
-				32136E6D20B7EC2500663C6E /* toolBarViewController.swift */,
+				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
 				32B1E39720AFF73200336B09 /* Detail */,
 			);
 			path = Quotes;
@@ -804,10 +801,9 @@
 				32B1E38D20AED56800336B09 /* DetailHistoryTableViewCell.swift in Sources */,
 				3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */,
 				32070B4B20A44CA700A6BA27 /* OpenDataApiStruct.swift in Sources */,
-				3230F3E120AAB928002812E0 /* ExtensionQuotesViewController.swift in Sources */,
 				32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */,
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,
-				32136E6E20B7EC2500663C6E /* toolBarViewController.swift in Sources */,
+				32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */,
 				327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */,
 				32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,

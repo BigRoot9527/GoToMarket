@@ -17,16 +17,15 @@ struct NSSortDescriptorManager {
         itemType:TaskKeys
         ) -> [NSSortDescriptor] {
         
-        var sortDescriptorArray = provider.getNSSortDescriptor(sortButtons: sortButtons)
+        let sortDescriptorArray = provider.getNSSortDescriptor(sortButtons: sortButtons)
         
         switch itemType {
         case .crop:
             
-            sortDescriptorArray.append(GoToMarketConstant.cropBasicNSSortDecriptor)
-            
             return sortDescriptorArray
             
         default:
+            
             return [NSSortDescriptor(key: nil, ascending: true)]
         }
     }

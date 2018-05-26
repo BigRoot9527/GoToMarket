@@ -23,18 +23,17 @@
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-Wh-7xF">
-                                <rect key="frame" x="12" y="64" width="351" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
-                                        <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <connections>
-                                            <segue destination="Nsm-oF-SF3" kind="embed" id="TnR-bH-fsZ"/>
+                                            <segue destination="Nsm-oF-SF3" kind="embed" identifier="QuoteToolBarVCSegue" id="TnR-bH-fsZ"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Aub-h0-MPD"/>
                                     <constraint firstAttribute="trailing" secondItem="kHi-gF-Yfh" secondAttribute="trailing" id="AwH-Vo-Ib0"/>
                                     <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="top" id="CNz-d2-tes"/>
                                     <constraint firstAttribute="bottom" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="Q7r-fc-rS6"/>
@@ -45,17 +44,18 @@
                         <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MfS-ap-ht6" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="FPi-w1-48O"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" constant="-12" id="WQ1-2v-LjE"/>
+                            <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="bottom" constant="-50" id="FU7-NC-SeR"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="top" secondItem="MfS-ap-ht6" secondAttribute="top" id="QZo-Aw-ZFO"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="WQ1-2v-LjE"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="MfS-ap-ht6" secondAttribute="trailing" id="dvq-gt-ktc"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="MfS-ap-ht6" secondAttribute="bottom" id="v8b-bx-ETd"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="vWC-5D-mI2"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" constant="12" id="wGm-CX-Zvf"/>
+                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="wGm-CX-Zvf"/>
                             <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="yV7-5n-DQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="gpt-5K-jIV">
+                        <barButtonItem key="leftBarButtonItem" image="filter_icon" id="gpt-5K-jIV">
                             <connections>
                                 <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
                             </connections>
@@ -71,7 +71,8 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
-                        <outlet property="toolBarViewHeightConstraint" destination="Aub-h0-MPD" id="kP6-gn-Ec9"/>
+                        <outlet property="toolBarVToQuoteTVBottomConstraint" destination="FU7-NC-SeR" id="5Fl-yl-H8l"/>
+                        <outlet property="toolBarVToQuoteTVTopConstraint" destination="QZo-Aw-ZFO" id="TUN-I2-BKf"/>
                         <outlet property="weightTypeNavBarButton" destination="POl-j3-e6h" id="PEK-sY-LE7"/>
                     </connections>
                 </viewController>
@@ -191,43 +192,51 @@
             </objects>
             <point key="canvasLocation" x="-60" y="251.42428785607197"/>
         </scene>
-        <!--Tool Bar View Controller-->
+        <!--Quote Tool Bar View Controller-->
         <scene sceneID="c7d-iT-nMb">
             <objects>
-                <viewController id="Nsm-oF-SF3" customClass="toolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nsm-oF-SF3" customClass="QuoteToolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Jl-ni-fx6">
-                        <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f55-IQ-Mjy">
-                                <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxZ-3H-Fp0">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
-                                        <state key="normal" title="Top"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxZ-3H-Fp0">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
+                                        <state key="normal" image="top_icon"/>
                                         <connections>
                                             <action selector="didTapScrollUpButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="GHM-N6-jlh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouv-x0-hWK">
-                                        <rect key="frame" x="88" y="0.0" width="87.5" height="50"/>
-                                        <state key="normal" title="Name"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drM-W8-bQ0">
+                                        <rect key="frame" x="75" y="0.0" width="75" height="50"/>
+                                        <color key="tintColor" red="1" green="0.47058823529999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="bottom_icon"/>
+                                        <connections>
+                                            <action selector="didTapScrollDownButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="fAj-DH-hbV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyK-dL-ZlZ">
+                                        <rect key="frame" x="150" y="0.0" width="75" height="50"/>
+                                        <state key="normal" image="buy_icon"/>
+                                        <connections>
+                                            <action selector="didTapSortByCartButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="6Je-47-tW4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouv-x0-hWK">
+                                        <rect key="frame" x="225" y="0.0" width="75" height="50"/>
+                                        <state key="normal" image="abc_icon"/>
                                         <connections>
                                             <action selector="didTapSortByNameButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="8ON-3q-Gql"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-Cl-edP">
-                                        <rect key="frame" x="175.5" y="0.0" width="88" height="50"/>
-                                        <state key="normal" title="Quote"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-Cl-edP">
+                                        <rect key="frame" x="300" y="0.0" width="75" height="50"/>
+                                        <state key="normal" image="money_icon"/>
                                         <connections>
                                             <action selector="didTapSortByQuoteButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="RIe-wl-egE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyK-dL-ZlZ">
-                                        <rect key="frame" x="263.5" y="0.0" width="87.5" height="50"/>
-                                        <state key="normal" title="Cart"/>
-                                        <connections>
-                                            <action selector="didTapSortByCartButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="6Je-47-tW4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -249,6 +258,7 @@
                         <viewLayoutGuide key="safeArea" id="TeS-0Q-jJe"/>
                     </view>
                     <connections>
+                        <outlet property="scrollDownButton" destination="drM-W8-bQ0" id="JFW-Jw-i0s"/>
                         <outlet property="scrollUpButton" destination="DxZ-3H-Fp0" id="xiD-E0-C4H"/>
                         <outlet property="sortByCartButton" destination="KyK-dL-ZlZ" id="MDw-g0-GIu"/>
                         <outlet property="sortByNameButton" destination="ouv-x0-hWK" id="b9G-n2-zSf"/>
@@ -257,11 +267,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDi-Na-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="-249"/>
+            <point key="canvasLocation" x="1503" y="-169"/>
         </scene>
     </scenes>
     <resources>
+        <image name="abc_icon" width="32" height="32"/>
+        <image name="bottom_icon" width="32" height="32"/>
+        <image name="buy_icon" width="30" height="30"/>
         <image name="cancel_icon" width="64" height="64"/>
+        <image name="filter_icon" width="30" height="30"/>
+        <image name="money_icon" width="30" height="30"/>
         <image name="placeholder-image" width="800" height="600"/>
+        <image name="top_icon" width="32" height="32"/>
     </resources>
 </document>

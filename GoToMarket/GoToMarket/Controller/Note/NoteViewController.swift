@@ -95,9 +95,11 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: TableView DataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
             
             let count = sections[section].numberOfObjects
+            
             print("count = \(count)")
             
             return count

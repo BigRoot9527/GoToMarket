@@ -23,7 +23,7 @@ enum GoToMarketColor: String {
     case defaultNoteCellColor = "EBEBF1"
     case finishedNoteCellColor = "96D192"
     case sortButtonAcendingColor = "FF7876"
-    case sortButtonDecendingColor = "6CA2FF"
+    case sortButtonDecendingColor = "86D989"
     case sortButtonNoneColor = "E9DBFF"
 
     func color() -> UIColor {

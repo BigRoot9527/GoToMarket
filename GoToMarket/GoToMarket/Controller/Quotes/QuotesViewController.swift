@@ -18,7 +18,12 @@ class QuotesViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
-    @IBOutlet weak var toolBarViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarVToQuoteTVBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarVToQuoteTVTopConstraint: NSLayoutConstraint!
+    
+    //MARK: ToolBar(Opened, Closed) ContraintConstant To QuoteTV
+    let toolBarTop: (CGFloat, CGFloat) = ( 0.0, -50.0 )
+    let toolBarBottom: (CGFloat, CGFloat) = ( -50.0, 0.0 )
     
     //MARK: - CoreData
     var container: NSPersistentContainer? =
@@ -123,7 +128,7 @@ class QuotesViewController: UIViewController {
         }
     }
     
-    //MARK: IBAction
+    //MARK: - IBAction
     @IBAction func didTapWeightTypeNavBarButton(_ sender: UIBarButtonItem) {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
@@ -135,8 +140,13 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        toolBarViewHeightConstraint.constant = toolBarViewHeightConstraint.constant == 0 ?
-            50 : 0
+        toolBarVToQuoteTVBottomConstraint.constant =
+            toolBarVToQuoteTVBottomConstraint.constant == toolBarBottom.0 ?
+                toolBarBottom.1 : toolBarBottom.0
+        
+        toolBarVToQuoteTVTopConstraint.constant =
+            toolBarVToQuoteTVTopConstraint.constant == toolBarTop.0 ?
+                toolBarTop.1 : toolBarTop.0
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             
@@ -145,11 +155,39 @@ class QuotesViewController: UIViewController {
     }
 }
 
+//MARK: - QuoteToolBarVCDelegate
+extension QuotesViewController: QuoteToolBarViewControllertDelegate {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "QuoteToolBarVCSegue" {
+            
+            if let toolBarVC = segue.destination as? QuoteToolBarViewController {
+                toolBarVC.delegate = self
+            }
+        }
+    }
+    
+    func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
+        
+        fetchAndReloadData(sortDescriptors: sortDescriptor)
+    }
+    
+    func scrollButtonTapped(sender: UIButton, scrollToTop: Bool) {
+        
+        let indexPath = scrollToTop ?
+            IndexPath(row: 0, section: 0) :
+            IndexPath(row: quotesTableView.numberOfRows(inSection: 0) - 1, section: 0)
 
-//MARK: NSFetchedResultsControllerDelegate
+            quotesTableView.scrollToRow(at: indexPath, at: .none, animated: true)
+    }
+}
+
+
+//MARK: - NSFetchedResultsControllerDelegate
 extension QuotesViewController: NSFetchedResultsControllerDelegate {
     
-    private func fetchAndReloadData() {
+    private func fetchAndReloadData(sortDescriptors: [NSSortDescriptor] = [GoToMarketConstant.cropBasicNSSortDecriptor]) {
         
         if let context = container?.viewContext {
             
@@ -157,7 +195,7 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
             
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             
-            request.sortDescriptors = [NSSortDescriptor(key: "newAveragePrice", ascending: true)]
+            request.sortDescriptors = sortDescriptors
             
             if
                 let filter = filterText,
@@ -179,7 +217,7 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-//MARK: UITableViewDataSource
+//MARK: - UITableViewDataSource
 extension QuotesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -210,10 +248,20 @@ extension QuotesViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let sections = fetchedResultsController?.sections, sections.count > 0 {
+            return sections[section].numberOfObjects
+        
+        } else {
+            return 0
+        }
+    }
 }
 
 
-//MARK: UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension QuotesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -245,7 +293,7 @@ extension QuotesViewController: UITableViewDelegate {
 }
 
 
-//MARK: SwipeCellKit
+//MARK: - SwipeCellKit
 extension QuotesViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         
@@ -310,7 +358,7 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
 }
 
 
-//MARK: UISearchResultsUpdating
+//MARK: - UISearchResultsUpdating
 extension QuotesViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -326,7 +374,7 @@ extension QuotesViewController: UISearchResultsUpdating {
 }
 
 
-//MARK: UISearchBarDelegate
+//MARK: - UISearchBarDelegate
 extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
