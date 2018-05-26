@@ -267,17 +267,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDi-Na-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="-169"/>
+            <point key="canvasLocation" x="1506" y="-223"/>
         </scene>
     </scenes>
     <resources>
         <image name="abc_icon" width="32" height="32"/>
-        <image name="bottom_icon" width="32" height="32"/>
+        <image name="bottom_icon" width="21" height="21"/>
         <image name="buy_icon" width="30" height="30"/>
         <image name="cancel_icon" width="64" height="64"/>
         <image name="filter_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
         <image name="placeholder-image" width="800" height="600"/>
-        <image name="top_icon" width="32" height="32"/>
+        <image name="top_icon" width="21" height="21"/>
     </resources>
 </document>
