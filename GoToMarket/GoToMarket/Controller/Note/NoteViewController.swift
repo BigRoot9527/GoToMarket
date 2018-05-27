@@ -39,6 +39,7 @@ class NoteViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
+        setupNav()
     }
     
     
@@ -56,6 +57,11 @@ class NoteViewController: UIViewController {
         noteTableView.estimatedRowHeight = closedCellHeight
         noteTableView.rowHeight = UITableViewAutomaticDimension
         registerCell()
+    }
+    
+    private func setupNav() {
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func registerCell() {
