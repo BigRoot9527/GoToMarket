@@ -20,15 +20,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-RT-otD" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="8" y="0.0" width="359" height="231"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9Nj-RT-otD" secondAttribute="bottom" id="V1q-OQ-Lcp"/>
-                <constraint firstAttribute="trailing" secondItem="9Nj-RT-otD" secondAttribute="trailing" id="cN7-EE-dxZ"/>
-                <constraint firstItem="9Nj-RT-otD" firstAttribute="leading" secondItem="U7Q-j5-ABH" secondAttribute="leading" id="u0Z-Ut-kar"/>
+                <constraint firstAttribute="trailing" secondItem="9Nj-RT-otD" secondAttribute="trailing" constant="8" id="cN7-EE-dxZ"/>
+                <constraint firstItem="9Nj-RT-otD" firstAttribute="leading" secondItem="U7Q-j5-ABH" secondAttribute="leading" constant="8" id="u0Z-Ut-kar"/>
                 <constraint firstItem="9Nj-RT-otD" firstAttribute="top" secondItem="U7Q-j5-ABH" secondAttribute="top" id="uAt-Rx-eJd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="eA0-Qo-D0P"/>

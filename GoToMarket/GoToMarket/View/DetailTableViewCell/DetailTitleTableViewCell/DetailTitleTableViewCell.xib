@@ -22,12 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火龍果 - 去皮" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xi-2C-dnA">
-                                <rect key="frame" x="20" y="13.5" width="151" height="35"/>
+                                <rect key="frame" x="16" y="13.5" width="151" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="TIR-IA-k8s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
-                                <color key="textColor" red="0.99705451730000005" green="0.99147164229999996" blue="0.94542892079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-8G-ekL">
@@ -43,9 +42,9 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.13725490200000001" green="0.3411764706" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1Xi-2C-dnA" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" constant="20" id="ea1-Ut-VGf"/>
+                            <constraint firstItem="1Xi-2C-dnA" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" constant="16" id="ea1-Ut-VGf"/>
                             <constraint firstAttribute="bottom" secondItem="1Xi-2C-dnA" secondAttribute="bottom" constant="15" id="teg-xg-oQz"/>
                             <constraint firstItem="bPW-8G-ekL" firstAttribute="centerY" secondItem="1Xi-2C-dnA" secondAttribute="centerY" id="uGc-aO-lYt"/>
                             <constraint firstAttribute="trailing" secondItem="bPW-8G-ekL" secondAttribute="trailing" constant="30" id="zO0-iQ-tr5"/>
@@ -66,7 +65,7 @@
                 <outlet property="detailBuyingButton" destination="bPW-8G-ekL" id="Nag-xx-ylw"/>
                 <outlet property="detailNameLabel" destination="1Xi-2C-dnA" id="Snm-RU-JiH"/>
             </connections>
-            <point key="canvasLocation" x="-30.5" y="-164"/>
+            <point key="canvasLocation" x="-60" y="-204"/>
         </tableViewCell>
     </objects>
     <resources>

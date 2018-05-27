@@ -25,6 +25,7 @@ enum GoToMarketColor: String {
     case sortButtonAcendingColor = "FF7876"
     case sortButtonDecendingColor = "86D989"
     case sortButtonNoneColor = "E9DBFF"
+    case defaultGray = "EFEFF4"
 
     func color() -> UIColor {
         
