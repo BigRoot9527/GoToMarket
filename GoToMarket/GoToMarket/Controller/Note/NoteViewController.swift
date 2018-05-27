@@ -9,11 +9,11 @@
 import UIKit
 import CoreData
 
-class NoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextFieldDelegate, NoteTableViewCellDelegate {
+class NoteViewController: UIViewController {
     
     @IBOutlet weak var noteTableView: UITableView!
     
-    //MARK: ChangeCellView
+    //MARK: - ChangeCellView
     private let openedCellHeight: CGFloat = 210.0
     private let closedCellHeight: CGFloat = 110.0
     
@@ -30,20 +30,15 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 fetchData()
                 noteTableView.reloadData()
         }
-        
     }
     
     var fetchedResultsController: NSFetchedResultsController<UserNotes>?
     
-    //MARK: LifeCycle
+    //MARK:  - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        noteTableView.delegate = self
-        noteTableView.dataSource = self
-        noteTableView.estimatedRowHeight = closedCellHeight
-        noteTableView.rowHeight = UITableViewAutomaticDimension
-        registerCell()
+        setupTableView()
     }
     
     
@@ -52,11 +47,40 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         fetchData()
         noteTableView.reloadData()
+    }
+    
+    private func setupTableView() {
         
-        
+        noteTableView.delegate = self
+        noteTableView.dataSource = self
+        noteTableView.estimatedRowHeight = closedCellHeight
+        noteTableView.rowHeight = UITableViewAutomaticDimension
+        registerCell()
     }
 
-    //MARK: CoreData
+    private func registerCell() {
+        
+        let nibContent = UINib(nibName: "NoteTableViewCell", bundle: nil)
+        
+        noteTableView.register(
+            nibContent,
+            forCellReuseIdentifier: String(describing: NoteTableViewCell.self)
+        )
+    }
+    
+    //MARK: Open-Close Switch
+    private func setupCell(index: IndexPath?, toOpen: Bool) {
+        
+        guard let openIndex = index , let cell = noteTableView.cellForRow(at: openIndex) as? NoteTableViewCell else { return } 
+        
+        cell.isOpened = toOpen
+    }
+}
+
+
+//MARK: - NSFetchedResultsControllerDelegate
+extension NoteViewController: NSFetchedResultsControllerDelegate {
+    
     private func fetchData() {
         
         if let context = container?.viewContext {
@@ -82,18 +106,12 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
     }
+}
 
-    private func registerCell() {
-        
-        let nibContent = UINib(nibName: "NoteTableViewCell", bundle: nil)
-        
-        noteTableView.register(
-            nibContent,
-            forCellReuseIdentifier: String(describing: NoteTableViewCell.self)
-        )
-    }
-    
-    //MARK: TableView DataSource
+
+//MARK: - TableView DataSource
+extension NoteViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
@@ -113,8 +131,8 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(
-                withIdentifier: String(describing: NoteTableViewCell.self),
-                for: indexPath) as! NoteTableViewCell
+            withIdentifier: String(describing: NoteTableViewCell.self),
+            for: indexPath) as! NoteTableViewCell
         guard
             let note = fetchedResultsController?.object(at: indexPath),
             let cropData = note.cropData
@@ -135,7 +153,11 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+}
 
+//MARK: - TableView Delegate
+extension NoteViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -151,28 +173,20 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    //MARK: TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         openedCellIndex = indexPath == openedCellIndex ? nil : indexPath
-
+        
         tableView.beginUpdates()
         tableView.endUpdates()
         
         noteTableView.reloadRows(at: [indexPath], with: .fade)
     }
-    
-    
-    //MARK: Open-Close Switch
-    private func setupCell(index: IndexPath?, toOpen: Bool) {
-        
-        guard let openIndex = index , let cell = noteTableView.cellForRow(at: openIndex) as? NoteTableViewCell else { return } 
-        
-        cell.isOpened = toOpen
-    }
+}
 
+//MARK: - UITextFieldDelegate
+extension NoteViewController: UITextFieldDelegate {
     
-    //MARK: TextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
@@ -204,7 +218,7 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let note = fetchedResultsController?.object(at: index) else { return }
         
         let text = textField.text ?? "0"
-
+        
         note.buyingAmount = Int16(text) ?? 0
         
         try? self.container?.viewContext.save()
@@ -216,9 +230,12 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField.resignFirstResponder()
         return true
     }
+}
+
+
+//MARK: - NoteTableViewCellDelegates
+extension NoteViewController: NoteTableViewCellDelegate {
     
-    
-    //MARK: NoteTableViewCellDelegates
     func didTapFinishedButton(sender: UIButton, fromCell: NoteTableViewCell) {
         
         guard
@@ -278,6 +295,28 @@ class NoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func didTapPriceInfoButton(sender: UIButton, fromCell: NoteTableViewCell) {
-        print("QQ")
+        
+        guard
+            let tappedIndexPath = noteTableView.indexPath(for: fromCell),
+            let note = fetchedResultsController?.object(at: tappedIndexPath)
+            else { return }
+        
+        let calculateVC = UIStoryboard.calculate().instantiateInitialViewController() as! CalculateViewController
+        
+        calculateVC.itemCodeInput = note.itemCode
+        calculateVC.dismissCallBack = { [weak self] in
+            
+            self?.fetchData()
+            self?.noteTableView.reloadData()
+            
+        }
+        
+        calculateVC.hero.isEnabled = true
+        calculateVC.hero.modalAnimationType = .fade
+        
+        calculateVC.modalPresentationStyle = .overFullScreen
+        
+        present(calculateVC, animated: true, completion: nil)
     }
 }
+
