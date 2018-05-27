@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var didTapBuyingCallBack: ((Bool) -> Void)?
     
     let manager = WikiManager()
-    let rowTypes: [DetailRowType] = [.title, .intro, .history, .quotes ]
+    let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
     var wikiText: String = "Wiki說明下載中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
@@ -105,6 +105,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 for: indexPath) as! DetailHistoryTableViewCell
             
             addChartVC(toCell: cell, ofItemCode: crop.cropCode)
+            
+            return cell
+        case .empty:
+            
+            let cell = UITableViewCell()
+            
+            cell.selectionStyle = .none
             
             return cell
         }

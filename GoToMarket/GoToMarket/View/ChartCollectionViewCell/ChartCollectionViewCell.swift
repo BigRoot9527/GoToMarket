@@ -60,6 +60,11 @@ class ChartCollectionViewCell: UICollectionViewCell {
         chartView.data = lineChartData
         chartView.leftAxis.addLimitLine(averageLine)
         
+        let xAxis = chartView.xAxis
+        xAxis.drawLabelsEnabled = false
+//        xAxis.drawAxisLineEnabled = false
+//        xAxis.drawGridLinesEnabled = false
+        
         let fromDate = dataPoints.first ?? ""
         let toDate = dataPoints.last ?? ""
         chartView.chartDescription?.text =

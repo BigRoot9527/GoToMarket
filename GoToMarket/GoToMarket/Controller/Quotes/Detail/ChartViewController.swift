@@ -70,7 +70,6 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
         let fullScreenSize = UIScreen.main.bounds.size
         ChartViewFlowLayout.itemSize = CGSize(width: fullScreenSize.width - 7, height: 210.0)
         ChartViewFlowLayout.minimumInteritemSpacing = (fullScreenSize.width) * 0 / 375
-//        ChartViewFlowLayout.minimumLineSpacing = (fullScreenSize.height) * 5 / 667
         ChartViewFlowLayout.scrollDirection = .horizontal
         chartCollectionView.setCollectionViewLayout(ChartViewFlowLayout, animated: false)
         chartCollectionView.isDirectionalLockEnabled = true
