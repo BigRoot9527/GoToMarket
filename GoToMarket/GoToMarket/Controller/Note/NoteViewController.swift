@@ -151,6 +151,10 @@ extension NoteViewController: UITableViewDataSource {
             bottomTextFieldTag: indexPath
         )
         
+        //Hero
+        cell.bottomPriceInfoButton.imageView?.hero.isEnabled = false
+        cell.bottomPriceInfoButton.imageView?.hero.id = nil
+        
         return cell
     }
     
@@ -311,6 +315,9 @@ extension NoteViewController: NoteTableViewCellDelegate {
             
         }
         
+        
+        fromCell.bottomPriceInfoButton.imageView?.hero.isEnabled = true
+        fromCell.bottomPriceInfoButton.imageView?.hero.id = "infoImage"
         calculateVC.hero.isEnabled = true
         calculateVC.hero.modalAnimationType = .fade
         
