@@ -18,15 +18,18 @@ class DetailViewController: UIViewController {
     //TODO: placeHolder and loading Image
     
     //Input
-    var objectInput: CropDatas?
+    var itemCodeInput: String?
     var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
     
-    let manager = WikiManager()
+    let wikiManager = WikiManager()
+    let cropManager = CropManager()
+    var fetchedItem: CropDatas?
     let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
     var wikiText: String = "Wiki說明下載中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
+    var quoteIndexPath: IndexPath?
     //TODO: another collection view to let user know that there's two kinds of chart
     
     
@@ -37,8 +40,11 @@ class DetailViewController: UIViewController {
         detailTableView.dataSource = self
         detailTableView.delegate = self
         registerCells()
+        fetchItem()
         loadWikiData()
+        
     }
+
     
     private func registerCells() {
         
@@ -56,10 +62,19 @@ class DetailViewController: UIViewController {
         
     }
     
-    private func loadWikiData() {
-        guard let itemData = objectInput else { return }
+    private func fetchItem() {
+        guard
+            let code = itemCodeInput,
+            let itemData = cropManager.getCropData(formItemCode: code)
+            else { return }
         
-        manager.getWikiImageUrl(
+        self.fetchedItem = itemData
+    }
+    
+    private func loadWikiData() {
+        guard let itemData = fetchedItem else { return }
+        
+        wikiManager.getWikiImageUrl(
             fromItemName: itemData.cropName,
             success: { [weak self] (url) in
                 
@@ -73,7 +88,7 @@ class DetailViewController: UIViewController {
             
         }
         
-        manager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
+        wikiManager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
             
             let outputText = text ?? "查無Wiki資料"
             
@@ -107,7 +122,7 @@ extension DetailViewController: UITableViewDataSource {
         
         let showingType = rowTypes[indexPath.row]
         
-        guard let crop = objectInput, let note = crop.note else { return UITableViewCell() }
+        guard let crop = fetchedItem, let note = crop.note else { return UITableViewCell() }
         //TODO: to return loading image
         
         switch showingType {
@@ -146,6 +161,8 @@ extension DetailViewController: UITableViewDataSource {
             return cell
             
         case .quotes:
+            
+            quoteIndexPath = indexPath
             
             let cell = detailTableView.dequeueReusableCell(
                 withIdentifier: String(describing: DetailQuotesTableViewCell.self),
@@ -243,7 +260,7 @@ extension DetailViewController: DetailTableViewCellDelegate {
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
         
         guard
-            let cropData = objectInput,
+            let cropData = fetchedItem,
             let note = cropData.note else { return }
         
         fromCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
@@ -253,11 +270,17 @@ extension DetailViewController: DetailTableViewCellDelegate {
     
     func priceInfoButtonTapped(sender: UIButton) {
         
-        guard let cropData = objectInput else { return }
+        guard let cropData = fetchedItem else { return }
         
         let calculateVC = UIStoryboard.calculate().instantiateInitialViewController() as! CalculateViewController
         
         calculateVC.itemCodeInput = cropData.cropCode
+        calculateVC.dismissCallBack = { [weak self] in
+            
+            self?.fetchItem()
+            self?.detailTableView.reloadData()
+            
+        }
         
         calculateVC.hero.isEnabled = true
         calculateVC.hero.modalAnimationType = .fade

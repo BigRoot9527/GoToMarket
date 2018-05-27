@@ -82,5 +82,29 @@ public class CropDatas: NSManagedObject
             failure(error)
         }
     }
+    
+    
+    class func fetchCropQuoteFromCode(matchingCode itemCode: String,
+                                      matchingType itemType: String,
+                                      in context: NSManagedObjectContext) -> CropDatas? {
+        
+        let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
+        request.predicate = NSPredicate(
+            format: "(cropCode = %@) AND (itemType = %@)", itemCode, itemType )
+        do {
+            let maches = try context.fetch(request)
+            if maches.count > 0 {
+                if maches.count > 1 {
+                    maches.forEach {
+                        print("CropDatas NSMO Error: matches > 1 \($0)")
+                    }
+                }
+                return maches[0]
+            }
+        } catch {
+            print(error)
+        }
+        return nil
+    }
 
 }

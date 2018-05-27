@@ -99,5 +99,16 @@ struct CropProvider {
         return correctArray
     }
     
-    
+    func getCropData(fromItemCode code: String, itemType type: String) -> CropDatas? {
+        if let context = container?.viewContext {
+            
+            let cropData = CropDatas.fetchCropQuoteFromCode(
+                matchingCode: code,
+                matchingType: type,
+                in: context)
+            
+            return cropData
+        }
+        return nil
+    }
 }

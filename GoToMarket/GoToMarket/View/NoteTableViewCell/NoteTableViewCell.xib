@@ -216,6 +216,9 @@
                                     <constraint firstAttribute="width" constant="25" id="yer-LE-Tcz"/>
                                 </constraints>
                                 <state key="normal" image="information"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="infoImage"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapBottomPriceInfoButton:" destination="2Y7-gV-Foe" eventType="touchUpInside" id="los-rR-ErM"/>
                                 </connections>

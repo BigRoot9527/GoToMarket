@@ -171,6 +171,8 @@ extension QuotesViewController: QuoteToolBarViewControllertDelegate {
     func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
         
         fetchAndReloadData(sortDescriptors: sortDescriptor)
+        let idexPath = IndexPath(row: 0, section: 0)
+        quotesTableView.scrollToRow(at: idexPath, at: .top, animated: true)
     }
     
     func scrollButtonTapped(sender: UIButton, scrollToTop: Bool) {
@@ -274,7 +276,7 @@ extension QuotesViewController: UITableViewDelegate {
         
         let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
         
-        detailVC.objectInput = crop
+        detailVC.itemCodeInput = crop.cropCode
         
         detailVC.didTapBuyingCallBack = { [weak self] bool -> () in
             

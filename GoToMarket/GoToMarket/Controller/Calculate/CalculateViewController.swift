@@ -51,6 +51,7 @@ class CalculateViewController: UIViewController {
     
     //Input
     var itemCodeInput: String = ""
+    var dismissCallBack: (() -> Void)?
     
     private var isDefaulMultipler: Bool = true {
         
@@ -145,9 +146,15 @@ class CalculateViewController: UIViewController {
     }
     
     @IBAction func didTapCloseButton(_ sender: UIButton) {
-        //TODO: reload presenting VC
         
-        dismiss(animated: true, completion: nil)
+        if let callBack = dismissCallBack {
+            
+            dismiss(animated: true, completion: callBack)
+            
+        } else {
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func didChangeWeightTypeSegment(_ sender: UISegmentedControl) {
@@ -162,6 +169,11 @@ class CalculateViewController: UIViewController {
         
         //TODO: MakeConfirm
         //TODO: showMessageWhenDone
+        manager.resetModel(toItemCode: itemCodeInput, success: { [weak self] (originNote) in
+            self?.currentMultiplerLabel.text = String(format: "%.2f", originNote.customMutipler)
+        }) { (error) in
+            print("Error from \(#file) \(#line): \(error)")
+        }
     }
 }
 

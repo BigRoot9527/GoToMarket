@@ -145,5 +145,10 @@ struct CropManager {
                 DispatchQueue.main.async {
                     failure(error)
                 } })
-    } 
+    }
+    
+    func getCropData(formItemCode code: String) -> CropDatas? {
+        
+        return provider.getCropData(fromItemCode: code, itemType: GoToMarketConstant.itemTypeCoreDataNameForCrops)
+    }
 }
