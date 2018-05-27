@@ -17,11 +17,19 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var backGroundView: UIView!
+    
     //TODO: make info labels to fade chainly
     
     //Input
-    var itemCode: String = ""
+    var itemCodeInput: String = ""
+    
+    private var isDefaulMultipler: Bool = true {
+        
+        didSet{
+            changeResetButton()
+        }
+    }
     
     private let manager = NoteManager()
     
@@ -31,21 +39,35 @@ class CalculateViewController: UIViewController {
         
         setupUI()
         
-        loadMultiplerData()
+//        loadMultiplerData()
     }
     
     private func setupUI() {
         
-        visualEffectView.roundedCorner(cornerRadius: 10.0)
+        backGroundView.roundedCorner(cornerRadius: 10.0)
         enterButton.roundedCorner()
         cancelButton.roundedCorner()
     }
     
     private func loadMultiplerData() {
         
+        manager.getCurrentMultipler(
+            fromItemCode: itemCodeInput,
+            success: { [weak self] (multiplerString, isDefault) in
+                
+                self?.currentMultiplerLabel.text = multiplerString
+                
+                self?.isDefaulMultipler = isDefault
+                
+        }) { (error) in
+            
+            print("ErrorFrom \(#file, #line): \(error)")
+        }
+    }
+    
+    private func changeResetButton() {
         
-        
-        
+        resetMultiplerButton.isEnabled = !isDefaulMultipler
     }
     
     
