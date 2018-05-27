@@ -54,7 +54,7 @@
                                     <segment title="台斤"/>
                                     <segment title="公克"/>
                                 </segments>
-                                <color key="tintColor" red="0.39969164486718467" green="0.62733854608916451" blue="0.95264911167512689" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.40000000000000002" green="0.62745098039215685" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="didChangeWeightTypeSegment:" destination="F8h-Bx-Q8O" eventType="valueChanged" id="cXe-lT-xSn"/>
                                 </connections>

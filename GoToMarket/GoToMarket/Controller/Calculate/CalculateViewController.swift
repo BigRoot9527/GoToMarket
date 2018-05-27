@@ -139,6 +139,7 @@ class CalculateViewController: UIViewController {
             success: { [weak self] (newNote) in
                 
                 self?.currentMultiplerLabel.text = String(format: "%.2f", newNote.customMutipler)
+                self?.resetButton.isEnabled = true
         }) { (error) in
             
             print("Error from \(#file) \(#line): \(error)")
@@ -171,6 +172,7 @@ class CalculateViewController: UIViewController {
         //TODO: showMessageWhenDone
         manager.resetModel(toItemCode: itemCodeInput, success: { [weak self] (originNote) in
             self?.currentMultiplerLabel.text = String(format: "%.2f", originNote.customMutipler)
+            self?.resetButton.isEnabled = false
         }) { (error) in
             print("Error from \(#file) \(#line): \(error)")
         }

@@ -47,4 +47,9 @@ class PriceStringProvider {
         
         return string
     }
+    
+    func getSegmentedControlIndex() -> Int {
+        
+        return showInKg ? 0 : 1
+    }
 }

@@ -55,15 +55,24 @@
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
-                        <barButtonItem key="leftBarButtonItem" image="filter_icon" id="gpt-5K-jIV">
+                        <barButtonItem key="leftBarButtonItem" image="menu_icon" id="gpt-5K-jIV">
                             <connections>
                                 <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="POl-j3-e6h">
-                            <connections>
-                                <action selector="didTapWeightTypeNavBarButton:" destination="dyT-ZU-lsL" id="dcr-e1-YQF"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="p67-lU-twP">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="XvR-tj-Mlr">
+                                <rect key="frame" x="268" y="7" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="公斤" width="45"/>
+                                    <segment title="台斤" width="45"/>
+                                </segments>
+                                <color key="tintColor" red="0.40000000000000002" green="0.62745098040000002" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="weightTypeSegControlDidChanged:" destination="dyT-ZU-lsL" eventType="valueChanged" id="4VK-hN-nEf"/>
+                                </connections>
+                            </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>
@@ -73,7 +82,7 @@
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
                         <outlet property="toolBarVToQuoteTVBottomConstraint" destination="FU7-NC-SeR" id="5Fl-yl-H8l"/>
                         <outlet property="toolBarVToQuoteTVTopConstraint" destination="QZo-Aw-ZFO" id="TUN-I2-BKf"/>
-                        <outlet property="weightTypeNavBarButton" destination="POl-j3-e6h" id="PEK-sY-LE7"/>
+                        <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcD-vu-esY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,7 +283,7 @@
         <image name="bottom_icon" width="21" height="21"/>
         <image name="buy_icon" width="30" height="30"/>
         <image name="cancel_icon" width="64" height="64"/>
-        <image name="filter_icon" width="30" height="30"/>
+        <image name="menu_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
         <image name="placeholder-image" width="800" height="600"/>
         <image name="top_icon" width="21" height="21"/>

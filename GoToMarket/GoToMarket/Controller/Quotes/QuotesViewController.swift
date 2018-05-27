@@ -17,7 +17,7 @@ class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
-    @IBOutlet weak var weightTypeNavBarButton: UIBarButtonItem!
+    @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var toolBarVToQuoteTVBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var toolBarVToQuoteTVTopConstraint: NSLayoutConstraint!
     
@@ -99,7 +99,7 @@ class QuotesViewController: UIViewController {
     private func updateUI() {
         
         quotesTableView.separatorStyle = .none
-        weightTypeNavBarButton.title = PriceStringProvider.shared.getWeightTypeButtonString()
+        weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
     }
     
     private func checkAndUpdateApi() {
@@ -129,14 +129,13 @@ class QuotesViewController: UIViewController {
     }
     
     //MARK: - IBAction
-    @IBAction func didTapWeightTypeNavBarButton(_ sender: UIBarButtonItem) {
+    @IBAction func weightTypeSegControlDidChanged(_ sender: UISegmentedControl) {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
         
-        sender.title = PriceStringProvider.shared.getWeightTypeButtonString()
-        
         quotesTableView.reloadData()
     }
+    
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
