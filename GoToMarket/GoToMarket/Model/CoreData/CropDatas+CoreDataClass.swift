@@ -42,12 +42,15 @@ public class CropDatas: NSManagedObject
         in context: NSManagedObjectContext
         ) -> CropDatas
     {
-        if let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context)
+        if
+            let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context),
+            let note = fetchedQuote.note
         {
             fetchedQuote.lastAveragePrice = fetchedQuote.newAveragePrice
             fetchedQuote.newAveragePrice = quoteInfo.averagePrice
             fetchedQuote.date = quoteInfo.date
             fetchedQuote.cropName = quoteInfo.cropName
+            note.sellingPrice = quoteInfo.averagePrice * note.customMutipler
             return fetchedQuote
         }
         else

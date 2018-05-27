@@ -47,7 +47,7 @@ class QuoteToolBarViewController: UIViewController {
     
     private var quoteButton = SortButton(
         state: .ascending,
-        representAttribute: "newAveragePrice",
+        representAttribute: "note.sellingPrice",
         buttonImage: #imageLiteral(resourceName: "money_icon")) {
         
         didSet {

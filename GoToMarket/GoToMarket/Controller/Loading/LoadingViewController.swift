@@ -72,7 +72,7 @@ class LoadingViewController: UIViewController {
         
         let cropMarket = CropMarkets(rawValue: market)
         
-        manager.getCropDataBase(
+        manager.saveCropDataBase(
             fromMarket: cropMarket,
             success: { [weak self] bool in
                 
@@ -100,7 +100,7 @@ class LoadingViewController: UIViewController {
     
     private func doingUpdate() {
         
-        manager.getCropDataBase(
+        manager.saveCropDataBase(
             fromMarket: nil,
             success: { [weak self] bool in
                 

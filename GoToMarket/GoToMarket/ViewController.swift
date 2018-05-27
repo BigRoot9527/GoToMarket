@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.getCropDataBase(fromMarket: .taipei, success: { (bool) in
+        manager.saveCropDataBase(fromMarket: .taipei, success: { (bool) in
             print(bool)
         }) { (error) in
             print(error)

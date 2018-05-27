@@ -16,16 +16,13 @@ class PriceStringProvider {
     var showInKg: Bool = true
     
     func getSellPriceString(
-        fromTruePrice truePrice: Double,
-        andMultipler mutipler: Double
+        fromSellingPrice sellingPrice: Double
         ) -> String {
         
         if showInKg {
-            let count = truePrice * mutipler
-            return String(format: "%.1f", count)
+            return String(format: "%.1f", sellingPrice)
         } else {
-            let count = truePrice * mutipler * 0.6
-            return String(format: "%.1f", count)
+            return String(format: "%.1f", sellingPrice * 0.6)
         }
     }
     

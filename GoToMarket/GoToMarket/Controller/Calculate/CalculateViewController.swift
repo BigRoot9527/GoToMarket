@@ -44,7 +44,7 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var actualCostTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var backGroundView: UIView!
     
     //TODO: make info labels to fade chainly
@@ -75,7 +75,7 @@ class CalculateViewController: UIViewController {
         
         backGroundView.roundedCorner(cornerRadius: 10.0)
         enterButton.roundedCorner()
-        cancelButton.roundedCorner()
+        closeButton.roundedCorner()
         actualCostTextField.keyboardType = UIKeyboardType.numberPad
         actualCostTextField.delegate = self
         weightTextField.keyboardType = UIKeyboardType.decimalPad
@@ -144,10 +144,9 @@ class CalculateViewController: UIViewController {
         }
     }
     
-    
-    //MARK: - IBActions
-    @IBAction func didTapCancelButton(_ sender: UIButton) {
+    @IBAction func didTapCloseButton(_ sender: UIButton) {
         //TODO: reload presenting VC
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -156,11 +155,13 @@ class CalculateViewController: UIViewController {
         let segmentArray: [CalculateWeightType] = [.Kilogram, .Taigram, .gram]
         
         weightType = segmentArray[sender.selectedSegmentIndex]
+        //TODO: showMessageWhenDone
     }
     
     @IBAction func didTapResetButton(_ sender: UIButton) {
         
-        
+        //TODO: MakeConfirm
+        //TODO: showMessageWhenDone
     }
 }
 

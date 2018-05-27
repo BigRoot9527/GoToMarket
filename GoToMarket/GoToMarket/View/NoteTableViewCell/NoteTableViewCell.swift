@@ -74,8 +74,8 @@ class NoteTableViewCell: UITableViewCell {
         showingTop: Bool = false,
         buttonShowFinished: Bool,
         itemName: String,
+        sellingPrice: Double,
         truePrice: Double,
-        multipler: Double,
         lastTruePrice: Double,
         buyingAmount: Int16,
         buttonsDelegate: NoteTableViewCellDelegate,
@@ -86,17 +86,13 @@ class NoteTableViewCell: UITableViewCell {
         
         topFinishButton.isSelected = buttonShowFinished
         topItemNameLabel.text = itemName
-        topSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
-            fromTruePrice: truePrice,
-            andMultipler: multipler)
+        topSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: sellingPrice)
         topBuyingAmountLabel.text = String(buyingAmount)
         
         bottomFinishButton.isSelected = buttonShowFinished
         isFinished = (buttonShowFinished, 0)
         bottomItemNameLabel.text = itemName
-        bottomSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
-            fromTruePrice: truePrice,
-            andMultipler: multipler)
+        bottomSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: sellingPrice)
         bottomNewRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
             fromTruePrice: truePrice)
         bottomLastRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(

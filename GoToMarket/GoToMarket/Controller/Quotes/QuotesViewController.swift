@@ -228,7 +228,7 @@ extension QuotesViewController: UITableViewDataSource {
         
         cell.itemNameLabel.text = crop.cropName
         
-        cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromTruePrice: crop.newAveragePrice, andMultipler: note.customMutipler)
+        cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
         
         if crop.newAveragePrice == 0 {
             cell.priceIndicator = 1

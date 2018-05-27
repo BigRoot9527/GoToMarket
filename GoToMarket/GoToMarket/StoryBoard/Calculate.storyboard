@@ -119,13 +119,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAE-Y6-pVO">
-                                <rect key="frame" x="199.5" y="472" width="85" height="35"/>
+                                <rect key="frame" x="199.5" y="472.5" width="85" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="取消"/>
+                                <state key="normal" title="關閉"/>
                                 <connections>
-                                    <action selector="didTapCancelButton:" destination="F8h-Bx-Q8O" eventType="touchUpInside" id="4kx-GU-ejO"/>
+                                    <action selector="didTapCloseButton:" destination="F8h-Bx-Q8O" eventType="touchUpInside" id="4kx-GU-ejO"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-hd-T6M">
@@ -230,7 +230,7 @@
                     <connections>
                         <outlet property="actualCostTextField" destination="eLA-1x-YEP" id="FNj-7k-E8u"/>
                         <outlet property="backGroundView" destination="A9a-vE-Bln" id="aTM-h8-I4N"/>
-                        <outlet property="cancelButton" destination="KAE-Y6-pVO" id="57K-Ie-eub"/>
+                        <outlet property="closeButton" destination="KAE-Y6-pVO" id="57K-Ie-eub"/>
                         <outlet property="currentMultiplerLabel" destination="qGS-KE-cOf" id="vzU-fw-vDG"/>
                         <outlet property="enterButton" destination="CIE-Mu-WZ1" id="8tJ-15-Yl8"/>
                         <outlet property="resetButton" destination="ZMg-vw-0EJ" id="MT9-B2-Tgt"/>

@@ -19,6 +19,7 @@
 		32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */; };
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
+		321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CC20BAFB3B0031ADE1 /* NoteManager.swift */; };
 		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7320B83DEC00663C6E /* SortButtonStruct.swift */; };
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
@@ -44,7 +45,6 @@
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
 		327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */; };
 		327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */; };
-		327A4E0120A0542F00B3EEE9 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0020A0542F00B3EEE9 /* NoteManager.swift */; };
 		327E1B6720A1F7F60020511A /* MarketSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327E1B6620A1F7F60020511A /* MarketSetting.storyboard */; };
 		327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */; };
 		327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */; };
@@ -118,6 +118,7 @@
 		32070B6620A5670900A6BA27 /* ExtensionUIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIStoryboard.swift; sourceTree = "<group>"; };
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
+		321321CC20BAFB3B0031ADE1 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E7320B83DEC00663C6E /* SortButtonStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonStruct.swift; sourceTree = "<group>"; };
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteConstant.swift; sourceTree = "<group>"; };
-		327A4E0020A0542F00B3EEE9 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		327E1B6620A1F7F60020511A /* MarketSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketSetting.storyboard; sourceTree = "<group>"; };
 		327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndexStruct.swift; sourceTree = "<group>"; };
 		327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTaskKeeper.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */,
-				327A4E0020A0542F00B3EEE9 /* NoteManager.swift */,
+				321321CC20BAFB3B0031ADE1 /* NoteManager.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -860,9 +860,9 @@
 				32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */,
 				3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */,
 				32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */,
+				321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */,
 				32B1E38520AED4F400336B09 /* DetailIntroTableViewCell.swift in Sources */,
 				32B1E38B20AED55800336B09 /* DetailQuotesTableViewCell.swift in Sources */,
-				327A4E0120A0542F00B3EEE9 /* NoteManager.swift in Sources */,
 				3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
 				32136E7E20B9E0EB00663C6E /* CalculateViewController.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SDWebImage
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTableViewCellDelegate {
+class DetailViewController: UIViewController {
 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var detailTableView: UITableView!
@@ -30,8 +30,75 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //TODO: another collection view to let user know that there's two kinds of chart
     
     
-    //MARK: TableView
+    //MARK: LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        detailTableView.dataSource = self
+        detailTableView.delegate = self
+        registerCells()
+        loadWikiData()
+    }
     
+    private func registerCells() {
+        
+        let titleNib = UINib(nibName: "DetailTitleTableViewCell", bundle: nil)
+        detailTableView.register(titleNib,forCellReuseIdentifier: String(describing: DetailTitleTableViewCell.self))
+        
+        let introNib = UINib(nibName: "DetailIntroTableViewCell", bundle: nil)
+        detailTableView.register(introNib,forCellReuseIdentifier: String(describing: DetailIntroTableViewCell.self))
+        
+        let quotesNib = UINib(nibName: "DetailQuotesTableViewCell", bundle: nil)
+        detailTableView.register(quotesNib,forCellReuseIdentifier: String(describing: DetailQuotesTableViewCell.self))
+        
+        let historyNib = UINib(nibName: "DetailHistoryTableViewCell", bundle: nil)
+        detailTableView.register(historyNib,forCellReuseIdentifier: String(describing: DetailHistoryTableViewCell.self))
+        
+    }
+    
+    private func loadWikiData() {
+        guard let itemData = objectInput else { return }
+        
+        manager.getWikiImageUrl(
+            fromItemName: itemData.cropName,
+            success: { [weak self] (url) in
+                
+                let imageUrl = url ?? GoToMarketConstant.marketPlaceholderPictureUrl
+                
+                self?.detailWikiImageView.sd_setImage(with: imageUrl)
+                
+        }) { (error) in
+            
+            print(error)
+            
+        }
+        
+        manager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
+            
+            let outputText = text ?? "查無Wiki資料"
+            
+            self?.wikiText = outputText
+            
+            guard let index = self?.introIndexPath else { return }
+            
+            self?.detailTableView.reloadRows(at: [index], with: .fade)
+            
+        }) { (error) in
+            
+            print(error)
+        }
+    }
+    
+    
+    //MARK: IBAction
+    @IBAction func didTabCloseButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension DetailViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowTypes.count
     }
@@ -49,8 +116,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let cell = detailTableView.dequeueReusableCell(
                 withIdentifier: String(
-                                describing: DetailTitleTableViewCell.self),
-                                for: indexPath)
+                    describing: DetailTitleTableViewCell.self),
+                for: indexPath)
                 as! DetailTitleTableViewCell
             
             if let heroID = titleHeroIdInput {
@@ -89,14 +156,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.detailMarketLabel.text = crop.marketName
             cell.detailUpdateTimeLabel.text = crop.date
             cell.detailChangeWeightButton.isSelected = PriceStringProvider.shared.showInKg
-            cell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
-                fromTruePrice: crop.newAveragePrice,
-                andMultipler: note.customMutipler)
+            cell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
             cell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
                 fromTruePrice: crop.newAveragePrice)
             
             return cell
-
+            
             
         case .history:
             
@@ -143,6 +208,10 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         chartVC.itemCode = code
         //TODO: not to always been reuse and reload the api data
     }
+}
+
+//MARK: - UITableViewDelegate
+extension DetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -157,74 +226,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    //MARK: LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        detailTableView.dataSource = self
-        detailTableView.delegate = self
-        registerCells()
-        loadWikiData()
-    }
-    
-    private func registerCells() {
-        
-        let titleNib = UINib(nibName: "DetailTitleTableViewCell", bundle: nil)
-        detailTableView.register(titleNib,forCellReuseIdentifier: String(describing: DetailTitleTableViewCell.self))
-        
-        let introNib = UINib(nibName: "DetailIntroTableViewCell", bundle: nil)
-        detailTableView.register(introNib,forCellReuseIdentifier: String(describing: DetailIntroTableViewCell.self))
-        
-        let quotesNib = UINib(nibName: "DetailQuotesTableViewCell", bundle: nil)
-        detailTableView.register(quotesNib,forCellReuseIdentifier: String(describing: DetailQuotesTableViewCell.self))
-        
-        let historyNib = UINib(nibName: "DetailHistoryTableViewCell", bundle: nil)
-        detailTableView.register(historyNib,forCellReuseIdentifier: String(describing: DetailHistoryTableViewCell.self))
-        
-    }
-    
-    private func loadWikiData() {
-        guard let itemData = objectInput else { return }
-        
-        manager.getWikiImageUrl(
-            fromItemName: itemData.cropName,
-            success: { [weak self] (url) in
-                
-                let imageUrl = url ?? GoToMarketConstant.marketPlaceholderPictureUrl
-            
-                self?.detailWikiImageView.sd_setImage(with: imageUrl)
+}
 
-        }) { (error) in
-            
-            print(error)
-            
-        }
-        
-        manager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
-            
-            let outputText = text ?? "查無Wiki資料"
-            
-            self?.wikiText = outputText
-            
-            guard let index = self?.introIndexPath else { return }
-            
-            self?.detailTableView.reloadRows(at: [index], with: .fade)
-            
-        }) { (error) in
-            
-            print(error)
-        }
-    }
+
+//MARK: - DetailTableViewCellDelegate
+extension DetailViewController: DetailTableViewCellDelegate {
     
-    
-    //MARK: IBAction
-    @IBAction func didTabCloseButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //MARK: Delegate
     func buyingButtonTapped(sender: UIButton) {
         //TODO: message for user to know adding succeed
         guard let callBack = didTapBuyingCallBack else { return }
@@ -239,9 +246,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let cropData = objectInput,
             let note = cropData.note else { return }
         
-        fromCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(
-            fromTruePrice: cropData.newAveragePrice,
-            andMultipler: note.customMutipler)
+        fromCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
         
         fromCell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(fromTruePrice: cropData.newAveragePrice)
     }

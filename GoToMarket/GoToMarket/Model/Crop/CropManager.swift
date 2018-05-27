@@ -12,7 +12,7 @@ struct CropManager {
     
     private let provider = CropProvider()
 
-    func getCropDataBase(
+    func saveCropDataBase(
         fromMarket input: CropMarkets?,
         success: @escaping(Bool) -> Void,
         failure: @escaping(Error) -> Void) {
