@@ -24,7 +24,6 @@ class SettingViewController: UIViewController {
     
     @IBAction func didTapChangeCropButton(_ sender: UIButton) {
         
-        
         let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
         
         settingVC.itemTypeInput = TaskKeys.crop

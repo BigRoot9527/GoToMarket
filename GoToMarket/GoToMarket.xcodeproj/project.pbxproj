@@ -24,6 +24,7 @@
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
 		32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7820B84ACA00663C6E /* NSSortDescriptorManager.swift */; };
 		32136E7B20B9B40100663C6E /* Calculate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32136E7A20B9B40100663C6E /* Calculate.storyboard */; };
+		32136E7E20B9E0EB00663C6E /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7D20B9E0EB00663C6E /* CalculateViewController.swift */; };
 		3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */; };
 		3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */; };
 		3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */; };
@@ -123,6 +124,7 @@
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
 		32136E7820B84ACA00663C6E /* NSSortDescriptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorManager.swift; sourceTree = "<group>"; };
 		32136E7A20B9B40100663C6E /* Calculate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calculate.storyboard; sourceTree = "<group>"; };
+		32136E7D20B9E0EB00663C6E /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtnesionUIView.swift; sourceTree = "<group>"; };
 		3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				32B1E3AB20B16EE100336B09 /* Loading */,
 				32B1E39820B023E100336B09 /* MarketSetting */,
 				326D78EF20A5D42500EE0887 /* TabBar */,
+				32136E7C20B9DE9B00663C6E /* Calculate */,
 				3230F3DB20AAB67B002812E0 /* Quotes */,
 			);
 			path = Controller;
@@ -267,6 +270,14 @@
 				32136E7820B84ACA00663C6E /* NSSortDescriptorManager.swift */,
 			);
 			path = NSSortDescriptor;
+			sourceTree = "<group>";
+		};
+		32136E7C20B9DE9B00663C6E /* Calculate */ = {
+			isa = PBXGroup;
+			children = (
+				32136E7D20B9E0EB00663C6E /* CalculateViewController.swift */,
+			);
+			path = Calculate;
 			sourceTree = "<group>";
 		};
 		3217C15520B420AD006B9DA7 /* NoteTableViewCell */ = {
@@ -858,6 +869,7 @@
 				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
 				3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
+				32136E7E20B9E0EB00663C6E /* CalculateViewController.swift in Sources */,
 				32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */,
 				329BC6F320997D3C00CC9096 /* HTTPClient.swift in Sources */,
 				32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */,

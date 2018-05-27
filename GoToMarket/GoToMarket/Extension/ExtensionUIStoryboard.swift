@@ -33,4 +33,8 @@ extension UIStoryboard {
     static func loading() -> UIStoryboard {
         return UIStoryboard(name: "Loading", bundle: nil )
     }
+    
+    static func calculate() -> UIStoryboard {
+        return UIStoryboard(name: "Calculate", bundle: nil)
+    }
 }

@@ -96,6 +96,11 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="information"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="infoImage"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapPriceInfoButton:" destination="Gj5-Vw-PBU" eventType="touchUpInside" id="txy-25-KWd"/>
                                 </connections>

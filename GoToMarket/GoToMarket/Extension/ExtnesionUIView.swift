@@ -51,4 +51,11 @@ extension UIView {
         self.layer.zPosition = 0
         self.layer.add(animation, forKey:"trash")
     }
+    
+    //CornerRadius
+    func roundedCorner(cornerRadius radius: CGFloat = 5.0) {
+        
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
 }

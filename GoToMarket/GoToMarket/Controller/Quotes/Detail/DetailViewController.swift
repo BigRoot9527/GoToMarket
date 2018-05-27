@@ -240,7 +240,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func priceInfoButtonTapped(sender: UIButton) {
-        print("\(sender) Tapped!")
+        
+        let calculateVC = UIStoryboard.calculate().instantiateInitialViewController() as! CalculateViewController
+        
+        calculateVC.hero.isEnabled = true
+        
+        calculateVC.hero.modalAnimationType = .fade
+        
+        calculateVC.modalPresentationStyle = .overFullScreen
+        
+        present(calculateVC, animated: true, completion: nil)
     }
     
     
