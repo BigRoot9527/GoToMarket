@@ -33,15 +33,18 @@ public class UserNotes: NSManagedObject {
                     }
                 }
                 //單向: 用cropData找Note, 不能用note找cropData
-                maches[0].buyingAmount = NoteConstant.initialBuyingAmount
-                maches[0].isFinished = NoteConstant.initialIsFinished
-                maches[0].isInCart = NoteConstant.initialIsInCart
+                let machNote = maches[0]
                 
-                maches[0].customMutipler = NoteConstant.initailMultipler
-                maches[0].muliplerWeight = NoteConstant.initailMultiplerWeight
+                machNote.buyingAmount = NoteConstant.initialBuyingAmount
+                machNote.isFinished = NoteConstant.initialIsFinished
+                machNote.isInCart = NoteConstant.initialIsInCart
                 
-                maches[0].cropData = cropData
-                return maches[0]
+                machNote.customMutipler = NoteConstant.initailMultipler
+                machNote.muliplerWeight = NoteConstant.initailMultiplerWeight
+                machNote.sellingPrice = cropData.newAveragePrice * NoteConstant.initailMultipler
+                
+                machNote.cropData = cropData
+                return machNote
             }
         } catch {
             print(error)
@@ -53,6 +56,7 @@ public class UserNotes: NSManagedObject {
         
         newNote.customMutipler = NoteConstant.initailMultipler
         newNote.muliplerWeight = NoteConstant.initailMultiplerWeight
+        newNote.sellingPrice = cropData.newAveragePrice * NoteConstant.initailMultipler
         
         newNote.cropData = cropData
         newNote.itemType = cropData.itemType
@@ -87,11 +91,16 @@ public class UserNotes: NSManagedObject {
         toItemCode code: String,
         in context: NSManagedObjectContext ) throws -> UserNotes {
         
-        guard let note = self.fetchNote(matching: code, in: context) else { throw GoToMarketError.FetchError }
+        guard
+            let note = self.fetchNote(matching: code, in: context),
+            let cropData = note.cropData
+            else { throw GoToMarketError.FetchError }
         
         note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
         
         note.customMutipler = NoteConstant.initailMultipler
+        
+        note.sellingPrice = cropData.newAveragePrice * NoteConstant.initailMultipler
 
         try context.save()
         
@@ -107,11 +116,11 @@ public class UserNotes: NSManagedObject {
         guard
             let note = self.fetchNote(matching: cropCode, in: context),
             //quoteBuyingDay ~> V1.0使用當日行情(假設使用者是當天買的時候就校正)，未來使用API打使用者指定日期(今日or之前)，取得特定市場該作物的當日行情
-            let quoteBuyingDay = note.cropData?.newAveragePrice
+            let cropData = note.cropData
             //沒有cropData => 無法取得現在行情價 => 無法計算現在的mutipler => 無法machine learning
         else { throw GoToMarketError.FetchError }
         
-        let inputMutipler = actualPricePerKG / quoteBuyingDay
+        let inputMutipler = actualPricePerKG / cropData.newAveragePrice
         let originMutipler = note.customMutipler
         let originWeight = note.muliplerWeight
         //handle非預設的第一次input
@@ -119,6 +128,7 @@ public class UserNotes: NSManagedObject {
         {
             note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
             note.customMutipler = inputMutipler
+            note.sellingPrice = cropData.newAveragePrice * inputMutipler
             try context.save()
             
             return note
@@ -132,6 +142,7 @@ public class UserNotes: NSManagedObject {
             ((originMutipler * originWeight) + (inputMutipler * inputWeight)) / newWeight
         note.customMutipler = newMutipler
         note.muliplerWeight = newWeight
+        note.sellingPrice = cropData.newAveragePrice * newMutipler
         try context.save()
         
         return note
