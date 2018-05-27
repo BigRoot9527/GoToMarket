@@ -23,6 +23,8 @@ struct GoToMarketConstant {
     
     static let marketPlaceholderPictureUrl: URL? = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Wroclaw_Daily_Market.jpg/640px-Wroclaw_Daily_Market.jpg")
     
+    static let IQKeyboardDoneButtonText: String = "輸入"
+    
     static let oneMonthChartLabelName: String = "近一月內批發均價"
     
     static let oneSeasonChartLabelName: String = "近三月內批發均價"
@@ -68,6 +70,10 @@ struct GoToMarketConstant {
     static let kgWeightTypeButtonString: String = "元／公斤"
     
     static let tgWeightTypeButtonString: String = "元／台斤"
+    
+    static let calculateCostTextFieldError: String = "大於 0 之整數"
+    
+    static let calculateWeightTextFieldError: String = "大於 0 之數字"
     
     static let cropBasicNSSortDecriptor: NSSortDescriptor = NSSortDescriptor(key: "newAveragePrice", ascending: true)
 }

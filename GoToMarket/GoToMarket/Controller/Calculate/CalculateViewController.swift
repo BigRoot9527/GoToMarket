@@ -8,11 +8,39 @@
 
 import UIKit
 
+fileprivate enum CalculateWeightType {
+    
+    case Kilogram
+    
+    case gram
+    
+    case Taigram
+    
+    func getActualPricePerKG(
+        fromCost cost: Double,
+        fromWeight weight: Double
+        ) -> Double {
+        
+        var constant: Double
+        
+        switch self {
+        case .Kilogram:
+            constant = 1.0
+        case .gram:
+            constant = 1000
+        case .Taigram:
+            constant = (1 / 0.6)
+        }
+        
+        return (cost / weight) * constant
+    }
+}
+
 class CalculateViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak var currentMultiplerLabel: UILabel!
-    @IBOutlet weak var resetMultiplerButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var actualCostTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
@@ -27,9 +55,10 @@ class CalculateViewController: UIViewController {
     private var isDefaulMultipler: Bool = true {
         
         didSet{
-            changeResetButton()
+            setResetButton()
         }
     }
+    private var weightType: CalculateWeightType = .Kilogram
     
     private let manager = NoteManager()
     
@@ -39,7 +68,7 @@ class CalculateViewController: UIViewController {
         
         setupUI()
         
-//        loadMultiplerData()
+        loadMultiplerData()
     }
     
     private func setupUI() {
@@ -47,6 +76,10 @@ class CalculateViewController: UIViewController {
         backGroundView.roundedCorner(cornerRadius: 10.0)
         enterButton.roundedCorner()
         cancelButton.roundedCorner()
+        actualCostTextField.keyboardType = UIKeyboardType.numberPad
+        actualCostTextField.delegate = self
+        weightTextField.keyboardType = UIKeyboardType.decimalPad
+        weightTextField.delegate = self
     }
     
     private func loadMultiplerData() {
@@ -65,24 +98,101 @@ class CalculateViewController: UIViewController {
         }
     }
     
-    private func changeResetButton() {
+    private func setResetButton() {
         
-        resetMultiplerButton.isEnabled = !isDefaulMultipler
+        resetButton.isEnabled = !isDefaulMultipler
     }
     
+    private func checkIput(ofTextField textField: UITextField) -> Double? {
+        
+        if
+            let costString = textField.text,
+            let costDouble = Double(costString),
+            costDouble > 0 {
+            
+            return costDouble
+            
+        } else {
+            
+            textField.backgroundColor = GoToMarketColor.textFieldErrorColor.color()
+            textField.textColor = UIColor.red
+            textField.text = GoToMarketConstant.calculateCostTextFieldError
+            
+            return nil
+        }
+    }
     
     
     
     //MARK: - IBActions
     @IBAction func didTapEnterButton(_ sender: UIButton) {
+        
+        let cost = checkIput(ofTextField: actualCostTextField)
+        let weight = checkIput(ofTextField: weightTextField)
+        
+        guard let costDouble = cost, let weightDouble = weight else { return }
+        
+        manager.setTrainModel(
+            toItemCode: itemCodeInput,
+            actualPricePerKG: weightType.getActualPricePerKG(fromCost: costDouble,fromWeight: weightDouble),
+            success: { [weak self] (newNote) in
+                
+                self?.currentMultiplerLabel.text = String(format: "%.2f", newNote.customMutipler)
+        }) { (error) in
+            
+            print("Error from \(#file) \(#line): \(error)")
+        }
     }
     
+    
+    //MARK: - IBActions
     @IBAction func didTapCancelButton(_ sender: UIButton) {
+        //TODO: reload presenting VC
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didChangeWeightTypeSegment(_ sender: UISegmentedControl) {
+        
+        let segmentArray: [CalculateWeightType] = [.Kilogram, .Taigram, .gram]
+        
+        weightType = segmentArray[sender.selectedSegmentIndex]
+    }
+    
+    @IBAction func didTapResetButton(_ sender: UIButton) {
+        
+        
+    }
+}
+
+//MARK: - TextFieldDelegate
+extension CalculateViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        
+        if newText.isEmpty { return true }
+        
+        if Double(newText) != nil { return true }
+        
+        return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        textField.backgroundColor = UIColor.white
+        textField.text = nil
+        textField.textColor = UIColor.black
     }
     
     
+    
 }
+
+

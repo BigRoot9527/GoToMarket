@@ -39,13 +39,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-c2-A1N">
                                 <rect key="frame" x="134.5" y="385.5" width="150" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-aO-HcW">
                                 <rect key="frame" x="134.5" y="427.5" width="150" height="29"/>
@@ -168,6 +168,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" red="0.95264911167512689" green="0.24660390299152832" blue="0.27280933992019696" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="重設"/>
+                                <connections>
+                                    <action selector="didTapResetButton:" destination="F8h-Bx-Q8O" eventType="touchUpInside" id="Ay4-3J-bRY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,7 +233,7 @@
                         <outlet property="cancelButton" destination="KAE-Y6-pVO" id="57K-Ie-eub"/>
                         <outlet property="currentMultiplerLabel" destination="qGS-KE-cOf" id="vzU-fw-vDG"/>
                         <outlet property="enterButton" destination="CIE-Mu-WZ1" id="8tJ-15-Yl8"/>
-                        <outlet property="resetMultiplerButton" destination="ZMg-vw-0EJ" id="MT9-B2-Tgt"/>
+                        <outlet property="resetButton" destination="ZMg-vw-0EJ" id="MT9-B2-Tgt"/>
                         <outlet property="weightTextField" destination="YrV-c2-A1N" id="5OI-bA-dcm"/>
                     </connections>
                 </viewController>

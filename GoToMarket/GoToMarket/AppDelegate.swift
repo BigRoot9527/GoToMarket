@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Database URL = \(NSPersistentContainer.defaultDirectoryURL())")
         
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = GoToMarketConstant.IQKeyboardDoneButtonText
+        
         switchToTaabBarStoryBoard()
         return true
     }

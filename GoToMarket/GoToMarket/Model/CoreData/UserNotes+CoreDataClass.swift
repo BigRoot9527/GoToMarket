@@ -66,7 +66,7 @@ public class UserNotes: NSManagedObject {
         ) -> UserNotes?
     {
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
-        request.predicate = NSPredicate(format: "(cropCode = %@)", cropCode)
+        request.predicate = NSPredicate(format: "(itemCode = %@)", cropCode)
         do {
             let maches = try context.fetch(request)
             if maches.count > 0 {
@@ -119,6 +119,8 @@ public class UserNotes: NSManagedObject {
         {
             note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
             note.customMutipler = inputMutipler
+            try context.save()
+            
             return note
         }
         let confidenceIntervel = originMutipler * NoteConstant.confidenceConstant
@@ -130,7 +132,6 @@ public class UserNotes: NSManagedObject {
             ((originMutipler * originWeight) + (inputMutipler * inputWeight)) / newWeight
         note.customMutipler = newMutipler
         note.muliplerWeight = newWeight
-        
         try context.save()
         
         return note
