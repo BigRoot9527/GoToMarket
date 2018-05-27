@@ -82,55 +82,23 @@ public class UserNotes: NSManagedObject {
         }
         return nil
     }
-    
-    //MARK: managed function
-    func setInCart(isInCart: Bool, inContext context: NSManagedObjectContext?) throws {
-        
-        guard let iputContext = context else { throw GoToMarketError.ValidContext }
-        
-        self.isInCart = isInCart
-        self.isFinished = NoteConstant.initialIsFinished
-        self.buyingAmount = NoteConstant.initialBuyingAmount
 
-        try iputContext.save()
+    class func resetMultipler(
+        toItemCode code: String,
+        in context: NSManagedObjectContext ) throws -> UserNotes {
+        
+        guard let note = self.fetchNote(matching: code, in: context) else { throw GoToMarketError.FetchError }
+        
+        note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
+        
+        note.customMutipler = NoteConstant.initailMultipler
+
+        try context.save()
+        
+        return note
     }
     
-    class func setFavoriteState(
-        matching cropCode: String,
-        toState bool: Bool,
-        in context: NSManagedObjectContext
-        ) throws -> UserNotes
-    {
-        guard let fetchedNote = self.fetchNote(matching: cropCode, in: context) else { throw GoToMarketError.FetchError }
-        fetchedNote.isInCart = bool
-        return fetchedNote
-    }
-    
-    class func getFavoriteState(
-        matching cropCode: String,
-        in context: NSManagedObjectContext
-        ) throws -> Bool
-    {
-        guard
-            let note = self.fetchNote(matching: cropCode, in: context)
-            else { throw GoToMarketError.FetchError }
-        return note.isInCart
-    }
-    
-    class func getPredictPrice(
-        matching cropCode: String,
-        in context: NSManagedObjectContext
-        ) throws -> Double
-    {
-        guard
-            let note = self.fetchNote(matching: cropCode, in: context),
-            let quote = note.cropData?.newAveragePrice
-            else { throw GoToMarketError.FetchError }
-        let multipler = note.customMutipler
-        return multipler * quote
-    }
-    
-    class func setMutiplerAndWeightTrainModel(
+    class func trainModelWithActualPrice(
         //概念：原本存有mutipler跟weight，只要給新的mutipler(某天的實際購買價/某天的行情)即可train
         matching cropCode: String,
         actualPricePerKG: Double,
@@ -162,7 +130,22 @@ public class UserNotes: NSManagedObject {
             ((originMutipler * originWeight) + (inputMutipler * inputWeight)) / newWeight
         note.customMutipler = newMutipler
         note.muliplerWeight = newWeight
+        
+        try context.save()
+        
         return note
+    }
+    
+    //MARK: - self managed function
+    func setInCart(isInCart: Bool, inContext context: NSManagedObjectContext?) throws {
+        
+        guard let iputContext = context else { throw GoToMarketError.ValidContext }
+        
+        self.isInCart = isInCart
+        self.isFinished = NoteConstant.initialIsFinished
+        self.buyingAmount = NoteConstant.initialBuyingAmount
+        
+        try iputContext.save()
     }
     
 }

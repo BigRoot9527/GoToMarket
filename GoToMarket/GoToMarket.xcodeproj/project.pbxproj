@@ -44,8 +44,7 @@
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
 		327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */; };
 		327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */; };
-		327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */; };
-		327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0220A0566400B3EEE9 /* NoteManager.swift */; };
+		327A4E0120A0542F00B3EEE9 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4E0020A0542F00B3EEE9 /* NoteManager.swift */; };
 		327E1B6720A1F7F60020511A /* MarketSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327E1B6620A1F7F60020511A /* MarketSetting.storyboard */; };
 		327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */; };
 		327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */; };
@@ -144,8 +143,7 @@
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteConstant.swift; sourceTree = "<group>"; };
-		327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteProvider.swift; sourceTree = "<group>"; };
-		327A4E0220A0566400B3EEE9 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
+		327A4E0020A0542F00B3EEE9 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		327E1B6620A1F7F60020511A /* MarketSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketSetting.storyboard; sourceTree = "<group>"; };
 		327E1B6C20A2CBAC0020511A /* LoadingIndexStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndexStruct.swift; sourceTree = "<group>"; };
 		327E1B6E20A2D2950020511A /* LoadingTaskKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTaskKeeper.swift; sourceTree = "<group>"; };
@@ -402,8 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */,
-				327A4E0020A0542F00B3EEE9 /* NoteProvider.swift */,
-				327A4E0220A0566400B3EEE9 /* NoteManager.swift */,
+				327A4E0020A0542F00B3EEE9 /* NoteManager.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -830,7 +827,6 @@
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */,
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
-				327A4E0320A0566400B3EEE9 /* NoteManager.swift in Sources */,
 				32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */,
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
@@ -866,7 +862,7 @@
 				32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */,
 				32B1E38520AED4F400336B09 /* DetailIntroTableViewCell.swift in Sources */,
 				32B1E38B20AED55800336B09 /* DetailQuotesTableViewCell.swift in Sources */,
-				327A4E0120A0542F00B3EEE9 /* NoteProvider.swift in Sources */,
+				327A4E0120A0542F00B3EEE9 /* NoteManager.swift in Sources */,
 				3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
 				32136E7E20B9E0EB00663C6E /* CalculateViewController.swift in Sources */,

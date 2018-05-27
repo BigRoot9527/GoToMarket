@@ -1,5 +1,5 @@
 //
-//  NoteManager.swift
+//  NoteProvider.swift
 //  GoToMarket
 //
 //  Created by 許庭瑋 on 2018/5/7.
@@ -7,48 +7,73 @@
 //
 
 import Foundation
-
-protocol NoteManagerFevoriteDelegate: class {
-    func manager(_ manager: NoteManager, didGet favorite: Bool) -> Void
-    func manager(_ manager: NoteManager, didFailWith error: Error) -> Void
-}
-
-protocol NoteManagerPriceDelegate: class {
-    func manager(_ manager: NoteManager, didGet priceAndWeight: Double) -> Void
-    func manager(_ manager: NoteManager, didFailWith error: Error) -> Void
-}
+import CoreData
+import UIKit
 
 struct NoteManager {
     
-    private let provider = NoteProvider()
-    weak var priceDelegate: NoteManagerPriceDelegate?
-    weak var favoriteDelegate: NoteManagerFevoriteDelegate?
+    private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
-    func accessNote(task: NoteRequestProvider) {
+    
+    func getCurrentMultipler(
+        fromItemCode code: String,
+        success: (String, Bool) -> Void,
+        failure: (Error) -> Void) {
         
-        switch task {
+        if let context = container?.viewContext {
             
-        case .setFavoriteState(ofCode: let code, isFavorite: let bool):
+            guard let note = UserNotes.fetchNote(matching: code, in: context) else {
+                
+                failure(GoToMarketError.FetchError)
+                return
+            }
             
-            self.provider.setFavorite(toCropCode: code, bool: bool)
+            let multiplerString = String(format: "%.2f", note.customMutipler)
+            let isDefault = note.muliplerWeight == 0
             
-        case .setMultiplerAndWeight(ofCode: let code, actualPricePerKG: let price):
-            
-            self.provider.setTrainModel(toCropCode: code, actualPricePerKG: price)
-            
-        case .getFavoriteState(ofCode: let code):
-            
-            self.provider.getFevorite(
-                toCropCode: code,
-                success: { self.favoriteDelegate?.manager(self, didGet: $0)},
-                failure: { self.favoriteDelegate?.manager(self, didFailWith: $0)})
-            
-        case .getPredictPricePerKG(ofCode: let code):
-            
-            self.provider.getPricePerKG(
-                toCropCode: code,
-                success: { self.priceDelegate?.manager(self, didGet:$0)},
-                failure: { self.priceDelegate?.manager(self, didFailWith: $0)})
+            success(multiplerString, isDefault)
         }
     }
+    
+    func resetModel(
+        toItemCode code: String,
+        success: @escaping (UserNotes) -> Void,
+        failure: @escaping (Error) -> Void ) {
+        
+        if let context = container?.viewContext {
+            
+            do {
+                let newnote = try UserNotes.resetMultipler(toItemCode: code, in: context)
+                
+                success(newnote)
+                
+            } catch {
+                
+                failure(error)
+            }
+        }
+    }
+    
+    func setTrainModel(
+        toItemCode code: String,
+        actualPricePerKG price: Double,
+        success: (UserNotes) -> Void,
+        failure: (Error) -> Void) {
+        
+        if let context = container?.viewContext {
+            
+            do {
+                let newnote = try UserNotes.trainModelWithActualPrice(
+                    matching: code,
+                    actualPricePerKG: price,
+                    in: context)
+                
+                success(newnote)
+                
+            } catch {
+                
+                failure(error)
+            }
+        }
+    }  
 }
