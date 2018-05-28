@@ -11,8 +11,17 @@ import CoreData
 
 class NoteViewController: UIViewController {
     
+    //MARK: - IBOutlet
     @IBOutlet weak var noteTableView: UITableView!
+    @IBOutlet weak var toolMenuBarButton: UIBarButtonItem!
+    @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
+    @IBOutlet weak var toolBarTopToNoteTVTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarBottomToNoteTVTopConstraint: NSLayoutConstraint!
     
+    //MARK: - ToolBar(Opened, Closed) ContraintConstant To NoteTV
+    let toolBarTop: (CGFloat, CGFloat) = ( 0.0, -50.0 )
+    let toolBarBottom: (CGFloat, CGFloat) = ( -50.0, 0.0 )
+
     //MARK: - ChangeCellView
     private let openedCellHeight: CGFloat = 210.0
     private let closedCellHeight: CGFloat = 110.0
@@ -25,16 +34,11 @@ class NoteViewController: UIViewController {
     }
     
     var container: NSPersistentContainer? =
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer  {
-            didSet {
-                fetchData()
-                noteTableView.reloadData()
-        }
-    }
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
     var fetchedResultsController: NSFetchedResultsController<UserNotes>?
     
-    //MARK:  - LifeCycle
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,12 +46,12 @@ class NoteViewController: UIViewController {
         setupNav()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchData()
         noteTableView.reloadData()
+        updateUI()
     }
     
     private func setupTableView() {
@@ -74,12 +78,44 @@ class NoteViewController: UIViewController {
         )
     }
     
-    //MARK: Open-Close Switch
+    private func updateUI() {
+        
+        weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
+        
+        toolBarTopToNoteTVTopConstraint.constant = toolBarTop.1
+        toolBarBottomToNoteTVTopConstraint.constant = toolBarBottom.1
+    }
+    
+    //MARK: - Open-Close Switch
     private func setupCell(index: IndexPath?, toOpen: Bool) {
         
         guard let openIndex = index , let cell = noteTableView.cellForRow(at: openIndex) as? NoteTableViewCell else { return } 
         
         cell.isOpened = toOpen
+    }
+    
+    //MARK: - IBAction
+    @IBAction func didTapToolMenuBarButton(_ sender: UIBarButtonItem) {
+
+        toolBarBottomToNoteTVTopConstraint.constant =
+            toolBarBottomToNoteTVTopConstraint.constant == toolBarBottom.0 ?
+                toolBarBottom.1 : toolBarBottom.0
+        
+        toolBarTopToNoteTVTopConstraint.constant =
+            toolBarTopToNoteTVTopConstraint.constant == toolBarTop.0 ?
+                toolBarTop.1 : toolBarTop.0
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func weightTypeSegControlDidChange(_ sender: UISegmentedControl) {
+        
+        
+        PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
+        noteTableView.reloadData()
     }
 }
 
@@ -87,7 +123,7 @@ class NoteViewController: UIViewController {
 //MARK: - NSFetchedResultsControllerDelegate
 extension NoteViewController: NSFetchedResultsControllerDelegate {
     
-    private func fetchData() {
+    private func fetchData(sortDescriptors: [NSSortDescriptor] = [GoToMarketConstant.noteBasicNSSortDecriptor]) {
         
         if let context = container?.viewContext {
             
@@ -95,8 +131,7 @@ extension NoteViewController: NSFetchedResultsControllerDelegate {
             
             let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
             
-            request.sortDescriptors = [NSSortDescriptor(key: "isFinished", ascending: true)]
-            
+            request.sortDescriptors = sortDescriptors
             request.predicate = NSPredicate(format: "(isInCart = true) AND (cropData != nil)")
             
             fetchedResultsController = NSFetchedResultsController<UserNotes>(
@@ -109,7 +144,6 @@ extension NoteViewController: NSFetchedResultsControllerDelegate {
             fetchedResultsController?.delegate = self
             
             try? fetchedResultsController?.performFetch()
-            
         }
     }
 }
@@ -123,9 +157,7 @@ extension NoteViewController: UITableViewDataSource {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
             
             let count = sections[section].numberOfObjects
-            
-            print("count = \(count)")
-            
+
             return count
             
         } else {
@@ -139,6 +171,7 @@ extension NoteViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: NoteTableViewCell.self),
             for: indexPath) as! NoteTableViewCell
+        
         guard
             let note = fetchedResultsController?.object(at: indexPath),
             let cropData = note.cropData
@@ -171,8 +204,6 @@ extension NoteViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        print("index.row = \(indexPath.row)")
-        
         if indexPath == openedCellIndex {
             
             return openedCellHeight
@@ -185,13 +216,25 @@ extension NoteViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        var reloadIndexArray: [IndexPath] = []
+        
+        if let oldOpendCellIndex = openedCellIndex {
+            
+            reloadIndexArray.append(oldOpendCellIndex)
+        }
+        
         openedCellIndex = indexPath == openedCellIndex ? nil : indexPath
+    
+        reloadIndexArray.append(indexPath)
         
         tableView.beginUpdates()
         tableView.endUpdates()
         
-        noteTableView.reloadRows(at: [indexPath], with: .fade)
+        noteTableView.reloadRows(at: reloadIndexArray, with: .fade)
+        
+        print("reload:  \(reloadIndexArray)")
     }
+    
 }
 
 //MARK: - UITextFieldDelegate
@@ -228,7 +271,6 @@ extension NoteViewController: UITextFieldDelegate {
         guard let note = fetchedResultsController?.object(at: index) else { return }
         
         let text = textField.text ?? "0"
-        
         note.buyingAmount = Int16(text) ?? 0
         
         try? self.container?.viewContext.save()
@@ -239,6 +281,63 @@ extension NoteViewController: UITextFieldDelegate {
         
         textField.resignFirstResponder()
         return true
+    }
+}
+
+//MARK: - NoteToolBarViewControllertDelegate
+extension NoteViewController: NoteToolBarViewControllertDelegate {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "NoteToolBarVCSegue" {
+            
+            if let toolBarVC = segue.destination as? NoteToolBarViewController {
+                
+                toolBarVC.delegate = self
+            }
+        }
+    }
+    
+    func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
+        
+        guard let noteCount = fetchedResultsController?.fetchedObjects?.count, noteCount > 0
+            else { return }
+        
+        fetchData(sortDescriptors: sortDescriptor)
+        noteTableView.reloadData()
+        let idexPath = IndexPath(row: 0, section: 0)
+        noteTableView.scrollToRow(at: idexPath, at: .top, animated: true)
+    }
+    
+    func deleteAllButtonTapped(sender: UIButton) {
+        
+        guard let noteCount = fetchedResultsController?.fetchedObjects?.count, noteCount > 0
+            else { return }
+        
+        for _ in 0...noteCount - 1 {
+            
+            let firstIndex = IndexPath(row: 0, section: 0)
+            
+            deleteNote(fromIndexpath: firstIndex)
+        }
+    }
+    
+    func cleanAllButtonTapped(sender: UIButton) {
+        
+        guard
+            let noteArray = fetchedResultsController?.fetchedObjects,
+            noteArray.count > 0 else { return }
+        
+        for note in noteArray {
+            
+            note.isFinished = NoteConstant.initialIsFinished
+            note.buyingAmount = NoteConstant.initialBuyingAmount
+        }
+        
+        try? self.container?.viewContext.save()
+        
+        fetchData()
+        noteTableView.reloadData()
     }
 }
 
@@ -262,28 +361,9 @@ extension NoteViewController: NoteTableViewCellDelegate {
     
     func didTapDeleteButton(sender: UIButton, fromCell: NoteTableViewCell) {
         
-        guard
-            let tappedIndexPath = noteTableView.indexPath(for: fromCell),
-            let note = fetchedResultsController?.object(at: tappedIndexPath)
-            else { return }
+        guard let tappedIndexPath = noteTableView.indexPath(for: fromCell) else { return }
         
-        try? note.setInCart(isInCart: false, inContext: self.container?.viewContext)
-        
-        fetchData()
-        
-        noteTableView.deleteRows(at: [tappedIndexPath], with: .fade)
-        
-        openedCellIndex = nil
-        
-        noteTableView.reloadData()
-        
-        guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
-        
-        showingCartAnimation(isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
-            
-            self?.postCartNotification(count: count)
-        }
-        
+        deleteNote(fromIndexpath: tappedIndexPath)
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
@@ -318,10 +398,8 @@ extension NoteViewController: NoteTableViewCellDelegate {
             
             self?.fetchData()
             self?.noteTableView.reloadData()
-            
         }
-        
-        
+
         fromCell.bottomPriceInfoButton.imageView?.hero.isEnabled = true
         fromCell.bottomPriceInfoButton.imageView?.hero.id = "infoImage"
         calculateVC.hero.isEnabled = true
@@ -330,6 +408,30 @@ extension NoteViewController: NoteTableViewCellDelegate {
         calculateVC.modalPresentationStyle = .overFullScreen
         
         present(calculateVC, animated: true, completion: nil)
+    }
+    
+    private func deleteNote(fromIndexpath index: IndexPath) {
+        
+        guard
+            let note = fetchedResultsController?.object(at: index)
+            else { return }
+        
+        try? note.setInCart(isInCart: false, inContext: self.container?.viewContext)
+        
+        fetchData()
+        
+        noteTableView.deleteRows(at: [index], with: .fade)
+        
+        openedCellIndex = nil
+        
+        noteTableView.reloadData()
+        
+        guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
+        
+        showingCartAnimation( isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
+            
+            self?.postCartNotification(count: count)
+        }
     }
 }
 

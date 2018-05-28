@@ -76,4 +76,6 @@ struct GoToMarketConstant {
     static let calculateWeightTextFieldError: String = "大於 0 之數字"
     
     static let cropBasicNSSortDecriptor: NSSortDescriptor = NSSortDescriptor(key: "note.sellingPrice", ascending: true)
+    
+    static let noteBasicNSSortDecriptor: NSSortDescriptor = NSSortDescriptor(key: "sellingPrice", ascending: true)
 }

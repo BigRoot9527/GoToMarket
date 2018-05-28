@@ -1,43 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKi-0U-ErM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting View Controller-->
+        <!--設定-->
         <scene sceneID="Fmo-2x-CIq">
             <objects>
                 <viewController id="XfX-V7-6a6" customClass="SettingViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tf1-Li-v8w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWS-j3-QiJ">
-                                <rect key="frame" x="157" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWS-j3-QiJ">
+                                <rect key="frame" x="60" y="256" width="200" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0C3-Mj-UxA"/>
+                                    <constraint firstAttribute="height" constant="120" id="rfn-j5-xi5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
+                                <state key="normal" title="更換資料來源市場"/>
                                 <connections>
                                     <action selector="didTapChangeCropButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="B3w-KY-u3C"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crop_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGY-KP-Ell">
+                                <rect key="frame" x="127.5" y="266" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gGY-KP-Ell" secondAttribute="height" multiplier="1:1" id="9TE-6K-slj"/>
+                                    <constraint firstAttribute="width" constant="65" id="exh-hr-Xdd"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-el-Uz0">
+                                <rect key="frame" x="60" y="76" width="200" height="120"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
+                                <state key="normal" title="關於『 出門買菜 』"/>
+                                <connections>
+                                    <action selector="didTapChangeCropButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="6Zw-KH-unp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aut-mc-Pg6">
+                                <rect key="frame" x="60" y="436" width="200" height="120"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
+                                <state key="normal" title="意見回饋、聯絡作者"/>
+                                <connections>
+                                    <action selector="didTapChangeCropButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="erx-ew-3uU"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Fa-c9S">
+                                <rect key="frame" x="127.5" y="446" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="HiV-HZ-9QY"/>
+                                    <constraint firstAttribute="width" secondItem="jnV-Fa-c9S" secondAttribute="height" multiplier="1:1" id="JBq-pA-qf9"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-dI-n2Z">
+                                <rect key="frame" x="120" y="76" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="fXB-Vc-L0B"/>
+                                    <constraint firstAttribute="width" secondItem="8Nh-dI-n2Z" secondAttribute="height" multiplier="1:1" id="p64-P3-8ae"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.99040379485153607" blue="0.97510723039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="gGY-KP-Ell" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="47m-y2-h05"/>
+                            <constraint firstItem="vAL-el-Uz0" firstAttribute="height" secondItem="VWS-j3-QiJ" secondAttribute="height" id="5dg-z0-Qe9"/>
+                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="Alw-yp-IGh"/>
+                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerY" secondItem="O0X-UV-qjd" secondAttribute="centerY" id="DOz-w7-NpI"/>
+                            <constraint firstItem="8Nh-dI-n2Z" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="top" id="Da9-qJ-oOh"/>
+                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="bottom" constant="60" id="FtN-5f-SFK"/>
+                            <constraint firstItem="vAL-el-Uz0" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="IAm-7w-j1q"/>
+                            <constraint firstItem="aut-mc-Pg6" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="MNE-6g-4Gg"/>
+                            <constraint firstItem="8Nh-dI-n2Z" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="eXS-sR-TcM"/>
+                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="gGY-KP-Ell" secondAttribute="top" constant="-10" id="laj-tm-Egr"/>
+                            <constraint firstItem="jnV-Fa-c9S" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="lc6-IP-6Wz"/>
+                            <constraint firstItem="aut-mc-Pg6" firstAttribute="height" secondItem="VWS-j3-QiJ" secondAttribute="height" id="uGf-W3-tdw"/>
+                            <constraint firstItem="aut-mc-Pg6" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xGn-WA-1uc"/>
+                            <constraint firstItem="vAL-el-Uz0" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xnR-7u-aMm"/>
+                            <constraint firstItem="jnV-Fa-c9S" firstAttribute="top" secondItem="aut-mc-Pg6" secondAttribute="top" constant="10" id="y0g-lg-qtS"/>
+                            <constraint firstItem="aut-mc-Pg6" firstAttribute="top" secondItem="VWS-j3-QiJ" secondAttribute="bottom" constant="60" id="zus-kL-FhZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O0X-UV-qjd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Vm-Kq-995"/>
+                    <navigationItem key="navigationItem" title="設定" id="5Vm-Kq-995"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvG-d0-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="155.17241379310346"/>
+            <point key="canvasLocation" x="1098.75" y="154.22535211267606"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AtN-Wo-Qsh">
@@ -45,7 +105,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bKi-0U-ErM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5hw-TC-Jla">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -58,4 +118,9 @@
             <point key="canvasLocation" x="160.80000000000001" y="155.17241379310346"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GotoMarket_icon" width="228" height="228"/>
+        <image name="crop_icon" width="512" height="512"/>
+        <image name="email_icon" width="256" height="256"/>
+    </resources>
 </document>

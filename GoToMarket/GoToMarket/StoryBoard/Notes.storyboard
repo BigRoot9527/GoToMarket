@@ -19,28 +19,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-ge-ehS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyQ-v9-PsL">
+                                <rect key="frame" x="0.0" y="14" width="375" height="50"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU1-nv-KTF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <connections>
+                                            <segue destination="LJ9-yW-zGp" kind="embed" identifier="NoteToolBarVCSegue" id="apy-yF-LrD"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="xU1-nv-KTF" firstAttribute="leading" secondItem="LyQ-v9-PsL" secondAttribute="leading" id="Gba-pS-dG8"/>
+                                    <constraint firstItem="xU1-nv-KTF" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="top" id="hzn-ku-0or"/>
+                                    <constraint firstAttribute="bottom" secondItem="xU1-nv-KTF" secondAttribute="bottom" id="qRD-r0-KC8"/>
+                                    <constraint firstAttribute="trailing" secondItem="xU1-nv-KTF" secondAttribute="trailing" id="vaf-Oe-idc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LyQ-v9-PsL" firstAttribute="top" secondItem="xr2-ge-ehS" secondAttribute="top" constant="-50" id="2s9-gB-k5X"/>
+                            <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="vM3-xG-l4J" secondAttribute="top" id="4O1-eo-SXB"/>
+                            <constraint firstItem="LyQ-v9-PsL" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="5FI-KL-Ux5"/>
+                            <constraint firstItem="LyQ-v9-PsL" firstAttribute="trailing" secondItem="vM3-xG-l4J" secondAttribute="trailing" id="EoE-BC-9Zt"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="bottom" secondItem="vM3-xG-l4J" secondAttribute="bottom" id="U1P-Wb-nJj"/>
-                            <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="3t1-kn-aPf" secondAttribute="top" id="VHR-pN-soS"/>
+                            <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="bottom" id="bT8-iR-cZ3"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="dcv-qc-pNG"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="trailing" secondItem="vM3-xG-l4J" secondAttribute="trailing" id="qbA-8g-PFV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vM3-xG-l4J"/>
                     </view>
-                    <navigationItem key="navigationItem" title="待購清單" id="Kz3-UR-JEO"/>
+                    <navigationItem key="navigationItem" title="待購清單" id="Kz3-UR-JEO">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu_icon" id="7Hh-93-Vbd">
+                            <connections>
+                                <action selector="didTapToolMenuBarButton:" destination="MKc-4e-X6d" id="s2j-VF-bgn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Pd6-N1-7nR">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="i0U-Nj-m6Z">
+                                <rect key="frame" x="268" y="7" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="公斤" width="45"/>
+                                    <segment title="台斤" width="45"/>
+                                </segments>
+                                <connections>
+                                    <action selector="weightTypeSegControlDidChange:" destination="MKc-4e-X6d" eventType="valueChanged" id="TU7-iz-Det"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="noteTableView" destination="xr2-ge-ehS" id="fuN-BL-Hmt"/>
+                        <outlet property="toolBarBottomToNoteTVTopConstraint" destination="bT8-iR-cZ3" id="3or-sk-daj"/>
+                        <outlet property="toolBarTopToNoteTVTopConstraint" destination="2s9-gB-k5X" id="Q6R-GR-vOs"/>
+                        <outlet property="toolMenuBarButton" destination="7Hh-93-Vbd" id="o44-Li-Ayn"/>
+                        <outlet property="weightTypeSegControl" destination="i0U-Nj-m6Z" id="xS7-zp-cBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdg-cU-UFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,5 +113,73 @@
             </objects>
             <point key="canvasLocation" x="608.79999999999995" y="-18.440779610194905"/>
         </scene>
+        <!--Note Tool Bar View Controller-->
+        <scene sceneID="xBi-tr-732">
+            <objects>
+                <viewController id="LJ9-yW-zGp" customClass="NoteToolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bse-h6-Tow">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-nO-kT5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-Ha-ldL">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
+                                        <state key="normal" image="checked_icon"/>
+                                        <connections>
+                                            <action selector="didTapSortByFinishedButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="lwy-4H-L3c"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcp-GR-3zh">
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="50"/>
+                                        <state key="normal" image="money_icon"/>
+                                        <connections>
+                                            <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="4gD-d3-dwg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfT-Z8-cL7">
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="50"/>
+                                        <state key="normal" image="reset_icon"/>
+                                        <connections>
+                                            <action selector="didTapCleanAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="VkW-AK-0SY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSM-3c-zeX">
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="50"/>
+                                        <state key="normal" image="delete_icon"/>
+                                        <connections>
+                                            <action selector="didTapDeleteAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="Kdz-MQ-BGf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="B0Q-nO-kT5" secondAttribute="trailing" id="2CH-on-K5X"/>
+                            <constraint firstAttribute="bottom" secondItem="B0Q-nO-kT5" secondAttribute="bottom" id="Cya-wv-90u"/>
+                            <constraint firstItem="B0Q-nO-kT5" firstAttribute="leading" secondItem="bse-h6-Tow" secondAttribute="leading" id="DVk-53-i8j"/>
+                            <constraint firstItem="B0Q-nO-kT5" firstAttribute="top" secondItem="bse-h6-Tow" secondAttribute="top" id="y4N-pR-OhX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearAllButton" destination="MfT-Z8-cL7" id="jkU-Y6-2JI"/>
+                        <outlet property="deleteAllButton" destination="iSM-3c-zeX" id="b07-lG-EJo"/>
+                        <outlet property="sortByFinishedButton" destination="nNt-Ha-ldL" id="mfa-nI-w7i"/>
+                        <outlet property="sortByPriceButton" destination="Qcp-GR-3zh" id="dgv-pz-05u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5N-mr-wXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2300" y="-422"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="checked_icon" width="30" height="30"/>
+        <image name="delete_icon" width="30" height="30"/>
+        <image name="menu_icon" width="30" height="30"/>
+        <image name="money_icon" width="30" height="30"/>
+        <image name="reset_icon" width="30" height="30"/>
+    </resources>
 </document>

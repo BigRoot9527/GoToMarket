@@ -99,7 +99,11 @@ class QuotesViewController: UIViewController {
     private func updateUI() {
         
         quotesTableView.separatorStyle = .none
+        
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
+        
+        toolBarVToQuoteTVBottomConstraint.constant = toolBarBottom.1
+        toolBarVToQuoteTVTopConstraint.constant = toolBarTop.1
     }
     
     private func checkAndUpdateApi() {
@@ -129,7 +133,7 @@ class QuotesViewController: UIViewController {
     }
     
     //MARK: - IBAction
-    @IBAction func weightTypeSegControlDidChanged(_ sender: UISegmentedControl) {
+    @IBAction func weightTypeSegControlDidChange(_ sender: UISegmentedControl) {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
         

@@ -20,6 +20,7 @@
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CC20BAFB3B0031ADE1 /* NoteManager.swift */; };
+		321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */; };
 		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7320B83DEC00663C6E /* SortButtonStruct.swift */; };
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
@@ -119,6 +120,7 @@
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		321321CC20BAFB3B0031ADE1 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
+		321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E7320B83DEC00663C6E /* SortButtonStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonStruct.swift; sourceTree = "<group>"; };
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */,
+				321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				32BB0C572099E638001ECF52 /* ViewController.swift in Sources */,
 				32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */,
 				32B1E3AD20B16F2C00336B09 /* LoadingViewController.swift in Sources */,
+				321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */,
 				32B1E3B520B1814200336B09 /* AnimationConstant.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */,
