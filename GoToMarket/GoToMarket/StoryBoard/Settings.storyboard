@@ -42,17 +42,11 @@
                                 <rect key="frame" x="60" y="76" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="關於『 出門買菜 』"/>
-                                <connections>
-                                    <action selector="didTapChangeCropButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="6Zw-KH-unp"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aut-mc-Pg6">
                                 <rect key="frame" x="60" y="436" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="意見回饋、聯絡作者"/>
-                                <connections>
-                                    <action selector="didTapChangeCropButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="erx-ew-3uU"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Fa-c9S">
                                 <rect key="frame" x="127.5" y="446" width="65" height="65"/>
@@ -67,6 +61,9 @@
                                     <constraint firstAttribute="width" constant="80" id="fXB-Vc-L0B"/>
                                     <constraint firstAttribute="width" secondItem="8Nh-dI-n2Z" secondAttribute="height" multiplier="1:1" id="p64-P3-8ae"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99040379485153607" blue="0.97510723039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -94,10 +91,31 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="HGj-Ym-qtw" kind="show" id="hqM-9S-lpr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvG-d0-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1098.75" y="154.22535211267606"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4Q5-QN-qgb">
+            <objects>
+                <viewController id="HGj-Ym-qtw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJ4-62-ICy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yGB-3a-WZj"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDW-Jq-CNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AtN-Wo-Qsh">
