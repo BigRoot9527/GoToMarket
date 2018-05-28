@@ -22,6 +22,7 @@
 		321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CC20BAFB3B0031ADE1 /* NoteManager.swift */; };
 		321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */; };
 		321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321D220BBC4F20031ADE1 /* AboutViewController.swift */; };
+		321321D620BBE8850031ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 321321D520BBE8840031ADE1 /* GoogleService-Info.plist */; };
 		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7320B83DEC00663C6E /* SortButtonStruct.swift */; };
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
@@ -123,6 +124,7 @@
 		321321CC20BAFB3B0031ADE1 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToolBarViewController.swift; sourceTree = "<group>"; };
 		321321D220BBC4F20031ADE1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		321321D520BBE8840031ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E7320B83DEC00663C6E /* SortButtonStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonStruct.swift; sourceTree = "<group>"; };
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				329BC6D0209700D700CC9096 /* Assets.xcassets */,
 				329BC6D5209700D700CC9096 /* Info.plist */,
 				329BC6CD209700D600CC9096 /* GoToMarket.xcdatamodeld */,
+				321321D520BBE8840031ADE1 /* GoogleService-Info.plist */,
 			);
 			path = GoToMarket;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */,
 				32070B5320A53DBB00A6BA27 /* TestFolding.storyboard in Resources */,
 				326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */,
+				321321D620BBE8850031ADE1 /* GoogleService-Info.plist in Resources */,
 				32B1E38720AED4FF00336B09 /* DetailIntroTableViewCell.xib in Resources */,
 				32070B5920A53E2300A6BA27 /* Settings.storyboard in Resources */,
 				32B1E3A220B169DC00336B09 /* Loading.storyboard in Resources */,
@@ -1046,7 +1050,10 @@
 				DEVELOPMENT_TEAM = 9VGZC87X4Y;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TWHsu.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1063,7 +1070,10 @@
 				DEVELOPMENT_TEAM = 9VGZC87X4Y;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TWHsu.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>461846958766-ek7d3g87ul8be0ucbmmlftrif6r9ci2p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.461846958766-ek7d3g87ul8be0ucbmmlftrif6r9ci2p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB4skBmsQEpJtwy3Gtr32KfiOStnM3dC_U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>461846958766</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.TWHsu.GoToMarket</string>
+	<key>PROJECT_ID</key>
+	<string>gotomarket-c1843</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gotomarket-c1843.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:461846958766:ios:9b173c590e1b2e43</string>
+	<key>DATABASE_URL</key>
+	<string>https://gotomarket-c1843.firebaseio.com</string>
+</dict>
+</plist>
