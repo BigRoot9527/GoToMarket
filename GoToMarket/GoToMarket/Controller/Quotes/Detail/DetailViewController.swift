@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
     let cropManager = CropManager()
     var fetchedItem: CropDatas?
     let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
-    var wikiText: String = "Wiki說明下載中...."
+    var wikiText: String = "Wiki說明載入中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
     var quoteIndexPath: IndexPath?
@@ -90,7 +90,14 @@ class DetailViewController: UIViewController {
         
         wikiManager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
             
-            let outputText = text ?? "查無Wiki資料"
+            var outputText = text ?? "查無Wiki資料"
+            
+            //TODO: get Real WIKI api and get correct corn text
+            if itemData.cropName.trimed() == "玉米" {
+                
+                outputText = "玉米（學名：Zea mays）是一年生禾本科草本植物，是全世界總產量最高的重要糧食作物。同時也可以當作飼料使用，還有在生物科技產業作為乙醇燃料的原材料。而且玉米更在各個化工領域被大量利用著，做成塑膠等等不同的物品。"
+            }
+            //
             
             self?.wikiText = outputText
             
