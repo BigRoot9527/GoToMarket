@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfS-ap-ht6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-Wh-7xF">
-                                <rect key="frame" x="0.0" y="14" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -47,10 +47,10 @@
                             <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="bottom" id="FU7-NC-SeR"/>
                             <constraint firstItem="pWi-Wh-7xF" firstAttribute="top" secondItem="MfS-ap-ht6" secondAttribute="top" constant="-50" id="QZo-Aw-ZFO"/>
                             <constraint firstItem="pWi-Wh-7xF" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="WQ1-2v-LjE"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="top" id="WZ9-W7-3zf"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="MfS-ap-ht6" secondAttribute="trailing" id="dvq-gt-ktc"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="MfS-ap-ht6" secondAttribute="bottom" id="v8b-bx-ETd"/>
                             <constraint firstItem="pWi-Wh-7xF" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="wGm-CX-Zvf"/>
-                            <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="yV7-5n-DQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
@@ -80,8 +80,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
-                        <outlet property="toolBarVToQuoteTVBottomConstraint" destination="FU7-NC-SeR" id="5Fl-yl-H8l"/>
-                        <outlet property="toolBarVToQuoteTVTopConstraint" destination="QZo-Aw-ZFO" id="TUN-I2-BKf"/>
+                        <outlet property="toolBarTopToSafeAreaConstraint" destination="WZ9-W7-3zf" id="iCG-EW-4R6"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
                 </viewController>

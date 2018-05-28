@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-ge-ehS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyQ-v9-PsL">
-                                <rect key="frame" x="0.0" y="14" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU1-nv-KTF">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -47,9 +47,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="top" secondItem="xr2-ge-ehS" secondAttribute="top" constant="-50" id="2s9-gB-k5X"/>
-                            <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="vM3-xG-l4J" secondAttribute="top" id="4O1-eo-SXB"/>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="5FI-KL-Ux5"/>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="trailing" secondItem="vM3-xG-l4J" secondAttribute="trailing" id="EoE-BC-9Zt"/>
+                            <constraint firstItem="vM3-xG-l4J" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="top" id="HU9-eL-ph4"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="bottom" secondItem="vM3-xG-l4J" secondAttribute="bottom" id="U1P-Wb-nJj"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="bottom" id="bT8-iR-cZ3"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="dcv-qc-pNG"/>
@@ -82,8 +82,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="noteTableView" destination="xr2-ge-ehS" id="fuN-BL-Hmt"/>
-                        <outlet property="toolBarBottomToNoteTVTopConstraint" destination="bT8-iR-cZ3" id="3or-sk-daj"/>
-                        <outlet property="toolBarTopToNoteTVTopConstraint" destination="2s9-gB-k5X" id="Q6R-GR-vOs"/>
+                        <outlet property="toolBarTopToSafeAreaConstraint" destination="HU9-eL-ph4" id="RJz-eO-EK6"/>
                         <outlet property="toolMenuBarButton" destination="7Hh-93-Vbd" id="o44-Li-Ayn"/>
                         <outlet property="weightTypeSegControl" destination="i0U-Nj-m6Z" id="xS7-zp-cBp"/>
                     </connections>

@@ -18,12 +18,10 @@ class QuotesViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var quotesTableView: UITableView!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var toolBarVToQuoteTVBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var toolBarVToQuoteTVTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarTopToSafeAreaConstraint: NSLayoutConstraint!
     
-    //MARK: ToolBar(Opened, Closed) ContraintConstant To QuoteTV
-    let toolBarTop: (CGFloat, CGFloat) = ( 0.0, -50.0 )
-    let toolBarBottom: (CGFloat, CGFloat) = ( -50.0, 0.0 )
+    //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
+    let topConstant: (CGFloat, CGFloat) = ( 0.0, 50.0 )
     
     //MARK: - CoreData
     var container: NSPersistentContainer? =
@@ -102,8 +100,7 @@ class QuotesViewController: UIViewController {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        toolBarVToQuoteTVBottomConstraint.constant = toolBarBottom.1
-        toolBarVToQuoteTVTopConstraint.constant = toolBarTop.1
+        toolBarTopToSafeAreaConstraint.constant = topConstant.1
     }
     
     private func checkAndUpdateApi() {
@@ -143,13 +140,9 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        toolBarVToQuoteTVBottomConstraint.constant =
-            toolBarVToQuoteTVBottomConstraint.constant == toolBarBottom.0 ?
-                toolBarBottom.1 : toolBarBottom.0
-        
-        toolBarVToQuoteTVTopConstraint.constant =
-            toolBarVToQuoteTVTopConstraint.constant == toolBarTop.0 ?
-                toolBarTop.1 : toolBarTop.0
+        toolBarTopToSafeAreaConstraint.constant =
+            toolBarTopToSafeAreaConstraint.constant == topConstant.0 ?
+                topConstant.1 : topConstant.0
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             

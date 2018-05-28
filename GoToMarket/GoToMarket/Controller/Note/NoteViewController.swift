@@ -15,12 +15,10 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var noteTableView: UITableView!
     @IBOutlet weak var toolMenuBarButton: UIBarButtonItem!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var toolBarTopToNoteTVTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var toolBarBottomToNoteTVTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarTopToSafeAreaConstraint: NSLayoutConstraint!
     
-    //MARK: - ToolBar(Opened, Closed) ContraintConstant To NoteTV
-    let toolBarTop: (CGFloat, CGFloat) = ( 0.0, -50.0 )
-    let toolBarBottom: (CGFloat, CGFloat) = ( -50.0, 0.0 )
+    //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
+    let topConstant: (CGFloat, CGFloat) = ( 0.0, 50.0 )
 
     //MARK: - ChangeCellView
     private let openedCellHeight: CGFloat = 210.0
@@ -82,8 +80,7 @@ class NoteViewController: UIViewController {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        toolBarTopToNoteTVTopConstraint.constant = toolBarTop.1
-        toolBarBottomToNoteTVTopConstraint.constant = toolBarBottom.1
+        toolBarTopToSafeAreaConstraint.constant = topConstant.1
     }
     
     //MARK: - Open-Close Switch
@@ -96,14 +93,8 @@ class NoteViewController: UIViewController {
     
     //MARK: - IBAction
     @IBAction func didTapToolMenuBarButton(_ sender: UIBarButtonItem) {
-
-        toolBarBottomToNoteTVTopConstraint.constant =
-            toolBarBottomToNoteTVTopConstraint.constant == toolBarBottom.0 ?
-                toolBarBottom.1 : toolBarBottom.0
         
-        toolBarTopToNoteTVTopConstraint.constant =
-            toolBarTopToNoteTVTopConstraint.constant == toolBarTop.0 ?
-                toolBarTop.1 : toolBarTop.0
+        toolBarTopToSafeAreaConstraint.constant = toolBarTopToSafeAreaConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             
