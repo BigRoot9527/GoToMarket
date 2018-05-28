@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -42,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-el-Uz0">
-                                <rect key="frame" x="87.666666666666686" y="198" width="200" height="120"/>
+                                <rect key="frame" x="87.666666666666686" y="163" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="關於『 出門買菜 』"/>
                                 <connections>
@@ -50,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aut-mc-Pg6">
-                                <rect key="frame" x="87.666666666666686" y="548" width="200" height="120"/>
+                                <rect key="frame" x="87.666666666666686" y="583" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="意見回饋、聯絡作者"/>
                                 <connections>
@@ -58,14 +57,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Fa-c9S">
-                                <rect key="frame" x="155" y="558" width="65" height="65"/>
+                                <rect key="frame" x="155" y="593" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="HiV-HZ-9QY"/>
                                     <constraint firstAttribute="width" secondItem="jnV-Fa-c9S" secondAttribute="height" multiplier="1:1" id="JBq-pA-qf9"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-dI-n2Z">
-                                <rect key="frame" x="147.66666666666666" y="198" width="80" height="80"/>
+                                <rect key="frame" x="147.66666666666666" y="163" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fXB-Vc-L0B"/>
                                     <constraint firstAttribute="width" secondItem="8Nh-dI-n2Z" secondAttribute="height" multiplier="1:1" id="p64-P3-8ae"/>
@@ -83,17 +82,17 @@
                             <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="Alw-yp-IGh"/>
                             <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerY" secondItem="O0X-UV-qjd" secondAttribute="centerY" id="DOz-w7-NpI"/>
                             <constraint firstItem="8Nh-dI-n2Z" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="top" id="Da9-qJ-oOh"/>
-                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="bottom" constant="55" id="FtN-5f-SFK"/>
+                            <constraint firstItem="8Nh-dI-n2Z" firstAttribute="top" secondItem="O0X-UV-qjd" secondAttribute="top" constant="75" id="GUB-b2-yUx"/>
                             <constraint firstItem="vAL-el-Uz0" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="IAm-7w-j1q"/>
                             <constraint firstItem="aut-mc-Pg6" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="MNE-6g-4Gg"/>
                             <constraint firstItem="8Nh-dI-n2Z" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="eXS-sR-TcM"/>
                             <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="gGY-KP-Ell" secondAttribute="top" constant="-10" id="laj-tm-Egr"/>
                             <constraint firstItem="jnV-Fa-c9S" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="lc6-IP-6Wz"/>
+                            <constraint firstItem="O0X-UV-qjd" firstAttribute="bottom" secondItem="aut-mc-Pg6" secondAttribute="bottom" constant="75" id="r2g-rJ-qVY"/>
                             <constraint firstItem="aut-mc-Pg6" firstAttribute="height" secondItem="VWS-j3-QiJ" secondAttribute="height" id="uGf-W3-tdw"/>
                             <constraint firstItem="aut-mc-Pg6" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xGn-WA-1uc"/>
                             <constraint firstItem="vAL-el-Uz0" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xnR-7u-aMm"/>
                             <constraint firstItem="jnV-Fa-c9S" firstAttribute="top" secondItem="aut-mc-Pg6" secondAttribute="top" constant="10" id="y0g-lg-qtS"/>
-                            <constraint firstItem="aut-mc-Pg6" firstAttribute="top" secondItem="VWS-j3-QiJ" secondAttribute="bottom" constant="55" id="zus-kL-FhZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O0X-UV-qjd"/>
                     </view>
