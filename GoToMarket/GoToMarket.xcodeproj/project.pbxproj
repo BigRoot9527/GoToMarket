@@ -672,6 +672,7 @@
 				329BC6C0209700D600CC9096 /* Frameworks */,
 				329BC6C1209700D600CC9096 /* Resources */,
 				162C552C1FFFD841D1855AAD /* [CP] Embed Pods Frameworks */,
+				321321D420BBE3A10031ADE1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -783,6 +784,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		321321D420BBE3A10031ADE1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" f86d52eae267295e5277b7324c14537f27f0a66b 5df63bf6f30bded04c7084d5c3ec192140065df18c269847fad5df01797a190e";
 		};
 		BE36FDC57FF3753C150D15DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
