@@ -46,7 +46,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nBk-eg-ZJR">
-                                <rect key="frame" x="200" y="15" width="95" height="169.5"/>
+                                <rect key="frame" x="185" y="15" width="95" height="169.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-B0-Ywn">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="38.5"/>
@@ -80,7 +80,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqR-5P-n5u">
-                                <rect key="frame" x="260" y="67.5" width="20" height="20"/>
+                                <rect key="frame" x="245" y="67.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6r4-6T-2sz"/>
                                     <constraint firstAttribute="width" constant="20" id="RcZ-B3-qcy"/>
@@ -96,36 +96,29 @@
                                     <action selector="didTapPriceInfoButton:" destination="Gj5-Vw-PBU" eventType="touchUpInside" id="txy-25-KWd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnL-Io-BCu">
-                                <rect key="frame" x="274" y="24.5" width="86" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="SJf-ct-Hmy"/>
-                                    <constraint firstAttribute="height" constant="20" id="gIt-QH-8yQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="66" maxY="0.0"/>
-                                <state key="normal" title="(每台斤)" image="refresh_icon">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="selected" title="(每公斤)" image="refresh_icon"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="piL-mv-Twk">
+                                <rect key="frame" x="276" y="8" width="91" height="29"/>
+                                <segments>
+                                    <segment title="公斤" width="45"/>
+                                    <segment title="台斤" width="45"/>
+                                </segments>
                                 <connections>
-                                    <action selector="didTapChangeWeightButton:" destination="Gj5-Vw-PBU" eventType="touchUpInside" id="pzn-jt-gMm"/>
+                                    <action selector="weightTypeSegControlDidChange:" destination="Gj5-Vw-PBU" eventType="valueChanged" id="HpY-Xq-j0A"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="piL-mv-Twk" secondAttribute="trailing" constant="8" id="0NO-zL-i8s"/>
+                            <constraint firstItem="piL-mv-Twk" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="8" id="1Ta-yh-CjC"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="5aY-Au-T37"/>
                             <constraint firstItem="xqR-5P-n5u" firstAttribute="centerY" secondItem="ol8-o0-w8I" secondAttribute="centerY" id="B7M-g1-P96"/>
                             <constraint firstAttribute="bottom" secondItem="nBk-eg-ZJR" secondAttribute="bottom" constant="15" id="CUf-dn-1H1"/>
                             <constraint firstAttribute="bottom" secondItem="k7q-AH-Mcg" secondAttribute="bottom" constant="15" id="CWc-Lw-yoJ"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="leading" secondItem="yeT-yR-bCD" secondAttribute="leading" constant="20" id="WZu-uz-2z1"/>
-                            <constraint firstItem="ZnL-Io-BCu" firstAttribute="centerY" secondItem="sqF-B0-Ywn" secondAttribute="centerY" id="YpV-Wa-EWW"/>
                             <constraint firstItem="xqR-5P-n5u" firstAttribute="leading" secondItem="ol8-o0-w8I" secondAttribute="trailing" constant="-35" id="eNO-5d-bZb"/>
                             <constraint firstItem="nBk-eg-ZJR" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="laK-BP-KBC"/>
-                            <constraint firstAttribute="trailing" secondItem="ZnL-Io-BCu" secondAttribute="trailing" constant="15" id="mIO-6p-3Xk"/>
-                            <constraint firstItem="nBk-eg-ZJR" firstAttribute="leading" secondItem="k7q-AH-Mcg" secondAttribute="trailing" constant="40" id="rDz-gZ-4w8"/>
+                            <constraint firstItem="nBk-eg-ZJR" firstAttribute="leading" secondItem="k7q-AH-Mcg" secondAttribute="trailing" constant="25" id="rDz-gZ-4w8"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -137,19 +130,18 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="detailChangeWeightButton" destination="ZnL-Io-BCu" id="R1L-n9-mlX"/>
                 <outlet property="detailMarketLabel" destination="OyQ-TZ-T18" id="Qh1-aw-6aj"/>
                 <outlet property="detailPriceInfoButton" destination="xqR-5P-n5u" id="W8P-OD-9GF"/>
                 <outlet property="detailQuoteInfoView" destination="yeT-yR-bCD" id="eeE-Hs-uv7"/>
                 <outlet property="detailRealPriceLabel" destination="sqF-B0-Ywn" id="lgV-KQ-0o2"/>
                 <outlet property="detailSellPriceLabel" destination="ol8-o0-w8I" id="cYH-TB-bbc"/>
                 <outlet property="detailUpdateTimeLabel" destination="y0D-ES-lGH" id="4RC-E1-1BN"/>
+                <outlet property="weightTypeSegControl" destination="piL-mv-Twk" id="Ufj-hF-IUN"/>
             </connections>
-            <point key="canvasLocation" x="-76" y="21"/>
+            <point key="canvasLocation" x="-76.5" y="21"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="information" width="64" height="64"/>
-        <image name="refresh_icon" width="64" height="64"/>
     </resources>
 </document>

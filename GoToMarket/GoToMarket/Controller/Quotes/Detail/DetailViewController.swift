@@ -179,7 +179,7 @@ extension DetailViewController: UITableViewDataSource {
             
             cell.detailMarketLabel.text = crop.marketName
             cell.detailUpdateTimeLabel.text = crop.date
-            cell.detailChangeWeightButton.isSelected = PriceStringProvider.shared.showInKg
+            cell.weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
             cell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
             cell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(
                 fromTruePrice: crop.newAveragePrice)
@@ -262,7 +262,7 @@ extension DetailViewController: DetailTableViewCellDelegate {
         callBack(sender.isSelected)
     }
     
-    func changeWeightButtonTapped(sender: UIButton, fromCell: DetailQuotesTableViewCell) {
+    func changeWeightButtonTapped(sender: UISegmentedControl, fromCell: DetailQuotesTableViewCell) {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
         
@@ -273,6 +273,8 @@ extension DetailViewController: DetailTableViewCellDelegate {
         fromCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: note.sellingPrice)
         
         fromCell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(fromTruePrice: cropData.newAveragePrice)
+        
+        fromCell.weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
     }
     
     func priceInfoButtonTapped(sender: UIButton) {

@@ -16,8 +16,8 @@ class DetailQuotesTableViewCell: UITableViewCell {
     @IBOutlet weak var detailUpdateTimeLabel: UILabel!
     @IBOutlet weak var detailMarketLabel: UILabel!
     @IBOutlet weak var detailPriceInfoButton: UIButton!
-    //isSelected = true >> Kg
-    @IBOutlet weak var detailChangeWeightButton: UIButton!
+    @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
+    
     
     weak var delegate: DetailTableViewCellDelegate?
     
@@ -41,11 +41,10 @@ class DetailQuotesTableViewCell: UITableViewCell {
         delegate?.priceInfoButtonTapped(sender: sender)
     }
     
-    @IBAction func didTapChangeWeightButton(_ sender: UIButton) {
-        
-        detailChangeWeightButton.isSelected = !detailChangeWeightButton.isSelected
+    @IBAction func weightTypeSegControlDidChange(_ sender: UISegmentedControl) {
         
         delegate?.changeWeightButtonTapped(sender: sender, fromCell: self)
+        
     }
-
+    
 }
