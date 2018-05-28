@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,27 +16,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出門買菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eym-0f-frL">
-                                <rect key="frame" x="132" y="317" width="110" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-p6-TqX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="He2-a6-ETc">
+                                <rect key="frame" x="192" y="573" width="222" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="Qak-MN-RrK"/>
+                                    <constraint firstAttribute="width" secondItem="He2-a6-ETc" secondAttribute="height" multiplier="222:155" id="cRT-9p-5YY"/>
+                                    <constraint firstAttribute="height" constant="155" id="onD-1I-TeJ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.7803921568627451" green="0.21568627450980393" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Eym-0f-frL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Xst-ab-FY5"/>
-                            <constraint firstItem="Eym-0f-frL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zUR-w0-Lor"/>
+                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="C2n-mG-gl0"/>
+                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GZu-28-pPJ"/>
+                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PYf-Pu-9Zf"/>
+                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UuJ-Gp-UEj"/>
+                            <constraint firstItem="He2-a6-ETc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a4t-5I-H0f"/>
+                            <constraint firstItem="He2-a6-ETc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-8" id="bfN-QL-Nht"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GotoMarket_icon" width="228" height="228"/>
+        <image name="background" width="1200" height="1366"/>
+    </resources>
 </document>
