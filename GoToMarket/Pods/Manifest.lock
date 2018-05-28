@@ -3,6 +3,9 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
   - Hero (1.2.0)
   - IQKeyboardManagerSwift (6.0.1)
   - lottie-ios (2.5.0)
@@ -15,6 +18,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Charts
+  - Crashlytics
+  - Fabric
   - Hero
   - IQKeyboardManagerSwift
   - lottie-ios
@@ -26,6 +31,8 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Charts
+    - Crashlytics
+    - Fabric
     - Hero
     - IQKeyboardManagerSwift
     - lottie-ios
@@ -36,6 +43,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
   IQKeyboardManagerSwift: 748d06e0f8134fc28934031e6377da3cf3d4f38c
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
@@ -43,6 +52,6 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 3fd37a30c4c8f932e4435cf29c9d858829cf1c9d
+PODFILE CHECKSUM: e90a58bab17a02a4956893e92b1fc171bdddf20f
 
 COCOAPODS: 1.5.0

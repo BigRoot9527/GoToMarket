@@ -14,5 +14,7 @@ target 'GoToMarket' do
   pod 'lottie-ios'
   pod 'SwipeCellKit'
   pod 'IQKeyboardManagerSwift'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end
