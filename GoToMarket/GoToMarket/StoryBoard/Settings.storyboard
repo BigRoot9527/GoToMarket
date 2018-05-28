@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bKi-0U-ErM">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="XfX-V7-6a6" customClass="SettingViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tf1-Li-v8w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWS-j3-QiJ">
-                                <rect key="frame" x="60" y="256" width="200" height="120"/>
+                                <rect key="frame" x="87.666666666666686" y="373" width="200" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0C3-Mj-UxA"/>
                                     <constraint firstAttribute="height" constant="120" id="rfn-j5-xi5"/>
@@ -32,37 +32,47 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crop_icon" translatesAutoresizingMaskIntoConstraints="NO" id="gGY-KP-Ell">
-                                <rect key="frame" x="127.5" y="266" width="65" height="65"/>
+                                <rect key="frame" x="155" y="383" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gGY-KP-Ell" secondAttribute="height" multiplier="1:1" id="9TE-6K-slj"/>
                                     <constraint firstAttribute="width" constant="65" id="exh-hr-Xdd"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="cropIcon"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-el-Uz0">
-                                <rect key="frame" x="60" y="76" width="200" height="120"/>
+                                <rect key="frame" x="87.666666666666686" y="198" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="關於『 出門買菜 』"/>
+                                <connections>
+                                    <action selector="didTapAboutButoon:" destination="XfX-V7-6a6" eventType="touchUpInside" id="ZK4-l7-DYk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aut-mc-Pg6">
-                                <rect key="frame" x="60" y="436" width="200" height="120"/>
+                                <rect key="frame" x="87.666666666666686" y="548" width="200" height="120"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                 <state key="normal" title="意見回饋、聯絡作者"/>
+                                <connections>
+                                    <action selector="didTapEmailButton:" destination="XfX-V7-6a6" eventType="touchUpInside" id="Ci4-DD-Tq9"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_icon" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Fa-c9S">
-                                <rect key="frame" x="127.5" y="446" width="65" height="65"/>
+                                <rect key="frame" x="155" y="558" width="65" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="HiV-HZ-9QY"/>
                                     <constraint firstAttribute="width" secondItem="jnV-Fa-c9S" secondAttribute="height" multiplier="1:1" id="JBq-pA-qf9"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="8Nh-dI-n2Z">
-                                <rect key="frame" x="120" y="76" width="80" height="80"/>
+                                <rect key="frame" x="147.66666666666666" y="198" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fXB-Vc-L0B"/>
                                     <constraint firstAttribute="width" secondItem="8Nh-dI-n2Z" secondAttribute="height" multiplier="1:1" id="p64-P3-8ae"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="GoToMarketLogo"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
@@ -73,7 +83,7 @@
                             <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="Alw-yp-IGh"/>
                             <constraint firstItem="VWS-j3-QiJ" firstAttribute="centerY" secondItem="O0X-UV-qjd" secondAttribute="centerY" id="DOz-w7-NpI"/>
                             <constraint firstItem="8Nh-dI-n2Z" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="top" id="Da9-qJ-oOh"/>
-                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="bottom" constant="60" id="FtN-5f-SFK"/>
+                            <constraint firstItem="VWS-j3-QiJ" firstAttribute="top" secondItem="vAL-el-Uz0" secondAttribute="bottom" constant="55" id="FtN-5f-SFK"/>
                             <constraint firstItem="vAL-el-Uz0" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="IAm-7w-j1q"/>
                             <constraint firstItem="aut-mc-Pg6" firstAttribute="width" secondItem="VWS-j3-QiJ" secondAttribute="width" id="MNE-6g-4Gg"/>
                             <constraint firstItem="8Nh-dI-n2Z" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="eXS-sR-TcM"/>
@@ -83,7 +93,7 @@
                             <constraint firstItem="aut-mc-Pg6" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xGn-WA-1uc"/>
                             <constraint firstItem="vAL-el-Uz0" firstAttribute="centerX" secondItem="O0X-UV-qjd" secondAttribute="centerX" id="xnR-7u-aMm"/>
                             <constraint firstItem="jnV-Fa-c9S" firstAttribute="top" secondItem="aut-mc-Pg6" secondAttribute="top" constant="10" id="y0g-lg-qtS"/>
-                            <constraint firstItem="aut-mc-Pg6" firstAttribute="top" secondItem="VWS-j3-QiJ" secondAttribute="bottom" constant="60" id="zus-kL-FhZ"/>
+                            <constraint firstItem="aut-mc-Pg6" firstAttribute="top" secondItem="VWS-j3-QiJ" secondAttribute="bottom" constant="55" id="zus-kL-FhZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O0X-UV-qjd"/>
                     </view>
@@ -92,21 +102,113 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="HGj-Ym-qtw" kind="show" id="hqM-9S-lpr"/>
+                        <segue destination="HGj-Ym-qtw" kind="presentation" identifier="AboutViewController" id="hqM-9S-lpr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvG-d0-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1098.75" y="154.22535211267606"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="4Q5-QN-qgb">
             <objects>
-                <viewController id="HGj-Ym-qtw" sceneMemberID="viewController">
+                <viewController id="HGj-Ym-qtw" customClass="AboutViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJ4-62-ICy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="SCf-8X-kf9">
+                                <rect key="frame" x="87.666666666666686" y="141" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="q10-x8-dI2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="GoToMarketLogo"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜價資料來源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlP-B5-kvB">
+                                <rect key="frame" x="246.66666666666663" y="520" width="84" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wiki資料來源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-2b-f9f">
+                                <rect key="frame" x="247.66666666666663" y="585" width="83" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本： 1.0.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utt-1i-RHe">
+                                <rect key="frame" x="133" y="341" width="109" height="24"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更新日期：2018 / 05 / 28 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAX-8p-Pxy">
+                                <rect key="frame" x="83" y="370" width="209" height="24"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ting - Wei, Hsu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irA-mQ-La0">
+                                <rect key="frame" x="201.66666666666663" y="476" width="129" height="24"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行政院農業委員會資料開放平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xce-DT-uOr">
+                                <rect key="frame" x="106.66666666666669" y="540" width="224" height="23"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwM-Ou-2fC">
+                                <rect key="frame" x="302.66666666666669" y="456" width="28" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台南市政府教育局 Open Wikipedia專案" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bld-r2-beb">
+                                <rect key="frame" x="44.666666666666657" y="605" width="286" height="23"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pud-dn-eIh">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didTapWindowButton:" destination="HGj-Ym-qtw" eventType="touchUpInside" id="ey3-Ya-QN8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bld-r2-beb" firstAttribute="centerX" secondItem="yGB-3a-WZj" secondAttribute="centerX" id="0uo-qV-zrm"/>
+                            <constraint firstItem="Bx2-2b-f9f" firstAttribute="top" secondItem="Xce-DT-uOr" secondAttribute="bottom" constant="22" id="2dA-ij-aNI"/>
+                            <constraint firstItem="SCf-8X-kf9" firstAttribute="centerX" secondItem="yGB-3a-WZj" secondAttribute="centerX" id="9db-bM-YFb"/>
+                            <constraint firstItem="rAX-8p-Pxy" firstAttribute="top" secondItem="utt-1i-RHe" secondAttribute="bottom" constant="5" id="ETt-iq-M20"/>
+                            <constraint firstItem="irA-mQ-La0" firstAttribute="top" secondItem="OwM-Ou-2fC" secondAttribute="bottom" id="EZ8-Lg-gFe"/>
+                            <constraint firstItem="irA-mQ-La0" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="EvT-hB-EaR"/>
+                            <constraint firstItem="rAX-8p-Pxy" firstAttribute="centerX" secondItem="yGB-3a-WZj" secondAttribute="centerX" id="F6f-Gf-94T"/>
+                            <constraint firstItem="Bld-r2-beb" firstAttribute="top" secondItem="Bx2-2b-f9f" secondAttribute="bottom" id="F77-ij-x7Q"/>
+                            <constraint firstItem="Xce-DT-uOr" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="IMH-pD-hF4"/>
+                            <constraint firstItem="Bx2-2b-f9f" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="Tlx-Hp-R7E"/>
+                            <constraint firstItem="OwM-Ou-2fC" firstAttribute="centerY" secondItem="yGB-3a-WZj" secondAttribute="centerY" constant="55" id="Z75-pg-h7j"/>
+                            <constraint firstItem="SCf-8X-kf9" firstAttribute="width" secondItem="SCf-8X-kf9" secondAttribute="height" multiplier="1:1" id="ZqQ-4h-3fA"/>
+                            <constraint firstItem="Xce-DT-uOr" firstAttribute="top" secondItem="IlP-B5-kvB" secondAttribute="bottom" id="ar9-sX-TXR"/>
+                            <constraint firstItem="Pud-dn-eIh" firstAttribute="leading" secondItem="yGB-3a-WZj" secondAttribute="leading" id="bYm-sD-p5u"/>
+                            <constraint firstItem="IlP-B5-kvB" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="cTA-fm-Kch"/>
+                            <constraint firstItem="IlP-B5-kvB" firstAttribute="top" secondItem="irA-mQ-La0" secondAttribute="bottom" constant="20" id="e9F-ku-GNc"/>
+                            <constraint firstItem="utt-1i-RHe" firstAttribute="centerX" secondItem="yGB-3a-WZj" secondAttribute="centerX" id="ewf-kc-zlZ"/>
+                            <constraint firstItem="Pud-dn-eIh" firstAttribute="top" secondItem="yGB-3a-WZj" secondAttribute="top" id="f2b-JG-s10"/>
+                            <constraint firstItem="utt-1i-RHe" firstAttribute="top" secondItem="SCf-8X-kf9" secondAttribute="bottom" id="g5c-iX-2zy"/>
+                            <constraint firstItem="SCf-8X-kf9" firstAttribute="centerY" secondItem="yGB-3a-WZj" secondAttribute="centerY" constant="-170" id="hKG-aT-WBi"/>
+                            <constraint firstItem="Pud-dn-eIh" firstAttribute="trailing" secondItem="yGB-3a-WZj" secondAttribute="trailing" id="kpH-98-jky"/>
+                            <constraint firstItem="OwM-Ou-2fC" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="wHK-t7-iKP"/>
+                            <constraint firstItem="Pud-dn-eIh" firstAttribute="bottom" secondItem="yGB-3a-WZj" secondAttribute="bottom" id="yrr-Tw-S86"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yGB-3a-WZj"/>
                     </view>
                     <userDefinedRuntimeAttributes>
@@ -115,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDW-Jq-CNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="154"/>
+            <point key="canvasLocation" x="1965.5999999999999" y="152.95566502463055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AtN-Wo-Qsh">
@@ -123,7 +225,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bKi-0U-ErM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5hw-TC-Jla">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

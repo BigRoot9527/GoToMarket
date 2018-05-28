@@ -78,7 +78,7 @@ extension UIViewController {
         CATransaction.commit()
     }
     
-    //MARK:Notification
+    //MARK: - Notification
     func postCartNotification(count: Int) {
         
         NotificationCenter.default.post(
@@ -87,4 +87,5 @@ extension UIViewController {
             userInfo: ["CartCount": count])
         
     }
+    
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import StoreKit
 
 class SettingViewController: UIViewController {
 
@@ -15,13 +17,28 @@ class SettingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+            
+        case String(describing: AboutViewController.self):
+            
+            guard let aboutVC =  segue.destination as? AboutViewController else { return }
+            
+            aboutVC.hero.isEnabled = true
+            
+            aboutVC.hero.modalAnimationType = .fade
+            
+        default:
+            
+            return
+        }
     }
     
-    
+    //MARK: - IBAction
     @IBAction func didTapChangeCropButton(_ sender: UIButton) {
         
         let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as! MarketSettingViewController
@@ -32,4 +49,54 @@ class SettingViewController: UIViewController {
         
         present(settingVC, animated: true, completion: nil)
     }
+    
+    @IBAction func didTapAboutButoon(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: String(describing: AboutViewController.self), sender: self)
+    }
+    
+    @IBAction func didTapEmailButton(_ sender: UIButton) {
+        
+        sendEmail()
+    }
+
+}
+
+
+//MARK: - SendingEmail
+extension SettingViewController: MFMailComposeViewControllerDelegate {
+    
+    func sendEmail() {
+        
+        if MFMailComposeViewController.canSendMail() {
+            
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["b97611043@g.ntu.edu.tw"])
+            mail.setSubject(NSLocalizedString("Issue Report", comment: ""))
+            
+            self.present(mail, animated: true)
+            
+        } else {
+            
+            let alertController = UIAlertController(title: NSLocalizedString("Sorry", comment: ""), message: NSLocalizedString("Your iPhone could not send mail.", comment: ""), preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true)
+        
+    }
+    
+    func rateOnTheAppStore() {
+        
+        SKStoreReviewController.requestReview()
+    }
+    
 }

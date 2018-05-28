@@ -21,6 +21,7 @@
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CC20BAFB3B0031ADE1 /* NoteManager.swift */; };
 		321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */; };
+		321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321D220BBC4F20031ADE1 /* AboutViewController.swift */; };
 		32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */; };
 		32136E7420B83DEC00663C6E /* SortButtonStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7320B83DEC00663C6E /* SortButtonStruct.swift */; };
 		32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */; };
@@ -121,6 +122,7 @@
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		321321CC20BAFB3B0031ADE1 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToolBarViewController.swift; sourceTree = "<group>"; };
+		321321D220BBC4F20031ADE1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteToolBarViewController.swift; sourceTree = "<group>"; };
 		32136E7320B83DEC00663C6E /* SortButtonStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButtonStruct.swift; sourceTree = "<group>"; };
 		32136E7620B8449600663C6E /* NSSortDescriptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSortDescriptorProvider.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */,
+				321321D220BBC4F20031ADE1 /* AboutViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
 				32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */,
+				321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
 				32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */,
 				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,

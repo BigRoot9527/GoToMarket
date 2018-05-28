@@ -35,6 +35,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Rz3-jU-xo7" secondAttribute="height" multiplier="1:1" id="Ine-If-xJa"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="cropIcon"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇農產品資料來源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-Lb-3By">
                                         <rect key="frame" x="0.0" y="222" width="275" height="31"/>
