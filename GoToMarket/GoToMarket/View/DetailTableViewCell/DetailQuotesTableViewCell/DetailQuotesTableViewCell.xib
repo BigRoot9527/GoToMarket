@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,12 +23,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="k7q-AH-Mcg">
                                 <rect key="frame" x="20" y="15" width="140" height="169.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗估零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公告批發均價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2g-hW-cGk">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="38.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公告批發均價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2g-hW-cGk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粗估零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
                                         <rect key="frame" x="0.0" y="43.5" width="140" height="39"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <nil key="highlightedColor"/>
@@ -49,18 +48,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nBk-eg-ZJR">
                                 <rect key="frame" x="200" y="15" width="95" height="169.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-o0-w8I">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-B0-Ywn">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="38.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="95" id="0Dr-q0-iJP"/>
+                                            <constraint firstAttribute="width" constant="95" id="mxr-4w-70m"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqF-B0-Ywn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-o0-w8I">
                                         <rect key="frame" x="0.0" y="43.5" width="95" height="39"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="95" id="mxr-4w-70m"/>
+                                            <constraint firstAttribute="width" constant="95" id="0Dr-q0-iJP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <nil key="highlightedColor"/>
@@ -81,7 +80,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqR-5P-n5u">
-                                <rect key="frame" x="260" y="24" width="20" height="20"/>
+                                <rect key="frame" x="260" y="67.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6r4-6T-2sz"/>
                                     <constraint firstAttribute="width" constant="20" id="RcZ-B3-qcy"/>
@@ -98,7 +97,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnL-Io-BCu">
-                                <rect key="frame" x="274" y="68" width="86" height="20"/>
+                                <rect key="frame" x="274" y="24.5" width="86" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="SJf-ct-Hmy"/>
                                     <constraint firstAttribute="height" constant="20" id="gIt-QH-8yQ"/>
@@ -146,7 +145,7 @@
                 <outlet property="detailSellPriceLabel" destination="ol8-o0-w8I" id="cYH-TB-bbc"/>
                 <outlet property="detailUpdateTimeLabel" destination="y0D-ES-lGH" id="4RC-E1-1BN"/>
             </connections>
-            <point key="canvasLocation" x="90.5" y="29"/>
+            <point key="canvasLocation" x="-76" y="21"/>
         </tableViewCell>
     </objects>
     <resources>
