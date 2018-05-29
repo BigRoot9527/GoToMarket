@@ -67,6 +67,9 @@ class ChartCollectionViewCell: UICollectionViewCell {
         
         let fromDate = dataPoints.first ?? ""
         let toDate = dataPoints.last ?? ""
+        
+        chartView.chartDescription?.font = UIFont.systemFont(ofSize: 10)
+        chartView.chartDescription?.position = CGPoint(x: chartView.frame.origin.x + chartView.frame.width - 25, y: chartView.frame.origin.y + chartView.frame.height - 18)
         chartView.chartDescription?.text =
             GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
     }

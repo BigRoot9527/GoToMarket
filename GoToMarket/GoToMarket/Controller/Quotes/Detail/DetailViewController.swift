@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
     let cropManager = CropManager()
     var fetchedItem: CropDatas?
     let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
-    var wikiText: String = "Wiki說明載入中...."
+    var wikiText: String = "Wiki 說明載入中...."
     var showInKg: Bool = true
     var introIndexPath: IndexPath?
     var quoteIndexPath: IndexPath?
@@ -90,7 +90,7 @@ class DetailViewController: UIViewController {
         
         wikiManager.getWikiText(fromItemName: itemData.cropName, success: { [weak self] (text) in
             
-            var outputText = text ?? "查無Wiki資料"
+            var outputText = text ?? "查無 Wiki 資料"
             
             //TODO: get Real WIKI api and get correct corn text
             if itemData.cropName.trimed() == "玉米" {
