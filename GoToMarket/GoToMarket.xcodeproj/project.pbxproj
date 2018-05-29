@@ -86,6 +86,7 @@
 		32B1E3B520B1814200336B09 /* AnimationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3B420B1814200336B09 /* AnimationConstant.swift */; };
 		32B1E3B820B1AB1B00336B09 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */; };
 		32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */; };
+		32B54CBC20BD2825006AAD4A /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
 		32BB0C572099E638001ECF52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C562099E638001ECF52 /* ViewController.swift */; };
@@ -190,6 +191,7 @@
 		32B1E3B420B1814200336B09 /* AnimationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstant.swift; sourceTree = "<group>"; };
 		32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
+		32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
 		32BB0C562099E638001ECF52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 			children = (
 				32B1E3B720B1AB1B00336B09 /* SettingViewController.swift */,
 				321321D220BBC4F20031ADE1 /* AboutViewController.swift */,
+				32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				32B1E3B520B1814200336B09 /* AnimationConstant.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */,
+				32B54CBC20BD2825006AAD4A /* SettingTableViewController.swift in Sources */,
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
 				32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */,
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,

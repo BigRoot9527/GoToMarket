@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -30,17 +29,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZr-1U-9Ny">
                                 <rect key="frame" x="50" y="100" width="275" height="487"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crop_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-jU-xo7">
-                                        <rect key="frame" x="40" y="20" width="195" height="195"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-jU-xo7">
+                                        <rect key="frame" x="50" y="30" width="175" height="175"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Rz3-jU-xo7" secondAttribute="height" multiplier="1:1" id="Ine-If-xJa"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="cropIcon"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="marketIcon"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇農產品資料來源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-Lb-3By">
-                                        <rect key="frame" x="0.0" y="222" width="275" height="31"/>
+                                        <rect key="frame" x="0.0" y="221" width="275" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="Zy5-Wz-lZa"/>
                                         </constraints>
@@ -49,7 +48,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqE-Rc-L3P">
-                                        <rect key="frame" x="14" y="257" width="246" height="30"/>
+                                        <rect key="frame" x="14" y="256" width="246" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-R3-Ddz">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="30"/>
@@ -75,13 +74,13 @@
                                         </constraints>
                                     </stackView>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="177-Gs-Xyg">
-                                        <rect key="frame" x="0.0" y="287" width="275" height="200"/>
+                                        <rect key="frame" x="0.0" y="286" width="275" height="201"/>
                                     </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="177-Gs-Xyg" secondAttribute="bottom" id="13v-BU-gow"/>
-                                    <constraint firstItem="Deg-Lb-3By" firstAttribute="top" secondItem="Rz3-jU-xo7" secondAttribute="bottom" constant="7" id="8bK-GL-Z6v"/>
+                                    <constraint firstItem="Deg-Lb-3By" firstAttribute="top" secondItem="Rz3-jU-xo7" secondAttribute="bottom" constant="16" id="8bK-GL-Z6v"/>
                                     <constraint firstItem="177-Gs-Xyg" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" id="IMn-d5-flU"/>
                                     <constraint firstAttribute="trailing" secondItem="177-Gs-Xyg" secondAttribute="trailing" id="LLF-u2-aw9"/>
                                     <constraint firstItem="Deg-Lb-3By" firstAttribute="width" secondItem="IZr-1U-9Ny" secondAttribute="width" id="PBf-0k-xAs"/>
@@ -89,8 +88,8 @@
                                     <constraint firstAttribute="trailing" secondItem="sqE-Rc-L3P" secondAttribute="trailing" constant="15" id="RY7-TT-fvM"/>
                                     <constraint firstItem="Rz3-jU-xo7" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="XzR-gD-4yh"/>
                                     <constraint firstItem="177-Gs-Xyg" firstAttribute="top" secondItem="sqE-Rc-L3P" secondAttribute="bottom" id="ftS-Ha-oUU"/>
-                                    <constraint firstItem="Rz3-jU-xo7" firstAttribute="top" secondItem="IZr-1U-9Ny" secondAttribute="top" constant="20" id="gJi-H5-bAo"/>
-                                    <constraint firstItem="Rz3-jU-xo7" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" constant="40" id="j3U-Y3-uA8"/>
+                                    <constraint firstItem="Rz3-jU-xo7" firstAttribute="top" secondItem="IZr-1U-9Ny" secondAttribute="top" constant="30" id="gJi-H5-bAo"/>
+                                    <constraint firstItem="Rz3-jU-xo7" firstAttribute="leading" secondItem="IZr-1U-9Ny" secondAttribute="leading" constant="50" id="j3U-Y3-uA8"/>
                                     <constraint firstItem="Deg-Lb-3By" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="olw-Zj-GFC"/>
                                     <constraint firstItem="sqE-Rc-L3P" firstAttribute="centerX" secondItem="IZr-1U-9Ny" secondAttribute="centerX" id="sYO-7r-9yM"/>
                                     <constraint firstItem="rBP-vc-zkk" firstAttribute="top" secondItem="Deg-Lb-3By" secondAttribute="bottom" constant="4" id="xE5-KG-3PG"/>
@@ -128,6 +127,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="crop_icon" width="512" height="512"/>
+        <image name="store_icon" width="512" height="512"/>
     </resources>
 </document>

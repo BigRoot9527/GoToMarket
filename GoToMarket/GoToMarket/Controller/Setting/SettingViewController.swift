@@ -18,25 +18,7 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let identifier = segue.identifier else { return }
-        
-        switch identifier {
-            
-        case String(describing: AboutViewController.self):
-            
-            guard let aboutVC =  segue.destination as? AboutViewController else { return }
-            
-            aboutVC.hero.isEnabled = true
-            
-            aboutVC.hero.modalAnimationType = .fade
-            
-        default:
-            
-            return
-        }
-    }
+
     
     //MARK: - IBAction
     @IBAction func didTapChangeCropButton(_ sender: UIButton) {
