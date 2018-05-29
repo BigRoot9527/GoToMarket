@@ -55,6 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
                         <barButtonItem key="leftBarButtonItem" image="filter_icon" id="gpt-5K-jIV">
+                            <color key="tintColor" red="0.40000000000000002" green="0.62745098040000002" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
                             </connections>

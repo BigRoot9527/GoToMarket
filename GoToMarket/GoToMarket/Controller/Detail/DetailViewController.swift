@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SDWebImage
+import SwiftMessages
 
 class DetailViewController: UIViewController {
 
@@ -22,15 +23,29 @@ class DetailViewController: UIViewController {
     var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
     
-    let wikiManager = WikiManager()
-    let cropManager = CropManager()
-    var fetchedItem: CropDatas?
-    let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
-    var wikiText: String = "Wiki 說明載入中...."
-    var showInKg: Bool = true
-    var introIndexPath: IndexPath?
-    var quoteIndexPath: IndexPath?
-    //TODO: another collection view to let user know that there's two kinds of chart
+    private let wikiManager = WikiManager()
+    private let cropManager = CropManager()
+    private var fetchedItem: CropDatas?
+    private let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
+    private var wikiText: String = "Wiki 說明載入中...."
+    private var showInKg: Bool = true
+    private var introIndexPath: IndexPath?
+    private var quoteIndexPath: IndexPath?
+    
+    //SwiftMessage
+    private let incartNoticeView = MessageView.viewFromNib(layout: .cardView)
+    private var messageConfig = SwiftMessages.Config()
+    private var isAddingCart: Bool? {
+        
+        didSet {
+            guard let bool = isAddingCart else { return }
+            incartMessageText = bool ? "已加入待購清單"  : "已從清單中移除"
+            incartImage = bool ? #imageLiteral(resourceName: "buy_icon") : #imageLiteral(resourceName: "delete_icon")
+            setChangingProps()
+        }
+    }
+    private var incartMessageText: String = ""
+    private var incartImage: UIImage = UIImage()
     
     
     //MARK: LifeCycle
@@ -42,6 +57,7 @@ class DetailViewController: UIViewController {
         registerCells()
         fetchItem()
         loadWikiData()
+        setupIncartNoticeView()
         
     }
 
@@ -111,8 +127,31 @@ class DetailViewController: UIViewController {
         }
     }
     
+    //MARK: - SwiftMessage
+    private func setupIncartNoticeView() {
+        
+        incartNoticeView.configureTheme(.info, iconStyle: .default)
+        incartNoticeView.configureBackgroundView(width: 220)
+        incartNoticeView.configureIcon(withSize: CGSize(width: 40, height: 40), contentMode: .scaleAspectFit)
+        incartNoticeView.button?.isHidden = true
+        incartNoticeView.titleLabel?.isHidden = true
+        incartNoticeView.alpha = 0.85
+ 
+        messageConfig.duration = .seconds(seconds: 2)
+        messageConfig.presentationStyle = .bottom
+        messageConfig.ignoreDuplicates = false
     
-    //MARK: IBAction
+        setChangingProps()
+    }
+    
+    private func setChangingProps() {
+        
+        incartNoticeView.configureContent(body: incartMessageText)
+        incartNoticeView.configureTheme(backgroundColor: UIColor.gray, foregroundColor: UIColor.white, iconImage: incartImage, iconText: nil)
+    }
+    
+    
+    //MARK: - IBAction
     @IBAction func didTabCloseButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -152,6 +191,8 @@ extension DetailViewController: UITableViewDataSource {
             cell.detailNameLabel.text = crop.cropName
             
             cell.isInCartInput = crop.note?.isInCart
+            
+            isAddingCart = crop.note?.isInCart
             
             return cell
             
@@ -257,9 +298,14 @@ extension DetailViewController: UITableViewDelegate {
 extension DetailViewController: DetailTableViewCellDelegate {
     
     func buyingButtonTapped(sender: UIButton) {
-        //TODO: message for user to know adding succeed
         guard let callBack = didTapBuyingCallBack else { return }
         callBack(sender.isSelected)
+        
+        //SwiftMessage
+        isAddingCart = sender.isSelected
+        SwiftMessages.hide()
+        SwiftMessages.show(config: messageConfig, view: incartNoticeView)
+        
     }
     
     func changeWeightButtonTapped(sender: UISegmentedControl, fromCell: DetailQuotesTableViewCell) {
