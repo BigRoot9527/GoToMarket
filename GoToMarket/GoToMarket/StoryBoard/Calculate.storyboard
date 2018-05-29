@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F8h-Bx-Q8O">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,23 +16,23 @@
             <objects>
                 <viewController id="F8h-Bx-Q8O" customClass="CalculateViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5gR-Nt-iiI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lli-u6-Yny">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cyN-sZ-FtJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9a-vE-Bln">
-                                <rect key="frame" x="14" y="29" width="292" height="494"/>
+                                <rect key="frame" x="14" y="151.33333333333334" width="347" height="488.66666666666663"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eLA-1x-YEP">
-                                <rect key="frame" x="134.5" y="344.5" width="150" height="30"/>
+                                <rect key="frame" x="161.66666666666666" y="461.66666666666669" width="149.99999999999997" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="NjO-6w-0rp"/>
                                 </constraints>
@@ -41,13 +41,13 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-c2-A1N">
-                                <rect key="frame" x="134.5" y="385.5" width="150" height="30"/>
+                                <rect key="frame" x="161.66666666666666" y="502.66666666666674" width="149.99999999999997" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-aO-HcW">
-                                <rect key="frame" x="134.5" y="427.5" width="150" height="29"/>
+                                <rect key="frame" x="161.66666666666666" y="544.66666666666663" width="149.99999999999997" height="29"/>
                                 <segments>
                                     <segment title="公斤"/>
                                     <segment title="台斤"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="7pe-XR-zk3">
-                                <rect key="frame" x="30" y="45" width="30" height="30"/>
+                                <rect key="frame" x="30" y="167.33333333333334" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="WEK-ny-wfw"/>
                                     <constraint firstAttribute="width" secondItem="7pe-XR-zk3" secondAttribute="height" multiplier="1:1" id="s65-Iq-r6s"/>
@@ -69,43 +69,46 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="『 估計零售價 』" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgm-tf-uRa">
-                                <rect key="frame" x="91" y="56" width="138" height="25.5"/>
+                                <rect key="frame" x="118.66666666666669" y="178.66666666666666" width="138" height="25.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="DZK-rv-5gX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="『 倍率 』" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-so-6nR">
-                                <rect key="frame" x="118" y="135" width="84" height="25.5"/>
+                                <rect key="frame" x="145.66666666666666" y="257.33333333333331" width="84" height="25.333333333333314"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="『 出門買菜 』" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9E-0A-RmL">
-                                <rect key="frame" x="100" y="214.5" width="120" height="25.5"/>
+                                <rect key="frame" x="127.66666666666669" y="336.66666666666669" width="120" height="25.333333333333314"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="將會記錄每次實際價格，並自動計算最接近的倍率。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-dz-NxZ">
-                                <rect key="frame" x="30" y="242" width="260" height="42"/>
+                                <rect key="frame" x="57.666666666666657" y="364" width="287.33333333333337" height="42"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預設為 2.0，各項產品均分開計算，可自行輸入實際購買價格。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2U-nu-2Kh">
-                                <rect key="frame" x="30" y="162.5" width="260" height="42"/>
+                                <rect key="frame" x="57.666666666666657" y="284.66666666666669" width="287.33333333333337" height="42"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="係依農委會開放資料之平均行情批發價均價，乘以特定倍率而得。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT7-UX-XHc">
-                                <rect key="frame" x="30" y="83" width="260" height="42"/>
+                                <rect key="frame" x="57.666666666666657" y="205.33333333333334" width="287.33333333333337" height="42"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIE-Mu-WZ1">
-                                <rect key="frame" x="44.5" y="472" width="85" height="35"/>
+                                <rect key="frame" x="71.666666666666671" y="589" width="85.000000000000014" height="35"/>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.81960784313725488" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="bJn-0x-QCc"/>
@@ -118,7 +121,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAE-Y6-pVO">
-                                <rect key="frame" x="199.5" y="472.5" width="85" height="35"/>
+                                <rect key="frame" x="226.66666666666663" y="589.66666666666663" width="85" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,7 +131,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-hd-T6M">
-                                <rect key="frame" x="44.5" y="308" width="60" height="144"/>
+                                <rect key="frame" x="71.666666666666671" y="425" width="60.000000000000014" height="144"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前倍率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuS-Qj-elu">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="21"/>
@@ -157,13 +160,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGS-KE-cOf">
-                                <rect key="frame" x="134.5" y="301.5" width="52" height="35"/>
+                                <rect key="frame" x="161.66666666666666" y="418.66666666666669" width="52" height="35"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMg-vw-0EJ">
-                                <rect key="frame" x="204.5" y="303.5" width="31" height="30"/>
+                                <rect key="frame" x="231.66666666666666" y="420.66666666666669" width="30.999999999999972" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" red="0.95264911167512689" green="0.24660390299152832" blue="0.27280933992019696" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="重設"/>
@@ -175,7 +178,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZKZ-so-6nR" firstAttribute="centerX" secondItem="5gR-Nt-iiI" secondAttribute="centerX" id="0mJ-MS-Yul"/>
-                            <constraint firstItem="oT7-UX-XHc" firstAttribute="leading" secondItem="A9a-vE-Bln" secondAttribute="leading" constant="16" id="14e-tB-mly"/>
                             <constraint firstItem="CIE-Mu-WZ1" firstAttribute="bottom" secondItem="A9a-vE-Bln" secondAttribute="bottom" constant="-16" id="1l2-ie-6JT"/>
                             <constraint firstItem="OBA-dz-NxZ" firstAttribute="top" secondItem="k9E-0A-RmL" secondAttribute="bottom" constant="2" id="28B-ra-8hD"/>
                             <constraint firstItem="oT7-UX-XHc" firstAttribute="top" secondItem="7pe-XR-zk3" secondAttribute="bottom" constant="8" id="3Ij-15-0o2"/>
@@ -185,6 +187,7 @@
                             <constraint firstItem="KAE-Y6-pVO" firstAttribute="height" secondItem="CIE-Mu-WZ1" secondAttribute="height" id="6S2-06-vfG"/>
                             <constraint firstItem="KAE-Y6-pVO" firstAttribute="trailing" secondItem="mI9-aO-HcW" secondAttribute="trailing" id="8E8-N8-CNS"/>
                             <constraint firstAttribute="top" secondItem="Lli-u6-Yny" secondAttribute="top" id="8hT-Ab-Ig8"/>
+                            <constraint firstItem="oT7-UX-XHc" firstAttribute="leading" secondItem="ZKZ-so-6nR" secondAttribute="trailing" constant="-172" id="B7V-OF-fcD"/>
                             <constraint firstItem="OBA-dz-NxZ" firstAttribute="leading" secondItem="P2U-nu-2Kh" secondAttribute="leading" id="BaY-s7-tiG"/>
                             <constraint firstItem="mI9-aO-HcW" firstAttribute="centerY" secondItem="VRf-4K-FP0" secondAttribute="centerY" id="D52-F8-Nre"/>
                             <constraint firstItem="eLA-1x-YEP" firstAttribute="centerY" secondItem="oqy-FE-iN7" secondAttribute="centerY" id="DQ7-bH-gMp"/>
@@ -192,7 +195,6 @@
                             <constraint firstItem="ZMg-vw-0EJ" firstAttribute="centerY" secondItem="qGS-KE-cOf" secondAttribute="centerY" id="FJ5-rH-kSW"/>
                             <constraint firstItem="A9a-vE-Bln" firstAttribute="trailing" secondItem="oT7-UX-XHc" secondAttribute="trailing" constant="16" id="FJn-hK-a66"/>
                             <constraint firstItem="7pe-XR-zk3" firstAttribute="leading" secondItem="OjS-Gu-rlH" secondAttribute="leading" constant="30" id="G0v-dt-nHg"/>
-                            <constraint firstItem="oT7-UX-XHc" firstAttribute="leading" secondItem="7pe-XR-zk3" secondAttribute="leading" id="GL8-za-dh7"/>
                             <constraint firstItem="P2U-nu-2Kh" firstAttribute="trailing" secondItem="oT7-UX-XHc" secondAttribute="trailing" id="Hd3-Yd-3Ol"/>
                             <constraint firstItem="k9E-0A-RmL" firstAttribute="centerX" secondItem="5gR-Nt-iiI" secondAttribute="centerX" id="ICJ-jL-Fwf"/>
                             <constraint firstItem="ZKZ-so-6nR" firstAttribute="top" secondItem="oT7-UX-XHc" secondAttribute="bottom" constant="10" id="Jo4-Dl-yIQ"/>
@@ -214,12 +216,15 @@
                             <constraint firstItem="OBA-dz-NxZ" firstAttribute="bottom" secondItem="5gR-Nt-iiI" secondAttribute="centerY" id="fOp-IQ-BYT"/>
                             <constraint firstItem="OjS-Gu-rlH" firstAttribute="trailing" secondItem="Lli-u6-Yny" secondAttribute="trailing" id="ffL-b4-tns"/>
                             <constraint firstItem="OBA-dz-NxZ" firstAttribute="trailing" secondItem="P2U-nu-2Kh" secondAttribute="trailing" id="gmF-ZL-6A5"/>
+                            <constraint firstItem="A9a-vE-Bln" firstAttribute="leading" secondItem="7pe-XR-zk3" secondAttribute="trailing" constant="-46" id="l58-Tb-kA1"/>
                             <constraint firstItem="OjS-Gu-rlH" firstAttribute="leading" secondItem="Lli-u6-Yny" secondAttribute="leading" id="ntg-RJ-cfn"/>
                             <constraint firstItem="A9a-vE-Bln" firstAttribute="top" secondItem="7pe-XR-zk3" secondAttribute="top" constant="-16" id="pvq-x9-hSl"/>
+                            <constraint firstItem="oT7-UX-XHc" firstAttribute="leading" secondItem="Bgm-tf-uRa" secondAttribute="trailing" constant="-199" id="thA-7C-fcg"/>
                             <constraint firstItem="YrV-c2-A1N" firstAttribute="centerY" secondItem="Yme-Q4-LGB" secondAttribute="centerY" id="wCF-ng-1TN"/>
                             <constraint firstItem="CIE-Mu-WZ1" firstAttribute="top" secondItem="VRf-4K-FP0" secondAttribute="bottom" constant="20" id="y8V-Uq-qLV"/>
                             <constraint firstItem="KAE-Y6-pVO" firstAttribute="centerY" secondItem="CIE-Mu-WZ1" secondAttribute="centerY" id="zBs-V3-1BE"/>
                             <constraint firstAttribute="bottom" secondItem="Lli-u6-Yny" secondAttribute="bottom" id="zSA-YO-PW0"/>
+                            <constraint firstItem="oT7-UX-XHc" firstAttribute="leading" secondItem="Bgm-tf-uRa" secondAttribute="trailing" constant="-199" id="zTH-Tl-N8b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OjS-Gu-rlH"/>
                     </view>

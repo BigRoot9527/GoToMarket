@@ -12,6 +12,8 @@ import Charts
 class ChartCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var dataPeriodLabel: UILabel!
+    @IBOutlet weak var averagePriceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,22 +37,15 @@ class ChartCollectionViewCell: UICollectionViewCell {
             values: dataEntries,
             label: period.getLineChartLabelText())
         
-        
         lineChartDataSet.setColor(GoToMarketColor.newLightBlueGreen.color())
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled = false
         lineChartDataSet.lineWidth = 3.0
         
-        let label = GoToMarketConstant.lineCharLimitLineNamePrefix
-            + String(format:"%.2f", average)
-            + GoToMarketConstant.lineCharLimitLineNamePostfix
-        let averageLine = ChartLimitLine(limit: average, label: label)
+        let averageLine = ChartLimitLine(limit: average)
         averageLine.lineWidth = 1.5
         averageLine.lineDashLengths = [5,5]
-        averageLine.labelPosition = .rightTop
-        averageLine.valueFont = .systemFont(ofSize: 12)
-        averageLine.valueTextColor = GoToMarketColor.newOrange.color()
         averageLine.lineColor = GoToMarketColor.newOrange.color()
 
         var dataSets = [IChartDataSet]()
@@ -63,22 +58,27 @@ class ChartCollectionViewCell: UICollectionViewCell {
         
         let xAxis = chartView.xAxis
         xAxis.drawLabelsEnabled = false
-//        xAxis.drawAxisLineEnabled = false
         xAxis.drawGridLinesEnabled = false
         
         let fromDate = dataPoints.first ?? ""
         let toDate = dataPoints.last ?? ""
         
-        chartView.chartDescription?.font = UIFont.systemFont(ofSize: 10)
-        chartView.chartDescription?.text =
-            GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
+        let label = GoToMarketConstant.lineCharLimitLineNamePrefix
+            + String(format:"%.2f", average)
+            + GoToMarketConstant.lineCharLimitLineNamePostfix
+        
+        chartView.chartDescription = nil
+        
+        dataPeriodLabel.text = GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
+        averagePriceLabel.text = label
+        averagePriceLabel.textColor = GoToMarketColor.newOrange.color()
+        
+        
     }
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        chartView.chartDescription?.position = CGPoint(x: chartView.frame.width, y: chartView.frame.height - 18)
         
     }
 }

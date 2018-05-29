@@ -50,9 +50,6 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
             period: loadingHistoryType[indexPath.row]
         )
         
-        let colorArray = [UIColor.green, UIColor.blue]
-        cell.backgroundColor = colorArray[indexPath.row]
-        
         return cell
         
     }

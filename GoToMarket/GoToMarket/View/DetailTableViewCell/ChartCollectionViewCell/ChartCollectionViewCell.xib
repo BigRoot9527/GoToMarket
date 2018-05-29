@@ -20,7 +20,29 @@
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-RT-otD" customClass="LineChartView" customModule="Charts">
                         <rect key="frame" x="8" y="0.0" width="359" height="210"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-Eu-8Af">
+                                <rect key="frame" x="0.0" y="205" width="354" height="0.0"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzk-oY-tGj">
+                                <rect key="frame" x="0.0" y="10" width="329" height="0.0"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0093617555427757404" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nzk-oY-tGj" firstAttribute="top" secondItem="9Nj-RT-otD" secondAttribute="top" constant="10" id="Es3-4Q-3Ar"/>
+                            <constraint firstItem="kDf-Eu-8Af" firstAttribute="leading" secondItem="9Nj-RT-otD" secondAttribute="leading" id="EvK-mB-VPG"/>
+                            <constraint firstItem="Nzk-oY-tGj" firstAttribute="leading" secondItem="9Nj-RT-otD" secondAttribute="leading" id="e14-qQ-YXN"/>
+                            <constraint firstAttribute="trailing" secondItem="Nzk-oY-tGj" secondAttribute="trailing" constant="30" id="lgf-k8-SJg"/>
+                            <constraint firstAttribute="trailing" secondItem="kDf-Eu-8Af" secondAttribute="trailing" constant="5" id="qao-Y0-FK2"/>
+                            <constraint firstAttribute="bottom" secondItem="kDf-Eu-8Af" secondAttribute="bottom" constant="5" id="qzW-bP-qZd"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -33,7 +55,9 @@
             <viewLayoutGuide key="safeArea" id="eA0-Qo-D0P"/>
             <size key="customSize" width="310" height="272"/>
             <connections>
+                <outlet property="averagePriceLabel" destination="Nzk-oY-tGj" id="tth-Nm-7qU"/>
                 <outlet property="chartView" destination="9Nj-RT-otD" id="niZ-qg-PTn"/>
+                <outlet property="dataPeriodLabel" destination="kDf-Eu-8Af" id="YZm-9x-Ufm"/>
             </connections>
             <point key="canvasLocation" x="-168.5" y="-1"/>
         </collectionViewCell>

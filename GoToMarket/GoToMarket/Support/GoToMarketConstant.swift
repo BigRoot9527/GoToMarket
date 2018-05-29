@@ -25,9 +25,9 @@ struct GoToMarketConstant {
     
     static let IQKeyboardDoneButtonText: String = "輸入"
     
-    static let oneMonthChartLabelName: String = "30 日批發均價"
+    static let oneMonthChartLabelName: String = "近一月內批發均價"
     
-    static let oneSeasonChartLabelName: String = "90 日批發均價"
+    static let oneSeasonChartLabelName: String = "近三月內批發均價"
     
     static let lineCharLimitLineNamePrefix: String = "平均："
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -28,7 +28,7 @@
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="估計零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="估計零售價   ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asX-U9-upV">
                                         <rect key="frame" x="0.0" y="43.5" width="140" height="39"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                         <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqR-5P-n5u">
-                                <rect key="frame" x="245" y="67.5" width="20" height="20"/>
+                                <rect key="frame" x="125" y="67.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6r4-6T-2sz"/>
                                     <constraint firstAttribute="width" constant="20" id="RcZ-B3-qcy"/>
@@ -97,7 +97,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="piL-mv-Twk">
-                                <rect key="frame" x="276" y="8" width="91" height="29"/>
+                                <rect key="frame" x="276" y="12" width="91" height="29"/>
                                 <segments>
                                     <segment title="公斤" width="45"/>
                                     <segment title="台斤" width="45"/>
@@ -110,15 +110,15 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="piL-mv-Twk" secondAttribute="trailing" constant="8" id="0NO-zL-i8s"/>
-                            <constraint firstItem="piL-mv-Twk" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="8" id="1Ta-yh-CjC"/>
+                            <constraint firstItem="piL-mv-Twk" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="12" id="1Ta-yh-CjC"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="5aY-Au-T37"/>
-                            <constraint firstItem="xqR-5P-n5u" firstAttribute="centerY" secondItem="ol8-o0-w8I" secondAttribute="centerY" id="B7M-g1-P96"/>
                             <constraint firstAttribute="bottom" secondItem="nBk-eg-ZJR" secondAttribute="bottom" constant="15" id="CUf-dn-1H1"/>
                             <constraint firstAttribute="bottom" secondItem="k7q-AH-Mcg" secondAttribute="bottom" constant="15" id="CWc-Lw-yoJ"/>
+                            <constraint firstItem="xqR-5P-n5u" firstAttribute="centerY" secondItem="asX-U9-upV" secondAttribute="centerY" id="OpY-5Q-NwR"/>
                             <constraint firstItem="k7q-AH-Mcg" firstAttribute="leading" secondItem="yeT-yR-bCD" secondAttribute="leading" constant="20" id="WZu-uz-2z1"/>
-                            <constraint firstItem="xqR-5P-n5u" firstAttribute="leading" secondItem="ol8-o0-w8I" secondAttribute="trailing" constant="-35" id="eNO-5d-bZb"/>
                             <constraint firstItem="nBk-eg-ZJR" firstAttribute="top" secondItem="yeT-yR-bCD" secondAttribute="top" constant="15" id="laK-BP-KBC"/>
                             <constraint firstItem="nBk-eg-ZJR" firstAttribute="leading" secondItem="k7q-AH-Mcg" secondAttribute="trailing" constant="25" id="rDz-gZ-4w8"/>
+                            <constraint firstItem="xqR-5P-n5u" firstAttribute="leading" secondItem="asX-U9-upV" secondAttribute="trailing" constant="-35" id="sSC-zU-Tb5"/>
                         </constraints>
                     </view>
                 </subviews>
