@@ -28,7 +28,7 @@ class SettingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -37,7 +37,7 @@ class SettingTableViewController: UITableViewController {
         
         let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 0
         
-        let calculatedHeight = (screenHeight - navHeight - tabBarHeight) / 3 - 10
+        let calculatedHeight = (screenHeight - navHeight - tabBarHeight) / 3.2 - 20
 
         return calculatedHeight > 150 ? calculatedHeight : 150
     }
@@ -57,6 +57,11 @@ class SettingTableViewController: UITableViewController {
         if indexPath.row == 2 {
             
             sendEmail()
+        }
+        
+        if indexPath.row == 3 {
+            
+            rateOnTheAppStore()
         }
     }
     

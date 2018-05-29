@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,28 +15,29 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Sm5-p6-TqX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="He2-a6-ETc">
-                                <rect key="frame" x="175" y="588" width="180" height="180"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="He2-a6-ETc">
+                                <rect key="frame" x="70" y="144" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="Qak-MN-RrK"/>
                                     <constraint firstAttribute="width" secondItem="He2-a6-ETc" secondAttribute="height" multiplier="1:1" id="cRT-9p-5YY"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出 門 買 菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAV-21-e0P">
+                                <rect key="frame" x="73" y="332" width="175" height="49"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="35"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="C2n-mG-gl0"/>
-                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="GZu-28-pPJ"/>
-                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PYf-Pu-9Zf"/>
-                            <constraint firstItem="Sm5-p6-TqX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UuJ-Gp-UEj"/>
-                            <constraint firstItem="He2-a6-ETc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="a4t-5I-H0f"/>
-                            <constraint firstItem="He2-a6-ETc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-10" id="bfN-QL-Nht"/>
+                            <constraint firstItem="PAV-21-e0P" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WlD-d8-WMR"/>
+                            <constraint firstItem="He2-a6-ETc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-60" id="bbD-NP-HEf"/>
+                            <constraint firstItem="PAV-21-e0P" firstAttribute="top" secondItem="He2-a6-ETc" secondAttribute="bottom" constant="8" id="bls-0t-cpL"/>
+                            <constraint firstItem="He2-a6-ETc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qQq-uW-b4j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -48,6 +49,5 @@
     </scenes>
     <resources>
         <image name="GotoMarket_icon" width="809" height="809"/>
-        <image name="background" width="1200" height="1366"/>
     </resources>
 </document>
