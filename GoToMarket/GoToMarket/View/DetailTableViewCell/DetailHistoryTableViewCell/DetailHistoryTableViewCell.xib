@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,17 +11,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="289" id="VLm-OB-tQs" customClass="DetailHistoryTableViewCell" customModule="GoToMarket" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VLm-OB-tQs" id="Gbs-V8-lm8">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="289.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJF-Vq-jM9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="289.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歷史均價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWG-Dd-Tjq">
-                                <rect key="frame" x="20" y="10" width="96" height="34.5"/>
+                                <rect key="frame" x="20" y="10" width="96" height="44.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="arw-PD-nt8"/>
                                 </constraints>
@@ -30,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwx-qL-inI">
-                                <rect key="frame" x="0.0" y="54.5" width="375" height="220"/>
+                                <rect key="frame" x="0.0" y="64.5" width="375" height="220"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="Fqe-EC-sVY"/>

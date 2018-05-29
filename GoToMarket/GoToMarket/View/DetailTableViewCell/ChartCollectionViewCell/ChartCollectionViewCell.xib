@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="U7Q-j5-ABH" customClass="ChartCollectionViewCell" customModule="GoToMarket" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-RT-otD" customClass="LineChartView" customModule="Charts">
-                        <rect key="frame" x="8" y="0.0" width="359" height="231"/>
+                        <rect key="frame" x="8" y="0.0" width="359" height="210"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                 </subviews>
@@ -36,7 +35,7 @@
             <connections>
                 <outlet property="chartView" destination="9Nj-RT-otD" id="niZ-qg-PTn"/>
             </connections>
-            <point key="canvasLocation" x="-168.5" y="-0.5"/>
+            <point key="canvasLocation" x="-168.5" y="-1"/>
         </collectionViewCell>
     </objects>
 </document>

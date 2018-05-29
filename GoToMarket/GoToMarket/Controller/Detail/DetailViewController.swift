@@ -209,7 +209,7 @@ extension DetailViewController: UITableViewDataSource {
     private func addChartVC(toCell cell: UITableViewCell, ofItemCode code: String) {
         
         guard
-            let chartVC = storyboard?.instantiateViewController(withIdentifier: String(describing: ChartViewController.self)) as? ChartViewController,
+            let chartVC = storyboard?.instantiateViewController(withIdentifier: String(describing: ChartCollectionViewController.self)) as? ChartCollectionViewController,
             let historyCell = cell as? DetailHistoryTableViewCell else { return }
         
         addChildViewController(chartVC)

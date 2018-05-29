@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="1668" y="250.52473763118442"/>
         </scene>
-        <!--Chart View Controller-->
+        <!--Chart Collection View Controller-->
         <scene sceneID="fhU-j1-URo">
             <objects>
-                <viewController storyboardIdentifier="ChartViewController" id="Pnq-Jd-UC4" customClass="ChartViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartCollectionViewController" id="Pnq-Jd-UC4" customClass="ChartCollectionViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OmF-4p-RuH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUh-TC-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2376.8000000000002" y="55.322338830584712"/>
+            <point key="canvasLocation" x="2326" y="345"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I8C-g7-v2A">

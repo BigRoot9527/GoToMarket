@@ -10,11 +10,10 @@ import UIKit
 import Charts
 import Hero
 
-class ChartViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChartCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     let manager = CropManager()
     let dispatchGroup = DispatchGroup()
-    let ChartViewFlowLayout = UICollectionViewFlowLayout()
     
     var historyDateArray: [[String]?] = [nil,nil]
     var histroyQuoteArray: [[Double]?] = [nil,nil]
@@ -51,6 +50,9 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
             period: loadingHistoryType[indexPath.row]
         )
         
+        let colorArray = [UIColor.green, UIColor.blue]
+        cell.backgroundColor = colorArray[indexPath.row]
+        
         return cell
         
     }
@@ -67,11 +69,14 @@ class ChartViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     private func setCollectionViewLayout() {
         
+        let chartViewFlowLayout = UICollectionViewFlowLayout()
+        
         let fullScreenSize = UIScreen.main.bounds.size
-        ChartViewFlowLayout.itemSize = CGSize(width: fullScreenSize.width - 7, height: 210.0)
-        ChartViewFlowLayout.minimumInteritemSpacing = (fullScreenSize.width) * 0 / 375
-        ChartViewFlowLayout.scrollDirection = .horizontal
-        chartCollectionView.setCollectionViewLayout(ChartViewFlowLayout, animated: false)
+        chartViewFlowLayout.itemSize = CGSize(width: fullScreenSize.width - 10, height: 210.0)
+        chartViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
+        chartViewFlowLayout.minimumInteritemSpacing = (fullScreenSize.width) * 0 / 375
+        chartViewFlowLayout.scrollDirection = .horizontal
+        chartCollectionView.setCollectionViewLayout(chartViewFlowLayout, animated: false)
         chartCollectionView.isDirectionalLockEnabled = true
         chartCollectionView.isPagingEnabled = true
         chartCollectionView.alwaysBounceVertical = false

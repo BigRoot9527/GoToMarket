@@ -21,15 +21,15 @@
                         <sections>
                             <tableViewSection id="7Ex-xA-OB6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="180" id="F9p-Mh-1Yz">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="F9p-Mh-1Yz">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F9p-Mh-1Yz" id="GuI-0v-fpR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="U1Q-bH-AJ4">
-                                                    <rect key="frame" x="147" y="50" width="80" height="80"/>
+                                                    <rect key="frame" x="147.66666666666666" y="35" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="24v-gN-35Z"/>
                                                     </constraints>
@@ -39,7 +39,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="關於『 出門買菜 』" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSW-eS-yVz">
-                                                    <rect key="frame" x="109" y="140" width="156" height="26"/>
+                                                    <rect key="frame" x="109.66666666666669" y="125" width="156" height="26"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -56,14 +56,14 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="222" id="aUA-bV-jMG">
-                                        <rect key="frame" x="0.0" y="180" width="375" height="222"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="222"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aUA-bV-jMG" id="Mxr-HS-9KT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pZR-tA-LAW">
-                                                    <rect key="frame" x="147" y="71" width="80" height="80"/>
+                                                    <rect key="frame" x="147.66666666666666" y="71" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="RO9-95-F0B"/>
                                                     </constraints>
@@ -89,7 +89,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="246" id="pCO-oE-bmK">
-                                        <rect key="frame" x="0.0" y="402" width="375" height="246"/>
+                                        <rect key="frame" x="0.0" y="372" width="375" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pCO-oE-bmK" id="vwo-iO-Dv9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="246"/>
@@ -149,7 +149,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GotoMarket_icon" translatesAutoresizingMaskIntoConstraints="NO" id="SCf-8X-kf9">
                                 <rect key="frame" x="87.666666666666686" y="141" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="q10-x8-dI2"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="kdh-vB-cm7"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -157,13 +157,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜價資料來源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlP-B5-kvB">
-                                <rect key="frame" x="249" y="520" width="84" height="20"/>
+                                <rect key="frame" x="249" y="515" width="84" height="20"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wiki 資料來源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bx2-2b-f9f">
-                                <rect key="frame" x="243.66666666666666" y="585" width="89.333333333333343" height="20"/>
+                                <rect key="frame" x="243.66666666666666" y="580" width="89.333333333333343" height="20"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -181,31 +181,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ting - Wei, Hsu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irA-mQ-La0">
-                                <rect key="frame" x="204" y="476" width="129" height="24"/>
+                                <rect key="frame" x="204" y="471" width="129" height="24"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行政院農業委員會資料開放平台" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xce-DT-uOr">
-                                <rect key="frame" x="109" y="540" width="224" height="23"/>
+                                <rect key="frame" x="109" y="535" width="224" height="23"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwM-Ou-2fC">
-                                <rect key="frame" x="305" y="456" width="28" height="20"/>
+                                <rect key="frame" x="305" y="451" width="28" height="20"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台南市政府教育局 Open Wikipedia 專案" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bld-r2-beb">
-                                <rect key="frame" x="42.333333333333343" y="605" width="290.66666666666663" height="23"/>
+                                <rect key="frame" x="42" y="600" width="291" height="23"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pud-dn-eIh">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pud-dn-eIh">
+                                <rect key="frame" x="0.0" y="673" width="375" height="105"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="didTapWindowButton:" destination="HGj-Ym-qtw" eventType="touchUpInside" id="ey3-Ya-QN8"/>
@@ -224,7 +224,7 @@
                             <constraint firstItem="Bld-r2-beb" firstAttribute="top" secondItem="Bx2-2b-f9f" secondAttribute="bottom" id="F77-ij-x7Q"/>
                             <constraint firstItem="Xce-DT-uOr" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="IMH-pD-hF4"/>
                             <constraint firstItem="Bx2-2b-f9f" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="Tlx-Hp-R7E"/>
-                            <constraint firstItem="OwM-Ou-2fC" firstAttribute="centerY" secondItem="yGB-3a-WZj" secondAttribute="centerY" constant="55" id="Z75-pg-h7j"/>
+                            <constraint firstItem="OwM-Ou-2fC" firstAttribute="centerY" secondItem="yGB-3a-WZj" secondAttribute="centerY" constant="50" id="Z75-pg-h7j"/>
                             <constraint firstItem="SCf-8X-kf9" firstAttribute="width" secondItem="SCf-8X-kf9" secondAttribute="height" multiplier="1:1" id="ZqQ-4h-3fA"/>
                             <constraint firstItem="Xce-DT-uOr" firstAttribute="top" secondItem="IlP-B5-kvB" secondAttribute="bottom" id="ar9-sX-TXR"/>
                             <constraint firstItem="Pud-dn-eIh" firstAttribute="leading" secondItem="yGB-3a-WZj" secondAttribute="leading" id="bYm-sD-p5u"/>
@@ -235,6 +235,7 @@
                             <constraint firstItem="utt-1i-RHe" firstAttribute="top" secondItem="SCf-8X-kf9" secondAttribute="bottom" id="g5c-iX-2zy"/>
                             <constraint firstItem="SCf-8X-kf9" firstAttribute="centerY" secondItem="yGB-3a-WZj" secondAttribute="centerY" constant="-170" id="hKG-aT-WBi"/>
                             <constraint firstItem="Pud-dn-eIh" firstAttribute="trailing" secondItem="yGB-3a-WZj" secondAttribute="trailing" id="kpH-98-jky"/>
+                            <constraint firstItem="SCf-8X-kf9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yGB-3a-WZj" secondAttribute="top" id="qOQ-u8-VmW"/>
                             <constraint firstItem="OwM-Ou-2fC" firstAttribute="trailing" secondItem="Bld-r2-beb" secondAttribute="trailing" id="wHK-t7-iKP"/>
                             <constraint firstItem="Pud-dn-eIh" firstAttribute="bottom" secondItem="yGB-3a-WZj" secondAttribute="bottom" id="yrr-Tw-S86"/>
                         </constraints>
@@ -246,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDW-Jq-CNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953" y="155"/>
+            <point key="canvasLocation" x="1952.8" y="154.43349753694582"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AtN-Wo-Qsh">

@@ -35,6 +35,7 @@ class ChartCollectionViewCell: UICollectionViewCell {
             values: dataEntries,
             label: period.getLineChartLabelText())
         
+        
         lineChartDataSet.setColor(GoToMarketColor.newLightBlueGreen.color())
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.drawCirclesEnabled = false
@@ -63,14 +64,21 @@ class ChartCollectionViewCell: UICollectionViewCell {
         let xAxis = chartView.xAxis
         xAxis.drawLabelsEnabled = false
 //        xAxis.drawAxisLineEnabled = false
-//        xAxis.drawGridLinesEnabled = false
+        xAxis.drawGridLinesEnabled = false
         
         let fromDate = dataPoints.first ?? ""
         let toDate = dataPoints.last ?? ""
         
         chartView.chartDescription?.font = UIFont.systemFont(ofSize: 10)
-        chartView.chartDescription?.position = CGPoint(x: chartView.frame.origin.x + chartView.frame.width - 25, y: chartView.frame.origin.y + chartView.frame.height - 18)
         chartView.chartDescription?.text =
             GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        chartView.chartDescription?.position = CGPoint(x: chartView.frame.width, y: chartView.frame.height - 18)
+        
     }
 }

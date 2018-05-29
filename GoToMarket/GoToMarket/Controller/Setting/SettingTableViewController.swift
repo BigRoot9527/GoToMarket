@@ -36,8 +36,10 @@ class SettingTableViewController: UITableViewController {
         let navHeight = self.navigationController?.navigationBar.frame.size.height ?? 0
         
         let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 0
+        
+        let calculatedHeight = (screenHeight - navHeight - tabBarHeight) / 3 - 10
 
-        return (screenHeight - navHeight - tabBarHeight) / 3 - 10
+        return calculatedHeight > 150 ? calculatedHeight : 150
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

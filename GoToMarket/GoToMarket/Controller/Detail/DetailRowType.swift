@@ -25,7 +25,7 @@ enum DetailRowType {
         case .quotes:
             return 200.0
         case .history:
-            return 300.0
+            return 290
         case .empty:
             return 5.0
         }
