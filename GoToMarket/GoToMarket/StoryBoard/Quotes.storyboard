@@ -88,100 +88,6 @@
             </objects>
             <point key="canvasLocation" x="724" y="251"/>
         </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="BNw-R2-Vj4">
-            <objects>
-                <viewController storyboardIdentifier="DetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="cch-IM-OVv" customClass="DetailViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dMZ-A9-HW0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dQQ-sM-4Fd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" id="bFg-ji-Oip">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </imageView>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgT-46-gdD">
-                                <rect key="frame" x="340" y="54" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="IcF-Ob-VUq"/>
-                                    <constraint firstAttribute="width" constant="25" id="q4o-cj-UNk"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="cancel_icon"/>
-                                <connections>
-                                    <action selector="didTabCloseButton:" destination="cch-IM-OVv" eventType="touchUpInside" id="vyo-zE-FWp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ITl-0F-5vU" firstAttribute="trailing" secondItem="dQQ-sM-4Fd" secondAttribute="trailing" id="DLh-o8-Grg"/>
-                            <constraint firstItem="wgT-46-gdD" firstAttribute="trailing" secondItem="ITl-0F-5vU" secondAttribute="trailing" constant="-10" id="a2U-od-DOw"/>
-                            <constraint firstItem="dQQ-sM-4Fd" firstAttribute="leading" secondItem="ITl-0F-5vU" secondAttribute="leading" id="hez-yf-n7k"/>
-                            <constraint firstItem="ITl-0F-5vU" firstAttribute="top" secondItem="wgT-46-gdD" secondAttribute="top" constant="-10" id="mke-mB-ZBg"/>
-                            <constraint firstItem="ITl-0F-5vU" firstAttribute="bottom" secondItem="dQQ-sM-4Fd" secondAttribute="bottom" id="vIY-Tu-Hyh"/>
-                            <constraint firstItem="dQQ-sM-4Fd" firstAttribute="top" secondItem="dMZ-A9-HW0" secondAttribute="top" id="xiL-6V-b2K"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ITl-0F-5vU"/>
-                    </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="closeButton" destination="wgT-46-gdD" id="ANy-OH-8Ig"/>
-                        <outlet property="detailTableView" destination="dQQ-sM-4Fd" id="wRq-c0-l6o"/>
-                        <outlet property="detailWikiImageView" destination="bFg-ji-Oip" id="Jys-bY-1eI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6JT-zB-jmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1668" y="250.52473763118442"/>
-        </scene>
-        <!--Chart Collection View Controller-->
-        <scene sceneID="fhU-j1-URo">
-            <objects>
-                <viewController storyboardIdentifier="ChartCollectionViewController" id="Pnq-Jd-UC4" customClass="ChartCollectionViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OmF-4p-RuH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhB-Wl-ovj">
-                                <rect key="frame" x="0.0" y="44" width="375" height="143"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gah-Q6-xwu">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="BdZ-cC-Zyy" firstAttribute="bottom" secondItem="UhB-Wl-ovj" secondAttribute="bottom" id="B7P-V0-ilO"/>
-                            <constraint firstItem="UhB-Wl-ovj" firstAttribute="leading" secondItem="BdZ-cC-Zyy" secondAttribute="leading" id="EJ7-zC-woP"/>
-                            <constraint firstItem="UhB-Wl-ovj" firstAttribute="top" secondItem="BdZ-cC-Zyy" secondAttribute="top" id="GQE-ye-BVV"/>
-                            <constraint firstItem="BdZ-cC-Zyy" firstAttribute="trailing" secondItem="UhB-Wl-ovj" secondAttribute="trailing" id="UPk-Ce-kLc"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="BdZ-cC-Zyy"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="221"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="chartCollectionView" destination="UhB-Wl-ovj" id="C3w-eZ-yBb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hUh-TC-k3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2326" y="345"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="I8C-g7-v2A">
             <objects>
@@ -272,10 +178,8 @@
     <resources>
         <image name="bottom_icon" width="21" height="21"/>
         <image name="buy_icon" width="30" height="30"/>
-        <image name="cancel_icon" width="64" height="64"/>
         <image name="filter_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
-        <image name="placeholder-image" width="800" height="600"/>
         <image name="top_icon" width="21" height="21"/>
     </resources>
 </document>

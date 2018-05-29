@@ -18,6 +18,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "Quotes", bundle: nil)
     }
     
+    static func detail() -> UIStoryboard {
+        return UIStoryboard(name: "Detail", bundle: nil)
+    }
+    
     static func notes() -> UIStoryboard {
         return UIStoryboard(name: "Notes", bundle: nil)
     }

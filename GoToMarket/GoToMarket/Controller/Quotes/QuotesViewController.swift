@@ -270,7 +270,7 @@ extension QuotesViewController: UITableViewDelegate {
         
         guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
         
-        let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: DetailViewController.self)) as! DetailViewController
+        let detailVC = UIStoryboard.detail().instantiateInitialViewController()! as! DetailViewController
         
         detailVC.itemCodeInput = crop.cropCode
         
