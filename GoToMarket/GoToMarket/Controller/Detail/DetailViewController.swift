@@ -137,7 +137,7 @@ class DetailViewController: UIViewController {
         incartNoticeView.titleLabel?.isHidden = true
         incartNoticeView.alpha = 0.85
  
-        messageConfig.duration = .seconds(seconds: 2)
+        messageConfig.duration = .seconds(seconds: 1)
         messageConfig.presentationStyle = .bottom
         messageConfig.ignoreDuplicates = false
     
@@ -303,7 +303,7 @@ extension DetailViewController: DetailTableViewCellDelegate {
         
         //SwiftMessage
         isAddingCart = sender.isSelected
-        SwiftMessages.hide()
+        SwiftMessages.hideAll()
         SwiftMessages.show(config: messageConfig, view: incartNoticeView)
         
     }
