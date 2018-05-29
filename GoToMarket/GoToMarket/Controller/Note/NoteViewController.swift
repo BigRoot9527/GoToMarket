@@ -305,6 +305,23 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
         guard let noteCount = fetchedResultsController?.fetchedObjects?.count, noteCount > 0
             else { return }
         
+        showAlert(
+            alertTitle: "刪除所有清單",
+            alertMessage: "確定要一次刪除所有的待購清單嗎？",
+            destructiveButtonName: "刪除",
+            cancelButtonName: "取消",
+            destructiveCallBack: doingDeleteAll,
+            cancelCallBack: cancel)
+        
+    }
+    
+    func cancel () { return }
+    
+    func doingDeleteAll() {
+        
+        guard let noteCount = fetchedResultsController?.fetchedObjects?.count, noteCount > 0
+            else { return }
+        
         for _ in 0...noteCount - 1 {
             
             let firstIndex = IndexPath(row: 0, section: 0)
@@ -314,6 +331,21 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
     }
     
     func cleanAllButtonTapped(sender: UIButton) {
+        
+        guard
+            let noteArray = fetchedResultsController?.fetchedObjects,
+            noteArray.count > 0 else { return }
+        
+        showAlert(
+            alertTitle: "重設所有清單",
+            alertMessage: "確定要將所有清單重設為未完成，並清除預計購買量？",
+            destructiveButtonName: "重設",
+            cancelButtonName: "取消",
+            destructiveCallBack: doingCleanAll,
+            cancelCallBack: cancel)
+    }
+    
+    func doingCleanAll() {
         
         guard
             let noteArray = fetchedResultsController?.fetchedObjects,

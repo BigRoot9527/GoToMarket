@@ -88,4 +88,30 @@ extension UIViewController {
         
     }
     
+    //MARK: - Alert
+    func showAlert(
+        alertTitle: String,
+        alertMessage: String,
+        destructiveButtonName: String,
+        cancelButtonName: String,
+        destructiveCallBack: @escaping (() -> Void),
+        cancelCallBack: @escaping (() -> Void)) {
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: destructiveButtonName, style: .destructive, handler: { action in
+            
+            destructiveCallBack()
+                
+            }))
+        
+        alert.addAction(UIAlertAction(title: cancelButtonName, style: .cancel, handler: { action in
+            
+            cancelCallBack()
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
