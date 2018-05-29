@@ -219,7 +219,7 @@
                             <constraint firstItem="YrV-c2-A1N" firstAttribute="centerY" secondItem="Yme-Q4-LGB" secondAttribute="centerY" id="wCF-ng-1TN"/>
                             <constraint firstItem="CIE-Mu-WZ1" firstAttribute="top" secondItem="VRf-4K-FP0" secondAttribute="bottom" constant="20" id="y8V-Uq-qLV"/>
                             <constraint firstItem="KAE-Y6-pVO" firstAttribute="centerY" secondItem="CIE-Mu-WZ1" secondAttribute="centerY" id="zBs-V3-1BE"/>
-                            <constraint firstItem="OjS-Gu-rlH" firstAttribute="bottom" secondItem="Lli-u6-Yny" secondAttribute="bottom" id="zSA-YO-PW0"/>
+                            <constraint firstAttribute="bottom" secondItem="Lli-u6-Yny" secondAttribute="bottom" id="zSA-YO-PW0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OjS-Gu-rlH"/>
                     </view>
