@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -212,35 +211,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyK-dL-ZlZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="50"/>
                                         <state key="normal" image="buy_icon"/>
                                         <connections>
                                             <action selector="didTapSortByCartButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="6Je-47-tW4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouv-x0-hWK">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="50"/>
-                                        <state key="normal" image="abc_icon"/>
-                                        <connections>
-                                            <action selector="didTapSortByNameButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="8ON-3q-Gql"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hr-Cl-edP">
-                                        <rect key="frame" x="150" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="93.666666666666686" y="0.0" width="94" height="50"/>
                                         <state key="normal" image="money_icon"/>
                                         <connections>
                                             <action selector="didTapSortByQuoteButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="RIe-wl-egE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxZ-3H-Fp0">
-                                        <rect key="frame" x="225" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="187.66666666666666" y="0.0" width="93.666666666666657" height="50"/>
                                         <state key="normal" image="top_icon"/>
                                         <connections>
                                             <action selector="didTapScrollUpButton:" destination="Nsm-oF-SF3" eventType="touchUpInside" id="GHM-N6-jlh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drM-W8-bQ0">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="281.33333333333331" y="0.0" width="93.666666666666686" height="50"/>
                                         <color key="tintColor" red="1" green="0.47058823529999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="bottom_icon"/>
                                         <connections>
@@ -252,7 +244,6 @@
                                     <constraint firstItem="7hr-Cl-edP" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="CvJ-Km-64c"/>
                                     <constraint firstItem="KyK-dL-ZlZ" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="iF0-Qq-CZs"/>
                                     <constraint firstItem="DxZ-3H-Fp0" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="wHV-jx-dAO"/>
-                                    <constraint firstItem="ouv-x0-hWK" firstAttribute="centerY" secondItem="f55-IQ-Mjy" secondAttribute="centerY" id="wq7-I3-etx"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -269,7 +260,6 @@
                         <outlet property="scrollDownButton" destination="drM-W8-bQ0" id="JFW-Jw-i0s"/>
                         <outlet property="scrollUpButton" destination="DxZ-3H-Fp0" id="xiD-E0-C4H"/>
                         <outlet property="sortByCartButton" destination="KyK-dL-ZlZ" id="MDw-g0-GIu"/>
-                        <outlet property="sortByNameButton" destination="ouv-x0-hWK" id="b9G-n2-zSf"/>
                         <outlet property="sortByQuoteButton" destination="7hr-Cl-edP" id="shV-nP-3v8"/>
                     </connections>
                 </viewController>
@@ -279,7 +269,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="abc_icon" width="32" height="32"/>
         <image name="bottom_icon" width="21" height="21"/>
         <image name="buy_icon" width="30" height="30"/>
         <image name="cancel_icon" width="64" height="64"/>

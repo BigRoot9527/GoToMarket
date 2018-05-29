@@ -33,18 +33,7 @@ class QuoteToolBarViewController: UIViewController {
     var itemType: TaskKeys = .crop
     
     weak var delegate: QuoteToolBarViewControllertDelegate?
-    
-    private var nameButton = SortButton(
-        state: .none,
-        representAttribute: "cropName",
-        buttonImage: #imageLiteral(resourceName: "abc_icon")) {
-        
-        didSet {
-            changeTintColor()
-            getSortDescriptor()
-        }
-    }
-    
+
     private var quoteButton = SortButton(
         state: .ascending,
         representAttribute: "note.sellingPrice",
@@ -79,14 +68,12 @@ class QuoteToolBarViewController: UIViewController {
         scrollUpButton.setImage(#imageLiteral(resourceName: "top_icon"), for: .normal)
         scrollDownButton.setImage(#imageLiteral(resourceName: "bottom_icon"), for: .normal)
         sortByCartButton.setImage(cartButton.getImage(), for: .normal)
-        sortByNameButton.setImage(nameButton.getImage(), for: .normal)
         sortByQuoteButton.setImage(quoteButton.getImage(), for: .normal)
         
     }
     
     private func changeTintColor() {
         
-        sortByNameButton.tintColor = nameButton.getTintColor()
         sortByCartButton.tintColor = cartButton.getTintColor()
         sortByQuoteButton.tintColor = quoteButton.getTintColor()
     }
@@ -94,7 +81,7 @@ class QuoteToolBarViewController: UIViewController {
     private func getSortDescriptor(){
         
         //notice: sorting priority
-        let buttonArray = [cartButton, nameButton, quoteButton]
+        let buttonArray = [cartButton, quoteButton]
         
         let manager = NSSortDescriptorManager()
         
@@ -115,12 +102,7 @@ class QuoteToolBarViewController: UIViewController {
         
         delegate?.scrollButtonTapped(sender: sender, scrollToTop: false)
     }
-    
-    @IBAction func didTapSortByNameButton(_ sender: UIButton) {
-        
-        nameButton.state.next()
-    }
-    
+
     @IBAction func didTapSortByQuoteButton(_ sender: UIButton) {
         
         switch quoteButton.state {
