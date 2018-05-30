@@ -113,4 +113,20 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showNotice(
+        noticeTitle: String,
+        noticeMessage: String,
+        confirmButtonName: String,
+        confirmCallBack: @escaping (() -> Void)) {
+        
+        let notice = UIAlertController(title: noticeTitle, message: noticeMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        notice.addAction(UIAlertAction(title: confirmButtonName, style: .default, handler: { action in
+            
+            confirmCallBack()
+        }))
+        
+        self.present(notice, animated: true, completion: nil)
+    }
+    
 }
