@@ -89,9 +89,7 @@ class QuotesViewController: UIViewController {
         }
         
         refreshControl.tintColor = GoToMarketColor.newOrange.color()
-        
         refreshControl.attributedTitle = NSAttributedString(string: "繼續下拉以更新...")
-        
         refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
     }
     
@@ -218,11 +216,12 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
             
             request.sortDescriptors = sortDescriptors
             
-            if
-                let filter = filterText,
-                filter != GoToMarketConstant.emptyString
-            {
-                request.predicate = NSPredicate(format: "cropName CONTAINS %@", filter)
+            if let filter = filterText, filter != GoToMarketConstant.emptyString {
+                
+                request.predicate = NSPredicate(format: "(cropName CONTAINS %@) AND (newAveragePrice > 0)", filter)
+            } else {
+                
+                request.predicate = NSPredicate(format: "newAveragePrice > 0")
             }
             
             fetchedResultsController = NSFetchedResultsController<CropDatas>(
