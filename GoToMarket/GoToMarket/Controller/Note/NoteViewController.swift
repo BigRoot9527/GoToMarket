@@ -311,11 +311,9 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
             destructiveButtonName: "刪除",
             cancelButtonName: "取消",
             destructiveCallBack: doingDeleteAll,
-            cancelCallBack: cancel)
+            cancelCallBack: { return })
         
     }
-    
-    func cancel () { return }
     
     func doingDeleteAll() {
         
@@ -342,7 +340,7 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
             destructiveButtonName: "重設",
             cancelButtonName: "取消",
             destructiveCallBack: doingCleanAll,
-            cancelCallBack: cancel)
+            cancelCallBack: { return })
     }
     
     func doingCleanAll() {

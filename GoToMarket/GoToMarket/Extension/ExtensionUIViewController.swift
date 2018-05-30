@@ -102,7 +102,6 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: destructiveButtonName, style: .destructive, handler: { action in
             
             destructiveCallBack()
-                
             }))
         
         alert.addAction(UIAlertAction(title: cancelButtonName, style: .cancel, handler: { action in

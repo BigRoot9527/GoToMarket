@@ -152,13 +152,11 @@ class MarketSettingViewController: UIViewController {
             alertMessage: "若更換市場，所有『待購清單』及已儲存的『實際購買價』將被刪除並重設回預設值，確定要這麼做嗎？",
             destructiveButtonName: "更換並重設",
             cancelButtonName: "取消",
-            destructiveCallBack: ,
-            cancelCallBack: cancel())
-
-        initLoadingVC(ofMarket: marketString)
+            destructiveCallBack: { [weak self] in
+                self?.initLoadingVC(ofMarket: marketString)
+            },
+            cancelCallBack: { return })
     }
-    
-    private func cancel() { return }
 }
 
 //MARK: - UIPickerViewDataSource
