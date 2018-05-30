@@ -29,6 +29,9 @@ class QuotesViewController: UIViewController {
     var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     var isUpdated: Bool = false
     var filterText: String?
+    
+    //MARK: - UIRefreshControl
+    private let refreshControl = UIRefreshControl()
 
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -77,6 +80,19 @@ class QuotesViewController: UIViewController {
         quotesTableView.register(
             nibFile,
             forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
+        
+        //Setup UIRefreshControl
+        if #available(iOS 10.0, *) {
+            quotesTableView.refreshControl = refreshControl
+        } else {
+            quotesTableView.addSubview(refreshControl)
+        }
+        
+        refreshControl.tintColor = GoToMarketColor.newOrange.color()
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "繼續下拉以更新...")
+        
+        refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
     }
     
     private func setupNav() {
@@ -127,6 +143,13 @@ class QuotesViewController: UIViewController {
             
             present(loadingVC, animated: true, completion: nil)
         }
+    }
+    
+    //MARK: - UIRefreshControl method
+    @objc private func didPullTableView(_ sender: Any) {
+        
+        checkAndUpdateApi()
+        self.refreshControl.endRefreshing()
     }
     
     //MARK: - IBAction
