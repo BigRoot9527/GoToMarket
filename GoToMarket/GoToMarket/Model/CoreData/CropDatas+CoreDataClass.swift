@@ -46,6 +46,9 @@ public class CropDatas: NSManagedObject
             let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context),
             let note = fetchedQuote.note
         {
+            guard fetchedQuote.date != quoteInfo.date || fetchedQuote.newAveragePrice != quoteInfo.averagePrice else {
+                return fetchedQuote
+            }
             fetchedQuote.lastAveragePrice = fetchedQuote.newAveragePrice
             fetchedQuote.newAveragePrice = quoteInfo.averagePrice
             fetchedQuote.date = quoteInfo.date
