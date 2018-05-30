@@ -47,10 +47,10 @@ class DetailViewController: UIViewController {
     private var incartMessageText: String = ""
     private var incartImage: UIImage = UIImage()
     
-    //MARK: - hide Status Bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    //MARK: - hide Status Bar
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -63,6 +63,18 @@ class DetailViewController: UIViewController {
         loadWikiData()
         setupIncartNoticeView()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.isStatusBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.isStatusBarHidden = false
     }
 
     
