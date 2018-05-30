@@ -21,14 +21,15 @@ class QuotesViewController: UIViewController {
     @IBOutlet weak var toolBarTopToSafeAreaConstraint: NSLayoutConstraint!
     
     //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
-    let topConstant: (CGFloat, CGFloat) = ( 0.0, 50.0 )
+    private let topConstant: (CGFloat, CGFloat) = ( 0.0, 50.0 )
     
     //MARK: - CoreData
-    var container: NSPersistentContainer? =
+    private var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer { didSet { updateUI() } }
-    var fetchedResultsController: NSFetchedResultsController<CropDatas>?
-    var isUpdated: Bool = false
-    var filterText: String?
+    private var fetchedResultsController: NSFetchedResultsController<CropDatas>?
+    private var isUpdated: Bool = false
+    private var filterText: String?
+    private var savedSortingType: [NSSortDescriptor] = [GoToMarketConstant.cropBasicNSSortDecriptor]
     
     //MARK: - UIRefreshControl
     private let refreshControl = UIRefreshControl()
@@ -187,7 +188,8 @@ extension QuotesViewController: QuoteToolBarViewControllertDelegate {
     
     func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
         
-        fetchAndReloadData(sortDescriptors: sortDescriptor)
+        savedSortingType = sortDescriptor
+        fetchAndReloadData()
         let idexPath = IndexPath(row: 0, section: 0)
         quotesTableView.scrollToRow(at: idexPath, at: .top, animated: true)
     }
@@ -206,7 +208,7 @@ extension QuotesViewController: QuoteToolBarViewControllertDelegate {
 //MARK: - NSFetchedResultsControllerDelegate
 extension QuotesViewController: NSFetchedResultsControllerDelegate {
     
-    private func fetchAndReloadData(sortDescriptors: [NSSortDescriptor] = [GoToMarketConstant.cropBasicNSSortDecriptor]) {
+    private func fetchAndReloadData() {
         
         if let context = container?.viewContext {
             
@@ -214,7 +216,7 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
             
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             
-            request.sortDescriptors = sortDescriptors
+            request.sortDescriptors = savedSortingType
             
             if let filter = filterText, filter != GoToMarketConstant.emptyString {
                 

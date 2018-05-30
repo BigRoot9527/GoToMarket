@@ -24,17 +24,18 @@ class NoteViewController: UIViewController {
     private let openedCellHeight: CGFloat = 210.0
     private let closedCellHeight: CGFloat = 110.0
     
+    //MARK: - CoreData
     private var openedCellIndex: IndexPath? {
         didSet {
             setupCell(index: oldValue, toOpen: false)
             setupCell(index: openedCellIndex, toOpen: true)
         }
     }
-    
-    var container: NSPersistentContainer? =
+    private var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    private var fetchedResultsController: NSFetchedResultsController<UserNotes>?
+    private var savedSortingType: [NSSortDescriptor] = [GoToMarketConstant.noteBasicNSSortDecriptor]
     
-    var fetchedResultsController: NSFetchedResultsController<UserNotes>?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -114,7 +115,7 @@ class NoteViewController: UIViewController {
 //MARK: - NSFetchedResultsControllerDelegate
 extension NoteViewController: NSFetchedResultsControllerDelegate {
     
-    private func fetchData(sortDescriptors: [NSSortDescriptor] = [GoToMarketConstant.noteBasicNSSortDecriptor]) {
+    private func fetchData() {
         
         if let context = container?.viewContext {
             
@@ -122,7 +123,7 @@ extension NoteViewController: NSFetchedResultsControllerDelegate {
             
             let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
             
-            request.sortDescriptors = sortDescriptors
+            request.sortDescriptors = savedSortingType
             request.predicate = NSPredicate(format: "(isInCart = true) AND (cropData != nil)")
             
             fetchedResultsController = NSFetchedResultsController<UserNotes>(
@@ -294,7 +295,8 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
         guard let noteCount = fetchedResultsController?.fetchedObjects?.count, noteCount > 0
             else { return }
         
-        fetchData(sortDescriptors: sortDescriptor)
+        savedSortingType = sortDescriptor
+        fetchData()
         noteTableView.reloadData()
         let idexPath = IndexPath(row: 0, section: 0)
         noteTableView.scrollToRow(at: idexPath, at: .top, animated: true)
