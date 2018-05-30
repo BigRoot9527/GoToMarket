@@ -134,6 +134,8 @@ class DetailViewController: UIViewController {
     //MARK: - SwiftMessage
     private func setupIncartNoticeView() {
         
+        SwiftMessages.defaultConfig.preferredStatusBarStyle = .none
+        
         incartNoticeView.configureTheme(.info, iconStyle: .default)
         incartNoticeView.configureBackgroundView(width: 220)
         incartNoticeView.configureIcon(withSize: CGSize(width: 40, height: 40), contentMode: .scaleAspectFit)
@@ -144,7 +146,7 @@ class DetailViewController: UIViewController {
         messageConfig.duration = .seconds(seconds: 1)
         messageConfig.presentationStyle = .bottom
         messageConfig.ignoreDuplicates = false
-    
+        
         setChangingProps()
     }
     
