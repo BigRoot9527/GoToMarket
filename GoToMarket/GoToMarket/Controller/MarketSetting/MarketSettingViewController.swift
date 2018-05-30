@@ -147,11 +147,18 @@ class MarketSettingViewController: UIViewController {
     
     private func makeComfirm(ofMarket marketString: String) {
         
-        //TODO: present comfirm VC
-        
-        //if yes
+        showAlert(
+            alertTitle: "更換市場為\(marketString)",
+            alertMessage: "若更換市場，所有『待購清單』及已儲存的『實際購買價』將被刪除並重設回預設值，確定要這麼做嗎？",
+            destructiveButtonName: "更換並重設",
+            cancelButtonName: "取消",
+            destructiveCallBack: ,
+            cancelCallBack: cancel())
+
         initLoadingVC(ofMarket: marketString)
     }
+    
+    private func cancel() { return }
 }
 
 //MARK: - UIPickerViewDataSource
