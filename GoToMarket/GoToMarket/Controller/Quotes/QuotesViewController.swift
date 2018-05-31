@@ -86,7 +86,6 @@ class QuotesViewController: UIViewController {
         }
         
         refreshControl.tintColor = GoToMarketColor.newOrange.color()
-        refreshControl.attributedTitle = NSAttributedString(string: "繼續下拉以更新...")
         refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
     }
     
