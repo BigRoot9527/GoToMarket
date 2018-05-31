@@ -11,8 +11,8 @@ class RAMBounceAnimation: RAMItemAnimation {
 
     override func playAnimation(_ icon: UIImageView, textLabel: UILabel) {
         playBounceAnimation(icon)
-        textLabel.textColor = GoToMarketColor.newOrange.color()
-        icon.tintColor = GoToMarketColor.newOrange.color()
+        textLabel.textColor = UIColor.black
+        icon.tintColor = UIColor.black
     }
  
     override func deselectAnimation(_ icon: UIImageView, textLabel: UILabel, defaultTextColor: UIColor, defaultIconColor: UIColor) {
@@ -22,8 +22,8 @@ class RAMBounceAnimation: RAMItemAnimation {
     }
 
     override func selectedState(_ icon: UIImageView, textLabel: UILabel) {
-        textLabel.textColor = GoToMarketColor.newOrange.color()
-        icon.tintColor = GoToMarketColor.newOrange.color()
+        textLabel.textColor = UIColor.black
+        icon.tintColor = UIColor.black
     }
 
     func playBounceAnimation(_ icon : UIImageView) {

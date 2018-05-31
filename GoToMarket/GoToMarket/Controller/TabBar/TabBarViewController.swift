@@ -93,7 +93,7 @@ class TabBarViewController: RAMAnimatedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        changeSelectedColor(GoToMarketColor.newOrange.color(), iconSelectedColor: GoToMarketColor.newOrange.color())
+        changeSelectedColor(UIColor.black, iconSelectedColor: UIColor.black)
         
         NotificationCenter.default.addObserver(
             self,
@@ -104,7 +104,7 @@ class TabBarViewController: RAMAnimatedTabBarController {
 
     private func setupTab() {
         
-        tabBar.tintColor = GoToMarketColor.newOrange.color()
+        tabBar.tintColor = UIColor.black
         
         var controllers: [UIViewController] = []
         

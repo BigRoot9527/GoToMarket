@@ -69,10 +69,10 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
     @IBInspectable open var textFontSize: CGFloat = 10
 
     /// The color of the UITabBarItem text.
-    @IBInspectable open var textColor: UIColor = UIColor.black
+    @IBInspectable open var textColor: UIColor = UIColor.lightGray
 
     /// The tint color of the UITabBarItem icon.
-    @IBInspectable open var iconColor: UIColor = UIColor.black // if alpha color is 0 color ignoring
+    @IBInspectable open var iconColor: UIColor = UIColor.lightGray // if alpha color is 0 color ignoring
 
     open var bgDefaultColor: UIColor = UIColor.clear // background color
     open var bgSelectedColor: UIColor = UIColor.clear
