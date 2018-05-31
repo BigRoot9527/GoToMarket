@@ -34,7 +34,7 @@ class NoteViewController: UIViewController {
     private var container: NSPersistentContainer? =
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     private var fetchedResultsController: NSFetchedResultsController<UserNotes>?
-    private var savedSortingType: [NSSortDescriptor] = [GoToMarketConstant.noteBasicNSSortDecriptor]
+    private var savedSortingType: [NSSortDescriptor] = GoToMarketConstant.noteBasicNSSortDecriptor
     
     
     //MARK: - LifeCycle
@@ -83,11 +83,7 @@ class NoteViewController: UIViewController {
         
         toolBarTopToSafeAreaConstraint.constant = topConstant.1
         
-        if let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.isInCart == true && $0.cropData != nil }).count {
-            
-            postCartNotification(count: count, playBounceAnimation: false)
-        }
+        countAndPostNotification(withAnimation: false)
     }
     
     //MARK: - Open-Close Switch
@@ -142,6 +138,16 @@ extension NoteViewController: NSFetchedResultsControllerDelegate {
             fetchedResultsController?.delegate = self
             
             try? fetchedResultsController?.performFetch()
+        }
+    }
+    
+    
+    private func countAndPostNotification(withAnimation bool: Bool) {
+        
+        if let count = fetchedResultsController?.fetchedObjects?.filter(
+            { $0.isInCart == true && $0.cropData != nil && $0.isFinished == false }).count {
+            
+            postCartNotification(count: count, playBounceAnimation: bool)
         }
     }
 }
@@ -335,7 +341,14 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
             deleteNote(fromIndexpath: firstIndex)
         }
         
-        reloadAndPostNotification()
+        openedCellIndex = nil
+        
+        noteTableView.reloadData()
+        
+        showingCartAnimation( isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
+            
+            self?.countAndPostNotification(withAnimation: true)
+        }
     }
     
     func cleanAllButtonTapped(sender: UIButton) {
@@ -369,6 +382,8 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
         
         fetchData()
         noteTableView.reloadData()
+        
+        countAndPostNotification(withAnimation: true)
     }
 }
 
@@ -388,6 +403,8 @@ extension NoteViewController: NoteTableViewCellDelegate {
         note.isFinished = sender.isSelected
         
         try? self.container?.viewContext.save()
+        
+        self.countAndPostNotification(withAnimation: true)
     }
     
     func didTapDeleteButton(sender: UIButton, fromCell: NoteTableViewCell) {
@@ -396,7 +413,14 @@ extension NoteViewController: NoteTableViewCellDelegate {
         
         deleteNote(fromIndexpath: tappedIndexPath)
         
-        reloadAndPostNotification()
+        openedCellIndex = nil
+        
+        noteTableView.reloadData()
+        
+        showingCartAnimation( isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
+            
+            self?.countAndPostNotification(withAnimation: true)
+        }
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
@@ -454,21 +478,6 @@ extension NoteViewController: NoteTableViewCellDelegate {
         fetchData()
         
         noteTableView.deleteRows(at: [index], with: .fade)
-    }
-    
-    private func reloadAndPostNotification() {
-        
-        openedCellIndex = nil
-        
-        noteTableView.reloadData()
-        
-        guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
-        
-        showingCartAnimation( isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
-            
-            self?.postCartNotification(count: count, playBounceAnimation: true)
-        }
-        
     }
 }
 

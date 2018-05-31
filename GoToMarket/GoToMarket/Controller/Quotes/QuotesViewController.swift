@@ -29,7 +29,7 @@ class QuotesViewController: UIViewController {
     private var fetchedResultsController: NSFetchedResultsController<CropDatas>?
     private var isUpdated: Bool = false
     private var filterText: String?
-    private var savedSortingType: [NSSortDescriptor] = [GoToMarketConstant.cropBasicNSSortDecriptor]
+    private var savedSortingType: [NSSortDescriptor] = GoToMarketConstant.cropBasicNSSortDecriptor
     
     //MARK: - UIRefreshControl
     private let refreshControl = UIRefreshControl()
@@ -51,11 +51,7 @@ class QuotesViewController: UIViewController {
         
         fetchAndReloadData()
         
-        if let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.note?.isInCart == true && $0.note?.cropData != nil }).count {
-            
-            postCartNotification(count: count, playBounceAnimation: false)
-        }
+        countAndPostNotification(withAnimation: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -237,6 +233,16 @@ extension QuotesViewController: NSFetchedResultsControllerDelegate {
             quotesTableView.reloadData()
         }
     }
+    
+    
+    private func countAndPostNotification(withAnimation bool: Bool) {
+        
+        if let count = fetchedResultsController?.fetchedObjects?.filter(
+            { $0.note?.isInCart == true && $0.note?.cropData != nil && $0.note?.isFinished == false }).count {
+            
+            postCartNotification(count: count, playBounceAnimation: bool)
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -342,13 +348,9 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
                 cellTableView: self?.quotesTableView,
                 completion: {
                     
-                    guard
-                        self?.viewIfLoaded?.window != nil,
-                        let count = self?.fetchedResultsController?.fetchedObjects?.filter(
-                        { $0.note?.isInCart == true && $0.note?.cropData != nil }).count
-                        else { return }
+                    guard self?.viewIfLoaded?.window != nil else { return }
                     
-                    self?.postCartNotification(count: count, playBounceAnimation: true)
+                    self?.countAndPostNotification(withAnimation: true)
             })
         }
         
