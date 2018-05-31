@@ -140,6 +140,7 @@ extension SettingTableViewController: MFMailComposeViewControllerDelegate {
     private func rateOnTheAppStore() {
         
         SKStoreReviewController.requestReview()
+        //TODO: Custom URL request
     }
     
 }
