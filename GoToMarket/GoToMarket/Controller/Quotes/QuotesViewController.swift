@@ -54,7 +54,7 @@ class QuotesViewController: UIViewController {
         if let count = fetchedResultsController?.fetchedObjects?.filter(
             { $0.note?.isInCart == true && $0.note?.cropData != nil }).count {
             
-            postCartNotification(count: count)
+            postCartNotification(count: count, playBounceAnimation: false)
         }
     }
     
@@ -343,11 +343,12 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
                 completion: {
                     
                     guard
+                        self?.viewIfLoaded?.window != nil,
                         let count = self?.fetchedResultsController?.fetchedObjects?.filter(
                         { $0.note?.isInCart == true && $0.note?.cropData != nil }).count
                         else { return }
                     
-                    self?.postCartNotification(count: count)
+                    self?.postCartNotification(count: count, playBounceAnimation: true)
             })
         }
         

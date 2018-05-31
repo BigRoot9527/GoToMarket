@@ -83,7 +83,7 @@ class LoadingViewController: UIViewController {
                         
                         self?.dismiss(animated: true, completion: nil)
                         
-                        self?.postCartNotification(count: 0)
+                        self?.postCartNotification(count: 0, playBounceAnimation: false)
                 })
                 
         }) { [weak self] error in

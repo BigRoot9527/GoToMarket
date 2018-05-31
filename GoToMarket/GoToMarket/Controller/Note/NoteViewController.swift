@@ -82,6 +82,12 @@ class NoteViewController: UIViewController {
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
         toolBarTopToSafeAreaConstraint.constant = topConstant.1
+        
+        if let count = fetchedResultsController?.fetchedObjects?.filter(
+            { $0.isInCart == true && $0.cropData != nil }).count {
+            
+            postCartNotification(count: count, playBounceAnimation: false)
+        }
     }
     
     //MARK: - Open-Close Switch
@@ -328,6 +334,8 @@ extension NoteViewController: NoteToolBarViewControllertDelegate {
             
             deleteNote(fromIndexpath: firstIndex)
         }
+        
+        reloadAndPostNotification()
     }
     
     func cleanAllButtonTapped(sender: UIButton) {
@@ -387,6 +395,8 @@ extension NoteViewController: NoteTableViewCellDelegate {
         guard let tappedIndexPath = noteTableView.indexPath(for: fromCell) else { return }
         
         deleteNote(fromIndexpath: tappedIndexPath)
+        
+        reloadAndPostNotification()
     }
     
     func didTapStepper(sender: UIStepper, fromCell: NoteTableViewCell) {
@@ -444,6 +454,9 @@ extension NoteViewController: NoteTableViewCellDelegate {
         fetchData()
         
         noteTableView.deleteRows(at: [index], with: .fade)
+    }
+    
+    private func reloadAndPostNotification() {
         
         openedCellIndex = nil
         
@@ -453,8 +466,9 @@ extension NoteViewController: NoteTableViewCellDelegate {
         
         showingCartAnimation( isInChart: false, fromCellFrame: nil, cellTableView: nil) { [weak self] in
             
-            self?.postCartNotification(count: count)
+            self?.postCartNotification(count: count, playBounceAnimation: true)
         }
+        
     }
 }
 

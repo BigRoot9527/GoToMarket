@@ -79,12 +79,12 @@ extension UIViewController {
     }
     
     //MARK: - Notification
-    func postCartNotification(count: Int) {
+    func postCartNotification(count: Int, playBounceAnimation: Bool) {
         
         NotificationCenter.default.post(
             name: GoToMarketConstant.cartNotificationName,
             object: self,
-            userInfo: ["CartCount": count])
+            userInfo: ["CartCount": count, "playAnimation": playBounceAnimation])
         
     }
     

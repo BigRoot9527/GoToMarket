@@ -136,15 +136,18 @@ class TabBarViewController: RAMAnimatedTabBarController {
         
         guard
             let infoPassed = notification.userInfo as? [String: AnyObject],
-            let count = infoPassed["CartCount"] as? Int
+            let count = infoPassed["CartCount"] as? Int,
+            let willAnimate = infoPassed["playAnimation"] as? Bool
             else {
                 print("ERROR:\(#file, #line)")
                 return
         }
         
         self.tabBar.items![1].badgeValue = count > 0 ? String(count) : nil
-        let animationItem: RAMAnimatedTabBarItem = self.tabBar.items![1] as! RAMAnimatedTabBarItem
-        playBounceAnimation(imageView: (animationItem.iconView?.icon)!)
+        if willAnimate {
+            let animationItem: RAMAnimatedTabBarItem = self.tabBar.items![1] as! RAMAnimatedTabBarItem
+            playBounceAnimation(imageView: (animationItem.iconView?.icon)!)
+        }
     }
     
     func playBounceAnimation(imageView : UIImageView) {
