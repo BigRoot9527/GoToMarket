@@ -18,6 +18,7 @@
 		32070B6A20A56C9600A6BA27 /* GoToMarketColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */; };
 		32070B6E20A5AC9500A6BA27 /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */; };
 		3211781420BDBC1D00B23711 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3211781320BDBC1D00B23711 /* Detail.storyboard */; };
+		3211781820BFD5E700B23711 /* ExtensionUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211781720BFD5E700B23711 /* ExtensionUITabBarController.swift */; };
 		321321CD20BAFB3B0031ADE1 /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CC20BAFB3B0031ADE1 /* NoteManager.swift */; };
 		321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */; };
 		321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321321D220BBC4F20031ADE1 /* AboutViewController.swift */; };
@@ -117,6 +118,7 @@
 		32070B6920A56C9600A6BA27 /* GoToMarketColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketColor.swift; sourceTree = "<group>"; };
 		32070B6D20A5AC9500A6BA27 /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		3211781320BDBC1D00B23711 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		3211781720BFD5E700B23711 /* ExtensionUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITabBarController.swift; sourceTree = "<group>"; };
 		321321CC20BAFB3B0031ADE1 /* NoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		321321CE20BB54EC0031ADE1 /* NoteToolBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToolBarViewController.swift; sourceTree = "<group>"; };
 		321321D220BBC4F20031ADE1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				32B1E3C120B2CBD100336B09 /* ExtensionUIImage.swift */,
 				3217C15320B3BBB2006B9DA7 /* ExtnesionUIView.swift */,
 				32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */,
+				3211781720BFD5E700B23711 /* ExtensionUITabBarController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 				32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
 				32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */,
+				3211781820BFD5E700B23711 /* ExtensionUITabBarController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
 				32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */,

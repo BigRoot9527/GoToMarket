@@ -10,16 +10,17 @@ import UIKit
 
 extension UIViewController {
     
-    //MARK: Animation
-    
+    //MARK: - Animation
     func showingCartAnimation(
         isInChart:Bool,
         fromCellFrame cellFrame: CGRect?,
         cellTableView table: UITableView?,
         completion: @escaping () -> Void ) {
+
+        let UItabbarButtonViewPoint = tabBarController?.getTabBarCenterPoint() ?? CGPoint(x: 0, y: 0)
         
-        let screenSize = UIScreen.main.bounds
-        let rootViewPoint = CGPoint(x: screenSize.width / 2, y: screenSize.height)
+        let rootViewTabPoint = self.view.convert(UItabbarButtonViewPoint, from: tabBarController?.orderedTabBarItemViews()[1] )
+
         let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
         
         var animationFrame: CGRect
@@ -28,9 +29,9 @@ extension UIViewController {
         
         if !isInChart {
             
-            animationFrame = CGRect(x: rootViewPoint.x - 40 , y: rootViewPoint.y, width: 50, height: 50)
+            animationFrame = CGRect(x: rootViewTabPoint.x - 40 , y: rootViewTabPoint.y + 100, width: 50, height: 50)
             
-            endPoint = CGPoint(x: -20, y: rootViewPoint.y - 100 )
+            endPoint = CGPoint(x: -20, y: rootViewTabPoint.y - 100 )
             
             factor = -1
             
@@ -44,8 +45,8 @@ extension UIViewController {
             let convertedRect = self.view.convert(cellFrame, from: inputTable)
             
             animationFrame = CGRect(x: 10, y: convertedRect.origin.y + 5, width: 50, height: 50)
-            
-            endPoint = CGPoint(x: rootViewPoint.x, y: rootViewPoint.y)
+
+            endPoint = rootViewTabPoint
             
             factor = 0.5
         }
