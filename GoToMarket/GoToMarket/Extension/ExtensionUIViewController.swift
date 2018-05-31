@@ -16,10 +16,14 @@ extension UIViewController {
         fromCellFrame cellFrame: CGRect?,
         cellTableView table: UITableView?,
         completion: @escaping () -> Void ) {
-
-        let UItabbarButtonViewPoint = tabBarController?.getTabBarCenterPoint() ?? CGPoint(x: 0, y: 0)
         
-        let rootViewTabPoint = self.view.convert(UItabbarButtonViewPoint, from: tabBarController?.orderedTabBarItemViews()[1] )
+        guard let tabController = tabBarController else { return }
+
+        let centerTabView = tabController.orderedTabBarItemViews()[1]
+        
+        let rootViewTabPoint = self.view.convert(
+            CGPoint(x: centerTabView.frame.width / 2, y: centerTabView.frame.height / 2 ),
+            from: centerTabView )
 
         let animationView = UIImageView(image: #imageLiteral(resourceName: "cauliflower_icon"))
         

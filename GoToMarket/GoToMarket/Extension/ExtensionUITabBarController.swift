@@ -14,15 +14,6 @@ extension UITabBarController {
         let interactionViews = tabBar.subviews.filter({$0.isUserInteractionEnabled})
         return interactionViews.sorted(by: {$0.frame.minX < $1.frame.minX})
     }
-    
-    func getTabBarCenterPoint() -> CGPoint {
-        
-        let centerUITabBarButtonFrame = self.orderedTabBarItemViews()[1].frame
-        
-        let centerPoint = CGPoint(x: centerUITabBarButtonFrame.width / 2, y: centerUITabBarButtonFrame.height / 2)
-        
-        return centerPoint
-    }
 }
 
 
