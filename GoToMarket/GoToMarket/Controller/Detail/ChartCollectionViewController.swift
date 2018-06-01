@@ -57,8 +57,9 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         
     }
 
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        chartPageControl.currentPage = indexPath.row
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let count = Int(scrollView.contentOffset.x / chartCollectionView.frame.width )
+        chartPageControl.currentPage = count
     }
 
     //LifeCycle
@@ -98,7 +99,7 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
     }
     
     private func setupUI() {
-        chartPageControl.currentPage = 1
+        chartPageControl.currentPage = 0
         chartPageControl.numberOfPages = 2
         chartPageControl.pageIndicatorTintColor = UIColor.gray
     }
