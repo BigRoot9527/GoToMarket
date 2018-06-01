@@ -19,14 +19,17 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
     var histroyQuoteArray: [[Double]?] = [nil,nil]
     let loadingHistoryType: [HistoryPeriod] = [.fromLastMonth, .fromLastSeason]
     
+    //Input
     var itemCode: String? {
         didSet {
             loadHistoryData()
         }
     }
 
+    //MARK: - IBOutlet
     @IBOutlet weak var chartCollectionView: UICollectionView!
-
+    @IBOutlet weak var chartPageControl: UIPageControl!
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loadingHistoryType.count
     }
@@ -54,6 +57,10 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         
     }
 
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        chartPageControl.currentPage = indexPath.row
+    }
+
     //LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +69,7 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         chartCollectionView.delegate = self
         chartCollectionView.dataSource = self
         setCollectionViewLayout()
+        setupUI()
     }
     
     private func setCollectionViewLayout() {
@@ -87,6 +95,12 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         
         chartCollectionView.register(nibFile,
                                     forCellWithReuseIdentifier: String(describing: ChartCollectionViewCell.self))
+    }
+    
+    private func setupUI() {
+        chartPageControl.currentPage = 1
+        chartPageControl.numberOfPages = 2
+        chartPageControl.pageIndicatorTintColor = UIColor.gray
     }
     
     private func loadHistoryData() {

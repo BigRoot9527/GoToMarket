@@ -67,11 +67,11 @@
             <objects>
                 <viewController storyboardIdentifier="ChartCollectionViewController" id="Rn6-eW-xjd" customClass="ChartCollectionViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSb-Hv-rff">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="74l-6p-YHC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HVe-QD-dDt">
                                     <size key="itemSize" width="50" height="50"/>
@@ -81,27 +81,36 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="wT9-ct-WxV">
+                                <rect key="frame" x="176" y="220" width="23" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="RtI-ES-g4K"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8bB-t4-M6F" firstAttribute="trailing" secondItem="74l-6p-YHC" secondAttribute="trailing" id="4Vm-Sp-xjq"/>
-                            <constraint firstItem="8bB-t4-M6F" firstAttribute="bottom" secondItem="74l-6p-YHC" secondAttribute="bottom" id="GN6-uD-O0l"/>
+                            <constraint firstItem="8bB-t4-M6F" firstAttribute="bottom" secondItem="74l-6p-YHC" secondAttribute="bottom" constant="15" id="GN6-uD-O0l"/>
                             <constraint firstItem="74l-6p-YHC" firstAttribute="leading" secondItem="8bB-t4-M6F" secondAttribute="leading" id="Y1z-qV-DOt"/>
                             <constraint firstItem="74l-6p-YHC" firstAttribute="top" secondItem="8bB-t4-M6F" secondAttribute="top" id="ZL2-Qn-LDy"/>
+                            <constraint firstItem="wT9-ct-WxV" firstAttribute="centerX" secondItem="8bB-t4-M6F" secondAttribute="centerX" id="j4n-yo-IIg"/>
+                            <constraint firstItem="wT9-ct-WxV" firstAttribute="top" secondItem="74l-6p-YHC" secondAttribute="bottom" id="jHU-dP-Y7L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8bB-t4-M6F"/>
                     </view>
-                    <size key="freeformSize" width="375" height="221"/>
+                    <size key="freeformSize" width="375" height="235"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="chartCollectionView" destination="74l-6p-YHC" id="uGu-Wf-0l9"/>
+                        <outlet property="chartPageControl" destination="wT9-ct-WxV" id="db6-b2-ROq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zq1-GL-w8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1858" y="46"/>
+            <point key="canvasLocation" x="1953" y="286"/>
         </scene>
     </scenes>
     <resources>

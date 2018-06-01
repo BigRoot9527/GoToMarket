@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歷史均價" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWG-Dd-Tjq">
-                                <rect key="frame" x="20" y="10" width="96" height="44.5"/>
+                                <rect key="frame" x="20" y="5" width="96" height="44.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="arw-PD-nt8"/>
                                 </constraints>
@@ -29,21 +29,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwx-qL-inI">
-                                <rect key="frame" x="0.0" y="64.5" width="375" height="220"/>
+                                <rect key="frame" x="0.0" y="54.5" width="375" height="235"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="Fqe-EC-sVY"/>
+                                    <constraint firstAttribute="height" constant="235" id="Fqe-EC-sVY"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Fwx-qL-inI" firstAttribute="top" secondItem="YWG-Dd-Tjq" secondAttribute="bottom" constant="10" id="Kob-fs-sQh"/>
+                            <constraint firstItem="Fwx-qL-inI" firstAttribute="top" secondItem="YWG-Dd-Tjq" secondAttribute="bottom" constant="5" id="Kob-fs-sQh"/>
                             <constraint firstItem="YWG-Dd-Tjq" firstAttribute="leading" secondItem="yJF-Vq-jM9" secondAttribute="leading" constant="20" id="ZSo-iy-Lfl"/>
                             <constraint firstItem="Fwx-qL-inI" firstAttribute="leading" secondItem="yJF-Vq-jM9" secondAttribute="leading" id="ZfZ-U1-tVk"/>
-                            <constraint firstAttribute="bottom" secondItem="Fwx-qL-inI" secondAttribute="bottom" constant="15" id="cAv-Pz-t5a"/>
+                            <constraint firstAttribute="bottom" secondItem="Fwx-qL-inI" secondAttribute="bottom" constant="10" id="cAv-Pz-t5a"/>
                             <constraint firstAttribute="trailing" secondItem="Fwx-qL-inI" secondAttribute="trailing" id="cNw-C4-qse"/>
-                            <constraint firstItem="YWG-Dd-Tjq" firstAttribute="top" secondItem="yJF-Vq-jM9" secondAttribute="top" constant="10" id="o3H-ee-Pg6"/>
+                            <constraint firstItem="YWG-Dd-Tjq" firstAttribute="top" secondItem="yJF-Vq-jM9" secondAttribute="top" constant="5" id="o3H-ee-Pg6"/>
                         </constraints>
                     </view>
                 </subviews>
