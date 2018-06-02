@@ -49,6 +49,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="JWt-n8-S2J" secondAttribute="trailing" id="9kj-T1-u8E"/>
                     <constraint firstItem="1Xi-2C-dnA" firstAttribute="centerY" secondItem="3Xf-iR-rmo" secondAttribute="centerY" id="GOw-Lb-0m8"/>
@@ -60,11 +61,17 @@
                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleCellView"/>
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="backgroundToContentBottomConstraint" destination="YS2-85-mhS" id="guW-dr-ZZm"/>
+                <outlet property="backgroundToContentLeadingConstraint" destination="pJM-5b-5p6" id="eLJ-T1-XVu"/>
+                <outlet property="backgroundToContentTopConstraint" destination="cza-sG-6YW" id="ert-Qn-dh8"/>
+                <outlet property="backgroundToContentTrailingConstraint" destination="9kj-T1-u8E" id="K9P-9f-ZqW"/>
                 <outlet property="detailBuyingButton" destination="bPW-8G-ekL" id="Nag-xx-ylw"/>
                 <outlet property="detailNameLabel" destination="1Xi-2C-dnA" id="Snm-RU-JiH"/>
+                <outlet property="titleBackgroundView" destination="JWt-n8-S2J" id="mHZ-dr-RZ4"/>
             </connections>
-            <point key="canvasLocation" x="-60" y="-204"/>
+            <point key="canvasLocation" x="10" y="-210"/>
         </tableViewCell>
     </objects>
     <resources>

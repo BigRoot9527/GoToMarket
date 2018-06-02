@@ -261,6 +261,7 @@ extension DetailViewController: UITableViewDataSource {
             addChartVC(toCell: cell, ofItemCode: crop.cropCode)
             
             return cell
+            
         case .empty:
             
             let cell = UITableViewCell()
@@ -319,15 +320,17 @@ extension DetailViewController: UITableViewDelegate {
         case .changed:
             
             setAlphaForOffset(offsetY: scrollView.contentOffset.y)
+            
+            if scrollView.contentOffset.y < dismissOffsetThreshold {
+                dismiss(animated: true, completion: nil)
+                
+            }
 
         case .ended:
             
             endDragingOffsetY = scrollView.contentOffset.y
             
-            if detailTableView.contentOffset.y < dismissOffsetThreshold {
-                dismiss(animated: true, completion: nil)
-                
-            } else if isIntroNeedReload {
+            if isIntroNeedReload {
                 guard let index = introIndexPath else { return }
                 detailTableView.reloadRows(at: [index], with: .fade)
                 isIntroNeedReload = false
@@ -358,14 +361,25 @@ extension DetailViewController: UITableViewDelegate {
         
         for rowNum in 0...rowTypes.count {
             
-            if rowNum == 0 { continue }
             let index = IndexPath(row: rowNum, section: 0)
             
-            detailTableView.tableHeaderView?.alpha = transformAlpha
+            if rowNum == 0 {
+                
+                guard let titleCell = detailTableView.cellForRow(at: index) as? DetailTitleTableViewCell else { continue }
+                
+                let rate = (offsetY) / (dismissOffsetThreshold)
+                
+                titleCell.compressRate = rate
+                
+                continue
+                
+            }
+    
             detailTableView.cellForRow(at: index)?.alpha = transformAlpha
-            closeButton.alpha = transformAlpha
-            backgroundBlurView.alpha = transformAlpha + 0.2
         }
+        detailTableView.tableHeaderView?.alpha = transformAlpha
+        closeButton.alpha = transformAlpha
+        backgroundBlurView.alpha = transformAlpha + 0.2
     }
 }
 
