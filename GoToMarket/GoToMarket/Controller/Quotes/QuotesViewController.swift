@@ -40,8 +40,10 @@ class QuotesViewController: UIViewController {
         
         self.hero.isEnabled = true
         
-        setupTableView()
         setupNav()
+        
+        setupTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,7 @@ class QuotesViewController: UIViewController {
         fetchAndReloadData()
         
         countAndPostNotification(withAnimation: false)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,14 +73,6 @@ class QuotesViewController: UIViewController {
         quotesTableView.dataSource = self
         quotesTableView.delegate = self
         
-        let nibFile = UINib(
-            nibName: "QuotesTableViewCell",
-            bundle: nil)
-        
-        quotesTableView.register(
-            nibFile,
-            forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
-        
         //Setup UIRefreshControl
         if #available(iOS 10.0, *) {
             quotesTableView.refreshControl = refreshControl
@@ -87,6 +82,15 @@ class QuotesViewController: UIViewController {
         
         refreshControl.tintColor = GoToMarketColor.newOrange.color()
         refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
+        
+        
+        let nibFile = UINib(
+            nibName: "QuotesTableViewCell",
+            bundle: nil)
+        
+        quotesTableView.register(
+            nibFile,
+            forCellReuseIdentifier: String(describing: QuotesTableViewCell.self))
     }
     
     private func setupNav() {
@@ -131,6 +135,7 @@ class QuotesViewController: UIViewController {
             let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as! LoadingViewController
             
             //TODO: Switch item type
+            
             loadingVC.itemTypeInput = .crop
             
             loadingVC.hero.modalAnimationType = .fade
@@ -324,15 +329,6 @@ extension QuotesViewController: UITableViewDelegate {
         
         present(detailVC, animated: true, completion: nil)
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        cell.alpha = 0.4
-        
-        UIView.animate(withDuration: 0.1) {
-            cell.alpha = 1.0
-        }
-    }
 }
 
 
@@ -377,7 +373,7 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
 //            GoToMarketColor.newLightBlueGreen.color() :
 //            GoToMarketColor.pitchRed.color()
         
-        selectAction.backgroundColor = UIColor.white
+        selectAction.backgroundColor = UIColor.clear
         
         return [selectAction]
     }
@@ -394,7 +390,7 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
 //        options.backgroundColor = !selectedCell.inBuyingChart ?
 //            GoToMarketColor.newLightBlueGreen.color() :
 //            GoToMarketColor.pitchRed.color()
-        options.backgroundColor = UIColor.white
+        options.backgroundColor = UIColor.clear
         
         return options
     }

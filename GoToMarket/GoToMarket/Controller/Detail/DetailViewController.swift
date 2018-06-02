@@ -334,7 +334,6 @@ extension DetailViewController: UITableViewDelegate {
             }
             
         case .possible:
-            print(endDragingOffsetY)
             
             if endDragingOffsetY < fadeOffsetThreshold {
                 setAlphaForOffset(offsetY: scrollView.contentOffset.y)

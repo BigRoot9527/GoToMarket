@@ -23,6 +23,8 @@ class QuotesTableViewCell: SwipeTableViewCell {
             updatePriceMark()
         }
     }
+    let gradient = CAGradientLayer()
+    
     
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var sellPriceLabel: UILabel!
@@ -34,12 +36,13 @@ class QuotesTableViewCell: SwipeTableViewCell {
         super.awakeFromNib()
         
         self.selectionStyle = UITableViewCellSelectionStyle.none
-        quoteBackgroundView.layer.cornerRadius = 10.0
+        self.contentView.clipsToBounds = false
         quoteBackgroundView.layer.masksToBounds = false
-        quoteBackgroundView.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
-        quoteBackgroundView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        quoteBackgroundView.layer.shadowOpacity = 0.7
         
+        quoteBackgroundView.layer.cornerRadius = 10.0
+        quoteBackgroundView.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        quoteBackgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        quoteBackgroundView.layer.shadowOpacity = 0.6
         
     }
     
