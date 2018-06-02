@@ -315,6 +315,8 @@ extension QuotesViewController: UITableViewDelegate {
         detailVC.titleHeroIdInput = String(describing: indexPath)
         detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
+        detailVC.modalPresentationStyle = .overFullScreen
+        
         present(detailVC, animated: true, completion: nil)
     }
 }
