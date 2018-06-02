@@ -47,11 +47,6 @@ class DetailViewController: UIViewController {
     private var incartMessageText: String = ""
     private var incartImage: UIImage = UIImage()
     
-//    //MARK: - hide Status Bar
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
-    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
