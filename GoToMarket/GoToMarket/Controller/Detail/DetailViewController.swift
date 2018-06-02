@@ -356,8 +356,6 @@ extension DetailViewController: UITableViewDelegate {
         transformAlpha = (dismissOffsetThreshold - offsetY)  / (dismissOffsetThreshold)
         
         self.detailTableView.tableHeaderView?.alpha = transformAlpha
-//            < 0 ?
-//            0 : ( transformAlpha > 1 ? 1 : transformAlpha )
         
         for rowNum in 0...rowTypes.count {
             

@@ -324,6 +324,15 @@ extension QuotesViewController: UITableViewDelegate {
         
         present(detailVC, animated: true, completion: nil)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.alpha = 0.4
+        
+        UIView.animate(withDuration: 0.1) {
+            cell.alpha = 1.0
+        }
+    }
 }
 
 
@@ -364,25 +373,28 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
             #imageLiteral(resourceName: "add_icon").resizeImage(newWidth: 35) :
             #imageLiteral(resourceName: "minus_icon").resizeImage(newWidth: 35)
         
-        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
-            GoToMarketColor.newLightBlueGreen.color() :
-            GoToMarketColor.pitchRed.color()
+//        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
+//            GoToMarketColor.newLightBlueGreen.color() :
+//            GoToMarketColor.pitchRed.color()
+        
+        selectAction.backgroundColor = UIColor.white
         
         return [selectAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         
-        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
+//        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
         
         var options = SwipeTableOptions()
         
         options.expansionStyle = .selection
         options.transitionStyle = .reveal
         options.buttonVerticalAlignment = .center
-        options.backgroundColor = !selectedCell.inBuyingChart ?
-            GoToMarketColor.newLightBlueGreen.color() :
-            GoToMarketColor.pitchRed.color()
+//        options.backgroundColor = !selectedCell.inBuyingChart ?
+//            GoToMarketColor.newLightBlueGreen.color() :
+//            GoToMarketColor.pitchRed.color()
+        options.backgroundColor = UIColor.white
         
         return options
     }

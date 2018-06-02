@@ -28,11 +28,19 @@ class QuotesTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var sellPriceLabel: UILabel!
     @IBOutlet weak var buyingIndicatorImageView: UIImageView!
     @IBOutlet weak var priceMarkImageView: UIImageView!
+    @IBOutlet weak var quoteBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.selectionStyle = UITableViewCellSelectionStyle.none
+        quoteBackgroundView.layer.cornerRadius = 10.0
+        quoteBackgroundView.layer.masksToBounds = false
+        quoteBackgroundView.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        quoteBackgroundView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        quoteBackgroundView.layer.shadowOpacity = 0.7
+        
+        
     }
     
     private func updateIndicator() {
