@@ -367,7 +367,7 @@ extension DetailViewController: UITableViewDelegate {
             detailTableView.tableHeaderView?.alpha = transformAlpha
             detailTableView.cellForRow(at: index)?.alpha = transformAlpha
             closeButton.alpha = transformAlpha
-            backgroundBlurView.alpha = transformAlpha + 0.3
+            backgroundBlurView.alpha = transformAlpha + 0.2
         }
     }
 }
