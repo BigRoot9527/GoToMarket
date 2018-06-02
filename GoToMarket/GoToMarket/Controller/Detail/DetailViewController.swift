@@ -32,6 +32,11 @@ class DetailViewController: UIViewController {
     private var introIndexPath: IndexPath?
     private var quoteIndexPath: IndexPath?
     
+    //Animation
+    private let dismissOffsetThreshold: CGFloat = -80.0
+    private let fadeOffsetThreshold: CGFloat = -45.0
+    private var isBeingDragging: Bool = false
+    
     //SwiftMessage
     private let incartNoticeView = MessageView.viewFromNib(layout: .cardView)
     private var messageConfig = SwiftMessages.Config()
@@ -297,11 +302,58 @@ extension DetailViewController: UITableViewDelegate {
         
     }
     
+    //MARK: dismiss Animation
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offSetY = scrollView.contentOffset.y
+        var transformAlpha: CGFloat
+        
+        if offSetY > fadeOffsetThreshold {
+            
+            transformAlpha = 1.0
+            
+        } else if offSetY < dismissOffsetThreshold {
+            
+            transformAlpha = 0.0
+            
+        } else {
+            
+            transformAlpha = (dismissOffsetThreshold - offSetY)  / (dismissOffsetThreshold - fadeOffsetThreshold)
+        }
+        
+        self.detailTableView.tableHeaderView?.alpha = transformAlpha
+        
+        setAlphaForNotTitleRow(setAlpha: transformAlpha)
+        
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        self.isBeingDragging = true
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-        if detailTableView.contentOffset.y < -50 {
+        self.isBeingDragging = false
+        
+        if detailTableView.contentOffset.y < dismissOffsetThreshold {
             
             dismiss(animated: true, completion: nil)
+            
+        }
+    }
+    
+    private func setAlphaForNotTitleRow(setAlpha: CGFloat) {
+        
+        for rowNum in 0...rowTypes.count {
+            
+            if rowNum == 0 { continue }
+            
+            let index = IndexPath(row: rowNum, section: 0)
+            
+            detailTableView.tableHeaderView?.alpha = setAlpha
+            
+            detailTableView.cellForRow(at: index)?.alpha = setAlpha
         }
     }
 }
