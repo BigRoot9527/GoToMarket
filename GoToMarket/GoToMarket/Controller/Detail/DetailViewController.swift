@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var detailWikiImageView: UIImageView!
+    @IBOutlet weak var backgroundBlurView: UIVisualEffectView!
     //TODO: placeHolder and loading Image
     
     //Input
@@ -23,19 +24,25 @@ class DetailViewController: UIViewController {
     var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
     
-    private let wikiManager = WikiManager()
+    //CoreData
     private let cropManager = CropManager()
     private var fetchedItem: CropDatas?
+    
+    
+    //Setup
     private let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
-    private var wikiText: String = "Wiki 說明載入中...."
     private var showInKg: Bool = true
+    
+    //Wiki
+    private let wikiManager = WikiManager()
+    private var wikiText: String = "Wiki 說明載入中...."
     private var introIndexPath: IndexPath?
-    private var quoteIndexPath: IndexPath?
+    private var isIntroNeedReload: Bool = false
     
     //Animation
-    private let dismissOffsetThreshold: CGFloat = -80.0
-    private let fadeOffsetThreshold: CGFloat = -45.0
-    private var isBeingDragging: Bool = false
+    private let dismissOffsetThreshold: CGFloat = -60.0
+    private let fadeOffsetThreshold: CGFloat = -30.0
+    private var endDragingOffsetY: CGFloat = 0.0
     
     //SwiftMessage
     private let incartNoticeView = MessageView.viewFromNib(layout: .cardView)
@@ -133,10 +140,13 @@ class DetailViewController: UIViewController {
             
             self?.wikiText = outputText
             
-            guard let index = self?.introIndexPath else { return }
-            
-            self?.detailTableView.reloadRows(at: [index], with: .fade)
-            
+            if self?.detailTableView.isDragging == false, let index = self?.introIndexPath {
+                self?.detailTableView.reloadRows(at: [index], with: .fade)
+                
+            } else {
+                self?.isIntroNeedReload = true
+                
+            }
         }) { (error) in
             
             print(error)
@@ -205,9 +215,7 @@ extension DetailViewController: UITableViewDataSource {
             }
             
             cell.delegate = self
-            
             cell.detailNameLabel.text = crop.cropName
-            
             cell.isInCartInput = crop.note?.isInCart
             
             isAddingCart = crop.note?.isInCart
@@ -227,9 +235,7 @@ extension DetailViewController: UITableViewDataSource {
             return cell
             
         case .quotes:
-            
-            quoteIndexPath = indexPath
-            
+
             let cell = detailTableView.dequeueReusableCell(
                 withIdentifier: String(describing: DetailQuotesTableViewCell.self),
                 for: indexPath) as! DetailQuotesTableViewCell
@@ -302,58 +308,66 @@ extension DetailViewController: UITableViewDelegate {
         
     }
     
-    //MARK: dismiss Animation
+    //MARK: - UISrollViewDelegate: Dismiss Animation
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        switch scrollView.panGestureRecognizer.state {
+            
+        case .began:
+            break
+            
+        case .changed:
+            
+            setAlphaForOffset(offsetY: scrollView.contentOffset.y)
 
-        let offSetY = scrollView.contentOffset.y
+        case .ended:
+            
+            endDragingOffsetY = scrollView.contentOffset.y
+            
+            if detailTableView.contentOffset.y < dismissOffsetThreshold {
+                dismiss(animated: true, completion: nil)
+                
+            } else if isIntroNeedReload {
+                guard let index = introIndexPath else { return }
+                detailTableView.reloadRows(at: [index], with: .fade)
+                isIntroNeedReload = false
+            }
+            
+        case .possible:
+            print(endDragingOffsetY)
+            
+            if endDragingOffsetY < fadeOffsetThreshold {
+                setAlphaForOffset(offsetY: scrollView.contentOffset.y)
+                
+            } else {
+                setAlphaForOffset(offsetY: 0.0)
+            }
+            
+        default:
+            
+            break
+        }
+    }
+    
+    private func setAlphaForOffset(offsetY: CGFloat) {
+        
         var transformAlpha: CGFloat
         
-        if offSetY > fadeOffsetThreshold {
-            
-            transformAlpha = 1.0
-            
-        } else if offSetY < dismissOffsetThreshold {
-            
-            transformAlpha = 0.0
-            
-        } else {
-            
-            transformAlpha = (dismissOffsetThreshold - offSetY)  / (dismissOffsetThreshold - fadeOffsetThreshold)
-        }
+        transformAlpha = (dismissOffsetThreshold - offsetY)  / (dismissOffsetThreshold)
         
         self.detailTableView.tableHeaderView?.alpha = transformAlpha
-        
-        setAlphaForNotTitleRow(setAlpha: transformAlpha)
-        
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-        self.isBeingDragging = true
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        self.isBeingDragging = false
-        
-        if detailTableView.contentOffset.y < dismissOffsetThreshold {
-            
-            dismiss(animated: true, completion: nil)
-            
-        }
-    }
-    
-    private func setAlphaForNotTitleRow(setAlpha: CGFloat) {
+//            < 0 ?
+//            0 : ( transformAlpha > 1 ? 1 : transformAlpha )
         
         for rowNum in 0...rowTypes.count {
             
             if rowNum == 0 { continue }
-            
             let index = IndexPath(row: rowNum, section: 0)
             
-            detailTableView.tableHeaderView?.alpha = setAlpha
-            
-            detailTableView.cellForRow(at: index)?.alpha = setAlpha
+            detailTableView.tableHeaderView?.alpha = transformAlpha
+            detailTableView.cellForRow(at: index)?.alpha = transformAlpha
+            closeButton.alpha = transformAlpha
+            backgroundBlurView.alpha = transformAlpha + 0.3
         }
     }
 }
@@ -404,7 +418,6 @@ extension DetailViewController: DetailTableViewCellDelegate {
         
         calculateVC.hero.isEnabled = true
         calculateVC.hero.modalAnimationType = .fade
-        
         calculateVC.modalPresentationStyle = .overFullScreen
         
         present(calculateVC, animated: true, completion: nil)

@@ -17,6 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdJ-qm-fU3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rpm-ec-oDB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-Xa-8IT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,10 +49,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BAa-5F-u24" firstAttribute="bottom" secondItem="SdJ-qm-fU3" secondAttribute="bottom" id="HG7-Rd-z9r"/>
+                            <constraint firstItem="BAa-5F-u24" firstAttribute="trailing" secondItem="SdJ-qm-fU3" secondAttribute="trailing" id="Lbn-DI-Z2Q"/>
                             <constraint firstItem="IZL-Xa-8IT" firstAttribute="leading" secondItem="BAa-5F-u24" secondAttribute="leading" id="MeO-4D-hcj"/>
                             <constraint firstItem="vsX-I0-K2I" firstAttribute="trailing" secondItem="BAa-5F-u24" secondAttribute="trailing" constant="-10" id="OMl-4B-ATi"/>
+                            <constraint firstItem="SdJ-qm-fU3" firstAttribute="top" secondItem="qUa-gp-jIW" secondAttribute="top" id="Ru8-Zd-KLb"/>
                             <constraint firstItem="IZL-Xa-8IT" firstAttribute="top" secondItem="qUa-gp-jIW" secondAttribute="top" id="SMh-Uh-uOh"/>
                             <constraint firstItem="BAa-5F-u24" firstAttribute="bottom" secondItem="IZL-Xa-8IT" secondAttribute="bottom" id="lM4-sh-5vg"/>
+                            <constraint firstItem="SdJ-qm-fU3" firstAttribute="leading" secondItem="BAa-5F-u24" secondAttribute="leading" id="lyr-zE-S2H"/>
                             <constraint firstItem="BAa-5F-u24" firstAttribute="top" secondItem="vsX-I0-K2I" secondAttribute="top" constant="-10" id="zOw-k0-dvq"/>
                             <constraint firstItem="BAa-5F-u24" firstAttribute="trailing" secondItem="IZL-Xa-8IT" secondAttribute="trailing" id="zzv-cR-kH1"/>
                         </constraints>
@@ -54,6 +66,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="backgroundBlurView" destination="SdJ-qm-fU3" id="2kg-pk-EpI"/>
                         <outlet property="closeButton" destination="vsX-I0-K2I" id="8k2-41-Obf"/>
                         <outlet property="detailTableView" destination="IZL-Xa-8IT" id="QiB-a1-2nH"/>
                         <outlet property="detailWikiImageView" destination="61e-9t-PYx" id="8hk-Z6-VvN"/>

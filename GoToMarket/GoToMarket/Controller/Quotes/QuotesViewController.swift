@@ -297,7 +297,10 @@ extension QuotesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let crop = fetchedResultsController?.object(at: indexPath) else { return }
+        guard
+            let crop = fetchedResultsController?.object(at: indexPath),
+            let cell = quotesTableView.cellForRow(at: indexPath) as? QuotesTableViewCell
+            else { return }
         
         let detailVC = UIStoryboard.detail().instantiateInitialViewController()! as! DetailViewController
         
@@ -308,6 +311,8 @@ extension QuotesViewController: UITableViewDelegate {
             crop.note?.isInCart = bool
             
             try? crop.note?.setInCart(isInCart: bool, inContext: self?.container?.viewContext)
+            
+            cell.inBuyingChart = bool
         }
         
         //Hero
