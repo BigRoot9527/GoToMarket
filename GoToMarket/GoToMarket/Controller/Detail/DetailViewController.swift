@@ -423,7 +423,14 @@ extension DetailViewController: DetailTableViewCellDelegate {
         calculateVC.dismissCallBack = { [weak self] in
             
             self?.fetchItem()
-            self?.detailTableView.reloadData()
+            
+            guard
+                let rowOfQuotes = self?.rowTypes.index(of: .quotes),
+                let quoteCell = self?.detailTableView.cellForRow(at: IndexPath(row: rowOfQuotes, section: 0)) as? DetailQuotesTableViewCell,
+                let fetchedNote = self?.fetchedItem?.note
+                else { return }
+            
+            quoteCell.detailSellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: fetchedNote.sellingPrice)
             
         }
         
