@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +44,6 @@
                         <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1Xi-2C-dnA" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" constant="16" id="ea1-Ut-VGf"/>
-                            <constraint firstAttribute="bottom" secondItem="1Xi-2C-dnA" secondAttribute="bottom" constant="15" id="teg-xg-oQz"/>
                             <constraint firstItem="bPW-8G-ekL" firstAttribute="centerY" secondItem="1Xi-2C-dnA" secondAttribute="centerY" id="uGc-aO-lYt"/>
                             <constraint firstAttribute="trailing" secondItem="bPW-8G-ekL" secondAttribute="trailing" constant="30" id="zO0-iQ-tr5"/>
                         </constraints>
@@ -53,6 +51,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="JWt-n8-S2J" secondAttribute="trailing" id="9kj-T1-u8E"/>
+                    <constraint firstItem="1Xi-2C-dnA" firstAttribute="centerY" secondItem="3Xf-iR-rmo" secondAttribute="centerY" id="GOw-Lb-0m8"/>
                     <constraint firstAttribute="bottom" secondItem="JWt-n8-S2J" secondAttribute="bottom" id="YS2-85-mhS"/>
                     <constraint firstItem="JWt-n8-S2J" firstAttribute="top" secondItem="3Xf-iR-rmo" secondAttribute="top" id="cza-sG-6YW"/>
                     <constraint firstItem="JWt-n8-S2J" firstAttribute="leading" secondItem="3Xf-iR-rmo" secondAttribute="leading" id="pJM-5b-5p6"/>
