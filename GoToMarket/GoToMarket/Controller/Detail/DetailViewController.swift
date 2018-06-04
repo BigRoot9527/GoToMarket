@@ -435,8 +435,9 @@ extension DetailViewController: DetailTableViewCellDelegate {
         }
         
         calculateVC.hero.isEnabled = true
-        calculateVC.hero.modalAnimationType = .fade
+        calculateVC.hero.modalAnimationType = .none
         calculateVC.modalPresentationStyle = .overFullScreen
+        //TODO: self-made trasition delegate
         
         present(calculateVC, animated: true, completion: nil)
     }
