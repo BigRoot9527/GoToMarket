@@ -42,6 +42,7 @@ class DetailTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setUI()
+        
     }
     
     @IBAction func didTapBuyingButton(_ sender: UIButton) {
@@ -82,5 +83,4 @@ class DetailTitleTableViewCell: UITableViewCell {
         
         self.layoutIfNeeded()
     }
-    
 }

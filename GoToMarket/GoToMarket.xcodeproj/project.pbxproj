@@ -43,6 +43,7 @@
 		3230F3EB20AC1509002812E0 /* WikiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EA20AC1509002812E0 /* WikiManager.swift */; };
 		3230F3ED20AC15BC002812E0 /* WikiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EC20AC15BC002812E0 /* WikiStruct.swift */; };
 		3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3F020AC1C50002812E0 /* HTTPRequest.swift */; };
+		324A889B20C50ED300A8858D /* GoToMarketAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */; };
 		326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */; };
 		326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
@@ -143,6 +144,7 @@
 		3230F3EA20AC1509002812E0 /* WikiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiManager.swift; sourceTree = "<group>"; };
 		3230F3EC20AC15BC002812E0 /* WikiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiStruct.swift; sourceTree = "<group>"; };
 		3230F3F020AC1C50002812E0 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketAnimator.swift; sourceTree = "<group>"; };
 		326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingTableViewCell.swift; sourceTree = "<group>"; };
 		326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestFoldingTableViewCell.xib; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -371,6 +373,25 @@
 			path = Wiki;
 			sourceTree = "<group>";
 		};
+		324A889820C50E7200A8858D /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				32B1E3B420B1814200336B09 /* AnimationConstant.swift */,
+				32B1E3AE20B17F7200336B09 /* success.json */,
+				32B1E3AF20B17F7200336B09 /* warning.json */,
+				32B1E3B220B17F7D00336B09 /* loading.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		324A889920C50E8400A8858D /* TrainsitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */,
+			);
+			path = TrainsitionAnimation;
+			sourceTree = "<group>";
+		};
 		326D78EF20A5D42500EE0887 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,10 +597,8 @@
 		32B1E3A320B16E6B00336B09 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				32B1E3B420B1814200336B09 /* AnimationConstant.swift */,
-				32B1E3AE20B17F7200336B09 /* success.json */,
-				32B1E3AF20B17F7200336B09 /* warning.json */,
-				32B1E3B220B17F7D00336B09 /* loading.json */,
+				324A889920C50E8400A8858D /* TrainsitionAnimation */,
+				324A889820C50E7200A8858D /* Lottie */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -860,6 +879,7 @@
 				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,
 				32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
+				324A889B20C50ED300A8858D /* GoToMarketAnimator.swift in Sources */,
 				32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */,
 				3211781820BFD5E700B23711 /* ExtensionUITabBarController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
