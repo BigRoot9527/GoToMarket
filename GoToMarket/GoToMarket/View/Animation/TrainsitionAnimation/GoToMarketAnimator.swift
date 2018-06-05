@@ -15,7 +15,7 @@ protocol ContextViewProvider: class {
 
 class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    let duration:TimeInterval = 0.2
+    let duration:TimeInterval = 0.4
 
     //MARK: - Input
     //Note: presented - 被present出來的view, presingting - 原本的view
@@ -109,7 +109,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: { [weak self] in
+        UIView.animate(withDuration: duration / 2, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
             
             finailContextViewSnapShot.transform = contextViewScaleTransform
             finailContextViewSnapShot.frame = finalContextViewFrame
@@ -142,13 +142,4 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
 
     }
-
-
-
-
-
-
-
-
-
 }
