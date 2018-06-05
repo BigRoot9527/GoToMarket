@@ -29,25 +29,6 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-        // Fade animation
-        //        let containerView = transitionContext.containerView
-        //
-        //        let toView = transitionContext.view(forKey: .to)!
-        //
-        //        containerView.addSubview(toView)
-        //
-        //        toView.alpha = 0.0
-        //
-        //        UIView.animate(withDuration: duration, animations: {
-        //
-        //            toView.alpha = 1.0
-        //
-        //        }) { _ in
-        //
-        //            transitionContext.completeTransition(true)
-        //        }
-
-
         let containerView = transitionContext.containerView
 
         guard
@@ -68,7 +49,10 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let finalContextView = isPresentation ?
             presentedContextView :
             presentingContextView
-
+        
+        guard let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: false) else { return }
+        initialContextViewSnapShot.frame = containerView.convert(initialContextView.frame, from: fromView)
+        
         let xScalesFactor = isPresentation ?
             initialContextView.frame.width / finalContextView.frame.width :
             finalContextView.frame.width / initialContextView.frame.width
@@ -86,17 +70,20 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             containerView.bringSubview(toFront: toView)
             presentingVisualEffectView.effect = nil
         }
-        initialContextView.transform = CGAffineTransform.identity
-        initialContextView.center = CGPoint(x: initialContextView.frame.midX, y: initialContextView.frame.midY)
-        initialContextView.clipsToBounds = true
-        containerView.addSubview(initialContextView)
-        containerView.bringSubview(toFront: initialContextView)
+        initialContextView.alpha = 0.0
+        finalContextView.alpha = 0.0
+        
+        initialContextViewSnapShot.transform = CGAffineTransform.identity
+        initialContextViewSnapShot.center = CGPoint(x: initialContextViewSnapShot.frame.midX, y: initialContextViewSnapShot.frame.midY)
+        initialContextViewSnapShot.clipsToBounds = true
+        containerView.addSubview(initialContextViewSnapShot)
+        containerView.bringSubview(toFront: initialContextViewSnapShot)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: { [weak self] in
 
-            initialContextView.transform = contextViewScaleTransform
+            initialContextViewSnapShot.transform = contextViewScaleTransform
 
-            initialContextView.center = CGPoint(x: finalContextView.frame.midX, y: finalContextView.frame.midY)
+            initialContextViewSnapShot.center = CGPoint(x: finalContextView.frame.midX, y: finalContextView.frame.midY)
 
             if let check = self?.isPresentation, check {
                 self?.presentingVisualEffectView.effect = UIVisualEffect()
@@ -107,6 +94,8 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
         }) { _ in
 
+            initialContextView.alpha = 1.0
+            finalContextView.alpha = 1.0
             transitionContext.completeTransition(true)
         }
 

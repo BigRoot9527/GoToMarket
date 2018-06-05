@@ -71,7 +71,7 @@
                 <outlet property="detailNameLabel" destination="1Xi-2C-dnA" id="Snm-RU-JiH"/>
                 <outlet property="titleBackgroundView" destination="JWt-n8-S2J" id="mHZ-dr-RZ4"/>
             </connections>
-            <point key="canvasLocation" x="10" y="-210"/>
+            <point key="canvasLocation" x="9.5" y="-210"/>
         </tableViewCell>
     </objects>
     <resources>

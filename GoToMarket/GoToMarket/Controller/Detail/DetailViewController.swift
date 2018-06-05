@@ -69,6 +69,7 @@ class DetailViewController: UIViewController {
         fetchItem()
         loadWikiData()
         setupIncartNoticeView()
+        detailTableView.reloadData()
         
     }
     
