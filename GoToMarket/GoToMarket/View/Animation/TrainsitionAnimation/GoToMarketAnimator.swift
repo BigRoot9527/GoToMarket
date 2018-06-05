@@ -57,9 +57,8 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         initialContextView.layer.masksToBounds = true
         
         guard
-            let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true)else { return }
-//        initialContextViewSnapShot.frame = containerView.convert(initialContextView.frame, from: fromView)
-        
+            let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true) else { return }
+
         let xScalesFactor = isPresentation ?
             finalContextView.frame.width / initialContextView.frame.width :
             initialContextView.frame.width / finalContextView.frame.width
@@ -73,7 +72,9 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 //        let initialContextViewCenter = containerView.convert(CGPoint(x: initialContextView.frame.midX, y: initialContextView.frame.midY), from: initialContextView)
         
-        let finalContextViewCenter = containerView.convert(CGPoint(x: finalContextView.frame.midX, y: finalContextView.frame.midY), from: finalContextView.superview)
+        let finalContextViewCenter = containerView.convert(finalContextView.center, from: finalContextView.superview)
+        
+        print(finalContextViewCenter)
 
         //Initial State Before Animation
         if isPresentation {

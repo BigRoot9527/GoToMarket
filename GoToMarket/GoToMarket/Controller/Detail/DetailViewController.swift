@@ -82,6 +82,16 @@ class DetailViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
+        cell?.layoutIfNeeded()
+        print("----------------")
+        print(cell?.titleBackgroundView.frame)
+        print(cell?.titleBackgroundView.center)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -185,8 +195,8 @@ class DetailViewController: UIViewController {
     private func getContextView() {
         
         detailTableView.reloadData()
+        detailTableView.layoutIfNeeded()
         let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
-        cell?.layoutIfNeeded()
         self.detailContextView = cell?.titleBackgroundView
         
     }
@@ -232,6 +242,9 @@ extension DetailViewController: UITableViewDataSource {
             cell.isInCartInput = crop.note?.isInCart
             
             isAddingCart = crop.note?.isInCart
+            
+            print("-----------------")
+            print(cell.titleBackgroundView.frame)
             
             return cell
             
