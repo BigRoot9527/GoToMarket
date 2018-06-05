@@ -56,10 +56,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         initialContextView.layer.masksToBounds = true
         
-        guard
-            let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true)
-//            let finailContextViewSnapShot = finalContextView.snapshotView(afterScreenUpdates: true)
-            else { return }
+        guard let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true) else { return }
         
         let finailContextViewSnapShot = isPresentation ? UIView() : finalContextView.snapshotView(afterScreenUpdates: true)!
 
@@ -131,7 +128,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
         }) { _ in
 
-            initialContextView.alpha = 1.0
+            initialContextView.alpha = 0.0
             initialContextView.layer.masksToBounds = false
             finalContextView.alpha = 1.0
             
