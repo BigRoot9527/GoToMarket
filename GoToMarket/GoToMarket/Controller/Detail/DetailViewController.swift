@@ -79,17 +79,8 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         
-        let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
-        cell?.layoutIfNeeded()
-        print("----------------")
-        print(cell?.titleBackgroundView.frame)
-        print(cell?.titleBackgroundView.center)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -195,7 +186,7 @@ class DetailViewController: UIViewController {
     private func getContextView() {
         
         detailTableView.reloadData()
-        detailTableView.layoutIfNeeded()
+        self.view.layoutIfNeeded()
         let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
         self.detailContextView = cell?.titleBackgroundView
         

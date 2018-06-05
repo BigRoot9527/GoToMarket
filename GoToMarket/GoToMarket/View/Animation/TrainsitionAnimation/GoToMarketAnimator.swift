@@ -15,7 +15,7 @@ protocol ContextViewProvider: class {
 
 class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    let duration:TimeInterval = 2
+    let duration:TimeInterval = 0.3
 
     //MARK: - Input
     //Note: presented - 被present出來的view, presingting - 原本的view
@@ -70,12 +70,9 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let initialContextFrame = containerView.convert(initialContextView.frame, from: initialContextView.superview)
 
-//        let initialContextViewCenter = containerView.convert(CGPoint(x: initialContextView.frame.midX, y: initialContextView.frame.midY), from: initialContextView)
-        
-        let finalContextViewCenter = containerView.convert(finalContextView.center, from: finalContextView.superview)
-        
-        print(finalContextViewCenter)
+        let finalContextViewFrame = containerView.convert(finalContextView.frame, from: finalContextView.superview)
 
+        
         //Initial State Before Animation
         if isPresentation {
             toView.alpha = 0.0
@@ -98,7 +95,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
             initialContextViewSnapShot.transform = contextViewScaleTransform
 
-            initialContextViewSnapShot.center = CGPoint(x: finalContextViewCenter.x, y: finalContextViewCenter.y)
+            initialContextViewSnapShot.frame = finalContextViewFrame
 
             if let check = self?.isPresentation, check {
                 self?.presentingVisualEffectView.effect = UIVisualEffect()
