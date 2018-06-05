@@ -15,7 +15,7 @@ protocol ContextViewProvider: class {
 
 class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
-    let duration:TimeInterval = 0.3
+    let duration:TimeInterval = 0.2
 
     //MARK: - Input
     //Note: presented - 被present出來的view, presingting - 原本的view
@@ -57,7 +57,11 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         initialContextView.layer.masksToBounds = true
         
         guard
-            let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true) else { return }
+            let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true)
+//            let finailContextViewSnapShot = finalContextView.snapshotView(afterScreenUpdates: true)
+            else { return }
+        
+        let finailContextViewSnapShot = isPresentation ? UIView() : finalContextView.snapshotView(afterScreenUpdates: true)!
 
         let xScalesFactor = isPresentation ?
             finalContextView.frame.width / initialContextView.frame.width :
@@ -68,10 +72,13 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
         let contextViewScaleTransform = CGAffineTransform(scaleX: xScalesFactor, y: yScaleFactor)
         
+        
         let initialContextFrame = containerView.convert(initialContextView.frame, from: initialContextView.superview)
-
+        
         let finalContextViewFrame = containerView.convert(finalContextView.frame, from: finalContextView.superview)
 
+        
+        
         
         //Initial State Before Animation
         if isPresentation {
@@ -80,6 +87,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             containerView.bringSubview(toFront: toView)
             presentingVisualEffectView.effect = nil
         }
+        
         initialContextView.alpha = 0.0
         finalContextView.alpha = 0.0
         
@@ -87,20 +95,37 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         initialContextViewSnapShot.frame = initialContextFrame
         initialContextViewSnapShot.layer.masksToBounds = true
         
+        finailContextViewSnapShot.transform = CGAffineTransform.identity
+        finailContextViewSnapShot.frame = initialContextFrame
+        finailContextViewSnapShot.layer.masksToBounds = true
+        
+        finailContextViewSnapShot.alpha = 0.1
+        initialContextViewSnapShot.alpha = 1.0
+        
+        containerView.addSubview(finailContextViewSnapShot)
         containerView.addSubview(initialContextViewSnapShot)
+        
         containerView.bringSubview(toFront: initialContextViewSnapShot)
+        containerView.bringSubview(toFront: finailContextViewSnapShot)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: { [weak self] in
             
+            finailContextViewSnapShot.transform = contextViewScaleTransform
+            finailContextViewSnapShot.frame = finalContextViewFrame
+            finailContextViewSnapShot.alpha = 1.0
 
             initialContextViewSnapShot.transform = contextViewScaleTransform
-
             initialContextViewSnapShot.frame = finalContextViewFrame
+            initialContextViewSnapShot.alpha = 0.1
 
             if let check = self?.isPresentation, check {
+                
                 self?.presentingVisualEffectView.effect = UIVisualEffect()
                 toView.alpha = 1.0
+                finalContextView.alpha = 1.0
+                
             } else {
+                
                 fromView.alpha = 0.0
             }
 
@@ -109,7 +134,9 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             initialContextView.alpha = 1.0
             initialContextView.layer.masksToBounds = false
             finalContextView.alpha = 1.0
+            
             initialContextViewSnapShot.removeFromSuperview()
+            finailContextViewSnapShot.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
 
