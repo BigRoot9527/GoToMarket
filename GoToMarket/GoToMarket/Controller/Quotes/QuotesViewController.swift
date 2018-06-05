@@ -33,6 +33,10 @@ class QuotesViewController: UIViewController {
     
     //MARK: - UIRefreshControl
     private let refreshControl = UIRefreshControl()
+    
+    //MARK: - Transition
+    private let transition = GoToMarketAnimator()
+    private var quoteContextView: UIView?
 
     //MARK: LifeCycle
     override func viewDidLoad() {
@@ -43,6 +47,8 @@ class QuotesViewController: UIViewController {
         setupNav()
         
         setupTableView()
+        
+        transition.presentingContextViewProvider = self
         
     }
     
@@ -274,9 +280,9 @@ extension QuotesViewController: UITableViewDataSource {
         cell.inBuyingChart = note.isInCart
         
         //Hero
-        cell.contentView.hero.id = String(describing: indexPath)
-        
-        cell.hero.isEnabled = true
+//        cell.contentView.hero.id = String(describing: indexPath)
+//
+//        cell.hero.isEnabled = true
         
         return cell
     }
@@ -324,6 +330,12 @@ extension QuotesViewController: UITableViewDelegate {
 //        detailVC.hero.isEnabled = true
 //        detailVC.titleHeroIdInput = String(describing: indexPath)
 //        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
+        
+        self.quoteContextView = cell.quoteBackgroundView
+        
+        transition.presentedContextViewProvider = detailVC
+        
+        detailVC.transitioningDelegate = self
         
         detailVC.modalPresentationStyle = .custom
         
@@ -424,6 +436,33 @@ extension QuotesViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
         quotesTableView.allowsSelection = true
+    }
+    
+}
+
+
+extension QuotesViewController: ContextViewProvider {
+    
+    func contextView(for animator: GoToMarketAnimator) -> UIView? {
+        
+        return self.quoteContextView
+    }
+}
+
+extension QuotesViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.isPresentation = true
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.isPresentation = false
+        
+        return transition
     }
     
 }

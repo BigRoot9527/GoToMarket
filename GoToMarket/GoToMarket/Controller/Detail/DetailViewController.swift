@@ -44,6 +44,9 @@ class DetailViewController: UIViewController {
     private let fadeOffsetThreshold: CGFloat = -30.0
     private var endDragingOffsetY: CGFloat = 0.0
     
+    //Transition
+    private var detailContextView: UIView?
+    
     //SwiftMessage
     private let incartNoticeView = MessageView.viewFromNib(layout: .cardView)
     private var messageConfig = SwiftMessages.Config()
@@ -69,7 +72,7 @@ class DetailViewController: UIViewController {
         fetchItem()
         loadWikiData()
         setupIncartNoticeView()
-        detailTableView.reloadData()
+        getContextView()
         
     }
     
@@ -177,6 +180,15 @@ class DetailViewController: UIViewController {
         
         incartNoticeView.configureContent(body: incartMessageText)
         incartNoticeView.configureTheme(backgroundColor: UIColor.gray, foregroundColor: UIColor.white, iconImage: incartImage, iconText: nil)
+    }
+    
+    private func getContextView() {
+        
+        detailTableView.reloadData()
+        let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
+        cell?.layoutIfNeeded()
+        self.detailContextView = cell?.titleBackgroundView
+        
     }
     
     
@@ -442,4 +454,14 @@ extension DetailViewController: DetailTableViewCellDelegate {
         
         present(calculateVC, animated: true, completion: nil)
     }
+}
+
+extension DetailViewController: ContextViewProvider {
+    func contextView(for animator: GoToMarketAnimator) -> UIView? {
+        
+        return detailContextView
+    }
+    
+    
+    
 }
