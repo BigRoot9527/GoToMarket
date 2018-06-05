@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol contextViewProvider: class {
+    
+    func contextView(for animator: GoToMarketAnimator) -> UIView?
+}
+
 class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     let duration:TimeInterval = 0.6
@@ -16,8 +21,8 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     //Note: presented - 被present出來的view, presingting - 原本的view
     var isPresentation: Bool = true
     var isAsyncAnimation: Bool = true
-    var presentedContextView: UIView = UIView()
-    var presentingContextView: UIView = UIView()
+    weak var presentedContextViewProvider: contextViewProvider?
+    weak var presentingContextViewProvider: contextViewProvider?
     //Optional
     var presentingVisualEffectView: UIVisualEffectView = UIVisualEffectView()
 
@@ -43,14 +48,20 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView :
             fromView
 
-        let initialContextView = isPresentation ?
-            presentingContextView :
-            presentedContextView
-        let finalContextView = isPresentation ?
-            presentedContextView :
-            presentingContextView
+        let initialContext = isPresentation ?
+            presentingContextViewProvider?.contextView(for: self) :
+            presentedContextViewProvider?.contextView(for: self)
+        let finalContext = isPresentation ?
+            presentedContextViewProvider?.contextView(for: self) :
+            presentingContextViewProvider?.contextView(for: self)
+        
+        guard
+            let initialContextView = initialContext,
+            let finalContextView = finalContext
+            else { return }
         
         guard let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: false) else { return }
+        
         initialContextViewSnapShot.frame = containerView.convert(initialContextView.frame, from: fromView)
         
         let xScalesFactor = isPresentation ?

@@ -75,9 +75,6 @@
                             </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
                         <outlet property="toolBarTopToSafeAreaConstraint" destination="WZ9-W7-3zf" id="iCG-EW-4R6"/>

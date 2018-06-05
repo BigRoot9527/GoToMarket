@@ -62,9 +62,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BAa-5F-u24"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="backgroundBlurView" destination="SdJ-qm-fU3" id="2kg-pk-EpI"/>
                         <outlet property="closeButton" destination="vsX-I0-K2I" id="8k2-41-Obf"/>

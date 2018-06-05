@@ -321,11 +321,11 @@ extension QuotesViewController: UITableViewDelegate {
         }
         
         //Hero
-        detailVC.hero.isEnabled = true
-        detailVC.titleHeroIdInput = String(describing: indexPath)
-        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
+//        detailVC.hero.isEnabled = true
+//        detailVC.titleHeroIdInput = String(describing: indexPath)
+//        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
         
-        detailVC.modalPresentationStyle = .overFullScreen
+        detailVC.modalPresentationStyle = .custom
         
         present(detailVC, animated: true, completion: nil)
     }
