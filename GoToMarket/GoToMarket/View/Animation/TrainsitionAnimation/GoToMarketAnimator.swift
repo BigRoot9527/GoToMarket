@@ -58,6 +58,8 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         guard let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true) else { return }
         
+        finalContextView.alpha = 1.0
+        
         let finailContextViewSnapShot = isPresentation ? UIView() : finalContextView.snapshotView(afterScreenUpdates: true)!
 
         let xScalesFactor = isPresentation ?
@@ -96,7 +98,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         finailContextViewSnapShot.frame = initialContextFrame
         finailContextViewSnapShot.layer.masksToBounds = true
         
-        finailContextViewSnapShot.alpha = 0.1
+        finailContextViewSnapShot.alpha = 0.0
         initialContextViewSnapShot.alpha = 1.0
         
         containerView.addSubview(finailContextViewSnapShot)
@@ -104,6 +106,8 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         containerView.bringSubview(toFront: initialContextViewSnapShot)
         containerView.bringSubview(toFront: finailContextViewSnapShot)
+        
+        
         
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: { [weak self] in
             
@@ -113,7 +117,7 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
             initialContextViewSnapShot.transform = contextViewScaleTransform
             initialContextViewSnapShot.frame = finalContextViewFrame
-            initialContextViewSnapShot.alpha = 0.1
+            initialContextViewSnapShot.alpha = 0.0
 
             if let check = self?.isPresentation, check {
                 
@@ -136,7 +140,6 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             finailContextViewSnapShot.removeFromSuperview()
             transitionContext.completeTransition(true)
         }
-
 
     }
 
