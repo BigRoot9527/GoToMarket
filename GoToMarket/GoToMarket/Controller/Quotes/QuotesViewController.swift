@@ -278,12 +278,7 @@ extension QuotesViewController: UITableViewDataSource {
         
         //MARK: TODO
         cell.inBuyingChart = note.isInCart
-        
-        //Hero
-//        cell.contentView.hero.id = String(describing: indexPath)
-//
-//        cell.hero.isEnabled = true
-        
+
         return cell
     }
     
@@ -325,19 +320,14 @@ extension QuotesViewController: UITableViewDelegate {
             
             cell.inBuyingChart = bool
         }
-        
-        //Hero
-//        detailVC.hero.isEnabled = true
-//        detailVC.titleHeroIdInput = String(describing: indexPath)
-//        detailVC.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .fade)
-        
+
         self.quoteContextView = cell.quoteBackgroundView
         
         transition.presentedContextViewProvider = detailVC
         
         detailVC.transitioningDelegate = self
         
-        detailVC.modalPresentationStyle = .custom
+        detailVC.modalPresentationStyle = .overFullScreen
         
         present(detailVC, animated: true, completion: nil)
     }
@@ -381,27 +371,18 @@ extension QuotesViewController: SwipeTableViewCellDelegate {
             #imageLiteral(resourceName: "add_icon").resizeImage(newWidth: 35) :
             #imageLiteral(resourceName: "minus_icon").resizeImage(newWidth: 35)
         
-//        selectAction.backgroundColor = !selectedCell.inBuyingChart ?
-//            GoToMarketColor.newLightBlueGreen.color() :
-//            GoToMarketColor.pitchRed.color()
-        
         selectAction.backgroundColor = UIColor.clear
         
         return [selectAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-        
-//        let selectedCell = self.quotesTableView.cellForRow(at: indexPath) as! QuotesTableViewCell
-        
+
         var options = SwipeTableOptions()
         
         options.expansionStyle = .selection
         options.transitionStyle = .reveal
         options.buttonVerticalAlignment = .center
-//        options.backgroundColor = !selectedCell.inBuyingChart ?
-//            GoToMarketColor.newLightBlueGreen.color() :
-//            GoToMarketColor.pitchRed.color()
         options.backgroundColor = UIColor.clear
         
         return options
