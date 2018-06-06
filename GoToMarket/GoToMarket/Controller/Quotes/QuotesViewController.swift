@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Hero
 import SwipeCellKit
 
 class QuotesViewController: UIViewController {
@@ -41,8 +40,6 @@ class QuotesViewController: UIViewController {
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.hero.isEnabled = true
         
         setupNav()
         
@@ -214,6 +211,9 @@ extension QuotesViewController: QuoteToolBarViewControllertDelegate {
 //MARK: - NSFetchedResultsControllerDelegate
 extension QuotesViewController: NSFetchedResultsControllerDelegate {
     
+    //TODO: implement back NSFetchedResultsControllerDelegate auto update tableView func
+    //helper: UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    
     private func fetchAndReloadData() {
         
         if let context = container?.viewContext {
@@ -275,8 +275,7 @@ extension QuotesViewController: UITableViewDataSource {
         }
         //SwipeCellKit
         cell.delegate = self
-        
-        //MARK: TODO
+
         cell.inBuyingChart = note.isInCart
 
         return cell

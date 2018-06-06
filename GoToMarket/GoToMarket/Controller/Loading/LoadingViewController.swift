@@ -61,11 +61,9 @@ class LoadingViewController: UIViewController {
             
             //all nil > firstSet
         } else {
-            
-            
+
             askForMarket()
         }
-        
     }
     
     private func doingReset(toMarket market: String) {
