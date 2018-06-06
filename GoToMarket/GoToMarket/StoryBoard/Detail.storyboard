@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,7 +100,7 @@
                                 </constraints>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" name="NormalCellBackground_color"/>
                         <constraints>
                             <constraint firstItem="8bB-t4-M6F" firstAttribute="trailing" secondItem="74l-6p-YHC" secondAttribute="trailing" id="4Vm-Sp-xjq"/>
                             <constraint firstItem="8bB-t4-M6F" firstAttribute="bottom" secondItem="74l-6p-YHC" secondAttribute="bottom" constant="15" id="GN6-uD-O0l"/>
@@ -127,5 +128,8 @@
     <resources>
         <image name="cancel_icon" width="64" height="64"/>
         <image name="placeholder-image" width="800" height="600"/>
+        <namedColor name="NormalCellBackground_color">
+            <color red="0.92199999094009399" green="0.92199999094009399" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

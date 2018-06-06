@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +56,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
                         <barButtonItem key="leftBarButtonItem" image="filter_icon" id="gpt-5K-jIV">
-                            <color key="tintColor" red="0.40000000000000002" green="0.62745098040000002" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" name="AverageButtonColors"/>
                             <connections>
                                 <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
                             </connections>
@@ -68,7 +69,7 @@
                                     <segment title="公斤" width="45"/>
                                     <segment title="台斤" width="45"/>
                                 </segments>
-                                <color key="tintColor" red="0.40000000000000002" green="0.62745098040000002" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="AverageButtonColors"/>
                                 <connections>
                                     <action selector="weightTypeSegControlDidChange:" destination="dyT-ZU-lsL" eventType="valueChanged" id="4VK-hN-nEf"/>
                                 </connections>
@@ -178,5 +179,8 @@
         <image name="filter_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
         <image name="top_icon" width="21" height="21"/>
+        <namedColor name="AverageButtonColors">
+            <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

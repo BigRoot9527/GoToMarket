@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,6 +27,7 @@
                                     <constraint firstAttribute="height" constant="35" id="TIR-IA-k8s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="24"/>
+                                <color key="textColor" name="MainTitleText_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-8G-ekL">
@@ -41,7 +43,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="CropCellBackground_color"/>
                         <constraints>
                             <constraint firstItem="1Xi-2C-dnA" firstAttribute="leading" secondItem="JWt-n8-S2J" secondAttribute="leading" constant="16" id="ea1-Ut-VGf"/>
                             <constraint firstItem="bPW-8G-ekL" firstAttribute="centerY" secondItem="1Xi-2C-dnA" secondAttribute="centerY" id="uGc-aO-lYt"/>
@@ -77,5 +79,11 @@
     <resources>
         <image name="noShopping" width="64" height="64"/>
         <image name="shopping-cart-3" width="64" height="64"/>
+        <namedColor name="CropCellBackground_color">
+            <color red="0.58799999952316284" green="0.81999999284744263" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTitleText_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

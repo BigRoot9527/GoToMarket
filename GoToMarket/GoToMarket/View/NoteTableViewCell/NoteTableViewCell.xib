@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,27 +24,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrV-nn-HlH">
                                 <rect key="frame" x="280" y="0.0" width="20" height="100"/>
-                                <color key="backgroundColor" red="0.58843402474325179" green="0.81960784310000001" blue="0.57405460173824996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="CropCellBackground_color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="XPb-xu-82Q"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-LV-vfJ">
-                                <rect key="frame" x="57" y="33.333333333333336" width="223" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejV-LV-vfJ">
+                                <rect key="frame" x="57" y="5.3333333333333357" width="223" height="28"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="MainTitleText_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預估零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1B-yK-hJm">
                                 <rect key="frame" x="57" y="38.666666666666664" width="96" height="22.666666666666664"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TitleText_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="246" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-Gq-A4i">
                                 <rect key="frame" x="153" y="68.333333333333329" width="127" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Text_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co6-Bn-UXO">
@@ -61,17 +62,17 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="756" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVO-Us-vUC">
                                 <rect key="frame" x="153" y="40.666666666666664" width="127" height="19.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Text_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預計購買量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qn7-9g-fIO">
                                 <rect key="frame" x="57" y="66.333333333333329" width="96" height="22.666666666666671"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TitleText_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="NormalCellBackground_color"/>
                         <constraints>
                             <constraint firstItem="jrV-nn-HlH" firstAttribute="top" secondItem="2CN-re-34S" secondAttribute="top" id="3ag-1Q-Kay"/>
                             <constraint firstAttribute="bottom" secondItem="jrV-nn-HlH" secondAttribute="bottom" id="6cB-Rg-Hx0"/>
@@ -130,7 +131,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58843402469999995" green="0.81960784310000001" blue="0.5740546017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="CropCellBackground_color"/>
                                 <constraints>
                                     <constraint firstItem="ol4-dE-p22" firstAttribute="centerY" secondItem="E9h-5S-JWH" secondAttribute="centerY" id="07u-wA-Flc"/>
                                     <constraint firstAttribute="trailing" secondItem="pAj-G9-YO2" secondAttribute="trailing" constant="20" id="2wi-1y-sg0"/>
@@ -149,6 +150,7 @@
                                     <constraint firstAttribute="height" constant="29" id="awm-sC-7NI"/>
                                     <constraint firstAttribute="width" secondItem="ji4-6a-VXP" secondAttribute="height" multiplier="94:29" id="qVY-wx-Tkp"/>
                                 </constraints>
+                                <color key="tintColor" name="AverageButtonColors"/>
                                 <connections>
                                     <action selector="didTapBottomStepper:" destination="2Y7-gV-Foe" eventType="valueChanged" id="GTf-y8-OJH"/>
                                 </connections>
@@ -159,19 +161,19 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r78-gS-tuW">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbU-DG-f5l">
                                         <rect key="frame" x="0.0" y="38" width="70" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOO-x9-ybP">
                                         <rect key="frame" x="0.0" y="76" width="70" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="Text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -185,25 +187,25 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="估計零售價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-wn-CXR">
                                         <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="25.333333333333332"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TitleText_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本期批發價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9L-k9-rDN">
                                         <rect key="frame" x="0.0" y="37.333333333333343" width="108.33333333333333" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TitleText_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上期批發價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJW-iI-cW3">
                                         <rect key="frame" x="0.0" y="74.666666666666657" width="108.33333333333333" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TitleText_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預計購買量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo6-2t-5Tc">
                                         <rect key="frame" x="0.0" y="112" width="108.33333333333333" height="25.333333333333343"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TitleText_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -233,7 +235,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" name="NormalCellBackground_color"/>
                         <constraints>
                             <constraint firstItem="E9h-5S-JWH" firstAttribute="leading" secondItem="f5Q-yo-72m" secondAttribute="leading" id="0Wh-NS-2HI"/>
                             <constraint firstItem="ZI9-VD-jxs" firstAttribute="leading" secondItem="f5Q-yo-72m" secondAttribute="leading" constant="10" id="2GR-Un-iuX"/>
@@ -294,5 +296,23 @@
         <image name="garbage_icon" width="64" height="64"/>
         <image name="information" width="64" height="64"/>
         <image name="unconfirm2_icon" width="128" height="128"/>
+        <namedColor name="AverageButtonColors">
+            <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CropCellBackground_color">
+            <color red="0.58799999952316284" green="0.81999999284744263" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTitleText_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NormalCellBackground_color">
+            <color red="0.92199999094009399" green="0.92199999094009399" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleText_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -87,7 +87,7 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         chartCollectionView.isPagingEnabled = true
         chartCollectionView.alwaysBounceVertical = false
         chartCollectionView.indicatorStyle = .black
-        chartCollectionView.backgroundColor = GoToMarketColor.defaultGray.color()
+        chartCollectionView.backgroundColor = UIColor(named: "NormalCellBackground_color")
     }
     
     private func registerCell() {

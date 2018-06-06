@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,10 +25,11 @@
                         </constraints>
                         <string key="text">"椰（學名：Cocos nucifera）是棕櫚科椰屬的唯一種大型植物，椰子是椰樹的果實，是一種在熱帶地區很普及的果實。椰子樹的普及也在于其果實椰子可以在海中隨風浪漂流上千公里后生殖到離母樹非常遠的地方。一般商業賣出來的椰子在收割時還是綠色的，未成熟的果實，它有點三角形狀，足球大小。在泰國南部人們也利用訓練好的獼猴來採摘椰子。一般在外地出售的“椰子”實際上是椰子的棕色的核，也叫作椰仁。在這個核外面實際上還有一層很厚的纖維質和一個硬的、綠色的殼。為了節省運輸占用的地方，核外的部分一般在運輸前就被去掉了。核內含約一升甜的、几乎清晰的汁和白色的、清香的果肉。"</string>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                        <color key="textColor" name="Text_color"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" name="NormalCellBackground_color"/>
                 <constraints>
                     <constraint firstItem="9x2-fV-aQn" firstAttribute="leading" secondItem="rqp-rK-57N" secondAttribute="leading" constant="16" id="IZC-nd-7Sa"/>
                     <constraint firstItem="9x2-fV-aQn" firstAttribute="top" secondItem="rqp-rK-57N" secondAttribute="top" constant="10" id="LaZ-zp-310"/>
@@ -42,4 +43,12 @@
             <point key="canvasLocation" x="-8.5" y="107"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="NormalCellBackground_color">
+            <color red="0.92199999094009399" green="0.92199999094009399" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
