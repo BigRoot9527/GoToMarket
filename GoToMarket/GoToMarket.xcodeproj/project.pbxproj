@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B72833610E48BE1F66E2B97 /* Pods_GoToMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */; };
 		32070B4B20A44CA700A6BA27 /* OpenDataApiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32070B4A20A44CA700A6BA27 /* OpenDataApiStruct.swift */; };
-		32070B5320A53DBB00A6BA27 /* TestFolding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5220A53DBB00A6BA27 /* TestFolding.storyboard */; };
 		32070B5520A53DD200A6BA27 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5420A53DD200A6BA27 /* Notes.storyboard */; };
 		32070B5920A53E2300A6BA27 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B5820A53E2300A6BA27 /* Settings.storyboard */; };
 		32070B6220A5556300A6BA27 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32070B6120A5556300A6BA27 /* TabBar.storyboard */; };
@@ -44,8 +43,6 @@
 		3230F3ED20AC15BC002812E0 /* WikiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EC20AC15BC002812E0 /* WikiStruct.swift */; };
 		3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3F020AC1C50002812E0 /* HTTPRequest.swift */; };
 		324A889B20C50ED300A8858D /* GoToMarketAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */; };
-		326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */; };
-		326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
 		327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */; };
 		327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */; };
@@ -88,29 +85,17 @@
 		32B54CBC20BD2825006AAD4A /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
-		32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */; };
-		32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */; };
-		32BB0C5F209AC450001ECF52 /* CoreDataDemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5E209AC450001ECF52 /* CoreDataDemoTableViewController.swift */; };
 		32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D81CD820AC7B9900514F31 /* ExtensionString.swift */; };
 		32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */; };
 		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
 		32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */; };
 		32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */; };
-		32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4862120A7515600DA531C /* TestFoldingViewController.swift */; };
-		32F1467E20A945DD00D6ACB8 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F1467D20A945DD00D6ACB8 /* TitleTableViewCell.xib */; };
-		32F1468120A9464F00D6ACB8 /* HeroDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F1468020A9464F00D6ACB8 /* HeroDetailTableViewCell.xib */; };
-		32F1468420A947FA00D6ACB8 /* TestHero.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F1468320A947FA00D6ACB8 /* TestHero.storyboard */; };
-		32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468520A948F300D6ACB8 /* TitleTableViewCell.swift */; };
-		32F1468A20A949CE00D6ACB8 /* HeroDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468920A949CE00D6ACB8 /* HeroDetailTableViewCell.swift */; };
-		32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468C20A94A6100D6ACB8 /* TestHeroViewController.swift */; };
-		32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1468E20A94D4800D6ACB8 /* TestHeroDetailViewController.swift */; };
 		32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.release.xcconfig"; sourceTree = "<group>"; };
 		32070B4A20A44CA700A6BA27 /* OpenDataApiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDataApiStruct.swift; sourceTree = "<group>"; };
-		32070B5220A53DBB00A6BA27 /* TestFolding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestFolding.storyboard; sourceTree = "<group>"; };
 		32070B5420A53DD200A6BA27 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
 		32070B5820A53E2300A6BA27 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		32070B6120A5556300A6BA27 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
@@ -145,8 +130,6 @@
 		3230F3EC20AC15BC002812E0 /* WikiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiStruct.swift; sourceTree = "<group>"; };
 		3230F3F020AC1C50002812E0 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketAnimator.swift; sourceTree = "<group>"; };
-		326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingTableViewCell.swift; sourceTree = "<group>"; };
-		326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestFoldingTableViewCell.xib; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		327A4DFE209F438F00B3EEE9 /* NoteConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteConstant.swift; sourceTree = "<group>"; };
@@ -191,22 +174,11 @@
 		32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
-		32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
-		32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionOfNSFetchResultsController.swift; sourceTree = "<group>"; };
-		32BB0C5E209AC450001ECF52 /* CoreDataDemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDemoTableViewController.swift; sourceTree = "<group>"; };
 		32D81CD820AC7B9900514F31 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
 		32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
-		32E4862120A7515600DA531C /* TestFoldingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoldingViewController.swift; sourceTree = "<group>"; };
-		32F1467D20A945DD00D6ACB8 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
-		32F1468020A9464F00D6ACB8 /* HeroDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailTableViewCell.xib; sourceTree = "<group>"; };
-		32F1468320A947FA00D6ACB8 /* TestHero.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestHero.storyboard; sourceTree = "<group>"; };
-		32F1468520A948F300D6ACB8 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
-		32F1468920A949CE00D6ACB8 /* HeroDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailTableViewCell.swift; sourceTree = "<group>"; };
-		32F1468C20A94A6100D6ACB8 /* TestHeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeroViewController.swift; sourceTree = "<group>"; };
-		32F1468E20A94D4800D6ACB8 /* TestHeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeroDetailViewController.swift; sourceTree = "<group>"; };
 		32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
@@ -333,36 +305,6 @@
 			path = Quotes;
 			sourceTree = "<group>";
 		};
-		3230F3E220AABA4E002812E0 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				3230F3E420AABAD1002812E0 /* TestFolding */,
-				32F1467B20A9441C00D6ACB8 /* TestHero */,
-				3230F3E320AABA65002812E0 /* CoreData */,
-			);
-			path = Demo;
-			sourceTree = "<group>";
-		};
-		3230F3E320AABA65002812E0 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				32BB0C5A209AC193001ECF52 /* FetchedResultsTableViewController.swift */,
-				32BB0C5C209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift */,
-				32BB0C5E209AC450001ECF52 /* CoreDataDemoTableViewController.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		3230F3E420AABAD1002812E0 /* TestFolding */ = {
-			isa = PBXGroup;
-			children = (
-				32070B5220A53DBB00A6BA27 /* TestFolding.storyboard */,
-				32E4862120A7515600DA531C /* TestFoldingViewController.swift */,
-				326D78F320A5D4E000EE0887 /* TestFoldingTableViewCell */,
-			);
-			path = TestFolding;
-			sourceTree = "<group>";
-		};
 		3230F3E720AC11B8002812E0 /* Wiki */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,15 +352,6 @@
 				3230F3CF20AA8652002812E0 /* QuoteTableViewCell */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		326D78F320A5D4E000EE0887 /* TestFoldingTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				326D78F120A5D4D400EE0887 /* TestFoldingTableViewCell.swift */,
-				326D78F420A5DF6D00EE0887 /* TestFoldingTableViewCell.xib */,
-			);
-			path = TestFoldingTableViewCell;
 			sourceTree = "<group>";
 		};
 		327A4DFD209C9C6C00B3EEE9 /* Note */ = {
@@ -479,7 +412,6 @@
 				326D78F020A5D47100EE0887 /* View */,
 				32070B6820A56C6D00A6BA27 /* Support */,
 				32070B6520A566C900A6BA27 /* Extension */,
-				3230F3E220AABA4E002812E0 /* Demo */,
 				329BC6E52098991C00CC9096 /* Model */,
 				32070B5C20A551D600A6BA27 /* Controller */,
 				327E1B6820A1F8160020511A /* StoryBoard */,
@@ -629,36 +561,6 @@
 			path = ChartCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		32F1467B20A9441C00D6ACB8 /* TestHero */ = {
-			isa = PBXGroup;
-			children = (
-				32F1468320A947FA00D6ACB8 /* TestHero.storyboard */,
-				32F1468C20A94A6100D6ACB8 /* TestHeroViewController.swift */,
-				32F1468E20A94D4800D6ACB8 /* TestHeroDetailViewController.swift */,
-				32F1467F20A9461F00D6ACB8 /* DetailTableViewCell */,
-				32F1467C20A9442D00D6ACB8 /* TitleTableViewCell */,
-			);
-			path = TestHero;
-			sourceTree = "<group>";
-		};
-		32F1467C20A9442D00D6ACB8 /* TitleTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				32F1467D20A945DD00D6ACB8 /* TitleTableViewCell.xib */,
-				32F1468520A948F300D6ACB8 /* TitleTableViewCell.swift */,
-			);
-			path = TitleTableViewCell;
-			sourceTree = "<group>";
-		};
-		32F1467F20A9461F00D6ACB8 /* DetailTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				32F1468020A9464F00D6ACB8 /* HeroDetailTableViewCell.xib */,
-				32F1468920A949CE00D6ACB8 /* HeroDetailTableViewCell.swift */,
-			);
-			path = DetailTableViewCell;
-			sourceTree = "<group>";
-		};
 		B6FF0B1522012E7E6E95CEA0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,7 +640,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B1E38F20AED57100336B09 /* DetailHistoryTableViewCell.xib in Resources */,
-				32F1467E20A945DD00D6ACB8 /* TitleTableViewCell.xib in Resources */,
 				32070B5520A53DD200A6BA27 /* Notes.storyboard in Resources */,
 				3211781420BDBC1D00B23711 /* Detail.storyboard in Resources */,
 				32070B6220A5556300A6BA27 /* TabBar.storyboard in Resources */,
@@ -747,17 +648,13 @@
 				32B1E38920AED54B00336B09 /* DetailQuotesTableViewCell.xib in Resources */,
 				32B1E38320AED4DB00336B09 /* DetailTitleTableViewCell.xib in Resources */,
 				3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */,
-				32070B5320A53DBB00A6BA27 /* TestFolding.storyboard in Resources */,
-				326D78F520A5DF6D00EE0887 /* TestFoldingTableViewCell.xib in Resources */,
 				321321D620BBE8850031ADE1 /* GoogleService-Info.plist in Resources */,
 				32B1E38720AED4FF00336B09 /* DetailIntroTableViewCell.xib in Resources */,
 				32070B5920A53E2300A6BA27 /* Settings.storyboard in Resources */,
 				32B1E3A220B169DC00336B09 /* Loading.storyboard in Resources */,
 				3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */,
 				329BC6D1209700D700CC9096 /* Assets.xcassets in Resources */,
-				32F1468120A9464F00D6ACB8 /* HeroDetailTableViewCell.xib in Resources */,
 				32B1E3B020B17F7200336B09 /* success.json in Resources */,
-				32F1468420A947FA00D6ACB8 /* TestHero.storyboard in Resources */,
 				32B1E3B320B17F7D00336B09 /* loading.json in Resources */,
 				327E1B6720A1F7F60020511A /* MarketSetting.storyboard in Resources */,
 				32136E7B20B9B40100663C6E /* Calculate.storyboard in Resources */,
@@ -854,7 +751,6 @@
 				32B1E38D20AED56800336B09 /* DetailHistoryTableViewCell.swift in Sources */,
 				3230F3D620AAB025002812E0 /* QuotesTableViewCell.swift in Sources */,
 				32070B4B20A44CA700A6BA27 /* OpenDataApiStruct.swift in Sources */,
-				32E4862220A7515600DA531C /* TestFoldingViewController.swift in Sources */,
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,
 				32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */,
 				327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */,
@@ -872,11 +768,8 @@
 				32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */,
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
-				32BB0C5D209AC414001ECF52 /* ExtensionOfNSFetchResultsController.swift in Sources */,
 				321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */,
 				329BC6C7209700D600CC9096 /* AppDelegate.swift in Sources */,
-				32F1468F20A94D4800D6ACB8 /* TestHeroDetailViewController.swift in Sources */,
-				32F1468620A948F300D6ACB8 /* TitleTableViewCell.swift in Sources */,
 				32B1E39320AEEA5100336B09 /* DetailRowType.swift in Sources */,
 				329BC6E32098496E00CC9096 /* CropDatas+CoreDataClass.swift in Sources */,
 				324A889B20C50ED300A8858D /* GoToMarketAnimator.swift in Sources */,
@@ -884,23 +777,18 @@
 				3211781820BFD5E700B23711 /* ExtensionUITabBarController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
-				32BB0C5B209AC193001ECF52 /* FetchedResultsTableViewController.swift in Sources */,
 				327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */,
 				3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */,
 				329BC6CF209700D600CC9096 /* GoToMarket.xcdatamodeld in Sources */,
 				329BC6EF2099710400CC9096 /* ODHTTPRequest.swift in Sources */,
 				32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */,
 				32B1E38120AED4C900336B09 /* DetailTitleTableViewCell.swift in Sources */,
-				32F1468A20A949CE00D6ACB8 /* HeroDetailTableViewCell.swift in Sources */,
 				329BC6DC209701BA00CC9096 /* CropStruct.swift in Sources */,
 				32070B6720A5670900A6BA27 /* ExtensionUIStoryboard.swift in Sources */,
-				32BB0C5F209AC450001ECF52 /* CoreDataDemoTableViewController.swift in Sources */,
 				3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */,
 				32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */,
 				327E1B6F20A2D2950020511A /* LoadingTaskKeeper.swift in Sources */,
 				32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */,
-				32F1468D20A94A6100D6ACB8 /* TestHeroViewController.swift in Sources */,
-				326D78F220A5D4D400EE0887 /* TestFoldingTableViewCell.swift in Sources */,
 				32B1E3A020B034B100336B09 /* EnumCollection.swift in Sources */,
 				3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */,
 				32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */,
