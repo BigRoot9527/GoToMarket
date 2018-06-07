@@ -13,6 +13,7 @@ struct QuotesViewControllerData {
     
     let vcName: String
     
-    let filterText: String
+    let basePredicate: String
     
+    let isMainVC: Bool
 }

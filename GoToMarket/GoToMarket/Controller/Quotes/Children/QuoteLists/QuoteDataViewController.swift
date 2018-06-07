@@ -14,6 +14,10 @@ class QuoteDataViewController: UIViewController {
     
     @IBOutlet weak var quotesTableView: UITableView!
     
+    //MARK: - Generate Input
+    var basePredicateString: String = "(newAveragePrice > 0)"
+    var isMainVC: Bool = false
+    
     //MARK: - UIRefreshControl
     private let refreshControl = UIRefreshControl()
     
@@ -48,7 +52,7 @@ class QuoteDataViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !isUpdated {
+        if !isUpdated && isMainVC {
             
             checkAndUpdateApi()
             
@@ -142,10 +146,10 @@ extension QuoteDataViewController: NSFetchedResultsControllerDelegate {
             
             if let filter = filterText, filter != GoToMarketConstant.emptyString {
                 
-                request.predicate = NSPredicate(format: "(cropName CONTAINS %@) AND (newAveragePrice > 0)", filter)
+                request.predicate = NSPredicate(format: "(cropName CONTAINS %@) AND " + basePredicateString, filter)
             } else {
                 
-                request.predicate = NSPredicate(format: "newAveragePrice > 0")
+                request.predicate = NSPredicate(format: basePredicateString)
             }
             
             fetchedResultsController = NSFetchedResultsController<CropDatas>(

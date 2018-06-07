@@ -213,6 +213,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7v7-1p-0r8"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgP-wO-vdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,7 +228,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                                 <color key="backgroundColor" red="0.90739589929580688" green="0.91057592630386353" blue="0.49402058124542236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
@@ -239,6 +240,7 @@
                             <constraint firstItem="L6F-xK-cWC" firstAttribute="leading" secondItem="rAh-bC-OUe" secondAttribute="leading" id="Hfu-Wm-e0V"/>
                             <constraint firstAttribute="bottom" secondItem="L6F-xK-cWC" secondAttribute="bottom" id="jvM-Pc-CIR"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="4ux-n5-VIJ"/>
                     </view>
                     <connections>
                         <outlet property="quoteListsScrollView" destination="L6F-xK-cWC" id="BVD-eJ-exX"/>

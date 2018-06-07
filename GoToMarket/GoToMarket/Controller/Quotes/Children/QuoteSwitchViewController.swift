@@ -31,7 +31,7 @@ class QuoteSwitchViewController: UIViewController {
         let segmentedControl = CustomSegmentedContrl(frame: self.view.bounds)
         
         segmentedControl.backgroundColor = .white
-        segmentedControl.buttonTitles = GoToMarketConstant.quoteListsChineseText
+        segmentedControl.commaSeperatedButtonTitles = GoToMarketConstant.quoteListsChineseText
         segmentedControl.addTarget(self, action: #selector(onChangeOfSegment(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.textColor = UIColor.red

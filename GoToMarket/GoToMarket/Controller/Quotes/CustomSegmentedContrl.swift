@@ -49,7 +49,7 @@ import UIKit
             layer.borderColor = borderColor.cgColor
         }
     }
-    @IBInspectable var buttonTitles: [String] = [] {
+    @IBInspectable var commaSeperatedButtonTitles: String = "" {
         didSet {
             updateView()
         }
@@ -85,6 +85,7 @@ import UIKit
         subviews.forEach { (view) in
             view.removeFromSuperview()
         }
+        let buttonTitles = commaSeperatedButtonTitles.components(separatedBy: ",")
         for buttonTitle in buttonTitles {
             let button = UIButton.init(type: .system)
             button.setTitle(buttonTitle, for: .normal)
