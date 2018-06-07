@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="2463" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Quote Switch View Controller-->
         <scene sceneID="gPl-qJ-O5J">
             <objects>
-                <viewController id="cdx-0q-2pH" sceneMemberID="viewController">
+                <viewController id="cdx-0q-2pH" customClass="QuoteSwitchViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DIH-ua-oZS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,19 +219,34 @@
             </objects>
             <point key="canvasLocation" x="1634" y="-162"/>
         </scene>
-        <!--View Controller-->
+        <!--Quote Lists View Controller-->
         <scene sceneID="KRO-In-Bgr">
             <objects>
-                <viewController id="Sf6-OM-nsq" sceneMemberID="viewController">
+                <viewController id="Sf6-OM-nsq" customClass="QuoteListsViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAh-bC-OUe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                <color key="backgroundColor" red="0.90739589929580688" green="0.91057592630386353" blue="0.49402058124542236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="L6F-xK-cWC" secondAttribute="trailing" id="3h2-HF-kZ0"/>
+                            <constraint firstItem="L6F-xK-cWC" firstAttribute="top" secondItem="rAh-bC-OUe" secondAttribute="top" id="EQa-M1-dXb"/>
+                            <constraint firstItem="L6F-xK-cWC" firstAttribute="leading" secondItem="rAh-bC-OUe" secondAttribute="leading" id="Hfu-Wm-e0V"/>
+                            <constraint firstAttribute="bottom" secondItem="L6F-xK-cWC" secondAttribute="bottom" id="jvM-Pc-CIR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="quoteListsScrollView" destination="L6F-xK-cWC" id="BVD-eJ-exX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtz-31-a6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="217"/>
+            <point key="canvasLocation" x="1770" y="184"/>
         </scene>
     </scenes>
     <resources>

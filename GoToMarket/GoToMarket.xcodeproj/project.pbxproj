@@ -89,6 +89,8 @@
 		32CE233420C9455B007B0EF6 /* SwitchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233320C9455B007B0EF6 /* SwitchCollectionViewCell.swift */; };
 		32CE233820C97753007B0EF6 /* CustomSegmentedContrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */; };
 		32CE233E20C9936B007B0EF6 /* QuoteSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */; };
+		32CE234020C9A2A8007B0EF6 /* QuoteListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233F20C9A2A8007B0EF6 /* QuoteListsViewController.swift */; };
+		32CE234420C9ABAD007B0EF6 /* QuoteViewControllerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE234320C9ABAD007B0EF6 /* QuoteViewControllerData.swift */; };
 		32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D81CD820AC7B9900514F31 /* ExtensionString.swift */; };
 		32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */; };
 		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
@@ -182,6 +184,8 @@
 		32CE233320C9455B007B0EF6 /* SwitchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewCell.swift; sourceTree = "<group>"; };
 		32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedContrl.swift; sourceTree = "<group>"; };
 		32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSwitchViewController.swift; sourceTree = "<group>"; };
+		32CE233F20C9A2A8007B0EF6 /* QuoteListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListsViewController.swift; sourceTree = "<group>"; };
+		32CE234320C9ABAD007B0EF6 /* QuoteViewControllerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewControllerData.swift; sourceTree = "<group>"; };
 		32D81CD820AC7B9900514F31 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -436,6 +440,7 @@
 		329BC6E52098991C00CC9096 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				32CE234220C9AB79007B0EF6 /* QuoteViewControllerData */,
 				32136E7220B83DBC00663C6E /* NSSortDescriptor */,
 				327E1B6920A1FFF50020511A /* Loading */,
 				327A4DFD209C9C6C00B3EEE9 /* Note */,
@@ -589,11 +594,28 @@
 		32CE233A20C992D5007B0EF6 /* Children */ = {
 			isa = PBXGroup;
 			children = (
-				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
 				32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */,
 				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
+				32CE234120C9A2B3007B0EF6 /* QuoteLists */,
 			);
 			path = Children;
+			sourceTree = "<group>";
+		};
+		32CE234120C9A2B3007B0EF6 /* QuoteLists */ = {
+			isa = PBXGroup;
+			children = (
+				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
+				32CE233F20C9A2A8007B0EF6 /* QuoteListsViewController.swift */,
+			);
+			path = QuoteLists;
+			sourceTree = "<group>";
+		};
+		32CE234220C9AB79007B0EF6 /* QuoteViewControllerData */ = {
+			isa = PBXGroup;
+			children = (
+				32CE234320C9ABAD007B0EF6 /* QuoteViewControllerData.swift */,
+			);
+			path = QuoteViewControllerData;
 			sourceTree = "<group>";
 		};
 		32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */ = {
@@ -805,12 +827,14 @@
 				32B1E3AD20B16F2C00336B09 /* LoadingViewController.swift in Sources */,
 				321321CF20BB54EC0031ADE1 /* NoteToolBarViewController.swift in Sources */,
 				32B1E3B520B1814200336B09 /* AnimationConstant.swift in Sources */,
+				32CE234420C9ABAD007B0EF6 /* QuoteViewControllerData.swift in Sources */,
 				32CE233420C9455B007B0EF6 /* SwitchCollectionViewCell.swift in Sources */,
 				329BC6DE2097198400CC9096 /* CropConstant.swift in Sources */,
 				32B1E39E20B02C2B00336B09 /* MarketsTableViewController.swift in Sources */,
 				32B54CBC20BD2825006AAD4A /* SettingTableViewController.swift in Sources */,
 				327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */,
 				32136E7920B84ACA00663C6E /* NSSortDescriptorManager.swift in Sources */,
+				32CE234020C9A2A8007B0EF6 /* QuoteListsViewController.swift in Sources */,
 				32B1E37B20AEC1C200336B09 /* ExtensionArray.swift in Sources */,
 				3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */,
 				321321D320BBC4F20031ADE1 /* AboutViewController.swift in Sources */,
