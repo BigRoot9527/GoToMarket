@@ -15,11 +15,16 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func didTapWindowButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc func nChangeOfSegment(_ sender: UIControl) {
+        
+        
+    }
+    
     
 }

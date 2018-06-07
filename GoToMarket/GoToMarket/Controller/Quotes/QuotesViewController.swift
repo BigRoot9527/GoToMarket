@@ -19,6 +19,7 @@ protocol QuotesViewControllerDelegate: class {
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
+    @IBOutlet weak var switchSegmentView: UIView!
     @IBOutlet weak var quoteDataContainerView: UIView!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var toolBarTopToSwitchBottomConstraint: NSLayoutConstraint!
@@ -29,15 +30,16 @@ class QuotesViewController: UIViewController {
     //MARK: - QuotesViewControllerDelegate
     weak var delegate: QuotesViewControllerDelegate?
     
+    //MARK: - SwitchControl
+    private var switchControl = UIControl()
+    
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNav()
         addChildQuoteDataVC()
-//        self.navIndicatorScrollView.delegate = self
-        //TODO: Who is the Trasition delegate?
-        //TODO: Who get refreshControl
+        setupSwitchControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,10 +48,13 @@ class QuotesViewController: UIViewController {
         updateUI()
     }
     
-    private func setupNav() {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationItem.largeTitleDisplayMode = .automatic
+        switchControl.frame = switchSegmentView.bounds
+    }
+    
+    private func setupNav() {
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -85,6 +90,24 @@ class QuotesViewController: UIViewController {
         self.delegate = childTVC
     }
     
+    
+    //MARK: - SwitchControl
+    private func setupSwitchControl() {
+        
+        let segmentedControl = CustomSegmentedContrl(frame: switchSegmentView.bounds)
+        
+        segmentedControl.backgroundColor = .white
+        segmentedControl.commaSeperatedButtonTitles = "全部,蔬菜,水果"
+        segmentedControl.addTarget(self, action: #selector(onChangeOfSegment(_:)), for: .valueChanged)
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.textColor = UIColor.red
+        segmentedControl.selectorTextColor = UIColor.blue
+        segmentedControl.isUnderLinerNeeded = true
+        
+        self.switchControl = segmentedControl
+        self.switchSegmentView.addSubview(switchControl)
+    }
+    
     private func updateUI() {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
@@ -110,6 +133,12 @@ class QuotesViewController: UIViewController {
             
             self?.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func onChangeOfSegment(_ sender:UIControl) {
+        
+        
+        
     }
 }
 
