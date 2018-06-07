@@ -10,19 +10,12 @@ import UIKit
 import CoreData
 import SwipeCellKit
 
-protocol QuoteDataVCContentOffsetDelegate: class {
-    func getContentOffset(sender: UIViewController, contextOffset: CGPoint) -> Void
-}
-
 class QuoteDataViewController: UIViewController {
     
     @IBOutlet weak var quotesTableView: UITableView!
-
-    //MARK: - QuoteDataVCContentOffsetDelegate
-    weak var contentOffsetDelegate: QuoteDataVCContentOffsetDelegate?
     
     //MARK: - UIRefreshControl
-//    private let refreshControl = UIRefreshControl()
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - Transition
     private let transition = GoToMarketAnimator()
@@ -71,15 +64,15 @@ class QuoteDataViewController: UIViewController {
         
         quotesTableView.separatorStyle = .none
         
-//        //Setup UIRefreshControl
-//        if #available(iOS 10.0, *) {
-//            quotesTableView.refreshControl = refreshControl
-//        } else {
-//            quotesTableView.addSubview(refreshControl)
-//        }
-//
-//        refreshControl.tintColor = GoToMarketColor.newOrange.color()
-//        refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
+        //Setup UIRefreshControl
+        if #available(iOS 10.0, *) {
+            quotesTableView.refreshControl = refreshControl
+        } else {
+            quotesTableView.addSubview(refreshControl)
+        }
+
+        refreshControl.tintColor = GoToMarketColor.newOrange.color()
+        refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
         
         
         let nibFile = UINib(
@@ -122,14 +115,14 @@ class QuoteDataViewController: UIViewController {
         }
     }
     
-    //MARK: - UIRefreshControl method
-//    @objc private func didPullTableView(_ sender: Any) {
-//        
-//        checkAndUpdateApi()
-//        self.refreshControl.endRefreshing()
-//    }
+//    MARK: - UIRefreshControl method
+    @objc private func didPullTableView(_ sender: Any) {
+        
+        self.refreshControl.endRefreshing()
+        checkAndUpdateApi()
+        quotesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
 }
-
 
 //MARK: - NSFetchedResultsControllerDelegate
 extension QuoteDataViewController: NSFetchedResultsControllerDelegate {
@@ -253,12 +246,6 @@ extension QuoteDataViewController: UITableViewDelegate {
         detailVC.modalPresentationStyle = .overFullScreen
         
         present(detailVC, animated: true, completion: nil)
-    }
-    
-    //MARK: - contentOffsetDelegate
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        contentOffsetDelegate?.getContentOffset(sender: self, contextOffset: scrollView.contentOffset)
     }
 }
 

@@ -19,8 +19,6 @@ protocol QuotesViewControllerDelegate: class {
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
-    @IBOutlet weak var navIndicatorScrollView: UIScrollView!
-    @IBOutlet weak var navIndicatorContentView: UIView!
     @IBOutlet weak var quoteDataContainerView: UIView!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var toolBarContainerTopToSafeTopConstraint: NSLayoutConstraint!
@@ -37,7 +35,7 @@ class QuotesViewController: UIViewController {
         
         setupNav()
         addChildQuoteDataVC()
-        self.navIndicatorScrollView.delegate = self
+//        self.navIndicatorScrollView.delegate = self
         //TODO: Who is the Trasition delegate?
         //TODO: Who get refreshControl
     }
@@ -50,8 +48,8 @@ class QuotesViewController: UIViewController {
     
     private func setupNav() {
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .automatic
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationItem.largeTitleDisplayMode = .automatic
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -83,8 +81,6 @@ class QuotesViewController: UIViewController {
             ])
         
         childTVC.didMove(toParentViewController: self)
-        
-        childTVC.contentOffsetDelegate = self
         
         self.delegate = childTVC
     }
@@ -158,12 +154,12 @@ extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        navIndicatorScrollView.isUserInteractionEnabled = false
+        quoteDataContainerView.isUserInteractionEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        navIndicatorScrollView.isUserInteractionEnabled = true
+        quoteDataContainerView.isUserInteractionEnabled = true
     }
 }
 
@@ -180,19 +176,4 @@ extension QuotesViewController: UIScrollViewDelegate {
     
 }
 
-//MARK:
-
-extension QuotesViewController: QuoteDataVCContentOffsetDelegate {
-    
-    func getContentOffset(sender: UIViewController, contextOffset: CGPoint) {
-        
-//        if contextOffset.y >= 0 {
-        
-            navIndicatorScrollView.contentOffset.y = contextOffset.y
-//        }
-    }
-    
-    
-    
-}
 
