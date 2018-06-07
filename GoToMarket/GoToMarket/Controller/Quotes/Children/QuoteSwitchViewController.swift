@@ -21,14 +21,14 @@ class QuoteSwitchViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        switchControl.frame = self.view.bounds
+//        switchControl.frame = self.view.bounds
     }
     
     
     //MARK: - SwitchControl
     private func setup() {
         
-        let segmentedControl = CustomSegmentedContrl(frame: self.view.bounds)
+        let segmentedControl = CustomSegmentedContrl(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: 50))
         
         segmentedControl.backgroundColor = .white
         segmentedControl.commaSeperatedButtonTitles = GoToMarketConstant.quoteListsChineseText

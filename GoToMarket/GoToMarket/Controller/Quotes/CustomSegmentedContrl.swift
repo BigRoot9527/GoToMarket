@@ -78,6 +78,12 @@ import UIKit
         super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override var frame: CGRect {
+        didSet {
+            updateView()
+        }
+    }
 
     
     func updateView() {

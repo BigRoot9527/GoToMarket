@@ -83,3 +83,10 @@ class QuoteListsViewController: UIViewController {
     
 
 }
+
+extension QuoteListsViewController: UIScrollViewDelegate {
+    
+    
+    
+    
+}
