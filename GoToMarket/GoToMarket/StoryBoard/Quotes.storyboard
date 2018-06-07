@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
-                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="138" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JU8-Zs-6Ma"/>
                                 </constraints>
@@ -28,9 +28,18 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-Lm-xGJ">
-                                <rect key="frame" x="0.0" y="138" width="375" height="640"/>
+                                <rect key="frame" x="0.0" y="188" width="375" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-wO-dbG">
+                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5wA-5t-hah"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="opB-TC-AJ0" kind="embed" id="KWT-HB-ZiI"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -38,8 +47,11 @@
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="6zI-6J-pZl"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="aBH-Lm-xGJ" secondAttribute="trailing" id="9QU-oe-137"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="aBH-Lm-xGJ" secondAttribute="bottom" id="Eh9-0A-kle"/>
-                            <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="Kj1-9O-cV8"/>
+                            <constraint firstItem="RE3-wO-dbG" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="KY9-20-FgI"/>
+                            <constraint firstItem="RE3-wO-dbG" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="TcM-gu-cgX"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="RE3-wO-dbG" secondAttribute="trailing" id="glf-tK-Jzd"/>
+                            <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="RE3-wO-dbG" secondAttribute="bottom" id="jn7-Cb-H9t"/>
                             <constraint firstItem="aBH-Lm-xGJ" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="vkp-Si-5kW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
@@ -68,7 +80,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="quoteDataContainerView" destination="aBH-Lm-xGJ" id="5Ii-MM-yJi"/>
-                        <outlet property="toolBarContainerTopToSafeTopConstraint" destination="Kj1-9O-cV8" id="hqy-IV-Qkf"/>
+                        <outlet property="toolBarTopToSwitchBottomConstraint" destination="jn7-Cb-H9t" id="sEd-JW-n1g"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
                 </viewController>
@@ -160,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDi-Na-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="-215"/>
+            <point key="canvasLocation" x="722" y="-138"/>
         </scene>
         <!--Quote Data View Controller-->
         <scene sceneID="vfg-5p-WOu">
@@ -191,6 +203,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDx-u2-hej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1670" y="251"/>
+        </scene>
+        <!--Switch View Controller-->
+        <scene sceneID="fn8-pe-IEv">
+            <objects>
+                <viewController id="opB-TC-AJ0" customClass="SwitchViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v8Q-Px-l4R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jcS-5D-5p5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mZF-5T-CqD">
+                                    <size key="itemSize" width="200" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SwitchCollectionViewCell" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SwitchCollectionViewCell" id="MFv-Wq-EhQ" customClass="SwitchCollectionViewCell" customModule="GoToMarket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqq-ny-vWp">
+                                                    <rect key="frame" x="0.0" y="0.66666666666666785" width="200" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.90739589929580688" green="0.91057592630386353" blue="0.49402058124542236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="zqq-ny-vWp" firstAttribute="width" secondItem="MFv-Wq-EhQ" secondAttribute="width" id="7F7-np-62J"/>
+                                            <constraint firstItem="zqq-ny-vWp" firstAttribute="centerX" secondItem="MFv-Wq-EhQ" secondAttribute="centerX" id="PBe-F6-Jhw"/>
+                                            <constraint firstItem="zqq-ny-vWp" firstAttribute="height" secondItem="MFv-Wq-EhQ" secondAttribute="height" id="Td9-p9-DUl"/>
+                                            <constraint firstItem="zqq-ny-vWp" firstAttribute="centerY" secondItem="MFv-Wq-EhQ" secondAttribute="centerY" id="izk-YR-zkO"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="typeSwitchLabel" destination="zqq-ny-vWp" id="7zd-vh-mLe"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jcS-5D-5p5" secondAttribute="bottom" id="00c-Li-weo"/>
+                            <constraint firstItem="jcS-5D-5p5" firstAttribute="leading" secondItem="v8Q-Px-l4R" secondAttribute="leading" id="3Xz-Vr-sAS"/>
+                            <constraint firstAttribute="trailing" secondItem="jcS-5D-5p5" secondAttribute="trailing" id="CSF-uT-RyZ"/>
+                            <constraint firstItem="jcS-5D-5p5" firstAttribute="top" secondItem="v8Q-Px-l4R" secondAttribute="top" id="ILw-pA-jwH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="switchCollectionView" destination="jcS-5D-5p5" id="07R-tU-caU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pnv-7D-Rh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="-240"/>
         </scene>
     </scenes>
     <resources>

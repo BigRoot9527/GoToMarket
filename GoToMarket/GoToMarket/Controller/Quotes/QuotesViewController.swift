@@ -21,7 +21,7 @@ class QuotesViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet weak var quoteDataContainerView: UIView!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var toolBarContainerTopToSafeTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarTopToSwitchBottomConstraint: NSLayoutConstraint!
     
     //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
     private let topConstant: (CGFloat, CGFloat) = ( 0.0, -50.0 )
@@ -89,7 +89,7 @@ class QuotesViewController: UIViewController {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        toolBarContainerTopToSafeTopConstraint.constant = topConstant.1
+        toolBarTopToSwitchBottomConstraint.constant = topConstant.1
     }
 
     //MARK: - IBAction
@@ -102,8 +102,8 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        toolBarContainerTopToSafeTopConstraint.constant =
-            toolBarContainerTopToSafeTopConstraint.constant == topConstant.0 ?
+        toolBarTopToSwitchBottomConstraint.constant =
+            toolBarTopToSwitchBottomConstraint.constant == topConstant.0 ?
                 topConstant.1 : topConstant.0
         
         UIView.animate(withDuration: 0.3) { [weak self] in
