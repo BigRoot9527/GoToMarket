@@ -63,6 +63,7 @@ public class CropDatas: NSManagedObject
             newCrop.cropName = quoteInfo.cropName
             newCrop.lastAveragePrice = quoteInfo.averagePrice
             newCrop.newAveragePrice = quoteInfo.averagePrice
+            newCrop.isFruit = quoteInfo.cropCode.isNumberOnSecondCharactor()
             newCrop.date = quoteInfo.date
             newCrop.marketName = quoteInfo.marketName
             newCrop.itemType = GoToMarketConstant.itemTypeCoreDataNameForCrops

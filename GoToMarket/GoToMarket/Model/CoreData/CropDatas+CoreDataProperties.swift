@@ -18,6 +18,7 @@ extension CropDatas {
 
     @NSManaged public var date: String
     @NSManaged public var itemType: String
+    @NSManaged public var isFruit: Bool
     @NSManaged public var cropCode: String
     @NSManaged public var cropName: String
     @NSManaged public var marketName: String?

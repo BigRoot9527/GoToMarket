@@ -13,7 +13,6 @@ extension String {
     //getting string array through regular expression
     
     func matchesString(fromRegex regex: String) -> [String]? {
-        
         do {
             let regularExpression = try NSRegularExpression(pattern: regex, options: [])
             let range = NSMakeRange(0, self.count)
@@ -55,4 +54,15 @@ extension String {
         let trimedN = trimedR.replacingOccurrences(of: "\\n", with: "\n")
         return trimedN
     }
+    
+    //Check if second Charactor of String is letter
+    func isNumberOnSecondCharactor() -> Bool {
+        
+        let charactor = self[index(startIndex, offsetBy: 1)]
+        return "0"..."9" ~= charactor
+    }
+    
+    
+    
+    
 }
