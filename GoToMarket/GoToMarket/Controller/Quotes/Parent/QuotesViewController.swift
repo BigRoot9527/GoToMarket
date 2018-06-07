@@ -19,39 +19,28 @@ protocol QuotesViewControllerDelegate: class {
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
-    @IBOutlet weak var switchSegmentView: UIView!
-    @IBOutlet weak var quoteDataContainerView: UIView!
+
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var toolBarTopToSwitchBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var switchBottomToSafeTopConstraint: NSLayoutConstraint!
     
-    //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
-    private let topConstant: (CGFloat, CGFloat) = ( 0.0, -50.0 )
+    //MARK: ToolBar(Opened, Half, Closed) ContraintConstant To SafeArea
+    private let topConstant: (CGFloat, CGFloat, CGFloat) = ( 0.0, -50, -100.0 )
     
     //MARK: - QuotesViewControllerDelegate
     weak var delegate: QuotesViewControllerDelegate?
-    
-    //MARK: - SwitchControl
-    private var switchControl = UIControl()
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNav()
-        addChildQuoteDataVC()
-        setupSwitchControl()
+//        addChildQuoteDataVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updateUI()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        switchControl.frame = switchSegmentView.bounds
     }
     
     private func setupNav() {
@@ -66,53 +55,36 @@ class QuotesViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
-    private func addChildQuoteDataVC() {
-        
-        guard let childTVC = storyboard?.instantiateViewController(withIdentifier: String(describing: QuoteDataViewController.self)) as? QuoteDataViewController else { return }
-        
-        addChildViewController(childTVC)
-        
-        childTVC.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.quoteDataContainerView.addSubview(childTVC.view)
-        
-        quoteDataContainerView.frame = childTVC.view.frame
+//    private func addChildQuoteDataVC() {
+//
+//        guard let childTVC = storyboard?.instantiateViewController(withIdentifier: String(describing: QuoteDataViewController.self)) as? QuoteDataViewController else { return }
+//
+//        addChildViewController(childTVC)
+//
+//        childTVC.view.translatesAutoresizingMaskIntoConstraints = false
+//
+//        self.quoteDataContainerView.addSubview(childTVC.view)
+//
+//        quoteDataContainerView.frame = childTVC.view.frame
+//
+//        NSLayoutConstraint.activate([
+//            childTVC.view.topAnchor.constraint(equalTo: quoteDataContainerView.topAnchor),
+//            childTVC.view.leadingAnchor.constraint(equalTo: quoteDataContainerView.leadingAnchor),
+//            childTVC.view.bottomAnchor.constraint(equalTo: quoteDataContainerView.bottomAnchor),
+//            childTVC.view.trailingAnchor.constraint(equalTo: quoteDataContainerView.trailingAnchor)
+//            ])
+//
+//        childTVC.didMove(toParentViewController: self)
+//
+//        self.delegate = childTVC
+//    }
 
-        NSLayoutConstraint.activate([
-            childTVC.view.topAnchor.constraint(equalTo: quoteDataContainerView.topAnchor),
-            childTVC.view.leadingAnchor.constraint(equalTo: quoteDataContainerView.leadingAnchor),
-            childTVC.view.bottomAnchor.constraint(equalTo: quoteDataContainerView.bottomAnchor),
-            childTVC.view.trailingAnchor.constraint(equalTo: quoteDataContainerView.trailingAnchor)
-            ])
-        
-        childTVC.didMove(toParentViewController: self)
-        
-        self.delegate = childTVC
-    }
-    
-    
-    //MARK: - SwitchControl
-    private func setupSwitchControl() {
-        
-        let segmentedControl = CustomSegmentedContrl(frame: switchSegmentView.bounds)
-        
-        segmentedControl.backgroundColor = .white
-        segmentedControl.commaSeperatedButtonTitles = "全部,蔬菜,水果"
-        segmentedControl.addTarget(self, action: #selector(onChangeOfSegment(_:)), for: .valueChanged)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.textColor = UIColor.red
-        segmentedControl.selectorTextColor = UIColor.blue
-        segmentedControl.isUnderLinerNeeded = true
-        
-        self.switchControl = segmentedControl
-        self.switchSegmentView.addSubview(switchControl)
-    }
     
     private func updateUI() {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        toolBarTopToSwitchBottomConstraint.constant = topConstant.1
+        switchBottomToSafeTopConstraint.constant = topConstant.1
     }
 
     //MARK: - IBAction
@@ -125,20 +97,15 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        toolBarTopToSwitchBottomConstraint.constant =
-            toolBarTopToSwitchBottomConstraint.constant == topConstant.0 ?
-                topConstant.1 : topConstant.0
+        switchBottomToSafeTopConstraint.constant =
+            switchBottomToSafeTopConstraint.constant == topConstant.2 ?
+            topConstant.0 :
+            switchBottomToSafeTopConstraint.constant + topConstant.1
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             
             self?.view.layoutIfNeeded()
         }
-    }
-    
-    @objc func onChangeOfSegment(_ sender:UIControl) {
-        
-        
-        
     }
 }
 
@@ -183,12 +150,12 @@ extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        quoteDataContainerView.isUserInteractionEnabled = false
+//        quoteDataContainerView.isUserInteractionEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        quoteDataContainerView.isUserInteractionEnabled = true
+//        quoteDataContainerView.isUserInteractionEnabled = true
     }
 }
 

@@ -88,6 +88,7 @@
 		32CE233220C9451F007B0EF6 /* QuotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233020C9451F007B0EF6 /* QuotesTableViewCell.swift */; };
 		32CE233420C9455B007B0EF6 /* SwitchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233320C9455B007B0EF6 /* SwitchCollectionViewCell.swift */; };
 		32CE233820C97753007B0EF6 /* CustomSegmentedContrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */; };
+		32CE233E20C9936B007B0EF6 /* QuoteSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */; };
 		32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D81CD820AC7B9900514F31 /* ExtensionString.swift */; };
 		32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */; };
 		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
@@ -180,6 +181,7 @@
 		32CE233020C9451F007B0EF6 /* QuotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesTableViewCell.swift; sourceTree = "<group>"; };
 		32CE233320C9455B007B0EF6 /* SwitchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCollectionViewCell.swift; sourceTree = "<group>"; };
 		32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedContrl.swift; sourceTree = "<group>"; };
+		32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSwitchViewController.swift; sourceTree = "<group>"; };
 		32D81CD820AC7B9900514F31 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -305,10 +307,9 @@
 		3230F3DB20AAB67B002812E0 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
-				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
-				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
 				32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */,
+				32CE233920C992A8007B0EF6 /* Parent */,
+				32CE233A20C992D5007B0EF6 /* Children */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -577,6 +578,24 @@
 			path = SwitchCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		32CE233920C992A8007B0EF6 /* Parent */ = {
+			isa = PBXGroup;
+			children = (
+				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
+			);
+			path = Parent;
+			sourceTree = "<group>";
+		};
+		32CE233A20C992D5007B0EF6 /* Children */ = {
+			isa = PBXGroup;
+			children = (
+				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
+				32CE233D20C9936B007B0EF6 /* QuoteSwitchViewController.swift */,
+				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
+			);
+			path = Children;
+			sourceTree = "<group>";
+		};
 		32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +797,7 @@
 				32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */,
 				32136E6E20B7EC2500663C6E /* QuoteToolBarViewController.swift in Sources */,
 				327E1B6D20A2CBAC0020511A /* LoadingIndexStruct.swift in Sources */,
+				32CE233E20C9936B007B0EF6 /* QuoteSwitchViewController.swift in Sources */,
 				32B1E3C220B2CBD100336B09 /* ExtensionUIImage.swift in Sources */,
 				329BC6E42098496E00CC9096 /* CropDatas+CoreDataProperties.swift in Sources */,
 				32136E7720B8449600663C6E /* NSSortDescriptorProvider.swift in Sources */,

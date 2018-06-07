@@ -25,7 +25,6 @@ class QuoteToolBarViewController: UIViewController {
     
     @IBOutlet weak var scrollUpButton: UIButton!
     @IBOutlet weak var scrollDownButton: UIButton!
-    @IBOutlet weak var sortByNameButton: UIButton!
     @IBOutlet weak var sortByQuoteButton: UIButton!
     @IBOutlet weak var sortByCartButton: UIButton!
     
