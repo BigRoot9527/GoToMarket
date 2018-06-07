@@ -18,39 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfS-ap-ht6">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
+                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JU8-Zs-6Ma"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Nsm-oF-SF3" kind="embed" identifier="QuoteToolBarVCSegue" id="TnR-bH-fsZ"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ht0-lU-WH8">
                                 <rect key="frame" x="0.0" y="138" width="375" height="640"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-Wh-7xF">
-                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
-                                <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <connections>
-                                            <segue destination="Nsm-oF-SF3" kind="embed" identifier="QuoteToolBarVCSegue" id="TnR-bH-fsZ"/>
-                                        </connections>
-                                    </containerView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.58823529409999997" green="0.81960784310000001" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="kHi-gF-Yfh" secondAttribute="trailing" id="AwH-Vo-Ib0"/>
-                                    <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="top" id="CNz-d2-tes"/>
-                                    <constraint firstAttribute="bottom" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="Q7r-fc-rS6"/>
-                                    <constraint firstItem="kHi-gF-Yfh" firstAttribute="leading" secondItem="pWi-Wh-7xF" secondAttribute="leading" id="j5U-nQ-tsu"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="MfS-ap-ht6" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="FPi-w1-48O"/>
-                            <constraint firstItem="MfS-ap-ht6" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="bottom" id="FU7-NC-SeR"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="top" secondItem="MfS-ap-ht6" secondAttribute="top" constant="-50" id="QZo-Aw-ZFO"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="WQ1-2v-LjE"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="top" secondItem="pWi-Wh-7xF" secondAttribute="top" id="WZ9-W7-3zf"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="MfS-ap-ht6" secondAttribute="trailing" id="dvq-gt-ktc"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="MfS-ap-ht6" secondAttribute="bottom" id="v8b-bx-ETd"/>
-                            <constraint firstItem="pWi-Wh-7xF" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="wGm-CX-Zvf"/>
+                            <constraint firstItem="kHi-gF-Yfh" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="6zI-6J-pZl"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="ht0-lU-WH8" secondAttribute="bottom" id="Ihy-rp-1JJ"/>
+                            <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="Kj1-9O-cV8"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="ht0-lU-WH8" secondAttribute="trailing" id="NFf-3Z-Xqx"/>
+                            <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
+                            <constraint firstItem="ht0-lU-WH8" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="dB3-1m-S0S"/>
+                            <constraint firstItem="ht0-lU-WH8" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="oVV-fT-jXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
@@ -77,14 +67,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="quotesTableView" destination="MfS-ap-ht6" id="Lpl-2E-hGM"/>
-                        <outlet property="toolBarTopToSafeAreaConstraint" destination="WZ9-W7-3zf" id="iCG-EW-4R6"/>
+                        <outlet property="quoteTableContainerView" destination="ht0-lU-WH8" id="COc-g0-0TZ"/>
+                        <outlet property="toolBarContainerTopToSafeTopConstraint" destination="Kj1-9O-cV8" id="hqy-IV-Qkf"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OcD-vu-esY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="251"/>
+            <point key="canvasLocation" x="724" y="250.49261083743843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I8C-g7-v2A">
@@ -171,6 +161,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDi-Na-mY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1668" y="-215"/>
+        </scene>
+        <!--Quote Data View Controller-->
+        <scene sceneID="vfg-5p-WOu">
+            <objects>
+                <viewController storyboardIdentifier="QuoteDataViewController" id="qSM-wy-Gd4" customClass="QuoteDataViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eBL-A8-iZQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-Ex-jIF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yse-pK-lM3" firstAttribute="trailing" secondItem="cMU-Ex-jIF" secondAttribute="trailing" id="2PN-Ic-VFM"/>
+                            <constraint firstItem="cMU-Ex-jIF" firstAttribute="top" secondItem="Yse-pK-lM3" secondAttribute="top" id="6N2-v7-jwr"/>
+                            <constraint firstItem="cMU-Ex-jIF" firstAttribute="leading" secondItem="Yse-pK-lM3" secondAttribute="leading" id="DQ1-rg-aqV"/>
+                            <constraint firstItem="Yse-pK-lM3" firstAttribute="bottom" secondItem="cMU-Ex-jIF" secondAttribute="bottom" id="cK8-kd-tU4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yse-pK-lM3"/>
+                    </view>
+                    <connections>
+                        <outlet property="quotesTableView" destination="cMU-Ex-jIF" id="wqj-az-Gy1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDx-u2-hej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="251"/>
         </scene>
     </scenes>
     <resources>

@@ -85,6 +85,7 @@
 		32B54CBC20BD2825006AAD4A /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */; };
 		32BB0C5320999814001ECF52 /* TWDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C5220999814001ECF52 /* TWDateProvider.swift */; };
 		32BB0C552099BE30001ECF52 /* CropManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BB0C542099BE30001ECF52 /* CropManager.swift */; };
+		32CE232C20C83886007B0EF6 /* QuoteDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */; };
 		32D81CD920AC7B9900514F31 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D81CD820AC7B9900514F31 /* ExtensionString.swift */; };
 		32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */; };
 		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
@@ -174,6 +175,7 @@
 		32B54CBB20BD2825006AAD4A /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		32BB0C5220999814001ECF52 /* TWDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWDateProvider.swift; sourceTree = "<group>"; };
 		32BB0C542099BE30001ECF52 /* CropManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropManager.swift; sourceTree = "<group>"; };
+		32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDataViewController.swift; sourceTree = "<group>"; };
 		32D81CD820AC7B9900514F31 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				3230F3DC20AAB734002812E0 /* QuotesViewController.swift */,
+				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
 				32136E6D20B7EC2500663C6E /* QuoteToolBarViewController.swift */,
 			);
 			path = Quotes;
@@ -804,6 +807,7 @@
 				329BC6F1209971FF00CC9096 /* GoToMarketError.swift in Sources */,
 				32B1E39A20B02AC900336B09 /* MarketSettingViewController.swift in Sources */,
 				3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */,
+				32CE232C20C83886007B0EF6 /* QuoteDataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
