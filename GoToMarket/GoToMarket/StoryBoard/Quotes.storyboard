@@ -18,6 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-4M-tAx">
+                                <rect key="frame" x="0.0" y="138" width="375" height="1"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyP-6z-Li1">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="dsr-IF-2Ca"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uyP-6z-Li1" firstAttribute="centerX" secondItem="Zer-4M-tAx" secondAttribute="centerX" id="5o2-YZ-biM"/>
+                                    <constraint firstItem="uyP-6z-Li1" firstAttribute="leading" secondItem="Zer-4M-tAx" secondAttribute="leading" id="FyK-gA-UIn"/>
+                                    <constraint firstAttribute="trailing" secondItem="uyP-6z-Li1" secondAttribute="trailing" id="IUZ-yZ-PEx"/>
+                                    <constraint firstAttribute="height" constant="1" id="LHY-GW-U7V"/>
+                                    <constraint firstItem="uyP-6z-Li1" firstAttribute="top" secondItem="Zer-4M-tAx" secondAttribute="top" id="btn-ra-xUI"/>
+                                    <constraint firstAttribute="bottom" secondItem="uyP-6z-Li1" secondAttribute="bottom" id="sS0-pk-wjb"/>
+                                </constraints>
+                            </scrollView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
                                 <rect key="frame" x="0.0" y="88" width="375" height="50"/>
                                 <constraints>
@@ -27,20 +48,23 @@
                                     <segue destination="Nsm-oF-SF3" kind="embed" identifier="QuoteToolBarVCSegue" id="TnR-bH-fsZ"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ht0-lU-WH8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-Lm-xGJ">
                                 <rect key="frame" x="0.0" y="138" width="375" height="640"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aBH-Lm-xGJ" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="10z-4K-hmu"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="6zI-6J-pZl"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="ht0-lU-WH8" secondAttribute="bottom" id="Ihy-rp-1JJ"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="aBH-Lm-xGJ" secondAttribute="trailing" id="9QU-oe-137"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="aBH-Lm-xGJ" secondAttribute="bottom" id="Eh9-0A-kle"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="Kj1-9O-cV8"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="ht0-lU-WH8" secondAttribute="trailing" id="NFf-3Z-Xqx"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
-                            <constraint firstItem="ht0-lU-WH8" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="dB3-1m-S0S"/>
-                            <constraint firstItem="ht0-lU-WH8" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="oVV-fT-jXK"/>
+                            <constraint firstItem="Zer-4M-tAx" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="edm-wZ-OQl"/>
+                            <constraint firstItem="Zer-4M-tAx" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="ggc-wG-gHn"/>
+                            <constraint firstItem="Zer-4M-tAx" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="pBK-a9-8jC"/>
+                            <constraint firstItem="aBH-Lm-xGJ" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="vkp-Si-5kW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
@@ -67,7 +91,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="quoteTableContainerView" destination="ht0-lU-WH8" id="COc-g0-0TZ"/>
+                        <outlet property="navIndicatorContentView" destination="uyP-6z-Li1" id="ZqU-md-bGD"/>
+                        <outlet property="navIndicatorScrollView" destination="Zer-4M-tAx" id="Pxo-Lz-MGF"/>
+                        <outlet property="quoteDataContainerView" destination="aBH-Lm-xGJ" id="5Ii-MM-yJi"/>
                         <outlet property="toolBarContainerTopToSafeTopConstraint" destination="Kj1-9O-cV8" id="hqy-IV-Qkf"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>

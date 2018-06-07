@@ -19,7 +19,9 @@ protocol QuotesViewControllerDelegate: class {
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
-    @IBOutlet weak var quoteTableContainerView: UIView!
+    @IBOutlet weak var navIndicatorScrollView: UIScrollView!
+    @IBOutlet weak var navIndicatorContentView: UIView!
+    @IBOutlet weak var quoteDataContainerView: UIView!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var toolBarContainerTopToSafeTopConstraint: NSLayoutConstraint!
     
@@ -35,6 +37,7 @@ class QuotesViewController: UIViewController {
         
         setupNav()
         addChildQuoteDataVC()
+        self.navIndicatorScrollView.delegate = self
         //TODO: Who is the Trasition delegate?
         //TODO: Who get refreshControl
     }
@@ -57,7 +60,7 @@ class QuotesViewController: UIViewController {
         navigationItem.searchController = searchController
         
         definesPresentationContext = true
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func addChildQuoteDataVC() {
@@ -68,16 +71,20 @@ class QuotesViewController: UIViewController {
         
         childTVC.view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.quoteTableContainerView.addSubview(childTVC.view)
+        self.quoteDataContainerView.addSubview(childTVC.view)
+        
+        quoteDataContainerView.frame = childTVC.view.frame
 
         NSLayoutConstraint.activate([
-            childTVC.view.topAnchor.constraint(equalTo: quoteTableContainerView.topAnchor),
-            childTVC.view.leadingAnchor.constraint(equalTo: quoteTableContainerView.leadingAnchor),
-            childTVC.view.bottomAnchor.constraint(equalTo: quoteTableContainerView.bottomAnchor),
-            childTVC.view.trailingAnchor.constraint(equalTo: quoteTableContainerView.trailingAnchor)
+            childTVC.view.topAnchor.constraint(equalTo: quoteDataContainerView.topAnchor),
+            childTVC.view.leadingAnchor.constraint(equalTo: quoteDataContainerView.leadingAnchor),
+            childTVC.view.bottomAnchor.constraint(equalTo: quoteDataContainerView.bottomAnchor),
+            childTVC.view.trailingAnchor.constraint(equalTo: quoteDataContainerView.trailingAnchor)
             ])
         
         childTVC.didMove(toParentViewController: self)
+        
+        childTVC.contentOffsetDelegate = self
         
         self.delegate = childTVC
     }
@@ -151,12 +158,41 @@ extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        quoteTableContainerView.isUserInteractionEnabled = false
+        navIndicatorScrollView.isUserInteractionEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        quoteTableContainerView.isUserInteractionEnabled = true
+        navIndicatorScrollView.isUserInteractionEnabled = true
     }
+}
+
+
+
+//MARK: - UIScrollViewDelegate
+extension QuotesViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print(scrollView.contentOffset)
+        print(scrollView.contentInset)
+    }
+    
+}
+
+//MARK:
+
+extension QuotesViewController: QuoteDataVCContentOffsetDelegate {
+    
+    func getContentOffset(sender: UIViewController, contextOffset: CGPoint) {
+        
+//        if contextOffset.y >= 0 {
+        
+            navIndicatorScrollView.contentOffset.y = contextOffset.y
+//        }
+    }
+    
+    
+    
 }
 
