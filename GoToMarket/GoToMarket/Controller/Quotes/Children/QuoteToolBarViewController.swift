@@ -10,15 +10,9 @@ import UIKit
 
 protocol QuoteToolBarViewControllertDelegate: class {
     
-    func sortButtonsTapped(
-        sender: UIViewController,
-        sortDescriptor: [NSSortDescriptor]
-        )-> Void
+    func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor] )-> Void
     
-    func scrollButtonTapped(
-        sender: UIButton,
-        scrollToTop: Bool
-        ) -> Void
+    func scrollButtonTapped(sender: UIButton, scrollToTop: Bool ) -> Void
 }
 
 class QuoteToolBarViewController: UIViewController {

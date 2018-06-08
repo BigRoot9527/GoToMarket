@@ -8,22 +8,22 @@
 
 import UIKit
 
+protocol QuoteSwitchViewControllerDelegate: class {
+    
+    func switchTypeButtonTapped(sender: UIViewController, selectedIndex: Int) -> Void
+}
+
 class QuoteSwitchViewController: UIViewController {
     
-    var switchControl = UIControl()
+    private var switchControl = UIControl()
+    
+    weak var delegate: QuoteSwitchViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-//        switchControl.frame = self.view.bounds
-    }
-    
     
     //MARK: - SwitchControl
     private func setup() {
@@ -43,9 +43,8 @@ class QuoteSwitchViewController: UIViewController {
     }
     
     
-    @objc func onChangeOfSegment(_ sender:UIControl) {
+    @objc func onChangeOfSegment(_ sender:CustomSegmentedContrl) {
         
-        
-        
+        delegate?.switchTypeButtonTapped(sender: self, selectedIndex: sender.selectedSegmentIndex)
     }
 }

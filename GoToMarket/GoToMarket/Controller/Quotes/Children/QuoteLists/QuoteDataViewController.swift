@@ -17,6 +17,15 @@ class QuoteDataViewController: UIViewController {
     //MARK: - Generate Input
     var basePredicateString: String = "(newAveragePrice > 0)"
     var isMainVC: Bool = false
+    var isActive: Bool = false {
+        didSet {
+            quotesTableView.setContentOffset(quotesTableView.contentOffset, animated: false)
+            if isActive {
+                fetchAndReloadData()
+                countAndPostNotification(withAnimation: false)
+            }
+        }
+    }
     
     //MARK: - UIRefreshControl
     private let refreshControl = UIRefreshControl()
@@ -32,6 +41,7 @@ class QuoteDataViewController: UIViewController {
     private var isUpdated: Bool = false
     private var filterText: String?
     private var savedSortingType: [NSSortDescriptor] = GoToMarketConstant.cropBasicNSSortDecriptor
+    private let manager = NoteManager()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -45,14 +55,17 @@ class QuoteDataViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchAndReloadData()
-        countAndPostNotification(withAnimation: false)
+        if isActive {
+            
+            fetchAndReloadData()
+            countAndPostNotification(withAnimation: false)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !isUpdated && isMainVC {
+        if isMainVC && !isUpdated {
             
             checkAndUpdateApi()
             
@@ -119,12 +132,53 @@ class QuoteDataViewController: UIViewController {
         }
     }
     
-//    MARK: - UIRefreshControl method
+    //MARK: - UIRefreshControl method
     @objc private func didPullTableView(_ sender: Any) {
         
         self.refreshControl.endRefreshing()
         checkAndUpdateApi()
         quotesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+    }
+    
+    //MARK: - Accessable Funcs
+    func changeQuoteWeight() {
+        
+        if isActive {
+            quotesTableView.reloadData()
+        }
+    }
+    
+    func sortQuoteData(sortDescriptor: [NSSortDescriptor]) {
+        
+        savedSortingType = sortDescriptor
+        
+        if isActive {
+            fetchAndReloadData()
+            let idexPath = IndexPath(row: 0, section: 0)
+            quotesTableView.scrollToRow(at: idexPath, at: .top, animated: true)
+        }
+    }
+    
+    func scrollTableView(scrollToTop: Bool) {
+        
+        if isActive {
+            let indexPath = scrollToTop ?
+                IndexPath(row: 0, section: 0) :
+                IndexPath(row: quotesTableView.numberOfRows(inSection: 0) - 1, section: 0)
+            
+            quotesTableView.scrollToRow(at: indexPath, at: .none, animated: true)
+        }
+    }
+    
+    func searchQuote(searchText: String) {
+        
+        quotesTableView.setContentOffset(quotesTableView.contentOffset, animated: false)
+        
+        self.filterText = searchText
+        
+        if isActive {
+            fetchAndReloadData()
+        }
     }
 }
 
@@ -167,11 +221,7 @@ extension QuoteDataViewController: NSFetchedResultsControllerDelegate {
     
     private func countAndPostNotification(withAnimation bool: Bool) {
         
-        if let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.note?.isInCart == true && $0.note?.cropData != nil && $0.note?.isFinished == false }).count {
-            
-            postCartNotification(count: count, playBounceAnimation: bool)
-        }
+        postCartNotification(count: manager.countInCartNotFinished(), playBounceAnimation: bool)
     }
 }
 
@@ -334,38 +384,4 @@ extension QuoteDataViewController: UIViewControllerTransitioningDelegate {
         return transition
     }
     
-}
-
-//MARK: - QuotesViewControllerDelegate
-extension QuoteDataViewController: QuotesViewControllerDelegate {
-    
-    func getSortToolBarTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
-        
-        savedSortingType = sortDescriptor
-        fetchAndReloadData()
-        let idexPath = IndexPath(row: 0, section: 0)
-        quotesTableView.scrollToRow(at: idexPath, at: .top, animated: true)
-    }
-    
-    func getScrollToolBarTapped(sender: UIViewController, scrollToTop: Bool) {
-        
-        let indexPath = scrollToTop ?
-            IndexPath(row: 0, section: 0) :
-            IndexPath(row: quotesTableView.numberOfRows(inSection: 0) - 1, section: 0)
-        
-        quotesTableView.scrollToRow(at: indexPath, at: .none, animated: true)
-        
-    }
-    
-    func getSearchBarResult(sender: UIViewController, searchText: String) {
-        
-        self.filterText = searchText
-        
-        fetchAndReloadData()
-    }
-    
-    func getWeightTypeChanged(sender: UIViewController) {
-        
-        quotesTableView.reloadData()
-    }
 }

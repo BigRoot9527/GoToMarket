@@ -38,7 +38,7 @@ class QuotesTableViewCell: SwipeTableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.none
         self.contentView.clipsToBounds = false
         quoteBackgroundView.layer.masksToBounds = false
-        
+
         quoteBackgroundView.layer.cornerRadius = 10.0
         quoteBackgroundView.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
         quoteBackgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)

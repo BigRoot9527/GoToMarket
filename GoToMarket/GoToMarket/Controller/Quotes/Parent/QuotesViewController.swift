@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol QuotesViewControllerDelegate: class {
-    
-    func getSortToolBarTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) -> Void
-    func getScrollToolBarTapped(sender: UIViewController, scrollToTop: Bool) -> Void
-    func getSearchBarResult(sender: UIViewController, searchText: String) -> Void
-    func getWeightTypeChanged(sender: UIViewController) -> Void
-}
-
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
@@ -26,15 +18,13 @@ class QuotesViewController: UIViewController {
     //MARK: ToolBar(Opened, Half, Closed) ContraintConstant To SafeArea
     private let topConstant: (CGFloat, CGFloat, CGFloat) = ( 0.0, -50, -100.0 )
     
-    //MARK: - QuotesViewControllerDelegate
-    weak var delegate: QuotesViewControllerDelegate?
+    private var listChildVC = QuoteListsViewController()
     
     //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNav()
-//        addChildQuoteDataVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,32 +44,7 @@ class QuotesViewController: UIViewController {
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
-//    private func addChildQuoteDataVC() {
-//
-//        guard let childTVC = storyboard?.instantiateViewController(withIdentifier: String(describing: QuoteDataViewController.self)) as? QuoteDataViewController else { return }
-//
-//        addChildViewController(childTVC)
-//
-//        childTVC.view.translatesAutoresizingMaskIntoConstraints = false
-//
-//        self.quoteDataContainerView.addSubview(childTVC.view)
-//
-//        quoteDataContainerView.frame = childTVC.view.frame
-//
-//        NSLayoutConstraint.activate([
-//            childTVC.view.topAnchor.constraint(equalTo: quoteDataContainerView.topAnchor),
-//            childTVC.view.leadingAnchor.constraint(equalTo: quoteDataContainerView.leadingAnchor),
-//            childTVC.view.bottomAnchor.constraint(equalTo: quoteDataContainerView.bottomAnchor),
-//            childTVC.view.trailingAnchor.constraint(equalTo: quoteDataContainerView.trailingAnchor)
-//            ])
-//
-//        childTVC.didMove(toParentViewController: self)
-//
-//        self.delegate = childTVC
-//    }
 
-    
     private func updateUI() {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
@@ -92,7 +57,7 @@ class QuotesViewController: UIViewController {
         
         PriceStringProvider.shared.showInKg = !PriceStringProvider.shared.showInKg
         
-        delegate?.getWeightTypeChanged(sender: self)
+        listChildVC.getWeightTypeChanged()
     }
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
@@ -107,29 +72,50 @@ class QuotesViewController: UIViewController {
             self?.view.layoutIfNeeded()
         }
     }
+    
+    //MARK: - Prepare For Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+            
+        case "QuoteToolBarVCSegue":
+            guard let toolBarVC = segue.destination as? QuoteToolBarViewController else { return }
+            toolBarVC.delegate = self
+            
+        case "QuoteSwitchVCSegue":
+            guard let switchVC = segue.destination as? QuoteSwitchViewController else { return }
+            switchVC.delegate = self
+        
+        case "QuoteListsVCSegue":
+            guard let listVC = segue.destination as? QuoteListsViewController else { return }
+            self.listChildVC = listVC
+            
+        default:
+            break
+        }
+    }
 }
 
 //MARK: - QuoteToolBarVCDelegate
 extension QuotesViewController: QuoteToolBarViewControllertDelegate {
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "QuoteToolBarVCSegue" {
-            
-            if let toolBarVC = segue.destination as? QuoteToolBarViewController {
-                toolBarVC.delegate = self
-            }
-        }
-    }
-    
     func sortButtonsTapped(sender: UIViewController, sortDescriptor: [NSSortDescriptor]) {
         
-        delegate?.getSortToolBarTapped(sender: self, sortDescriptor: sortDescriptor)
+        listChildVC.getSortToolBarTapped(sortDescriptor: sortDescriptor)
     }
     
     func scrollButtonTapped(sender: UIButton, scrollToTop: Bool) {
         
-        delegate?.getScrollToolBarTapped(sender: self, scrollToTop: scrollToTop)
+        listChildVC.getScrollToolBarTapped(scrollToTop: scrollToTop)
+    }
+}
+
+//MARK: - QuoteSwitchViewControllerDelegate
+extension QuotesViewController: QuoteSwitchViewControllerDelegate {
+    
+    func switchTypeButtonTapped(sender: UIViewController, selectedIndex: Int) {
+        
+        listChildVC.getCropTypeSwitched(selectedIndex: selectedIndex)
     }
 }
 
@@ -140,8 +126,7 @@ extension QuotesViewController: UISearchResultsUpdating {
         
         guard let searchString = searchController.searchBar.text else { return }
         
-        delegate?.getSearchBarResult(sender: self, searchText: searchString)
-        
+        listChildVC.getSearchBarResult(searchText: searchString)
     }
 }
 
@@ -150,26 +135,12 @@ extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-//        quoteDataContainerView.isUserInteractionEnabled = false
+        self.view.isUserInteractionEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-//        quoteDataContainerView.isUserInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
     }
 }
-
-
-
-//MARK: - UIScrollViewDelegate
-extension QuotesViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        print(scrollView.contentOffset)
-        print(scrollView.contentInset)
-    }
-    
-}
-
 

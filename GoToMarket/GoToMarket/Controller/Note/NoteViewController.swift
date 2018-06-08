@@ -35,7 +35,7 @@ class NoteViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     private var fetchedResultsController: NSFetchedResultsController<UserNotes>?
     private var savedSortingType: [NSSortDescriptor] = GoToMarketConstant.noteBasicNSSortDecriptor
-    
+    private let manager = NoteManager()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -144,11 +144,7 @@ extension NoteViewController: NSFetchedResultsControllerDelegate {
     
     private func countAndPostNotification(withAnimation bool: Bool) {
         
-        if let count = fetchedResultsController?.fetchedObjects?.filter(
-            { $0.isInCart == true && $0.cropData != nil && $0.isFinished == false }).count {
-            
-            postCartNotification(count: count, playBounceAnimation: bool)
-        }
+        postCartNotification(count: manager.countInCartNotFinished(), playBounceAnimation: bool)
     }
 }
 

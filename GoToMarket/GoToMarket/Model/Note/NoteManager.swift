@@ -14,6 +14,14 @@ struct NoteManager {
     
     private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
+    func countInCartNotFinished() -> Int {
+        
+        if let context = container?.viewContext {
+            
+            return UserNotes.countCartNotes(in: context)
+        }
+        return 0
+    }
     
     func getCurrentMultipler(
         fromItemCode code: String,

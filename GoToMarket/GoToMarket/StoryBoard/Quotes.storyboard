@@ -33,13 +33,13 @@
                                     <constraint firstAttribute="height" constant="50" id="u22-xO-fd2"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="cdx-0q-2pH" kind="embed" id="jv8-0Y-czn"/>
+                                    <segue destination="cdx-0q-2pH" kind="embed" identifier="QuoteSwitchVCSegue" id="jv8-0Y-czn"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5J-d3-Lpp">
                                 <rect key="frame" x="0.0" y="188" width="375" height="590"/>
                                 <connections>
-                                    <segue destination="Sf6-OM-nsq" kind="embed" id="khJ-qN-vxK"/>
+                                    <segue destination="Sf6-OM-nsq" kind="embed" identifier="QuoteListsVCSegue" id="khJ-qN-vxK"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -228,7 +228,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                                 <color key="backgroundColor" red="0.90739589929580688" green="0.91057592630386353" blue="0.49402058124542236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>

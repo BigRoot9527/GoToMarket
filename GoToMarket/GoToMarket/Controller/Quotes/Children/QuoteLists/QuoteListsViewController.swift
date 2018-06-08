@@ -11,17 +11,24 @@ import UIKit
 class QuoteListsViewController: UIViewController {
     
     var childVCsData: [QuotesViewControllerData] = []
-    
     var childVCs: [QuoteDataViewController] = []
+    
+    //Input
+    var activeIndex: Int = 0
     
     @IBOutlet weak var quoteListsScrollView: UIScrollView!
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         generateVCs()
-        
         setupVCs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getCropTypeSwitched(selectedIndex: activeIndex)
     }
     
     override func viewDidLayoutSubviews() {
@@ -29,6 +36,8 @@ class QuoteListsViewController: UIViewController {
         
         setupChildFrame()
     }
+
+    
     
     private func generateVCs() {
         
@@ -37,8 +46,7 @@ class QuoteListsViewController: UIViewController {
         let vegeVC = QuotesViewControllerData(vcName: "vegeVC", basePredicate: "(newAveragePrice > 0) AND (isFruit = false)", isMainVC: false)
         let fruitVC = QuotesViewControllerData(vcName: "fruitVC", basePredicate: "(newAveragePrice > 0) AND (isFruit = true)", isMainVC: false)
         
-//        childVCsData = [allVC, vegeVC, fruitVC]
-        childVCsData = [allVC]
+        childVCsData = [allVC, vegeVC, fruitVC]
     }
     
     private func setupVCs() {
@@ -63,16 +71,15 @@ class QuoteListsViewController: UIViewController {
     
     private func setupChildFrame() {
         
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
+//        let screenWidth = UIScreen.main.bounds.width
         
         var count = 0
         
         for childVC in childVCs {
             
-            let originX = screenWidth * CGFloat(count)
+            let originX = quoteListsScrollView.frame.width * CGFloat(count)
             
-            childVC.view.frame = CGRect(x: originX, y: 0, width: screenWidth, height: screenHeight)
+            childVC.view.frame = CGRect(x: originX, y: 0, width: quoteListsScrollView.frame.width, height: quoteListsScrollView.frame.height)
             
             count += 1
             print(quoteListsScrollView.frame)
@@ -81,12 +88,46 @@ class QuoteListsViewController: UIViewController {
         }
     }
     
-
-}
-
-extension QuoteListsViewController: UIScrollViewDelegate {
+    //MARK: - Accessable Function
+    func getSortToolBarTapped(sortDescriptor: [NSSortDescriptor]) {
+        
+        for vc in childVCs {
+            vc.sortQuoteData(sortDescriptor: sortDescriptor)
+        }
+    }
     
+    func getScrollToolBarTapped(scrollToTop bool: Bool) {
+        
+        for vc in childVCs {
+            vc.scrollTableView(scrollToTop: bool)
+        }
+    }
     
+    func getSearchBarResult(searchText text: String) {
+        
+        for vc in childVCs {
+            vc.searchQuote(searchText: text)
+        }
+    }
     
+    func getCropTypeSwitched(selectedIndex index: Int) {
+        
+        self.activeIndex = index
+        
+        quoteListsScrollView.setContentOffset(CGPoint(x: view.frame.width * CGFloat(activeIndex), y: 0), animated: true)
+        
+        for vc in childVCs {
+            
+            vc.isActive = false
+        }
+        childVCs[activeIndex].isActive = true
+    }
     
+    func getWeightTypeChanged() {
+        
+        for vc in childVCs {
+            
+            vc.changeQuoteWeight()
+        }
+    }
 }

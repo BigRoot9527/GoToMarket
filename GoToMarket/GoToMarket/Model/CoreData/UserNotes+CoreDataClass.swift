@@ -15,8 +15,8 @@ public class UserNotes: NSManagedObject {
     class func findOrCreateNoteFromData(
         matching cropData: CropDatas,
         in context: NSManagedObjectContext
-        ) -> UserNotes
-    {
+        ) -> UserNotes {
+        
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
         //Note itemCode是必須的，因為cropData被刪掉重建後，雖然為同一個作物，
         //但因自動編號已經被改掉，所以無法直接順利的配對回去(已經是不同的cropData了)
@@ -67,8 +67,8 @@ public class UserNotes: NSManagedObject {
     class func fetchNote(
         matching cropCode: String,
         in context: NSManagedObjectContext
-        ) -> UserNotes?
-    {
+        ) -> UserNotes? {
+        
         let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
         request.predicate = NSPredicate(format: "(itemCode = %@)", cropCode)
         do {
@@ -85,6 +85,22 @@ public class UserNotes: NSManagedObject {
             print(error)
         }
         return nil
+    }
+    
+    class func countCartNotes(in context: NSManagedObjectContext ) -> Int {
+        
+        let request: NSFetchRequest<UserNotes> = UserNotes.fetchRequest()
+        request.predicate = NSPredicate(format: "(isInCart = true) AND (cropData != nil) AND (isFinished = false)")
+        
+        do {
+            
+            let maches = try context.fetch(request)
+            return maches.count
+            
+        } catch {
+            print(error)
+        }
+        return 0
     }
 
     class func resetMultipler(
