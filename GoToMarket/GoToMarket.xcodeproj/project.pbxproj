@@ -32,7 +32,6 @@
 		3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */; };
 		3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */; };
 		3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */; };
-		3228FB7920CA78E100A998CA /* BigRootScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228FB7820CA78E100A998CA /* BigRootScrollView.swift */; };
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
 		3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DC20AAB734002812E0 /* QuotesViewController.swift */; };
 		3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DE20AAB750002812E0 /* DetailViewController.swift */; };
@@ -126,7 +125,6 @@
 		3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
-		3228FB7820CA78E100A998CA /* BigRootScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRootScrollView.swift; sourceTree = "<group>"; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
 		3230F3DC20AAB734002812E0 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3DE20AAB750002812E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -607,7 +605,6 @@
 			isa = PBXGroup;
 			children = (
 				32CE233F20C9A2A8007B0EF6 /* QuoteListsViewController.swift */,
-				3228FB7820CA78E100A998CA /* BigRootScrollView.swift */,
 				32CE232B20C83886007B0EF6 /* QuoteDataViewController.swift */,
 			);
 			path = QuoteLists;
@@ -868,7 +865,6 @@
 				32B1E38520AED4F400336B09 /* DetailIntroTableViewCell.swift in Sources */,
 				32CE233820C97753007B0EF6 /* CustomSegmentedContrl.swift in Sources */,
 				32B1E38B20AED55800336B09 /* DetailQuotesTableViewCell.swift in Sources */,
-				3228FB7920CA78E100A998CA /* BigRootScrollView.swift in Sources */,
 				3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */,
 				32070B6420A5616800A6BA27 /* TabBarViewController.swift in Sources */,
 				32136E7E20B9E0EB00663C6E /* CalculateViewController.swift in Sources */,

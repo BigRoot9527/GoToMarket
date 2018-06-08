@@ -192,7 +192,7 @@ extension QuoteDataViewController: NSFetchedResultsControllerDelegate {
         
         if let context = container?.viewContext {
             
-            context.reset()
+//            context.reset()
             
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
             

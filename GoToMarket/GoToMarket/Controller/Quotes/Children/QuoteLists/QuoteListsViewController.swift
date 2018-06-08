@@ -21,24 +21,29 @@ class QuoteListsViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         generateVCs()
         setupVCs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         getCropTypeSwitched(selectedIndex: activeIndex)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        setupScrollView()
         setupChildFrame()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
 
-    
-    
     private func generateVCs() {
         
         let allVC = QuotesViewControllerData(vcName: "allVC", basePredicate: "(newAveragePrice > 0)", isMainVC: true)
@@ -69,19 +74,20 @@ class QuoteListsViewController: UIViewController {
         }
     }
     
+    private func setupScrollView() {
+        
+        quoteListsScrollView.contentSize = CGSize(width: quoteListsScrollView.frame.width * CGFloat(childVCs.count), height: quoteListsScrollView.frame.height)
+    }
+    
     private func setupChildFrame() {
         
-//        let screenWidth = UIScreen.main.bounds.width
-        
-        var count = 0
-        
-        for childVC in childVCs {
+        for (index, childVC) in childVCs.enumerated() {
             
-            let originX = quoteListsScrollView.frame.width * CGFloat(count)
+            let originX = quoteListsScrollView.frame.width * CGFloat(index)
             
             childVC.view.frame = CGRect(x: originX, y: 0, width: quoteListsScrollView.frame.width, height: quoteListsScrollView.frame.height)
             
-            count += 1
+            print(childVC.view.frame)
             print(quoteListsScrollView.frame)
             print(quoteListsScrollView.bounds)
             print(quoteListsScrollView.contentSize)
