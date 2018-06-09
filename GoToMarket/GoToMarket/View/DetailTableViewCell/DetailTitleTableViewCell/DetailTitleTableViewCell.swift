@@ -22,8 +22,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundToContentBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundToContentTrailingConstraint: NSLayoutConstraint!
     
-    
-    
+    //Input
     var isInCartInput: Bool? {
         didSet{
             setUI()
@@ -33,6 +32,12 @@ class DetailTitleTableViewCell: UITableViewCell {
     var compressRate: CGFloat = 0 {
         didSet{
             showTransformAnimation(rate: compressRate)
+        }
+    }
+    
+    var isFruit: Bool = false {
+        didSet {
+            changeBackgroundColor()
         }
     }
     
@@ -82,5 +87,11 @@ class DetailTitleTableViewCell: UITableViewCell {
         titleBackgroundView.layer.cornerRadius = transformingRadius
         
         self.layoutIfNeeded()
+    }
+    
+    private func changeBackgroundColor() {
+        titleBackgroundView.backgroundColor = isFruit ?
+            UIColor(named: "FruitCellBackground_color") :
+            UIColor(named: "VegeCellBackground_color")
     }
 }

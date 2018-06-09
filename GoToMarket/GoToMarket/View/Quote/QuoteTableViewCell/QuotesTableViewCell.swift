@@ -17,10 +17,14 @@ class QuotesTableViewCell: SwipeTableViewCell {
             updateIndicator()
         }
     }
-    //Input
     var priceIndicator: Double? {
         didSet {
             updatePriceMark()
+        }
+    }
+    var isFruit: Bool = false {
+        didSet {
+            changeBackgroundColor()
         }
     }
     let gradient = CAGradientLayer()
@@ -78,5 +82,11 @@ class QuotesTableViewCell: SwipeTableViewCell {
         default:
             priceMarkImageView.image = #imageLiteral(resourceName: "up3")
         }
+    }
+    
+    private func changeBackgroundColor() {
+        quoteBackgroundView.backgroundColor = isFruit ?
+            UIColor(named: "FruitCellBackground_color") :
+            UIColor(named: "VegeCellBackground_color")
     }
 }

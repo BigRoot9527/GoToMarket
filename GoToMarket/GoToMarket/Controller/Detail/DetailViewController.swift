@@ -231,11 +231,11 @@ extension DetailViewController: UITableViewDataSource {
             cell.delegate = self
             cell.detailNameLabel.text = crop.cropName
             cell.isInCartInput = crop.note?.isInCart
+            cell.isFruit = crop.isFruit
             
             isAddingCart = crop.note?.isInCart
             
-            print("-----------------")
-            print(cell.titleBackgroundView.frame)
+            
             
             return cell
             

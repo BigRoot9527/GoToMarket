@@ -248,6 +248,8 @@ extension QuoteDataViewController: UITableViewDataSource {
         
         cell.inBuyingChart = note.isInCart
         
+        cell.isFruit = crop.isFruit
+        
         //TODO: add gesture when touch the cell, showing scale down animation
         return cell
     }
