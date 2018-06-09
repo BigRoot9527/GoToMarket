@@ -126,28 +126,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-Ha-ldL">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                         <state key="normal" image="checked_icon"/>
                                         <connections>
                                             <action selector="didTapSortByFinishedButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="lwy-4H-L3c"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-AE-6W2">
+                                        <rect key="frame" x="75" y="0.0" width="75" height="50"/>
+                                        <state key="normal" image="fruit_icon"/>
+                                        <connections>
+                                            <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="bMy-Rj-d7E"/>
+                                            <action selector="didTapSortByTypeButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="erf-0W-knb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcp-GR-3zh">
-                                        <rect key="frame" x="94" y="0.0" width="93.5" height="50"/>
+                                        <rect key="frame" x="150" y="0.0" width="75" height="50"/>
                                         <state key="normal" image="money_icon"/>
                                         <connections>
                                             <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="4gD-d3-dwg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfT-Z8-cL7">
-                                        <rect key="frame" x="187.5" y="0.0" width="94" height="50"/>
+                                        <rect key="frame" x="225" y="0.0" width="75" height="50"/>
                                         <state key="normal" image="reset_icon"/>
                                         <connections>
                                             <action selector="didTapCleanAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="VkW-AK-0SY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSM-3c-zeX">
-                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="50"/>
+                                        <rect key="frame" x="300" y="0.0" width="75" height="50"/>
                                         <state key="normal" image="delete_icon"/>
                                         <connections>
                                             <action selector="didTapDeleteAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="Kdz-MQ-BGf"/>
@@ -170,6 +178,7 @@
                         <outlet property="deleteAllButton" destination="iSM-3c-zeX" id="b07-lG-EJo"/>
                         <outlet property="sortByFinishedButton" destination="nNt-Ha-ldL" id="mfa-nI-w7i"/>
                         <outlet property="sortByPriceButton" destination="Qcp-GR-3zh" id="dgv-pz-05u"/>
+                        <outlet property="sortByTypeButton" destination="rGU-AE-6W2" id="JZF-Y4-1A8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5N-mr-wXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +190,7 @@
         <image name="checked_icon" width="30" height="30"/>
         <image name="delete_icon" width="30" height="30"/>
         <image name="filter_icon" width="30" height="30"/>
+        <image name="fruit_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
         <image name="reset_icon" width="30" height="30"/>
         <namedColor name="AverageButtonColors">

@@ -28,6 +28,7 @@ class NoteToolBarViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak var sortByFinishedButton: UIButton!
+    @IBOutlet weak var sortByTypeButton: UIButton!
     @IBOutlet weak var sortByPriceButton: UIButton!
     @IBOutlet weak var clearAllButton: UIButton!
     @IBOutlet weak var deleteAllButton: UIButton!
@@ -41,6 +42,16 @@ class NoteToolBarViewController: UIViewController {
         state: .none,
         representAttribute: "isFinished",
         buttonImage: #imageLiteral(resourceName: "checked_icon")) {
+        
+        didSet {
+            changeTintColor()
+            getSortDescriptor()
+        }
+    }
+    private var typeButton = SortButton(
+        state: .none,
+        representAttribute: "cropData.isFruit",
+        buttonImage: #imageLiteral(resourceName: "fruit_icon")) {
         
         didSet {
             changeTintColor()
@@ -69,19 +80,21 @@ class NoteToolBarViewController: UIViewController {
         
         changeTintColor()
         sortByFinishedButton.setImage(finishedButton.getImage(), for: .normal)
+        sortByTypeButton.setImage(typeButton.getImage(), for: .normal)
         sortByPriceButton.setImage(quoteButton.getImage(), for: .normal)
     }
     
     private func changeTintColor() {
         
         sortByFinishedButton.tintColor = finishedButton.getTintColor()
+        sortByTypeButton.tintColor = typeButton.getTintColor()
         sortByPriceButton.tintColor = quoteButton.getTintColor()
     }
     
     private func getSortDescriptor(){
         
         //notice: sorting priority
-        let buttonArray = [finishedButton, quoteButton]
+        let buttonArray = [finishedButton, typeButton, quoteButton]
         
         let manager = NSSortDescriptorManager()
         
@@ -99,6 +112,12 @@ class NoteToolBarViewController: UIViewController {
         
         finishedButton.state.next()
     }
+    
+    @IBAction func didTapSortByTypeButton(_ sender: UIButton) {
+        
+        typeButton.state.next()
+    }
+    
     
     @IBAction func didTapSortByPriceButton(_ sender: UIButton) {
         
