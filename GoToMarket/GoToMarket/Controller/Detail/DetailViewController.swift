@@ -23,12 +23,12 @@ class DetailViewController: UIViewController {
     var itemCodeInput: String?
     var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
+    var dismissedCallBack: ((Double) -> Void)?
     
     //CoreData
     private let cropManager = CropManager()
     private var fetchedItem: CropDatas?
-    
-    
+
     //Setup
     private let rowTypes: [DetailRowType] = [.title, .intro, .empty, .history, .empty, .quotes ]
     private var showInKg: Bool = true
@@ -235,8 +235,6 @@ extension DetailViewController: UITableViewDataSource {
             
             isAddingCart = crop.note?.isInCart
             
-            
-            
             return cell
             
         case .intro:
@@ -338,8 +336,15 @@ extension DetailViewController: UITableViewDelegate {
             setAlphaForOffset(offsetY: scrollView.contentOffset.y)
             
             if scrollView.contentOffset.y < dismissOffsetThreshold {
-                dismiss(animated: true, completion: nil)
-                
+                dismiss(animated: true, completion: { [weak self] in
+                    
+                    guard
+                        let callBack = self?.dismissedCallBack,
+                        let updatePrice = self?.fetchedItem?.note?.sellingPrice
+                        else { return }
+                    
+                    callBack(updatePrice)
+                })
             }
 
         case .ended:
@@ -464,7 +469,4 @@ extension DetailViewController: ContextViewProvider {
         
         return detailContextView
     }
-    
-    
-    
 }

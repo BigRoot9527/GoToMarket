@@ -293,6 +293,11 @@ extension QuoteDataViewController: UITableViewDelegate {
             cell.inBuyingChart = bool
         }
         
+        detailVC.dismissedCallBack = { updatedPrice -> () in
+            
+            cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: updatedPrice)
+        }
+        
         self.quoteContextView = cell.quoteBackgroundView
         
         transition.presentedContextViewProvider = detailVC
