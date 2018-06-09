@@ -24,7 +24,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrV-nn-HlH">
                                 <rect key="frame" x="280" y="0.0" width="20" height="100"/>
-                                <color key="backgroundColor" name="CropCellBackground_color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="XPb-xu-82Q"/>
                                 </constraints>
@@ -131,7 +130,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="CropCellBackground_color"/>
                                 <constraints>
                                     <constraint firstItem="ol4-dE-p22" firstAttribute="centerY" secondItem="E9h-5S-JWH" secondAttribute="centerY" id="07u-wA-Flc"/>
                                     <constraint firstAttribute="trailing" secondItem="pAj-G9-YO2" secondAttribute="trailing" constant="20" id="2wi-1y-sg0"/>
@@ -278,6 +276,7 @@
                 <outlet property="bottomFinishButton" destination="ol4-dE-p22" id="RgR-SO-ebA"/>
                 <outlet property="bottomItemNameLabel" destination="Ltc-hI-QJK" id="4uK-FJ-sjx"/>
                 <outlet property="bottomLastRealPriceLabel" destination="HOO-x9-ybP" id="2od-ZU-JxJ"/>
+                <outlet property="bottomMarkerView" destination="E9h-5S-JWH" id="xJh-b5-Ssl"/>
                 <outlet property="bottomNewRealPriceLabel" destination="VbU-DG-f5l" id="QRX-yy-lRT"/>
                 <outlet property="bottomPriceInfoButton" destination="ViR-rH-ur3" id="53g-0Q-mWx"/>
                 <outlet property="bottomSellPriceLabel" destination="r78-gS-tuW" id="Kle-2Z-v6b"/>
@@ -286,6 +285,7 @@
                 <outlet property="topCellViewHeightConstraint" destination="o7w-AE-EsC" id="bDp-Rz-jZw"/>
                 <outlet property="topFinishButton" destination="Co6-Bn-UXO" id="BiX-v3-fKs"/>
                 <outlet property="topItemNameLabel" destination="ejV-LV-vfJ" id="aNs-9c-3FJ"/>
+                <outlet property="topMarkerView" destination="jrV-nn-HlH" id="fqN-uG-Jl2"/>
                 <outlet property="topSellPriceLabel" destination="pVO-Us-vUC" id="GjT-tn-n0g"/>
             </connections>
             <point key="canvasLocation" x="155" y="33.5"/>
@@ -298,9 +298,6 @@
         <image name="unconfirm2_icon" width="128" height="128"/>
         <namedColor name="AverageButtonColors">
             <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="CropCellBackground_color">
-            <color red="0.58799999952316284" green="0.81999999284744263" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainTitleText_color">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

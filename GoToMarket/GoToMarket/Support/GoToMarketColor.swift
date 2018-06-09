@@ -8,8 +8,15 @@
 
 import UIKit
 
-enum GoToMarketColor: String {
+struct GotoMarketColors {
     
+    static let FruitCellBackground = "FruitCellBackground_color"
+    
+    static let VegeCellBackground = "VegeCellBackground_color"
+}
+
+enum GoToMarketColor: String {
+
     case traditionalRed = "CA3738"
     case traditionalGreen = "61A763"
     case traditionalBlue = "3E82C2"

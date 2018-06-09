@@ -178,6 +178,7 @@ extension NoteViewController: UITableViewDataSource {
             else { return UITableViewCell() }
         
         cell.setupCellView(
+            isFruitType: cropData.isFruit,
             showingOpened: indexPath == openedCellIndex,
             buttonShowFinished: note.isFinished,
             itemName: cropData.cropName,

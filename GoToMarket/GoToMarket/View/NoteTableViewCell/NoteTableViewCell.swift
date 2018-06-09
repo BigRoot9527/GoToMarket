@@ -39,6 +39,7 @@ class NoteTableViewCell: UITableViewCell {
     @IBOutlet weak var topItemNameLabel: UILabel!
     @IBOutlet weak var topSellPriceLabel: UILabel!
     @IBOutlet weak var topBuyingAmountLabel: UILabel!
+    @IBOutlet weak var topMarkerView: UIView!
     //TODO 上次購買價
     
     //MARK: BottomViewOutlets
@@ -51,6 +52,8 @@ class NoteTableViewCell: UITableViewCell {
     @IBOutlet weak var bottomPriceInfoButton: UIButton!
     @IBOutlet weak var bottomBuyingAmountTextField: UITextField!
     @IBOutlet weak var bottomBuyingAmountStepper: UIStepper!
+    @IBOutlet weak var bottomMarkerView: UIView!
+    
     
     weak var delegate: NoteTableViewCellDelegate?
     
@@ -68,8 +71,21 @@ class NoteTableViewCell: UITableViewCell {
             changingCollor(isFinished: isFinished.0, duration: isFinished.1)
         }
     }
+    
+    var isFruit: Bool = false {
+        didSet {
+            showingColor = isFruit ?
+                UIColor(named: GotoMarketColors.FruitCellBackground) :
+                UIColor(named: GotoMarketColors.VegeCellBackground)
+            changeMarkerColor()
+        }
+    }
+    
+    private var showingColor: UIColor?
 
+    
     func setupCellView(
+        isFruitType: Bool,
         showingOpened: Bool,
         showingTop: Bool = false,
         buttonShowFinished: Bool,
@@ -82,6 +98,7 @@ class NoteTableViewCell: UITableViewCell {
         bottomTextFieldDelegate: UITextFieldDelegate,
         bottomTextFieldTag: IndexPath) {
         
+        isFruit = isFruitType
         isOpened = showingOpened
         
         topFinishButton.isSelected = buttonShowFinished
@@ -143,9 +160,9 @@ class NoteTableViewCell: UITableViewCell {
             
             if isFinished {
                 
-                self?.topCellView.backgroundColor = GoToMarketColor.finishedNoteCellColor.color()
+                self?.topCellView.backgroundColor = self?.showingColor
                 
-                self?.bottomCellView.backgroundColor = GoToMarketColor.finishedNoteCellColor.color()
+                self?.bottomCellView.backgroundColor = self?.showingColor
                 
             } else {
                 
@@ -155,6 +172,12 @@ class NoteTableViewCell: UITableViewCell {
                 
             }
         }
+    }
+    
+    private func changeMarkerColor() {
+        
+        topMarkerView.backgroundColor = showingColor
+        bottomMarkerView.backgroundColor = showingColor
     }
     
     
