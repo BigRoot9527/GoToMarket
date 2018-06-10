@@ -10,96 +10,64 @@ import UIKit
 
 class CustomSegmentedContrl: UIControl {
     
-    var buttons = [UIButton]()
-    var underLiner: UIView!
-    var selector: UIView!
+    private var inputButtons: [CustomSegCrlButton]
+    private var selectorColor: UIColor?
+    private var selector = UIView()
     
     var selectedSegmentIndex = 0 {
         didSet {
             updateSegmentedControlSegs(index: selectedSegmentIndex)
+            sendActions(for: .valueChanged)
         }
     }
     
     var numberOfSegments: Int {
-        return buttons.count
-    }
-    
-    
-    var commaSeperatedButtonTitles: String = "" {
-        didSet {
-            updateView()
-        }
-    }
-    
-    var textColor: UIColor = .lightGray {
-        didSet {
-            updateView()
-        }
-    }
-    
-    var selectorColor: UIColor = .darkGray {
-        didSet {
-            updateView()
-        }
-    }
-    
-    var selectorTextColor: UIColor? = .green {
-        didSet {
-            updateView()
-        }
+        return inputButtons.count
     }
 
-    override init(frame: CGRect) {
+    init(frame: CGRect, selectorColor color: UIColor, customSegButtons inputButtons: [CustomSegCrlButton]) {
+        
+        self.selectorColor = color
+        self.inputButtons = inputButtons
+        
         super.init(frame: frame)
-        updateView()
+        
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
+    
     
     override var frame: CGRect {
         didSet {
-            updateView()
+            setupFrames()
         }
     }
 
     
-    func updateView() {
+    private func setupViews() {
         
-        buttons.removeAll()
-        subviews.forEach { (view) in
-            view.removeFromSuperview()
-        }
-        let buttonTitles = commaSeperatedButtonTitles.components(separatedBy: ",")
-        
-        for buttonTitle in buttonTitles {
+        for element in inputButtons {
             
-            let button = UIButton.init(type: .system)
-            button.setTitle(buttonTitle, for: .normal)
-            button.titleLabel?.font = UIFont.init(name: "PingFang TC", size: 20)
-            button.setTitleColor(textColor, for: .normal)
-            button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
-            
-            buttons.append(button)
+            element.buttonItem.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         }
-        
-        buttons[0].setTitleColor(selectorTextColor, for: .normal)
     
-        let selectorWidth = frame.width / CGFloat(buttonTitles.count)
-        let y = (self.frame.maxY - self.frame.minY) - 4.0
-        selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 4.0))
-        selector.layer.cornerRadius = 2
         selector.backgroundColor = selectorColor
         addSubview(selector)
         
         // Create a StackView
-        let stackView = UIStackView.init(arrangedSubviews: buttons)
+        let stackView = UIStackView.init(arrangedSubviews: inputButtons.map({ element -> UIButton in
+            return element.buttonItem
+        }))
+        
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.spacing = 0.0
         addSubview(stackView)
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
@@ -107,46 +75,54 @@ class CustomSegmentedContrl: UIControl {
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         
         bringSubview(toFront: selector)
+        
+        selectedSegmentIndex = 0
+        inputButtons.first?.didSelected()
+    }
+    
+    
+    private func setupFrames() {
+        
+        let selectorWidth = frame.width / CGFloat(inputButtons.count)
+        let y = (self.frame.maxY - self.frame.minY) - 4.0
+        selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 4.0))
+        selector.layer.cornerRadius = 2
     }
     
     
     @objc func buttonTapped(button: UIButton) {
         
-        var selectorStartPosition: CGFloat!
-        
-        for (buttonIndex,btn) in buttons.enumerated() {
+        for (index,element) in inputButtons.enumerated() {
             
-            btn.setTitleColor(textColor, for: .normal)
-            
-            if btn == button {
+            if button === element.buttonItem {
                 
-                selectedSegmentIndex = buttonIndex
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    
+                    self?.inputButtons[index].didSelected()
+                    self?.selectedSegmentIndex = index
+                }
                 
-                selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(buttonIndex)
                 
-                UIView.animate(withDuration: 0.3, animations: {
-                    self.selector.frame.origin.x = selectorStartPosition
-                    btn.backgroundColor = UIColor(named: GotoMarketColors.VegeCellBackground)
-                })
+            } else {
                 
-                btn.setTitleColor(selectorTextColor, for: .normal)
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    
+                    self?.inputButtons[index].unSelected()
+                }
             }
         }
-        
-        sendActions(for: .valueChanged)
     }
     
     
     func updateSegmentedControlSegs(index: Int) {
         
-        var selectorStartPosition: CGFloat!
+        var selectorStartPosition: CGFloat
         
-        selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(index)
+        selectorStartPosition = frame.width / CGFloat(inputButtons.count) * CGFloat(index)
         
         UIView.animate(withDuration: 0.3, animations: {
             self.selector.frame.origin.x = selectorStartPosition
         })
     }
-
 }
 

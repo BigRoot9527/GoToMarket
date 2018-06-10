@@ -12,7 +12,9 @@ struct GoToMarketConstant {
     
     static let quotesRowHeight: CGFloat = 80.0
     
-    static let quoteListsChineseText: String = "全部,蔬菜,水果"
+    static let quoteListsAllText: String = "全部"
+    static let quoteListsFruitText: String = "水果"
+    static let quoteListsVegeText: String = "蔬菜"
 
     static let cartNotificationName = Notification.Name("CartCount")
     
