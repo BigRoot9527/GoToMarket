@@ -11,14 +11,15 @@ import UIKit
 class QuotesViewController: UIViewController {
 
     //MARK: - IBOutlet
-
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var searchBottomToSwitchBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var quoteSearchBar: UISearchBar!
     @IBOutlet weak var quoteListsContainerView: UIView!
+    @IBOutlet weak var searchBarBottomToSafeTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var toolBarBottomToSwitchBottomConstraint: NSLayoutConstraint!
+    
     
     //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
-    private let topConstant: (CGFloat, CGFloat) = (100.0, 0.0 )
+    private let topConstant: (CGFloat, CGFloat) = (50.0, 0.0 )
     
     private var listChildVC = QuoteListsViewController()
     
@@ -50,7 +51,8 @@ class QuotesViewController: UIViewController {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        searchBottomToSwitchBottomConstraint.constant = topConstant.1
+        searchBarBottomToSafeTopConstraint.constant = topConstant.1
+        toolBarBottomToSwitchBottomConstraint.constant = topConstant.1
     }
 
     //MARK: - IBAction
@@ -63,8 +65,8 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        searchBottomToSwitchBottomConstraint.constant =
-            searchBottomToSwitchBottomConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
+        toolBarBottomToSwitchBottomConstraint.constant =
+            toolBarBottomToSwitchBottomConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
         quoteSearchBar.resignFirstResponder()
         
         UIView.animate(withDuration: 0.3) { [weak self] in
@@ -75,7 +77,14 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapSearchBarButton(_ sender: UIBarButtonItem) {
         
+        searchBarBottomToSafeTopConstraint.constant =
+            searchBarBottomToSafeTopConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
+        quoteSearchBar.resignFirstResponder()
         
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            
+            self?.view.layoutIfNeeded()
+        }
     }
     
     

@@ -53,6 +53,10 @@ class QuoteToolBarViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        view.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowOpacity = 0.6
     }
     
     private func setupUI() {

@@ -86,11 +86,6 @@ class QuoteListsViewController: UIViewController {
             let originX = quoteListsScrollView.frame.width * CGFloat(index)
             
             childVC.view.frame = CGRect(x: originX, y: 0, width: quoteListsScrollView.frame.width, height: quoteListsScrollView.frame.height)
-            
-            print(childVC.view.frame)
-            print(quoteListsScrollView.frame)
-            print(quoteListsScrollView.bounds)
-            print(quoteListsScrollView.contentSize)
         }
     }
     
