@@ -64,7 +64,7 @@ import UIKit
             updateView()
         }
     }
-    @IBInspectable var selectorTextColor: UIColor = .green {
+    @IBInspectable var selectorTextColor: UIColor? = .green {
         didSet {
             updateView()
         }
@@ -106,7 +106,7 @@ import UIKit
         // For UnderLiner For SegmentedController
         if isUnderLinerNeeded {
             underLiner = UIView.init()
-            underLiner.backgroundColor = UIColor.lightGray
+            underLiner.backgroundColor = UIColor.clear
             addSubview(underLiner)
             underLiner.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
@@ -117,11 +117,12 @@ import UIKit
                 ])
         }
         let selectorWidth = frame.width / CGFloat(buttonTitles.count)
-        let y = (self.frame.maxY - self.frame.minY) - 3.0
-        selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 3.0))
-        // selector.layer.cornerRadius = frame.height/2
+        let y = (self.frame.maxY - self.frame.minY) - 4.0
+        selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 4.0))
+        selector.layer.cornerRadius = 2
         selector.backgroundColor = selectorColor
         addSubview(selector)
+        
         // Create a StackView
         let stackView = UIStackView.init(arrangedSubviews: buttons)
         stackView.axis = .horizontal
@@ -134,6 +135,8 @@ import UIKit
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        
+        bringSubview(toFront: selector)
     }
     
     
@@ -146,6 +149,7 @@ import UIKit
                 selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(buttonIndex)
                 UIView.animate(withDuration: 0.3, animations: {
                     self.selector.frame.origin.x = selectorStartPosition
+                    btn.backgroundColor = UIColor(named: GotoMarketColors.VegeCellBackground)
                 })
                 btn.setTitleColor(selectorTextColor, for: .normal)
             }

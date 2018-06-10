@@ -34,8 +34,8 @@ class QuoteSwitchViewController: UIViewController {
         segmentedControl.commaSeperatedButtonTitles = GoToMarketConstant.quoteListsChineseText
         segmentedControl.addTarget(self, action: #selector(onChangeOfSegment(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.textColor = UIColor.red
-        segmentedControl.selectorTextColor = UIColor.blue
+        segmentedControl.textColor = GoToMarketColor.sortButtonNoneColor.color()
+        segmentedControl.selectorTextColor = UIColor(named: GotoMarketColors.MainTitleText)
         segmentedControl.isUnderLinerNeeded = true
         
         self.switchControl = segmentedControl

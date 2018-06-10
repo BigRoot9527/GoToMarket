@@ -13,6 +13,8 @@ struct GotoMarketColors {
     static let FruitCellBackground = "FruitCellBackground_color"
     
     static let VegeCellBackground = "VegeCellBackground_color"
+    
+    static let MainTitleText = "MainTitleText_color"
 }
 
 enum GoToMarketColor: String {
