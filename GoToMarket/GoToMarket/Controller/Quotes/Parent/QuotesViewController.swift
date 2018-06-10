@@ -65,7 +65,7 @@ class QuotesViewController: UIViewController {
         
         searchBottomToSwitchBottomConstraint.constant =
             searchBottomToSwitchBottomConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
-        
+        quoteSearchBar.resignFirstResponder()
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             
