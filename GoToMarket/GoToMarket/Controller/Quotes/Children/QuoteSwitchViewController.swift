@@ -36,7 +36,6 @@ class QuoteSwitchViewController: UIViewController {
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.textColor = GoToMarketColor.sortButtonNoneColor.color()
         segmentedControl.selectorTextColor = UIColor(named: GotoMarketColors.MainTitleText)
-        segmentedControl.isUnderLinerNeeded = true
         
         self.switchControl = segmentedControl
         self.view.addSubview(switchControl)

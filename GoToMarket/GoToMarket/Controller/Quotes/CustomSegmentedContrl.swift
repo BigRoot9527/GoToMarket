@@ -15,12 +15,6 @@ import UIKit
     var underLiner: UIView!
     var selector: UIView!
     
-    var isUnderLinerNeeded: Bool = false {
-        didSet{
-            updateView()
-        }
-    }
-    
     var selectedSegmentIndex = 0 {
         didSet {
             updateSegmentedControlSegs(index: selectedSegmentIndex)
@@ -88,24 +82,27 @@ import UIKit
 
     
     func updateView() {
+        
         buttons.removeAll()
         subviews.forEach { (view) in
             view.removeFromSuperview()
         }
         let buttonTitles = commaSeperatedButtonTitles.components(separatedBy: ",")
+        
         for buttonTitle in buttonTitles {
+            
             let button = UIButton.init(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.titleLabel?.font = UIFont.init(name: "System-Bold", size: 18)
             button.setTitleColor(textColor, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
+            
             buttons.append(button)
         }
         
         numberOfSegments = buttons.count
         buttons[0].setTitleColor(selectorTextColor, for: .normal)
     
-        
         let selectorWidth = frame.width / CGFloat(buttonTitles.count)
         let y = (self.frame.maxY - self.frame.minY) - 4.0
         selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 4.0))
@@ -161,31 +158,12 @@ import UIKit
         
         var selectorStartPosition: CGFloat!
         
-        for btn in buttons {
-            btn.setTitleColor(textColor, for: .normal)
-        }
-        
         selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(index)
         
         UIView.animate(withDuration: 0.3, animations: {
             self.selector.frame.origin.x = selectorStartPosition
         })
-        
-        buttons[index].setTitleColor(selectorTextColor, for: .normal)
     }
-    
-    override func sendActions(for controlEvents: UIControlEvents) {
-        super.sendActions(for: controlEvents)
-        
-        var selectorStartPosition: CGFloat!
-        
-        selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(selectedSegmentIndex)
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.selector.frame.origin.x = selectorStartPosition
-        })
-        
-        buttons[selectedSegmentIndex].setTitleColor(selectorTextColor, for: .normal)
-    }
+
 }
 
