@@ -73,6 +73,12 @@ class QuotesViewController: UIViewController {
         }
     }
     
+    @IBAction func didTapSearchBarButton(_ sender: UIBarButtonItem) {
+        
+        
+    }
+    
+    
     //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

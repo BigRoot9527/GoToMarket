@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +26,7 @@
                                 </connections>
                             </containerView>
                             <searchBar contentMode="redraw" placeholder="搜尋農產品名稱" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-qh-083">
-                                <rect key="frame" x="15" y="188" width="345" height="50"/>
+                                <rect key="frame" x="0.0" y="188" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ygg-jw-HbA"/>
                                 </constraints>
@@ -57,24 +58,32 @@
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="c5J-d3-Lpp" secondAttribute="bottom" id="ReG-vm-fsC"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="c5J-d3-Lpp" secondAttribute="trailing" id="Rl6-bb-dnd"/>
                             <constraint firstItem="QhR-H4-rTH" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="TFq-ft-kgX"/>
-                            <constraint firstItem="dCq-qh-083" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" constant="15" id="YrJ-bO-lsM"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="YrJ-bO-lsM"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="QhR-H4-rTH" secondAttribute="trailing" id="es2-oU-d6V"/>
                             <constraint firstItem="c5J-d3-Lpp" firstAttribute="top" secondItem="dCq-qh-083" secondAttribute="bottom" id="n6K-D5-K1T"/>
                             <constraint firstItem="QhR-H4-rTH" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="nLJ-vA-nYd"/>
                             <constraint firstItem="dCq-qh-083" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="q71-DX-49v"/>
-                            <constraint firstItem="dCq-qh-083" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" constant="-15" id="z3J-se-om3"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="z3J-se-om3"/>
                             <constraint firstItem="c5J-d3-Lpp" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="zvY-Kf-IUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
                     </view>
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
-                        <barButtonItem key="leftBarButtonItem" image="filter_icon" id="gpt-5K-jIV">
-                            <color key="tintColor" name="AverageButtonColors"/>
-                            <connections>
-                                <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="filter_icon" id="gpt-5K-jIV">
+                                <color key="tintColor" name="AverageButtonColors"/>
+                                <connections>
+                                    <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="search_icon" id="eaD-vl-tCq">
+                                <color key="tintColor" name="AverageButtonColors"/>
+                                <connections>
+                                    <action selector="didTapSearchBarButton:" destination="dyT-ZU-lsL" id="4ot-hw-p6P"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="p67-lU-twP">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="XvR-tj-Mlr">
                                 <rect key="frame" x="268" y="7" width="91" height="30"/>
@@ -268,6 +277,7 @@
         <image name="buy_icon" width="30" height="30"/>
         <image name="filter_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
+        <image name="search_icon" width="30" height="30"/>
         <image name="top_icon" width="21" height="21"/>
         <namedColor name="AverageButtonColors">
             <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
