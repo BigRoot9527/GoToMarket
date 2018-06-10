@@ -17,18 +17,27 @@ class QuoteSwitchViewController: UIViewController {
     
     private var switchControl = UIControl()
     
+    private var didSetup: Bool = false
+    
     weak var delegate: QuoteSwitchViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
+        
+        view.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowOpacity = 0.6
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        switchControl.frame = self.view.bounds
+        if !didSetup {
+            switchControl.frame = self.view.bounds
+            didSetup = true
+        }
     }
 
     
