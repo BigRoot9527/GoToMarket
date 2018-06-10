@@ -14,6 +14,8 @@ class QuotesViewController: UIViewController {
 
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var searchBottomToSwitchBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var quoteSearchBar: UISearchBar!
+    @IBOutlet weak var quoteListsContainerView: UIView!
     
     //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
     private let topConstant: (CGFloat, CGFloat) = (100.0, 0.0 )
@@ -25,6 +27,7 @@ class QuotesViewController: UIViewController {
         super.viewDidLoad()
         
         setupNav()
+        setupSeachBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,14 +38,12 @@ class QuotesViewController: UIViewController {
     
     private func setupNav() {
         
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
-        navigationItem.searchController = nil
-        
-        definesPresentationContext = true
-        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func setupSeachBar() {
+    
+        quoteSearchBar.delegate = self
+        quoteSearchBar.setValue(GoToMarketConstant.cancleButtonTitleValue, forKey: GoToMarketConstant.cancleButtonTitleKey)
     }
 
     private func updateUI() {
@@ -118,28 +119,36 @@ extension QuotesViewController: QuoteSwitchViewControllerDelegate {
     }
 }
 
-//MARK: - UISearchResultsUpdating
-extension QuotesViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        guard let searchString = searchController.searchBar.text else { return }
-        
-        listChildVC.getSearchBarResult(searchText: searchString)
-    }
-}
-
 //MARK: - UISearchBarDelegate
 extension QuotesViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        self.view.isUserInteractionEnabled = false
+        self.quoteListsContainerView.isUserInteractionEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        self.view.isUserInteractionEnabled = true
+         self.quoteListsContainerView.isUserInteractionEnabled = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.text = GoToMarketConstant.emptyString
+        searchBar.setShowsCancelButton(false , animated: true)
+        searchBar.resignFirstResponder()
+        listChildVC.getSearchBarResult(searchText: GoToMarketConstant.emptyString)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchBar.setShowsCancelButton(searchText != GoToMarketConstant.emptyString , animated: true)
+        listChildVC.getSearchBarResult(searchText: searchText)
     }
 }
 

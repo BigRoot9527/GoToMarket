@@ -24,7 +24,7 @@
                                     <segue destination="Sf6-OM-nsq" kind="embed" identifier="QuoteListsVCSegue" id="khJ-qN-vxK"/>
                                 </connections>
                             </containerView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-qh-083">
+                            <searchBar contentMode="redraw" placeholder="搜尋農產品名稱" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-qh-083">
                                 <rect key="frame" x="0.0" y="188" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ygg-jw-HbA"/>
@@ -91,6 +91,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="quoteListsContainerView" destination="c5J-d3-Lpp" id="TPW-qr-Nx9"/>
+                        <outlet property="quoteSearchBar" destination="dCq-qh-083" id="nVW-s1-yrQ"/>
                         <outlet property="searchBottomToSwitchBottomConstraint" destination="Oti-3f-FI1" id="qhV-PH-pTd"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
