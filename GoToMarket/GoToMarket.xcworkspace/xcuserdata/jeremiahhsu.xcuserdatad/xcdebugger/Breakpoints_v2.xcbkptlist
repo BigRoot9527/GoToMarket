@@ -36,25 +36,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoToMarket/Controller/Quotes/CustomSegmentedContrl.swift"
-            timestampString = "550321797.854714"
+            timestampString = "550332012.6118309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GoToMarket/Controller/Quotes/CustomSegmentedContrl.swift"
-            timestampString = "550321851.93472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144">
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "CustomSegmentedContrl"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

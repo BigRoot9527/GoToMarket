@@ -25,7 +25,7 @@
                                 </connections>
                             </containerView>
                             <searchBar contentMode="redraw" placeholder="搜尋農產品名稱" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-qh-083">
-                                <rect key="frame" x="0.0" y="188" width="375" height="50"/>
+                                <rect key="frame" x="15" y="188" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ygg-jw-HbA"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhR-H4-rTH">
-                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <rect key="frame" x="15" y="88" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u22-xO-fd2"/>
                                 </constraints>
@@ -57,13 +57,13 @@
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="c5J-d3-Lpp" secondAttribute="bottom" id="ReG-vm-fsC"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="c5J-d3-Lpp" secondAttribute="trailing" id="Rl6-bb-dnd"/>
                             <constraint firstItem="QhR-H4-rTH" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="TFq-ft-kgX"/>
-                            <constraint firstItem="dCq-qh-083" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="YrJ-bO-lsM"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" constant="15" id="YrJ-bO-lsM"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="QhR-H4-rTH" secondAttribute="trailing" id="es2-oU-d6V"/>
+                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="QhR-H4-rTH" secondAttribute="trailing" constant="15" id="es2-oU-d6V"/>
                             <constraint firstItem="c5J-d3-Lpp" firstAttribute="top" secondItem="dCq-qh-083" secondAttribute="bottom" id="n6K-D5-K1T"/>
-                            <constraint firstItem="QhR-H4-rTH" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="nLJ-vA-nYd"/>
+                            <constraint firstItem="QhR-H4-rTH" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" constant="15" id="nLJ-vA-nYd"/>
                             <constraint firstItem="dCq-qh-083" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="q71-DX-49v"/>
-                            <constraint firstItem="dCq-qh-083" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="z3J-se-om3"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" constant="-15" id="z3J-se-om3"/>
                             <constraint firstItem="c5J-d3-Lpp" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="zvY-Kf-IUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
@@ -222,7 +222,7 @@
             <objects>
                 <viewController id="cdx-0q-2pH" customClass="QuoteSwitchViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DIH-ua-oZS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7v7-1p-0r8"/>

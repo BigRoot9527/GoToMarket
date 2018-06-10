@@ -25,6 +25,13 @@ class QuoteSwitchViewController: UIViewController {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        switchControl.frame = self.view.bounds
+    }
+
+    
     //MARK: - SwitchControl
     private func setup() {
         

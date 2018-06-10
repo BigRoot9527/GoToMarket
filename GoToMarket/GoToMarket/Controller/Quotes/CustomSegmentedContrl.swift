@@ -54,6 +54,7 @@ class CustomSegmentedContrl: UIControl {
             element.buttonItem.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
         }
     
+        selector = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0.0, height: 4.0))
         selector.backgroundColor = selectorColor
         addSubview(selector)
         
@@ -83,10 +84,10 @@ class CustomSegmentedContrl: UIControl {
     
     private func setupFrames() {
         
-        let selectorWidth = frame.width / CGFloat(inputButtons.count)
-        let y = (self.frame.maxY - self.frame.minY) - 4.0
-        selector = UIView.init(frame: CGRect.init(x: 0, y: y, width: selectorWidth, height: 4.0))
-        selector.layer.cornerRadius = 2
+        let selectorWidth = bounds.width / CGFloat(inputButtons.count)
+        let y = self.bounds.maxY - 4.0
+        selector.frame = CGRect(x: 0.0, y: y, width: selectorWidth, height: 4.0)
+        selector.layer.cornerRadius = 2.0
     }
     
     
