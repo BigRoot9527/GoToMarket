@@ -32,6 +32,7 @@
 		3217C15720B420D6006B9DA7 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */; };
 		3217C15920B47FBE006B9DA7 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */; };
 		3217C15C20B4FED5006B9DA7 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */; };
+		3228FB7B20CD429D00A998CA /* CustomSegControlButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228FB7A20CD429D00A998CA /* CustomSegControlButtons.swift */; };
 		3230F3DA20AAB545002812E0 /* Quotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3230F3D920AAB545002812E0 /* Quotes.storyboard */; };
 		3230F3DD20AAB734002812E0 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DC20AAB734002812E0 /* QuotesViewController.swift */; };
 		3230F3DF20AAB750002812E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3DE20AAB750002812E0 /* DetailViewController.swift */; };
@@ -125,6 +126,7 @@
 		3217C15620B420D6006B9DA7 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		3217C15820B47FBE006B9DA7 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		3217C15B20B4FED5006B9DA7 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		3228FB7A20CD429D00A998CA /* CustomSegControlButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegControlButtons.swift; sourceTree = "<group>"; };
 		3230F3D920AAB545002812E0 /* Quotes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Quotes.storyboard; sourceTree = "<group>"; };
 		3230F3DC20AAB734002812E0 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		3230F3DE20AAB750002812E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		3230F3DB20AAB67B002812E0 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				3228FB7A20CD429D00A998CA /* CustomSegControlButtons.swift */,
 				32CE233720C97753007B0EF6 /* CustomSegmentedContrl.swift */,
 				32CE233920C992A8007B0EF6 /* Parent */,
 				32CE233A20C992D5007B0EF6 /* Children */,
@@ -845,6 +848,7 @@
 				32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */,
 				3211781820BFD5E700B23711 /* ExtensionUITabBarController.swift in Sources */,
 				3230F3E920AC1340002812E0 /* WikiConstant.swift in Sources */,
+				3228FB7B20CD429D00A998CA /* CustomSegControlButtons.swift in Sources */,
 				3230F3E620AAD1CA002812E0 /* PriceStringProvider.swift in Sources */,
 				327A4DFF209F438F00B3EEE9 /* NoteConstant.swift in Sources */,
 				3217C15420B3BBB2006B9DA7 /* ExtnesionUIView.swift in Sources */,

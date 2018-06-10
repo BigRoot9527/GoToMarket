@@ -8,8 +8,7 @@
 
 import UIKit
 
-@IBDesignable class CustomSegmentedContrl: UIControl {
-    
+class CustomSegmentedContrl: UIControl {
     
     var buttons = [UIButton]()
     var underLiner: UIView!
@@ -29,37 +28,43 @@ import UIKit
     
     
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
+    var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
-    @IBInspectable var cornerRadius: CGFloat = 0 {
+    
+    var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
         }
     }
-    @IBInspectable var borderColor: UIColor = .clear {
+    
+    var borderColor: UIColor = .clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
     }
-    @IBInspectable var commaSeperatedButtonTitles: String = "" {
+    
+    var commaSeperatedButtonTitles: String = "" {
         didSet {
             updateView()
         }
     }
-    @IBInspectable var textColor: UIColor = .lightGray {
+    
+    var textColor: UIColor = .lightGray {
         didSet {
             updateView()
         }
     }
-    @IBInspectable var selectorColor: UIColor = .darkGray {
+    
+    var selectorColor: UIColor = .darkGray {
         didSet {
             updateView()
         }
     }
-    @IBInspectable var selectorTextColor: UIColor? = .green {
+    
+    var selectorTextColor: UIColor? = .green {
         didSet {
             updateView()
         }
@@ -93,7 +98,7 @@ import UIKit
             
             let button = UIButton.init(type: .system)
             button.setTitle(buttonTitle, for: .normal)
-            button.titleLabel?.font = UIFont.init(name: "System-Bold", size: 18)
+            button.titleLabel?.font = UIFont.init(name: "PingFang TC", size: 20)
             button.setTitleColor(textColor, for: .normal)
             button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
             
