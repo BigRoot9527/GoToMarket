@@ -18,8 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5J-d3-Lpp">
+                                <rect key="frame" x="0.0" y="238" width="375" height="540"/>
+                                <connections>
+                                    <segue destination="Sf6-OM-nsq" kind="embed" identifier="QuoteListsVCSegue" id="khJ-qN-vxK"/>
+                                </connections>
+                            </containerView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-qh-083">
+                                <rect key="frame" x="0.0" y="188" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ygg-jw-HbA"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-gF-Yfh">
-                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="138" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JU8-Zs-6Ma"/>
                                 </constraints>
@@ -28,7 +41,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhR-H4-rTH">
-                                <rect key="frame" x="0.0" y="138" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u22-xO-fd2"/>
                                 </constraints>
@@ -36,24 +49,21 @@
                                     <segue destination="cdx-0q-2pH" kind="embed" identifier="QuoteSwitchVCSegue" id="jv8-0Y-czn"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5J-d3-Lpp">
-                                <rect key="frame" x="0.0" y="188" width="375" height="590"/>
-                                <connections>
-                                    <segue destination="Sf6-OM-nsq" kind="embed" identifier="QuoteListsVCSegue" id="khJ-qN-vxK"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QhR-H4-rTH" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="3RB-fq-vAZ"/>
-                            <constraint firstItem="c5J-d3-Lpp" firstAttribute="top" secondItem="QhR-H4-rTH" secondAttribute="bottom" id="43s-fA-Iaa"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="6zI-6J-pZl"/>
-                            <constraint firstItem="8cJ-cI-EZ9" firstAttribute="top" secondItem="QhR-H4-rTH" secondAttribute="bottom" constant="-100" id="RMf-xM-BPA"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="bottom" secondItem="QhR-H4-rTH" secondAttribute="bottom" constant="100" id="Oti-3f-FI1"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="bottom" secondItem="c5J-d3-Lpp" secondAttribute="bottom" id="ReG-vm-fsC"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="c5J-d3-Lpp" secondAttribute="trailing" id="Rl6-bb-dnd"/>
+                            <constraint firstItem="QhR-H4-rTH" firstAttribute="top" secondItem="8cJ-cI-EZ9" secondAttribute="top" id="TFq-ft-kgX"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="YrJ-bO-lsM"/>
                             <constraint firstItem="kHi-gF-Yfh" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="ZUR-be-NHu"/>
                             <constraint firstItem="8cJ-cI-EZ9" firstAttribute="trailing" secondItem="QhR-H4-rTH" secondAttribute="trailing" id="es2-oU-d6V"/>
+                            <constraint firstItem="c5J-d3-Lpp" firstAttribute="top" secondItem="dCq-qh-083" secondAttribute="bottom" id="n6K-D5-K1T"/>
                             <constraint firstItem="QhR-H4-rTH" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="nLJ-vA-nYd"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="top" secondItem="kHi-gF-Yfh" secondAttribute="bottom" id="q71-DX-49v"/>
+                            <constraint firstItem="dCq-qh-083" firstAttribute="trailing" secondItem="8cJ-cI-EZ9" secondAttribute="trailing" id="z3J-se-om3"/>
                             <constraint firstItem="c5J-d3-Lpp" firstAttribute="leading" secondItem="8cJ-cI-EZ9" secondAttribute="leading" id="zvY-Kf-IUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8cJ-cI-EZ9"/>
@@ -81,7 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="switchBottomToSafeTopConstraint" destination="RMf-xM-BPA" id="hpB-gH-7w4"/>
+                        <outlet property="searchBottomToSwitchBottomConstraint" destination="Oti-3f-FI1" id="qhV-PH-pTd"/>
                         <outlet property="weightTypeSegControl" destination="XvR-tj-Mlr" id="byS-fp-oQy"/>
                     </connections>
                 </viewController>
@@ -225,11 +235,11 @@
             <objects>
                 <viewController id="Sf6-OM-nsq" customClass="QuoteListsViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAh-bC-OUe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6F-xK-cWC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="540"/>
                                 <color key="backgroundColor" red="0.90739589929580688" green="0.91057592630386353" blue="0.49402058124542236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>

@@ -13,10 +13,10 @@ class QuotesViewController: UIViewController {
     //MARK: - IBOutlet
 
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    @IBOutlet weak var switchBottomToSafeTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchBottomToSwitchBottomConstraint: NSLayoutConstraint!
     
-    //MARK: ToolBar(Opened, Half, Closed) ContraintConstant To SafeArea
-    private let topConstant: (CGFloat, CGFloat, CGFloat) = ( 0.0, -50, -100.0 )
+    //MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
+    private let topConstant: (CGFloat, CGFloat) = (100.0, 0.0 )
     
     private var listChildVC = QuoteListsViewController()
     
@@ -39,7 +39,7 @@ class QuotesViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
+        navigationItem.searchController = nil
         
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -49,7 +49,7 @@ class QuotesViewController: UIViewController {
         
         weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
         
-        switchBottomToSafeTopConstraint.constant = topConstant.1
+        searchBottomToSwitchBottomConstraint.constant = topConstant.1
     }
 
     //MARK: - IBAction
@@ -62,10 +62,9 @@ class QuotesViewController: UIViewController {
     
     @IBAction func didTapToolBarButton(_ sender: UIBarButtonItem) {
         
-        switchBottomToSafeTopConstraint.constant =
-            switchBottomToSafeTopConstraint.constant == topConstant.2 ?
-            topConstant.0 :
-            switchBottomToSafeTopConstraint.constant + topConstant.1
+        searchBottomToSwitchBottomConstraint.constant =
+            searchBottomToSwitchBottomConstraint.constant == topConstant.0 ? topConstant.1 : topConstant.0
+        
         
         UIView.animate(withDuration: 0.3) { [weak self] in
             
