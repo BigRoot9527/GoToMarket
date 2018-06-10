@@ -20,31 +20,10 @@ class CustomSegmentedContrl: UIControl {
         }
     }
     
-    var numberOfSegments: Int = 0 {
-        didSet {
-            numberOfSegments = buttons.count
-        }
+    var numberOfSegments: Int {
+        return buttons.count
     }
     
-    
-    
-    var borderWidth: CGFloat = 0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-    
-    var cornerRadius: CGFloat = 0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-        }
-    }
-    
-    var borderColor: UIColor = .clear {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
     
     var commaSeperatedButtonTitles: String = "" {
         didSet {
@@ -74,9 +53,9 @@ class CustomSegmentedContrl: UIControl {
         super.init(frame: frame)
         updateView()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        fatalError("init(coder:) has not been implemented")
     }
     
     override var frame: CGRect {
@@ -105,7 +84,6 @@ class CustomSegmentedContrl: UIControl {
             buttons.append(button)
         }
         
-        numberOfSegments = buttons.count
         buttons[0].setTitleColor(selectorTextColor, for: .normal)
     
         let selectorWidth = frame.width / CGFloat(buttonTitles.count)
