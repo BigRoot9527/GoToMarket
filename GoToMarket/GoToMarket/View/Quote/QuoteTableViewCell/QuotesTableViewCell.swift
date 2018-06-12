@@ -10,7 +10,7 @@ import UIKit
 import SwipeCellKit
 
 class QuotesTableViewCell: SwipeTableViewCell {
-    
+
     //Input
     var inBuyingChart: Bool = false {
         didSet {
@@ -28,17 +28,16 @@ class QuotesTableViewCell: SwipeTableViewCell {
         }
     }
     let gradient = CAGradientLayer()
-    
-    
+
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var sellPriceLabel: UILabel!
     @IBOutlet weak var buyingIndicatorImageView: UIImageView!
     @IBOutlet weak var priceMarkImageView: UIImageView!
     @IBOutlet weak var quoteBackgroundView: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         self.selectionStyle = UITableViewCellSelectionStyle.none
         self.contentView.clipsToBounds = false
         quoteBackgroundView.layer.masksToBounds = false
@@ -47,26 +46,26 @@ class QuotesTableViewCell: SwipeTableViewCell {
         quoteBackgroundView.layer.shadowColor = UIColor.black.cgColor.copy(alpha: 0.4)
         quoteBackgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)
         quoteBackgroundView.layer.shadowOpacity = 0.6
-        
+
     }
-    
+
     private func updateIndicator() {
         if inBuyingChart {
-            
+
             buyingIndicatorImageView.isHidden = false
-            
+
         } else {
-            
+
             buyingIndicatorImageView.isHidden = true
         }
     }
-    
+
     private func updatePriceMark() {
-        
+
         guard let rate = priceIndicator else { return }
-        
+
         switch rate {
-        
+
         case ..<0.7:
             priceMarkImageView.image = #imageLiteral(resourceName: "down3")
         case 0.7..<0.9:
@@ -83,7 +82,7 @@ class QuotesTableViewCell: SwipeTableViewCell {
             priceMarkImageView.image = #imageLiteral(resourceName: "up3")
         }
     }
-    
+
     private func changeBackgroundColor() {
         quoteBackgroundView.backgroundColor = isFruit ?
             UIColor(named: GotoMarketColors.FruitCellBackground) :

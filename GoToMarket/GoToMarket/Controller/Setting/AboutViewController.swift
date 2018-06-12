@@ -16,15 +16,13 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
+
     @IBAction func didTapWindowButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     @objc func nChangeOfSegment(_ sender: UIControl) {
-        
-        
+
     }
-    
-    
+
 }

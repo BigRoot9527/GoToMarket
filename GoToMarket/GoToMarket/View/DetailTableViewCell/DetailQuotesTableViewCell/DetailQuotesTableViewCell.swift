@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailQuotesTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var detailQuoteInfoView: UIView!
     @IBOutlet weak var detailSellPriceLabel: UILabel!
     @IBOutlet weak var detailRealPriceLabel: UILabel!
@@ -17,16 +17,15 @@ class DetailQuotesTableViewCell: UITableViewCell {
     @IBOutlet weak var detailMarketLabel: UILabel!
     @IBOutlet weak var detailPriceInfoButton: UIButton!
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
-    
-    
+
     weak var delegate: DetailTableViewCellDelegate?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setUI()
     }
-    
+
     private func setUI() {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
@@ -36,15 +35,15 @@ class DetailQuotesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     @IBAction func didTapPriceInfoButton(_ sender: UIButton) {
         delegate?.priceInfoButtonTapped(sender: sender)
     }
-    
+
     @IBAction func weightTypeSegControlDidChange(_ sender: UISegmentedControl) {
-        
+
         delegate?.changeWeightButtonTapped(sender: sender, fromCell: self)
-        
+
     }
-    
+
 }

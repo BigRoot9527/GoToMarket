@@ -9,22 +9,19 @@
 import UIKit
 
 class SwitchCollectionViewCell: UICollectionViewCell {
-    
-    
+
     @IBOutlet weak var typeSwitchLabel: UILabel!
-    
+
     var typeText: String? {
         didSet {
             self.updateUI()
         }
     }
-    
-    
+
     private func updateUI() {
-        
+
         guard let text = typeText else { return }
         typeSwitchLabel.text = text
     }
-    
-    
+
 }

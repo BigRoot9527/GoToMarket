@@ -15,7 +15,7 @@ enum DetailRowType {
     case quotes
     case history
     case empty
-    
+
     func heightForRow() -> CGFloat {
         switch self {
         case .title:

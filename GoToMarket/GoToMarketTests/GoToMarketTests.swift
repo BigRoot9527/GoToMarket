@@ -10,127 +10,113 @@ import XCTest
 @testable import GoToMarket
 import Alamofire
 
-class stubsNilRequestType: OpenDataQueryItemConvertable {
+class StubsNilRequestType: OpenDataQueryItemConvertable {
     func getNSURLQueryItem() -> [URLQueryItem]? {
         return nil
     }
 }
 
-class stubsValidRequestType: OpenDataQueryItemConvertable {
+class StubsValidRequestType: OpenDataQueryItemConvertable {
     func getNSURLQueryItem() -> [URLQueryItem]? {
         return CropQueryType.updateQuote(lastUpdateDate: nil).getNSURLQueryItem()
     }
 }
 
-class stubsInvalidRequestType: OpenDataQueryItemConvertable {
+class StubsInvalidRequestType: OpenDataQueryItemConvertable {
     func getNSURLQueryItem() -> [URLQueryItem]? {
         return [URLQueryItem(name: "InValid", value: "InValid")]
     }
 }
 
-class stubsValidHttpRequest: HTTPRequest {
-    
-    
+class StubsValidHttpRequest: HTTPRequest {
+
     var domainURL: String = "http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx"
     var requestType: OpenDataQueryItemConvertable
-    
+
     init(testQueryItem: OpenDataQueryItemConvertable) {
-        
+
         self.requestType = testQueryItem
     }
 }
 
-
-
 class GoToMarketTests: XCTestCase {
-    
-    var CropUnderTest: CropProvider!
-    var HttpClientUnderTest: HttpClient!
-    
-    
+
+    var cropUnderTest: CropProvider!
+    var httpClientUnderTest: HttpClient!
+
     override func setUp() {
         super.setUp()
-        
-        CropUnderTest = CropProvider()
-        HttpClientUnderTest = HttpClient.shared
-        
-        
+
+        cropUnderTest = CropProvider()
+        httpClientUnderTest = HttpClient.shared
+
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
-        CropUnderTest = nil
-        HttpClientUnderTest = nil
+        cropUnderTest = nil
+        httpClientUnderTest = nil
         super.tearDown()
     }
-    
+
     func test_CropDataWhenInputEmptyString_ExpectNil() {
         //1. given
         let guess = ""
-        
+
         //2. when
-        let result = CropUnderTest.getCropData(fromItemCode: guess, itemType: guess)
-        
+        let result = cropUnderTest.getCropData(fromItemCode: guess, itemType: guess)
+
         //3. then
         XCTAssertEqual(result, nil, "getCropData guess is wrong")
     }
-    
-    
+
     func test_HttpClientWhenInputValidURL_ExpectSUCCESS() {
         //1. given
-        let guess = stubsValidHttpRequest(testQueryItem: stubsValidRequestType())
+        let guess = StubsValidHttpRequest(testQueryItem: StubsValidRequestType())
         let promise = expectation(description: "data.count greater than 0")
-        
+
         //2. when
-        let _ = HttpClientUnderTest.request(guess, success: { data in
-            
+        _ = httpClientUnderTest.request(guess, success: { data in
+
             if data.count > 0 {
-                
+
                 promise.fulfill()
             } else {
-                
+
                 XCTFail("data.count <= 0")
             }
-            
-        }) { (error) in
-            
+
+        }, failure: { (error) in
+
             XCTFail("Error: \(error.localizedDescription)")
-        }
-        
+        })
+
         waitForExpectations(timeout: 15, handler: nil)
     }
-    
-    
-    
+
     func test_HttpClientWhenInputInValidQueryItem_ExpectSUCCESS() {
         //1. given
-        let guess = stubsValidHttpRequest(testQueryItem: stubsInvalidRequestType())
+        let guess = StubsValidHttpRequest(testQueryItem: StubsInvalidRequestType())
         let promise = expectation(description: "data.count equal to 0")
-        
+
         //2. when
-        let _ = HttpClientUnderTest.request(guess, success: { data in
-            
+        _ = httpClientUnderTest.request(guess, success: { data in
+
             if data.count > 0 {
-                
+
                 XCTFail("data.count > 0, data = \(data)")
             } else {
-                
+
                 promise.fulfill()
-                
+
             }
-            
-        }) { (error) in
-            
+
+        }, failure: { (error) in
+
             XCTFail("Error: \(error.localizedDescription)")
-        }
-        
+        })
+
         waitForExpectations(timeout: 15, handler: nil)
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

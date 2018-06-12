@@ -15,7 +15,7 @@ class DetailHistoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setUI()
     }
 
@@ -24,7 +24,7 @@ class DetailHistoryTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     private func setUI() {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }

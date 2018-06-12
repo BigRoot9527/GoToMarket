@@ -9,55 +9,55 @@
 import UIKit
 
 protocol SortParametersGettable {
-    
+
     var representAttribute: String { get set }
-    
+
     func getAcendingStyle() -> Bool?
 }
 
 struct SortButton: SortParametersGettable {
-    
+
     var state: ToolButtonState
     var representAttribute: String
     var buttonImage: UIImage
-    
+
     enum ToolButtonState {
-        
+
         case ascending, descending, none
-        
+
         mutating func next() {
-            
+
             switch self {
-                
+
             case .ascending:
                 self = .none
-                
+
             case .descending:
                 self = .ascending
-                
+
             case .none:
                 self = .descending
             }
         }
     }
-    
+
     func getTintColor() -> UIColor? {
-        
+
         switch state {
-            
+
         case .ascending:
             return UIColor(named: GotoMarketColors.VegeCellBackground)
-            
+
         case .descending:
             return UIColor(named: GotoMarketColors.FruitCellBackground)
-            
+
         case .none:
             return GoToMarketColor.sortButtonNoneColor.color()
         }
     }
-    
+
     func getAcendingStyle() -> Bool? {
-        
+
         switch state {
         case .ascending:
             return true
@@ -67,9 +67,9 @@ struct SortButton: SortParametersGettable {
             return nil
         }
     }
-    
+
     func getImage() -> UIImage {
-        
+
         return buttonImage.withRenderingMode(.alwaysTemplate)
     }
 }

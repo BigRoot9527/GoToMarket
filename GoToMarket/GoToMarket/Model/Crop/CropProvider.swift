@@ -11,29 +11,25 @@ import CoreData
 import UIKit
 
 struct CropProvider {
-    
+
     private weak var httpClient = HttpClient.shared
     private let decoder = JSONDecoder()
-    private weak var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-    
-    
+
+    private weak var container: NSPersistentContainer? = AppDelegate.shared.persistentContainer
+
     func getCropQuote(
         request: CropRequest,
         success: @escaping([CropQuote]) -> Void,
         failure: @escaping(Error) -> Void ) {
-        
-        print("request.urlString() = \(try? request.request())")
+
         httpClient?.request(request,
         success: { data in
-            do
-            {
+            do {
                 print("Task started-------")
                 print(Date().timeIntervalSince1970)
                 let response = try self.decoder.decode([CropQuote].self, from: data)
                 success(response)
-            }
-            catch
-            {
+            } catch {
                 print("Error when CropProvider parsing Json")
             }
         },
@@ -42,11 +38,11 @@ struct CropProvider {
             failure(error)
         })
     }
-    
+
     func updateDatabase(with newQuote: [CropQuote],
                         success: @escaping () -> Void,
                         failure: @escaping (Error) -> Void) {
-        container?.performBackgroundTask{ context in
+        container?.performBackgroundTask { context in
             for quoteInfo in newQuote {
                 _ = CropDatas.updateOrCreateQuote(matching: quoteInfo, in: context)
             }
@@ -61,11 +57,11 @@ struct CropProvider {
             success()
         }
     }
-    
+
     func resetAllData(with newQuote: [CropQuote],
                       success: @escaping () -> Void,
                       failure: @escaping (Error) -> Void) {
-        container?.performBackgroundTask{ context in
+        container?.performBackgroundTask { context in
             CropDatas.deleteAllQuotes(
                 in: context,
                 sucess: {
@@ -78,7 +74,7 @@ struct CropProvider {
             })
         }
     }
-    
+
     func printDatabaseStatistics() {
         if let context = container?.viewContext {
             context.perform {
@@ -88,7 +84,7 @@ struct CropProvider {
             }
         }
     }
-    
+
     func marketValidate(
         fromCropArray rawArray: [CropQuote],
         ofMarketString market: String
@@ -98,10 +94,10 @@ struct CropProvider {
         }
         return correctArray
     }
-    
+
     func getCropData(fromItemCode code: String, itemType type: String) -> CropDatas? {
         if let context = container?.viewContext {
-            
+
             let cropData = CropDatas.fetchCropQuoteFromCode(
                 matchingCode: code,
                 matchingType: type,
@@ -109,7 +105,7 @@ struct CropProvider {
 
             return cropData
         }
-        
+
         return nil
     }
 }

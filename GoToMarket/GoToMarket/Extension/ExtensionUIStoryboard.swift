@@ -9,35 +9,35 @@
 import UIKit
 
 extension UIStoryboard {
-    
+
     static func tabBar() -> UIStoryboard {
         return UIStoryboard(name: "TabBar", bundle: nil)
     }
-    
+
     static func quotes() -> UIStoryboard {
         return UIStoryboard(name: "Quotes", bundle: nil)
     }
-    
+
     static func detail() -> UIStoryboard {
         return UIStoryboard(name: "Detail", bundle: nil)
     }
-    
+
     static func notes() -> UIStoryboard {
         return UIStoryboard(name: "Notes", bundle: nil)
     }
-    
+
     static func settings() -> UIStoryboard {
         return UIStoryboard(name: "Settings", bundle: nil)
     }
-    
+
     static func marketSetting() -> UIStoryboard {
         return UIStoryboard(name: "MarketSetting", bundle: nil )
     }
-    
+
     static func loading() -> UIStoryboard {
         return UIStoryboard(name: "Loading", bundle: nil )
     }
-    
+
     static func calculate() -> UIStoryboard {
         return UIStoryboard(name: "Calculate", bundle: nil)
     }

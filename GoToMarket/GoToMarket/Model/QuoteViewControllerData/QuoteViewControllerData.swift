@@ -8,12 +8,11 @@
 
 import Foundation
 
-
 struct QuotesViewControllerData {
-    
+
     let vcName: String
-    
+
     let basePredicate: String
-    
+
     let isMainVC: Bool
 }

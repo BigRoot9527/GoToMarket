@@ -9,23 +9,23 @@
 import Foundation
 
 struct NSSortDescriptorManager {
-    
+
     private let provider = NSSortDescriptorProvider()
-    
+
     func getOrderedNSSortDescriptor(
-        sortButtons:[SortButton],
-        itemType:TaskKeys
+        sortButtons: [SortButton],
+        itemType: TaskKeys
         ) -> [NSSortDescriptor] {
-        
+
         let sortDescriptorArray = provider.getNSSortDescriptor(sortButtons: sortButtons)
-        
+
         switch itemType {
         case .crop:
-            
+
             return sortDescriptorArray
-            
+
         default:
-            
+
             return [NSSortDescriptor(key: nil, ascending: true)]
         }
     }

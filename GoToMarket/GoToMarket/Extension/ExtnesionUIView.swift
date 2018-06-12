@@ -9,52 +9,51 @@
 import UIKit
 
 extension UIView {
-    
-    //MARK: Animation
+
+    // MARK: Animation
     func animatePath(
-        fromPoint start : CGPoint,
+        fromPoint start: CGPoint,
         toPoint end: CGPoint,
         duration time: Double,
-        factor: CGFloat)
-    {
+        factor: CGFloat) {
         // The animation
         let animation = CAKeyframeAnimation(keyPath: "position")
-        
+
         // Animation's path
         let path = UIBezierPath()
-        
+
         // Move the "cursor" to the start
         path.move(to: start)
-        
+
         // Calculate the control points
-        let factor : CGFloat = factor
-        
-        let deltaX : CGFloat = end.x - start.x
-        let deltaY : CGFloat = end.y - start.y
-        
-        let c1 = CGPoint(x: start.x + deltaX * factor, y: start.y)
-        let c2 = CGPoint(x: end.x                    , y: end.y - deltaY * factor)
-        
+        let factor: CGFloat = factor
+
+        let deltaX: CGFloat = end.x - start.x
+        let deltaY: CGFloat = end.y - start.y
+
+        let pointOne = CGPoint(x: start.x + deltaX * factor, y: start.y)
+        let pointTwo = CGPoint(x: end.x, y: end.y - deltaY * factor)
+
         // Draw a curve towards the end, using control points
-        path.addCurve(to: end, controlPoint1: c1, controlPoint2: c2)
-        
+        path.addCurve(to: end, controlPoint1: pointOne, controlPoint2: pointTwo)
+
         // Use this path as the animation's path (casted to CGPath)
-        animation.path = path.cgPath;
-        
+        animation.path = path.cgPath
+
         // The other animations properties
         animation.fillMode              = kCAFillModeForwards
         animation.isRemovedOnCompletion = false
         animation.duration              = time
-        animation.timingFunction        = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
-        
+        animation.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+
         // Apply it
         self.layer.zPosition = 0
-        self.layer.add(animation, forKey:"trash")
+        self.layer.add(animation, forKey: "trash")
     }
-    
+
     //CornerRadius
     func roundedCorner(cornerRadius radius: CGFloat = 5.0) {
-        
+
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
     }

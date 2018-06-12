@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CropApiConstant{
+struct CropApiConstant {
 
     static let baseURL = "http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx?"
     static let emptyString = ""
@@ -19,11 +19,5 @@ struct CropApiConstant{
     static let fixedSearchMarket = "Market"
     static let searchFromDate = "StartDate"
     static let searchEndDate = "EndDate"
-    
+
 }
-
-
-
-
-
-

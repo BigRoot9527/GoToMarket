@@ -9,11 +9,11 @@
 import Foundation
 
 enum TaskKeys {
-    
+
     case crop
     case pig
     case chicken
-    
+
     func getUpdateDateKeyString() -> String {
         switch self {
         case .crop:
@@ -24,7 +24,7 @@ enum TaskKeys {
             return "Chicken-Date"
         }
     }
-    
+
     func getMarketKeyString() -> String {
         switch self {
         case .crop:
@@ -35,16 +35,16 @@ enum TaskKeys {
             return "Chicken-Market"
         }
     }
-    
+
     func getMarketsOfItem() -> [String] {
         switch self {
         case .crop:
-            return CropMarkets.allValues.map{ $0.rawValue.capitalized }
+            return CropMarkets.allValues.map { $0.rawValue.capitalized }
         default:
             return [ "地區一", " 地區二", "地區三" ]
         }
     }
-    
+
     func getTaskItemTypeName() -> String {
         switch self {
         case .crop:
@@ -53,6 +53,6 @@ enum TaskKeys {
             return "喵喵"
         }
     }
-    
+
     static let allCases = [crop, pig, chicken]
 }

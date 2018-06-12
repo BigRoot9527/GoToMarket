@@ -18,30 +18,30 @@ protocol HTTPRequest {
 }
 
 extension HTTPRequest {
-    
+
     func request() throws -> URLRequest {
-        
+
         guard var components = URLComponents(string: domainURLString()) else {
-            throw GoToMarketError.OpenDataServerError
+            throw GoToMarketError.openDataServerError
         }
-        
+
         if let items = urlQueryItems() {
             components.queryItems = items
         }
-        
+
         guard let openDataUrl = components.url else {
-            throw GoToMarketError.OpenDataServerError
+            throw GoToMarketError.openDataServerError
         }
         var request = URLRequest(url: openDataUrl)
         request.httpMethod = "GET"
         return request
     }
-    
+
     func domainURLString() -> String {
         return domainURL
     }
-    
+
     func urlQueryItems() -> [URLQueryItem]? {
         return requestType.getNSURLQueryItem()
-    } 
+    }
 }

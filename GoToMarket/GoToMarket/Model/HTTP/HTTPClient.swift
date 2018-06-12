@@ -13,7 +13,9 @@ class HttpClient {
     static let shared = HttpClient()
     private let queue: DispatchQueue
     private init () {
-        queue = DispatchQueue(label: String(describing: HttpClient.self) + UUID().uuidString, qos: .default, attributes: .concurrent)
+        queue = DispatchQueue(label: String(describing: HttpClient.self) +          UUID().uuidString,
+                              qos: .default,
+                              attributes: .concurrent)
     }
     @discardableResult
     private func originRequest(
@@ -35,17 +37,17 @@ class HttpClient {
     }
     @discardableResult
     func request(
-        _ OpenHTTPRequest: HTTPRequest,
+        _ openHTTPRequest: HTTPRequest,
         success: @escaping (Data) -> Void,
         failure: @escaping (Error) -> Void
         ) -> DataRequest? {
         do {
-            return try originRequest(OpenHTTPRequest.request(), success: success, failure: failure)
+            return try originRequest(openHTTPRequest.request(), success: success, failure: failure)
         } catch {
             print("Error from ODHTTPClient: \(error)")
             failure(error)
             return nil
         }
     }
-        
+
 }

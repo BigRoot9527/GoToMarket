@@ -9,32 +9,30 @@
 import Foundation
 
 struct WikiManager {
-    
+
     private weak var httpClient = HttpClient.shared
-    
+
     func getWikiImageUrl(
         fromItemName name: String,
         success: @escaping (URL?) -> Void,
         failure: @escaping (Error) -> Void ) {
-        
+
         let wikiRequest = WikiRequest(requestType: .getImage(itemName: name.trimed().urlEncoded()))
-        
-        print("request.urlString() = \(try? wikiRequest.request())")
-        
+
         httpClient?.request(
             wikiRequest,
             success: { data in
-                
+
                 guard
                     let responseString = String(data: data, encoding: String.Encoding.utf8),
                     let urlString = responseString.matchesString(fromRegex: WikiApiConstant.regexForImageUrl)?.first,
                     let url: URL = URL(string: urlString)
                     else {
-            
+
                         success(nil)
                         return
                 }
-                
+
                 success(url)
             },
             failure: { error in
@@ -42,20 +40,18 @@ struct WikiManager {
                 failure(error)
         })
     }
-    
+
     func getWikiText(
         fromItemName name: String,
         success: @escaping(String?) -> Void,
         failure: @escaping(Error) -> Void) {
-        
+
         let wikiRequest = WikiRequest(requestType: .getText(itemName: name.trimed().urlEncoded()))
-        
-        print("request.urlString() = \(try? wikiRequest.request())")
-        
+
         httpClient?.request(
             wikiRequest,
             success: { data in
-                                
+
             guard
                 let responseString = String(data: data, encoding: String.Encoding.utf8) as String? ,
                 responseString != WikiApiConstant.noResponseString
@@ -77,5 +73,5 @@ struct WikiManager {
                 }
         })
     }
-    
+
 }

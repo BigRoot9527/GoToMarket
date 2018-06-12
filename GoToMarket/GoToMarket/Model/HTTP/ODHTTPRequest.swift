@@ -14,19 +14,19 @@ protocol OpenDataRequest: HTTPRequest {
 }
 
 extension OpenDataRequest {
-    
+
     func urlQueryItems() -> [URLQueryItem]? {
 
-        var returnArray:[URLQueryItem] = []
-        
+        var returnArray: [URLQueryItem] = []
+
         if let requestArray = requestType.getNSURLQueryItem() {
             returnArray += requestArray
         }
-        
+
         if let marketArray = market.getNSURLQueryItem() {
             returnArray += marketArray
         }
-        
+
         if let addtionalItem = additionalURLQueryItem {
             returnArray.append(addtionalItem)
         }

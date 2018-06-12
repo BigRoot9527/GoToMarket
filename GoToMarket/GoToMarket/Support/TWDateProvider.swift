@@ -9,7 +9,7 @@
 import Foundation
 
 class TwDateProvider {
-    
+
     static func getUpdateStartDateString(fromLastDate lastUpdateDate: Date?) -> String {
         let today = Date()
         guard
@@ -25,42 +25,42 @@ class TwDateProvider {
         let today = Date()
         return twDateConverter(inputDate: today)
     }
-    
+
     static func getMonthsAgoString(fromMonthsAgo month: Int) -> String {
-        guard let MonthsAgo = Calendar.current.date(byAdding: .month, value: -month, to: Date()) else {
+        guard let monthsAgo = Calendar.current.date(byAdding: .month, value: -month, to: Date()) else {
             return "error: getMonthsAgoString Fail"
         }
-        return twDateConverter(inputDate: MonthsAgo)
+        return twDateConverter(inputDate: monthsAgo)
     }
-    
+
     private static func getDaysAgoString(fromDaysAgo day: Int) -> String {
         guard let daysAgo = Calendar.current.date(byAdding: .weekOfYear, value: -day, to: Date()) else {
             return "error: getDaysAgoString Fail"
         }
         return twDateConverter(inputDate: daysAgo)
     }
-    
+
     private static func daysBetween(lastDate: Date, newDate: Date) -> Int? {
-        
+
         let calendar = NSCalendar.current
-        
+
         let components = calendar.dateComponents([.day], from: lastDate, to: newDate)
-        
+
         return components.day
     }
-    
+
     private static func twDateConverter(inputDate: Date) -> String {
         let calendar = Calendar.current
-        let year = calendar.component(.year, from:inputDate)
-        let month = calendar.component(.month, from:inputDate)
-        let day = calendar.component(.day, from:inputDate)
+        let year = calendar.component(.year, from: inputDate)
+        let month = calendar.component(.month, from: inputDate)
+        let day = calendar.component(.day, from: inputDate)
         var newMonth = "", newDay = "", newYear = ""
-        if (month < 10) {
+        if month < 10 {
             newMonth = "0" + String(month)
         } else {
             newMonth = String(month)
         }
-        if (day < 10) {
+        if day < 10 {
             newDay = "0" + String(day)
         } else {
             newDay = String(day)

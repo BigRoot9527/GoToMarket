@@ -9,13 +9,13 @@
 import UIKit
 
 struct GotoMarketColors {
-    
+
     static let FruitCellBackground = "FruitCellBackground_color"
     static let VegeCellBackground = "VegeCellBackground_color"
-    
+
     static let MainTitleText = "MainTitleText_color"
     static let unSelectText = "UnSelected_color"
-    
+
 }
 
 enum GoToMarketColor: String {
@@ -39,20 +39,20 @@ enum GoToMarketColor: String {
     case textFieldErrorColor = "F3C0DD"
 
     func color() -> UIColor {
-        
+
         var cString: String = self.rawValue.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
+
         if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
-        
+
         if (cString.count) != 6 {
             return UIColor.gray
         }
-        
+
         var rgbValue: UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
-        
+
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,

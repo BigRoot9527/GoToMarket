@@ -10,11 +10,10 @@
 import Foundation
 import CoreData
 
-public class CropDatas: NSManagedObject
-{
+public class CropDatas: NSManagedObject {
     class func fetchQuote(matching quoteInfo: CropQuote,
                           in context: NSManagedObjectContext) -> CropDatas? {
-        
+
         let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
         request.predicate = NSPredicate(
             format: "(cropCode = %@) AND (marketName = %@) AND (itemType = %@)",
@@ -36,12 +35,11 @@ public class CropDatas: NSManagedObject
         }
         return nil
     }
-    
+
     class func updateOrCreateQuote(
         matching quoteInfo: CropQuote,
         in context: NSManagedObjectContext
-        ) -> CropDatas
-    {
+        ) -> CropDatas {
         if
             let fetchedQuote = self.fetchQuote(matching: quoteInfo, in: context),
             let note = fetchedQuote.note
@@ -55,9 +53,7 @@ public class CropDatas: NSManagedObject
             fetchedQuote.cropName = quoteInfo.cropName
             note.sellingPrice = quoteInfo.averagePrice * note.customMutipler
             return fetchedQuote
-        }
-        else
-        {
+        } else {
             let newCrop = CropDatas(context: context)
             newCrop.cropCode = quoteInfo.cropCode
             newCrop.cropName = quoteInfo.cropName
@@ -71,12 +67,11 @@ public class CropDatas: NSManagedObject
             return newCrop
         }
     }
-    
+
     class func deleteAllQuotes(
         in context: NSManagedObjectContext,
         sucess: () -> Void,
-        failure: (Error) -> Void)
-    {
+        failure: (Error) -> Void) {
         let request: NSFetchRequest<NSFetchRequestResult> = CropDatas.fetchRequest()
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
         do {
@@ -86,12 +81,11 @@ public class CropDatas: NSManagedObject
             failure(error)
         }
     }
-    
-    
+
     class func fetchCropQuoteFromCode(matchingCode itemCode: String,
                                       matchingType itemType: String,
                                       in context: NSManagedObjectContext) -> CropDatas? {
-        
+
         let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
         request.predicate = NSPredicate(
             format: "(cropCode = %@) AND (itemType = %@)", itemCode, itemType )

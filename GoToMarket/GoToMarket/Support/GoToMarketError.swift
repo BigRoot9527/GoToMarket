@@ -9,12 +9,11 @@
 import Foundation
 
 enum GoToMarketError: String, Error {
-    case OpenDataServerError = "OpenData client error: cannot get URL"
-    case FetchError = "No Fetch Data of Quote Info while dealling with not initail data "
-    case MarketError = "Need A Specified Market to search for Data"
-    case ValidContext = "Context No available"
-    
-    //TODO
+    case openDataServerError = "OpenData client error: cannot get URL"
+    case fetchError = "No Fetch Data of Quote Info while dealling with not initail data "
+    case marketError = "Need A Specified Market to search for Data"
+    case validContext = "Context No available"
+
     var localizedDescription: String {
         return "love u"
     }

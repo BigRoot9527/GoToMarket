@@ -64,7 +64,7 @@
                                 <action selector="didTapToolMenuBarButton:" destination="MKc-4e-X6d" id="s2j-VF-bgn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Pd6-N1-7nR">
+                        <barButtonItem key="rightBarButtonItem" id="Pd6-N1-7nR">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="i0U-Nj-m6Z">
                                 <rect key="frame" x="268" y="7" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

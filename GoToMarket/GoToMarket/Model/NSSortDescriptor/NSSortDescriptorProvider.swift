@@ -10,21 +10,21 @@ import Foundation
 
 struct NSSortDescriptorProvider {
 
-    func getNSSortDescriptor(sortButtons:[SortButton]) -> [NSSortDescriptor] {
-        
+    func getNSSortDescriptor(sortButtons: [SortButton]) -> [NSSortDescriptor] {
+
         var descriptorArray: [NSSortDescriptor] = []
-        
+
         for sortButton in sortButtons {
-            
+
             guard let isAcending = sortButton.getAcendingStyle() else {
                 continue
             }
-            
+
             descriptorArray.append(NSSortDescriptor(
                 key: sortButton.representAttribute,
                 ascending: isAcending))
         }
-        
+
         return descriptorArray
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class DetailIntroTableViewCell: UITableViewCell {
 
     @IBOutlet weak var detailWikiLabel: UILabel!
- 
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setUI()
@@ -22,7 +22,7 @@ class DetailIntroTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     private func setUI() {
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }

@@ -11,14 +11,14 @@ import Charts
 import Hero
 
 class ChartCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
     let manager = CropManager()
     let dispatchGroup = DispatchGroup()
-    
-    var historyDateArray: [[String]?] = [nil,nil]
-    var histroyQuoteArray: [[Double]?] = [nil,nil]
+
+    var historyDateArray: [[String]?] = [nil, nil]
+    var histroyQuoteArray: [[Double]?] = [nil, nil]
     let loadingHistoryType: [HistoryPeriod] = [.fromLastMonth, .fromLastSeason]
-    
+
     //Input
     var itemCode: String? {
         didSet {
@@ -26,35 +26,39 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         }
     }
 
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak var chartCollectionView: UICollectionView!
     @IBOutlet weak var chartPageControl: UIPageControl!
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loadingHistoryType.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+        ) -> UICollectionViewCell {
+
         let cell = chartCollectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: ChartCollectionViewCell.self),
             for: indexPath)
-            as! ChartCollectionViewCell
-        
+
+        guard let chartCVCell = cell as? ChartCollectionViewCell else { return cell }
+
         guard
             let dateArray = historyDateArray[indexPath.row],
             let quoteArray = histroyQuoteArray[indexPath.row]
-            else { return cell }
+            else { return chartCVCell }
         //TODO: to return loading image
-        
-        cell.setChart(
+
+        chartCVCell.setChart(
             dataPoints: dateArray,
             values: quoteArray,
             period: loadingHistoryType[indexPath.row]
         )
-        
-        return cell
-        
+
+        return chartCVCell
+
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -65,21 +69,21 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
     //LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         registerCell()
         chartCollectionView.delegate = self
         chartCollectionView.dataSource = self
         setCollectionViewLayout()
         setupUI()
     }
-    
+
     private func setCollectionViewLayout() {
-        
+
         let chartViewFlowLayout = UICollectionViewFlowLayout()
-        
+
         let fullScreenSize = UIScreen.main.bounds.size
         chartViewFlowLayout.itemSize = CGSize(width: fullScreenSize.width - 10, height: 210.0)
-        chartViewFlowLayout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
+        chartViewFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         chartViewFlowLayout.minimumInteritemSpacing = (fullScreenSize.width) * 0 / 375
         chartViewFlowLayout.scrollDirection = .horizontal
         chartCollectionView.setCollectionViewLayout(chartViewFlowLayout, animated: false)
@@ -89,56 +93,56 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
         chartCollectionView.indicatorStyle = .black
         chartCollectionView.backgroundColor = UIColor(named: "NormalCellBackground_color")
     }
-    
+
     private func registerCell() {
-        
+
         let nibFile = UINib(nibName: "ChartCollectionViewCell", bundle: nil)
-        
+
         chartCollectionView.register(nibFile,
                                     forCellWithReuseIdentifier: String(describing: ChartCollectionViewCell.self))
     }
-    
+
     private func setupUI() {
         chartPageControl.currentPage = 0
         chartPageControl.numberOfPages = 2
         chartPageControl.pageIndicatorTintColor = UIColor.gray
     }
-    
+
     private func loadHistoryData() {
         guard let code = itemCode else { return }
-        
+
         dispatchGroup.enter()
         manager.getHistoryCropArray(
-            CropCode: code,
+            cropCode: code,
             HistoryPeriod: .fromLastMonth,
             success: { [weak self] quoteArray in
-                
-                self?.historyDateArray[0] = quoteArray.map{ $0.date }
-                self?.histroyQuoteArray[0] = quoteArray.map{ $0.averagePrice }
+
+                self?.historyDateArray[0] = quoteArray.map { $0.date }
+                self?.histroyQuoteArray[0] = quoteArray.map { $0.averagePrice }
                 self?.dispatchGroup.leave()
-                
-        }){ [weak self] error in
+
+        }, failure: { [weak self] error in
             print("Error From ChartViewController: \(error)")
             self?.dispatchGroup.leave()
-        }
-        
+        })
+
         dispatchGroup.enter()
         manager.getHistoryCropArray(
-            CropCode: code,
+            cropCode: code,
             HistoryPeriod: .fromLastSeason,
             success: { [weak self] quoteArray in
-                
-                self?.historyDateArray[1] = quoteArray.map{ $0.date }
-                self?.histroyQuoteArray[1] = quoteArray.map{ $0.averagePrice }
+
+                self?.historyDateArray[1] = quoteArray.map { $0.date }
+                self?.histroyQuoteArray[1] = quoteArray.map { $0.averagePrice }
                 self?.dispatchGroup.leave()
-                
-        }){ [weak self] error in
+
+        }, failure: { [weak self] error in
             print("Error From ChartViewController: \(error)")
             self?.dispatchGroup.leave()
-        }
-        
+        })
+
         dispatchGroup.notify(queue: .main) { [weak self] in
-            
+
             self?.chartCollectionView.reloadData()
         }
     }

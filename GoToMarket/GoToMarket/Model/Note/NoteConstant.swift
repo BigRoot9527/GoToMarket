@@ -9,7 +9,7 @@
 import Foundation
 
 struct NoteConstant {
-    
+
     static let initailMultipler: Double = 2.0
     static let initailMultiplerWeight: Double = 0.0
     static let firstInputMultiplerWeight: Double = 1.0
@@ -18,5 +18,5 @@ struct NoteConstant {
     static let initialIsInCart: Bool = false
     static let initialBuyingAmount: Int16 = 0
     static let initialIsFinished: Bool = false
-    
+
 }
