@@ -4,14 +4,14 @@
 此外**出門買菜**也是一款待購清單 App 工具，使用者可將喜愛的蔬果加入清單、輸入數量，在實際購買時一目了然！
 
 
-[<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/DownloadAppStoreBadge.png" width="150" height="50">](http://www.appstore.com/出門買菜)
+[<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/DownloadAppStoreBadge.png" width="150" height="50">](ttps://itunes.apple.com/tw/app/出門買菜/id1390462838)
 
 ## Feature
 
 * 行情列表
   * 每日更新最新蔬果行情
   * 可將資料左滑加入／移除待購清單
-  * 蔬菜、水果行情可個別呈現，可透過名稱單獨搜尋
+  * 蔬菜、水果行情可分類呈現，並可透過名稱搜尋
   * 價格可選擇每公斤及每台斤價格
   * 資料可依價格、加入購物車排序
   * 以圖片顯示今日菜價漲幅
