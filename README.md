@@ -49,11 +49,11 @@
 * Firebase/Core
 
 ## Screenshot
-<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/AnimationRecording.gif" width="297" height="528">
+<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/AnimationRecording.gif" width="275" height="595">
 
-<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot1.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot2.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot3.png" width="234" height="416">
-<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot4.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot5.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot6.png" width="234" height="416">
-<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot7.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot8.png" width="234" height="416"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot9.png" width="234" height="416">
+<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot1.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot2.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot3.png" width="250" height="540">
+<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot4.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot5.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot6.png" width="250" height="540">
+<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot7.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot8.png" width="250" height="540"> <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/ScreenShot9.png" width="250" height="540">
 
 ## Requirement
 * iOS 11.0+
