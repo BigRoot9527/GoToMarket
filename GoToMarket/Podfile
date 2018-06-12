@@ -18,6 +18,7 @@ target 'GoToMarket' do
   pod 'Crashlytics'
   pod 'Firebase/Core'
   pod 'SwiftMessages'
+  pod 'SwiftLint'
 
   target 'GoToMarketTests' do
     inherit! :search_paths
