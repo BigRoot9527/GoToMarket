@@ -41,6 +41,7 @@
 		3230F3EB20AC1509002812E0 /* WikiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EA20AC1509002812E0 /* WikiManager.swift */; };
 		3230F3ED20AC15BC002812E0 /* WikiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3EC20AC15BC002812E0 /* WikiStruct.swift */; };
 		3230F3F120AC1C50002812E0 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230F3F020AC1C50002812E0 /* HTTPRequest.swift */; };
+		323BD63B20CE58B600C7AD63 /* GoToMarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323BD63A20CE58B600C7AD63 /* GoToMarketTests.swift */; };
 		324A889B20C50ED300A8858D /* GoToMarketAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */; };
 		327A4DF9209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */; };
 		327A4DFA209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */; };
@@ -98,9 +99,21 @@
 		32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */; };
 		32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */; };
 		32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */; };
+		E66FB8D4EC714D53FA809C26 /* Pods_GoToMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6540AA216BF90F7907908A5E /* Pods_GoToMarketTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		323BD63D20CE58B600C7AD63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329BC6BB209700D600CC9096 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 329BC6C2209700D600CC9096;
+			remoteInfo = GoToMarket;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		23E40482FEBDE7B8627661EE /* Pods-GoToMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarketTests/Pods-GoToMarketTests.release.xcconfig"; sourceTree = "<group>"; };
 		2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.release.xcconfig"; sourceTree = "<group>"; };
 		32070B4A20A44CA700A6BA27 /* OpenDataApiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDataApiStruct.swift; sourceTree = "<group>"; };
 		32070B5420A53DD200A6BA27 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
@@ -135,6 +148,9 @@
 		3230F3EA20AC1509002812E0 /* WikiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiManager.swift; sourceTree = "<group>"; };
 		3230F3EC20AC15BC002812E0 /* WikiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiStruct.swift; sourceTree = "<group>"; };
 		3230F3F020AC1C50002812E0 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		323BD63820CE58B600C7AD63 /* GoToMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoToMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		323BD63A20CE58B600C7AD63 /* GoToMarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketTests.swift; sourceTree = "<group>"; };
+		323BD63C20CE58B600C7AD63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324A889A20C50ED300A8858D /* GoToMarketAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketAnimator.swift; sourceTree = "<group>"; };
 		327A4DF1209C48D200B3EEE9 /* UserNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		327A4DF2209C48D200B3EEE9 /* UserNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -195,10 +211,20 @@
 		32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
 		32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6540AA216BF90F7907908A5E /* Pods_GoToMarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65EDD70E9E27677ED332AB0B /* Pods-GoToMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarketTests/Pods-GoToMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToMarket/Pods-GoToMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		323BD63520CE58B600C7AD63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E66FB8D4EC714D53FA809C26 /* Pods_GoToMarketTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		329BC6C0209700D600CC9096 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +357,15 @@
 			path = Wiki;
 			sourceTree = "<group>";
 		};
+		323BD63920CE58B600C7AD63 /* GoToMarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				323BD63A20CE58B600C7AD63 /* GoToMarketTests.swift */,
+				323BD63C20CE58B600C7AD63 /* Info.plist */,
+			);
+			path = GoToMarketTests;
+			sourceTree = "<group>";
+		};
 		324A889820C50E7200A8858D /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				329BC6C5209700D600CC9096 /* GoToMarket */,
+				323BD63920CE58B600C7AD63 /* GoToMarketTests */,
 				329BC6C4209700D600CC9096 /* Products */,
 				B6FF0B1522012E7E6E95CEA0 /* Pods */,
 				EF202FB28D49F4603D5A68AF /* Frameworks */,
@@ -418,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				329BC6C3209700D600CC9096 /* GoToMarket.app */,
+				323BD63820CE58B600C7AD63 /* GoToMarketTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -635,6 +672,8 @@
 			children = (
 				A08B24D88187CCDDD4C6C9B8 /* Pods-GoToMarket.debug.xcconfig */,
 				2B70D9092DCC0B0C641D95C9 /* Pods-GoToMarket.release.xcconfig */,
+				65EDD70E9E27677ED332AB0B /* Pods-GoToMarketTests.debug.xcconfig */,
+				23E40482FEBDE7B8627661EE /* Pods-GoToMarketTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -643,6 +682,7 @@
 			isa = PBXGroup;
 			children = (
 				3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */,
+				6540AA216BF90F7907908A5E /* Pods_GoToMarketTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -650,6 +690,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		323BD63720CE58B600C7AD63 /* GoToMarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 323BD64120CE58B600C7AD63 /* Build configuration list for PBXNativeTarget "GoToMarketTests" */;
+			buildPhases = (
+				A448D6A649EBD97812B67389 /* [CP] Check Pods Manifest.lock */,
+				323BD63420CE58B600C7AD63 /* Sources */,
+				323BD63520CE58B600C7AD63 /* Frameworks */,
+				323BD63620CE58B600C7AD63 /* Resources */,
+				3F51793FE8C29DF8FD8AC279 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				323BD63E20CE58B600C7AD63 /* PBXTargetDependency */,
+			);
+			name = GoToMarketTests;
+			productName = GoToMarketTests;
+			productReference = 323BD63820CE58B600C7AD63 /* GoToMarketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		329BC6C2209700D600CC9096 /* GoToMarket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 329BC6D8209700D700CC9096 /* Build configuration list for PBXNativeTarget "GoToMarket" */;
@@ -680,6 +740,10 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "許庭瑋";
 				TargetAttributes = {
+					323BD63720CE58B600C7AD63 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 329BC6C2209700D600CC9096;
+					};
 					329BC6C2209700D600CC9096 = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -699,11 +763,19 @@
 			projectRoot = "";
 			targets = (
 				329BC6C2209700D600CC9096 /* GoToMarket */,
+				323BD63720CE58B600C7AD63 /* GoToMarketTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		323BD63620CE58B600C7AD63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		329BC6C1209700D600CC9096 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -786,6 +858,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" f86d52eae267295e5277b7324c14537f27f0a66b 5df63bf6f30bded04c7084d5c3ec192140065df18c269847fad5df01797a190e";
 		};
+		3F51793FE8C29DF8FD8AC279 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoToMarketTests/Pods-GoToMarketTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoToMarketTests/Pods-GoToMarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A448D6A649EBD97812B67389 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoToMarketTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BE36FDC57FF3753C150D15DC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -807,6 +917,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		323BD63420CE58B600C7AD63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				323BD63B20CE58B600C7AD63 /* GoToMarketTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		329BC6BF209700D600CC9096 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -885,6 +1003,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		323BD63E20CE58B600C7AD63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 329BC6C2209700D600CC9096 /* GoToMarket */;
+			targetProxy = 323BD63D20CE58B600C7AD63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		329BC6D2209700D700CC9096 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -897,6 +1023,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		323BD63F20CE58B600C7AD63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65EDD70E9E27677ED332AB0B /* Pods-GoToMarketTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VGZC87X4Y;
+				INFOPLIST_FILE = GoToMarketTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoToMarket.app/GoToMarket";
+			};
+			name = Debug;
+		};
+		323BD64020CE58B600C7AD63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23E40482FEBDE7B8627661EE /* Pods-GoToMarketTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9VGZC87X4Y;
+				INFOPLIST_FILE = GoToMarketTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BigRoot.GoToMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoToMarket.app/GoToMarket";
+			};
+			name = Release;
+		};
 		329BC6D6209700D700CC9096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1020,10 +1180,7 @@
 				DEVELOPMENT_TEAM = 9VGZC87X4Y;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TWHsu.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1040,10 +1197,7 @@
 				DEVELOPMENT_TEAM = 9VGZC87X4Y;
 				INFOPLIST_FILE = GoToMarket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TWHsu.GoToMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1054,6 +1208,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		323BD64120CE58B600C7AD63 /* Build configuration list for PBXNativeTarget "GoToMarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				323BD63F20CE58B600C7AD63 /* Debug */,
+				323BD64020CE58B600C7AD63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		329BC6BE209700D600CC9096 /* Build configuration list for PBXProject "GoToMarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

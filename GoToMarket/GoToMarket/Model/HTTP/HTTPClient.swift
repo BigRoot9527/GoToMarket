@@ -16,7 +16,7 @@ class HttpClient {
         queue = DispatchQueue(label: String(describing: HttpClient.self) + UUID().uuidString, qos: .default, attributes: .concurrent)
     }
     @discardableResult
-    private func request(
+    private func originRequest(
         _ request: URLRequestConvertible,
         success: @escaping (Data) -> Void,
         failure: @escaping (Error) -> Void
@@ -40,7 +40,7 @@ class HttpClient {
         failure: @escaping (Error) -> Void
         ) -> DataRequest? {
         do {
-            return try request(OpenHTTPRequest.request(), success: success, failure: failure)
+            return try originRequest(OpenHTTPRequest.request(), success: success, failure: failure)
         } catch {
             print("Error from ODHTTPClient: \(error)")
             failure(error)

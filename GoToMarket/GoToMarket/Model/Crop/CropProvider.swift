@@ -106,9 +106,10 @@ struct CropProvider {
                 matchingCode: code,
                 matchingType: type,
                 in: context)
-            
+
             return cropData
         }
+        
         return nil
     }
 }

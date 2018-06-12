@@ -6,6 +6,8 @@ PODS:
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - Fabric (1.7.6)
+  - Firebase (4.13.0):
+    - Firebase/Core (= 4.13.0)
   - Firebase/Core (4.13.0):
     - FirebaseAnalytics (= 4.2.0)
     - FirebaseCore (= 4.0.20)
@@ -41,6 +43,7 @@ DEPENDENCIES:
   - Charts
   - Crashlytics
   - Fabric
+  - Firebase
   - Firebase/Core
   - Hero
   - IQKeyboardManagerSwift
@@ -89,6 +92,6 @@ SPEC CHECKSUMS:
   SwiftMessages: d81f48c1f8b6bc1dbebdfffe11226f0344f937ca
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: a9dec1e745949fb3081c09bae3576140d999dcd6
+PODFILE CHECKSUM: 256ceec795d0c150458f0e5affb27f84934042b1
 
 COCOAPODS: 1.5.0

@@ -19,4 +19,8 @@ target 'GoToMarket' do
   pod 'Firebase/Core'
   pod 'SwiftMessages'
 
+  target 'GoToMarketTests' do
+    inherit! :search_paths
+        pod 'Firebase'
+  end
 end
