@@ -1,7 +1,7 @@
 # 出門買菜
 
 <img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/GoToMarketLogo.png" width="80" height="80">**出門買菜**是款整理當季菜價，透過圖表呈現，令使用者可快速找到便宜蔬果。
-此外**出門買菜**也是一款待購清單 App 工具，使用者可將喜愛的蔬果加入清單、輸入數量，在實際購買時一目了然！
+此外**出門買菜**也是一款待購清單 APP 工具，使用者可將喜愛的蔬果加入清單、輸入數量，在實際購買時一目了然！
 
 
 [<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/DownloadAppStoreBadge.png" width="150" height="50">](ttps://itunes.apple.com/tw/app/出門買菜/id1390462838)
