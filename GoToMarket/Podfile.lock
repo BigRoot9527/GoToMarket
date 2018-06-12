@@ -35,6 +35,7 @@ PODS:
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
+  - SwiftLint (0.25.1)
   - SwiftMessages (4.1.2)
   - SwipeCellKit (2.2.0)
 
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - lottie-ios
   - RAMAnimatedTabBarController
   - SDWebImage
+  - SwiftLint
   - SwiftMessages
   - SwipeCellKit
 
@@ -70,6 +72,7 @@ SPEC REPOS:
     - nanopb
     - RAMAnimatedTabBarController
     - SDWebImage
+    - SwiftLint
     - SwiftMessages
     - SwipeCellKit
 
@@ -89,9 +92,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RAMAnimatedTabBarController: 3c40472db54eda74d465583f8c7f571b206c54d6
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   SwiftMessages: d81f48c1f8b6bc1dbebdfffe11226f0344f937ca
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 256ceec795d0c150458f0e5affb27f84934042b1
+PODFILE CHECKSUM: 7d9b05081f5d6238b7e5f67d59a26e46b03bf1b7
 
 COCOAPODS: 1.5.0
