@@ -44,9 +44,9 @@ class QuotesViewController: UIViewController {
 
         quoteSearchBar.delegate = self
 
-        quoteSearchBar.setValue(
-            GoToMarketConstant.cancleButtonTitleValue,
-            forKey: GoToMarketConstant.cancleButtonTitleKey)
+        guard let cancelButton = quoteSearchBar.value(forKey: GoToMarketConstant.cancleButtonTitleKey) as? UIButton else { return }
+
+        cancelButton.setTitle(GoToMarketConstant.cancleButtonTitleValue, for: .normal)
     }
 
     private func updateUI() {
@@ -151,7 +151,7 @@ extension QuotesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
         searchBar.text = GoToMarketConstant.emptyString
-        searchBar.setShowsCancelButton(false, animated: true)
+//        searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
         listChildVC.getSearchBarResult(searchText: GoToMarketConstant.emptyString)
     }
@@ -163,7 +163,7 @@ extension QuotesViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        searchBar.setShowsCancelButton(searchText != GoToMarketConstant.emptyString, animated: true)
+//        searchBar.setShowsCancelButton(searchText != GoToMarketConstant.emptyString, animated: true)
         listChildVC.getSearchBarResult(searchText: searchText)
     }
 }

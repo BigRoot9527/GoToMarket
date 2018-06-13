@@ -17,7 +17,7 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var weightTypeSegControl: UISegmentedControl!
     @IBOutlet weak var toolBarTopToSafeAreaConstraint: NSLayoutConstraint!
     @IBOutlet weak var userNotesLabel: UILabel!
-    
+
     // MARK: ToolBar(Opened, Closed) ContraintConstant To SafeArea
     let topConstant: (CGFloat, CGFloat) = ( 0.0, 50.0 )
 
@@ -165,7 +165,7 @@ extension NoteViewController: UITableViewDataSource {
             return count
 
         } else {
-            
+
             userNotesLabel.isHidden = false
 
             return 0

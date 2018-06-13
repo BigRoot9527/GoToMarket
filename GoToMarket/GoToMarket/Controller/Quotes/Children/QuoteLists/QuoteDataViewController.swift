@@ -13,6 +13,7 @@ import SwipeCellKit
 class QuoteDataViewController: UIViewController {
 
     @IBOutlet weak var quotesTableView: UITableView!
+    @IBOutlet weak var noResultLabel: UILabel!
 
     // MARK: - Generate Input
     var basePredicateString: String = "(newAveragePrice > 0)"
@@ -257,9 +258,15 @@ extension QuoteDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
+
+            noResultLabel.isHidden = sections[section].numberOfObjects > 1
+
             return sections[section].numberOfObjects
 
         } else {
+
+            noResultLabel.isHidden = false
+
             return 0
         }
     }

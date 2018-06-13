@@ -82,7 +82,7 @@ struct GoToMarketConstant {
 
     static let noteBasicNSSortDecriptor: [NSSortDescriptor] = [NSSortDescriptor(key: "isFinished", ascending: true), NSSortDescriptor(key: "sellingPrice", ascending: true)]
 
-    static let cancleButtonTitleKey: String = "_cancelButtonText"
+    static let cancleButtonTitleKey: String = "cancelButton"
 
     static let cancleButtonTitleValue: String = "取消"
 }
