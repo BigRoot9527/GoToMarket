@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hye-dc-vTj">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,21 +15,27 @@
             <objects>
                 <viewController id="MKc-4e-X6d" customClass="NoteViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3t1-kn-aPf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-ge-ehS">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請將『 行情 』欄位左滑加入待購清單" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0c-HO-L9M">
+                                <rect key="frame" x="40" y="303" width="240" height="76"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LyQ-v9-PsL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU1-nv-KTF">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                         <connections>
                                             <segue destination="LJ9-yW-zGp" kind="embed" identifier="NoteToolBarVCSegue" id="apy-yF-LrD"/>
                                         </connections>
@@ -46,14 +52,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="r0c-HO-L9M" firstAttribute="centerY" secondItem="xr2-ge-ehS" secondAttribute="centerY" id="2mx-oQ-fwe"/>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="top" secondItem="xr2-ge-ehS" secondAttribute="top" constant="-50" id="2s9-gB-k5X"/>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="5FI-KL-Ux5"/>
                             <constraint firstItem="LyQ-v9-PsL" firstAttribute="trailing" secondItem="vM3-xG-l4J" secondAttribute="trailing" id="EoE-BC-9Zt"/>
                             <constraint firstItem="vM3-xG-l4J" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="top" id="HU9-eL-ph4"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="bottom" secondItem="vM3-xG-l4J" secondAttribute="bottom" id="U1P-Wb-nJj"/>
+                            <constraint firstItem="r0c-HO-L9M" firstAttribute="width" secondItem="xr2-ge-ehS" secondAttribute="width" constant="-80" id="WB8-A6-TLg"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="top" secondItem="LyQ-v9-PsL" secondAttribute="bottom" id="bT8-iR-cZ3"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="leading" secondItem="vM3-xG-l4J" secondAttribute="leading" id="dcv-qc-pNG"/>
                             <constraint firstItem="xr2-ge-ehS" firstAttribute="trailing" secondItem="vM3-xG-l4J" secondAttribute="trailing" id="qbA-8g-PFV"/>
+                            <constraint firstItem="r0c-HO-L9M" firstAttribute="centerX" secondItem="xr2-ge-ehS" secondAttribute="centerX" id="qh8-R9-FgS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vM3-xG-l4J"/>
                     </view>
@@ -66,7 +75,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="Pd6-N1-7nR">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="i0U-Nj-m6Z">
-                                <rect key="frame" x="268" y="7" width="91" height="30"/>
+                                <rect key="frame" x="213" y="7" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="公斤" width="45"/>
@@ -86,6 +95,7 @@
                         <outlet property="noteTableView" destination="xr2-ge-ehS" id="fuN-BL-Hmt"/>
                         <outlet property="toolBarTopToSafeAreaConstraint" destination="HU9-eL-ph4" id="RJz-eO-EK6"/>
                         <outlet property="toolMenuBarButton" destination="7Hh-93-Vbd" id="o44-Li-Ayn"/>
+                        <outlet property="userNotesLabel" destination="r0c-HO-L9M" id="cpg-Xn-pt9"/>
                         <outlet property="weightTypeSegControl" destination="i0U-Nj-m6Z" id="xS7-zp-cBp"/>
                     </connections>
                 </viewController>
@@ -99,7 +109,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hye-dc-vTj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wdo-zz-K1a">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -119,21 +129,21 @@
             <objects>
                 <viewController id="LJ9-yW-zGp" customClass="NoteToolBarViewController" customModule="GoToMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bse-h6-Tow">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B0Q-nO-kT5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-Ha-ldL">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="checked_icon"/>
                                         <connections>
                                             <action selector="didTapSortByFinishedButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="lwy-4H-L3c"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-AE-6W2">
-                                        <rect key="frame" x="75" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="64" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="fruit_icon"/>
                                         <connections>
                                             <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="bMy-Rj-d7E"/>
@@ -141,21 +151,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcp-GR-3zh">
-                                        <rect key="frame" x="150" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="128" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="money_icon"/>
                                         <connections>
                                             <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="4gD-d3-dwg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfT-Z8-cL7">
-                                        <rect key="frame" x="225" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="192" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="reset_icon"/>
                                         <connections>
                                             <action selector="didTapCleanAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="VkW-AK-0SY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSM-3c-zeX">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="50"/>
+                                        <rect key="frame" x="256" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="delete_icon"/>
                                         <connections>
                                             <action selector="didTapDeleteAllButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="Kdz-MQ-BGf"/>
