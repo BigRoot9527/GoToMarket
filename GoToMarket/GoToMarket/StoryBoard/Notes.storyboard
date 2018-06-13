@@ -146,7 +146,6 @@
                                         <rect key="frame" x="64" y="0.0" width="64" height="50"/>
                                         <state key="normal" image="fruit_icon"/>
                                         <connections>
-                                            <action selector="didTapSortByPriceButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="bMy-Rj-d7E"/>
                                             <action selector="didTapSortByTypeButton:" destination="LJ9-yW-zGp" eventType="touchUpInside" id="erf-0W-knb"/>
                                         </connections>
                                     </button>
