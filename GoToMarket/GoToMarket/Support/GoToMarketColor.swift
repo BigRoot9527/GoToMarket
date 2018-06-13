@@ -15,6 +15,9 @@ struct GotoMarketColors {
 
     static let MainTitleText = "MainTitleText_color"
     static let unSelectText = "UnSelected_color"
+    
+    static let SortDescending = "SortDescending_color"
+    static let SortAscending = "SortAscending_color"
 
 }
 

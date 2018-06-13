@@ -46,10 +46,10 @@ struct SortButton: SortParametersGettable {
         switch state {
 
         case .ascending:
-            return UIColor(named: GotoMarketColors.VegeCellBackground)
+            return UIColor(named: GotoMarketColors.SortAscending)
 
         case .descending:
-            return UIColor(named: GotoMarketColors.FruitCellBackground)
+            return UIColor(named: GotoMarketColors.SortDescending)
 
         case .none:
             return GoToMarketColor.sortButtonNoneColor.color()
