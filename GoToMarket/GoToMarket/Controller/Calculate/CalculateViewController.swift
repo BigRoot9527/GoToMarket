@@ -47,7 +47,7 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var backGroundView: UIView!
 
-    //TODO: make info labels to fade chainly
+    //TODO: make info labels to fadeIn chainly
 
     //Input
     var itemCodeInput: String = ""

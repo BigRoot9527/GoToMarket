@@ -130,7 +130,7 @@ public class UserNotes: NSManagedObject {
         in context: NSManagedObjectContext) throws -> UserNotes {
         guard
             let note = self.fetchNote(matching: cropCode, in: context),
-            //quoteBuyingDay ~> V1.0使用當日行情(假設使用者是當天買的時候就校正)，未來使用API打使用者指定日期(今日or之前)，取得特定市場該作物的當日行情
+            //quoteBuyingDay ~> 使用當日行情
             let cropData = note.cropData
             //沒有cropData => 無法取得現在行情價 => 無法計算現在的mutipler => 無法machine learning
         else { throw GoToMarketError.fetchError }
@@ -141,7 +141,7 @@ public class UserNotes: NSManagedObject {
         //handle非預設的第一次input
         if originWeight == NoteConstant.initailMultiplerWeight {
             note.muliplerWeight = NoteConstant.firstInputMultiplerWeight
-            note.customMutipler = inputMutipler
+            note.customMutipler = inputMutipler > 1 ? inputMutipler : 1
             note.sellingPrice = cropData.newAveragePrice * inputMutipler
             try context.save()
 
@@ -154,7 +154,7 @@ public class UserNotes: NSManagedObject {
         let newWeight = originWeight + inputWeight
         let newMutipler =
             ((originMutipler * originWeight) + (inputMutipler * inputWeight)) / newWeight
-        note.customMutipler = newMutipler
+        note.customMutipler = newMutipler > 1 ? newMutipler : 1
         note.muliplerWeight = newWeight
         note.sellingPrice = cropData.newAveragePrice * newMutipler
         try context.save()

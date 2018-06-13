@@ -452,8 +452,8 @@ extension NoteViewController: NoteTableViewCellDelegate {
         calculateVC.itemCodeInput = note.itemCode
         calculateVC.dismissCallBack = { [weak self] in
 
-            self?.fetchData()
-            self?.noteTableView.reloadData()
+            guard let index = self?.noteTableView.indexPath(for: fromCell) else { return }
+            self?.noteTableView.reloadRows(at: [index], with: .none)
         }
 
         fromCell.bottomPriceInfoButton.imageView?.hero.isEnabled = true
