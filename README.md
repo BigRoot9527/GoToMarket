@@ -4,7 +4,7 @@
 此外**出門買菜**也是一款待購清單 APP 工具，使用者可將喜愛的蔬果加入清單、輸入數量，在實際購買時一目了然！
 
 
-[<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/DownloadAppStoreBadge.png" width="170" height="50">](ttps://itunes.apple.com/tw/app/出門買菜/id1390462838)
+[<img src="https://github.com/BigRoot9527/GoToMarket/blob/master/GoToMarket/ScreenShots/DownloadAppStoreBadge.png" width="170" height="50">](https://itunes.apple.com/tw/app/出門買菜/id1390462838)
 
 ## Feature
 
