@@ -162,11 +162,15 @@ extension NoteViewController: UITableViewDataSource {
 
             userNotesLabel.isHidden = count > 0
 
+            tableView.isScrollEnabled = count > 0
+
             return count
 
         } else {
 
             userNotesLabel.isHidden = false
+
+            tableView.isScrollEnabled = false
 
             return 0
         }

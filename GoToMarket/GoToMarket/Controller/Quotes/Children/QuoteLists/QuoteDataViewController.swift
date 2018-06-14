@@ -136,7 +136,10 @@ class QuoteDataViewController: UIViewController {
 
         self.refreshControl.endRefreshing()
         checkAndUpdateApi()
-        quotesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+
+        if let index = quotesTableView.indexPathsForVisibleRows?.first {
+            quotesTableView.scrollToRow(at: index, at: .top, animated: true)
+        }
     }
 
     // MARK: - Accessable Funcs
@@ -261,11 +264,15 @@ extension QuoteDataViewController: UITableViewDataSource {
 
             noResultLabel.isHidden = sections[section].numberOfObjects > 1
 
+            tableView.isScrollEnabled = sections[section].numberOfObjects > 1
+
             return sections[section].numberOfObjects
 
         } else {
 
             noResultLabel.isHidden = false
+
+            tableView.isScrollEnabled = false
 
             return 0
         }
