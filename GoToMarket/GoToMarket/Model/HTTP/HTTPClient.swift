@@ -13,7 +13,7 @@ class HttpClient {
     static let shared = HttpClient()
     private let queue: DispatchQueue
     private init () {
-        queue = DispatchQueue(label: String(describing: HttpClient.self) +          UUID().uuidString,
+        queue = DispatchQueue(label: String(describing: HttpClient.self) + UUID().uuidString,
                               qos: .default,
                               attributes: .concurrent)
     }

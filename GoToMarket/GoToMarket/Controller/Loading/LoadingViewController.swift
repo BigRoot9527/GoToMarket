@@ -90,7 +90,13 @@ class LoadingViewController: UIViewController {
                 isSuccess: false,
                 labelText: GoToMarketConstant.failLoadingText,
                 completion: {
-                    self?.dismiss(animated: true, completion: nil)
+                    self?.showNotice(
+                        noticeTitle: "噢不～ 出了點問題！",
+                        noticeMessage: "抱歉，下載資料失敗 Q_Q \n請檢查網路狀態或稍後再試。",
+                        confirmButtonName: "確定",
+                        confirmCallBack: {
+                            self?.dismiss(animated: true, completion: nil)
+                    })
             })
         })
     }

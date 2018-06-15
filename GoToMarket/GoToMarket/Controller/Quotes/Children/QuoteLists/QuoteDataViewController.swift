@@ -163,7 +163,7 @@ class QuoteDataViewController: UIViewController {
 
     func scrollTableView(scrollToTop: Bool) {
 
-        if isActive {
+        if isActive && quotesTableView.visibleCells.count > 0 {
             let indexPath = scrollToTop ?
                 IndexPath(row: 0, section: 0) :
                 IndexPath(row: quotesTableView.numberOfRows(inSection: 0) - 1, section: 0)
@@ -193,8 +193,6 @@ extension QuoteDataViewController: NSFetchedResultsControllerDelegate {
     private func fetchAndReloadData() {
 
         if let context = container?.viewContext {
-
-//            context.reset()
 
             let request: NSFetchRequest<CropDatas> = CropDatas.fetchRequest()
 
@@ -411,5 +409,4 @@ extension QuoteDataViewController: UIViewControllerTransitioningDelegate {
 
         return transition
     }
-
 }
