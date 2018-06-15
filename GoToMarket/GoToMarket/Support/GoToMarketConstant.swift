@@ -46,6 +46,7 @@ struct GoToMarketConstant {
     static let alreadyLoadedMarket: String = " (目前設定)"
 
     static let plzMakeChoiceText: String = "請選擇"
+    static let resetCurrentChoiceText: String = "重設"
 
     static let informationSourceText: String = "資料來源"
 

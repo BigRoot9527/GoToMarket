@@ -200,11 +200,13 @@ extension MarketSettingViewController: UIPickerViewDelegate {
         //Has Default
         if market == defaulMarket {
 
+            willLoadMarketOutput = market
+
             market += GoToMarketConstant.alreadyLoadedMarket
 
-            enterButton.setTitle(GoToMarketConstant.plzMakeChoiceText, for: .normal)
+            enterButton.setTitle(GoToMarketConstant.resetCurrentChoiceText, for: .normal)
 
-            enterButton.isEnabled = false
+            enterButton.isEnabled = true
 
         //First time placeholder
         } else if market == GoToMarketConstant.plzChooseAMarketWarning {
@@ -212,7 +214,6 @@ extension MarketSettingViewController: UIPickerViewDelegate {
             enterButton.setTitle(GoToMarketConstant.plzMakeChoiceText, for: .normal)
 
             enterButton.isEnabled = false
-
         } else {
 
             willLoadMarketOutput = market
@@ -220,10 +221,8 @@ extension MarketSettingViewController: UIPickerViewDelegate {
             enterButton.setTitle(GoToMarketConstant.allowEnterButtonTitle, for: .normal)
 
             enterButton.isEnabled = true
-
         }
 
         noticeLabel.text = market
-
     }
 }
