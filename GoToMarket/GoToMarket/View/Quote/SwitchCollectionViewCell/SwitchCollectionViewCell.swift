@@ -21,6 +21,7 @@ class SwitchCollectionViewCell: UICollectionViewCell {
     private func updateUI() {
 
         guard let text = typeText else { return }
+        
         typeSwitchLabel.text = text
     }
 

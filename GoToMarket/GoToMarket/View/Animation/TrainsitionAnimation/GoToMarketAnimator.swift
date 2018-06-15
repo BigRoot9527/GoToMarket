@@ -51,16 +51,12 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let initialContextView = initialContext,
             let finalContextView = finalContext
             else { return }
-        print("=======================")
-        print(finalContextView.frame)
 
         initialContextView.layer.masksToBounds = true
-
         guard let initialContextViewSnapShot = initialContextView.snapshotView(afterScreenUpdates: true) else { return }
 
         finalContextView.alpha = 1.0
         finalContextView.layer.masksToBounds = true
-
         let finailContextViewSnapShot = isPresentation ?
             UIView() :
             finalContextView.snapshotView(afterScreenUpdates: true)!
@@ -107,36 +103,40 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.bringSubview(toFront: initialContextViewSnapShot)
         containerView.bringSubview(toFront: finailContextViewSnapShot)
 
-        UIView.animate(withDuration: duration / 2, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
+        UIView.animate(
+            withDuration: duration / 2,
+            delay: 0.0,
+            options: .curveEaseInOut,
+            animations: { [weak self] in
 
-            finailContextViewSnapShot.transform = contextViewScaleTransform
-            finailContextViewSnapShot.frame = finalContextViewFrame
-            finailContextViewSnapShot.alpha = 1.0
+                finailContextViewSnapShot.transform = contextViewScaleTransform
+                finailContextViewSnapShot.frame = finalContextViewFrame
+                finailContextViewSnapShot.alpha = 1.0
 
-            initialContextViewSnapShot.transform = contextViewScaleTransform
-            initialContextViewSnapShot.frame = finalContextViewFrame
-            initialContextViewSnapShot.alpha = 0.0
+                initialContextViewSnapShot.transform = contextViewScaleTransform
+                initialContextViewSnapShot.frame = finalContextViewFrame
+                initialContextViewSnapShot.alpha = 0.0
 
-            if let check = self?.isPresentation, check {
+                if let check = self?.isPresentation, check {
 
-                self?.presentingVisualEffectView.effect = UIVisualEffect()
-                toView.alpha = 1.0
-                finalContextView.alpha = 1.0
+                    self?.presentingVisualEffectView.effect = UIVisualEffect()
+                    toView.alpha = 1.0
+                    finalContextView.alpha = 1.0
+                    
+                } else {
 
-            } else {
-
-                fromView.alpha = 0.0
-            }
+                    fromView.alpha = 0.0
+                }
 
             }, completion: { _ in
 
-            initialContextView.alpha = 0.0
-            initialContextView.layer.masksToBounds = false
-            finalContextView.alpha = 1.0
+                initialContextView.alpha = 0.0
+                initialContextView.layer.masksToBounds = false
+                finalContextView.alpha = 1.0
 
-            initialContextViewSnapShot.removeFromSuperview()
-            finailContextViewSnapShot.removeFromSuperview()
-            transitionContext.completeTransition(true)
+                initialContextViewSnapShot.removeFromSuperview()
+                finailContextViewSnapShot.removeFromSuperview()
+                transitionContext.completeTransition(true)
         })
     }
 }

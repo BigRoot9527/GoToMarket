@@ -52,7 +52,6 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="CropCellBackground_color"/>
                         <constraints>
                             <constraint firstItem="RxH-d0-Ngb" firstAttribute="leading" secondItem="1PJ-Fv-GOF" secondAttribute="trailing" id="0Pc-Bx-7IG"/>
                             <constraint firstItem="eMU-p0-laf" firstAttribute="trailing" secondItem="FEg-YA-b0j" secondAttribute="trailing" constant="-9" id="3KW-Eb-9fi"/>
@@ -91,9 +90,6 @@
     <resources>
         <image name="shopping-cart-3" width="64" height="64"/>
         <image name="up3" width="86" height="139"/>
-        <namedColor name="CropCellBackground_color">
-            <color red="0.58799999952316284" green="0.81999999284744263" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MainTitleText_color">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

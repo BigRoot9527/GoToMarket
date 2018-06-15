@@ -74,13 +74,13 @@
                     <navigationItem key="navigationItem" title="農產品行情" largeTitleDisplayMode="always" id="HHM-Es-njM">
                         <leftBarButtonItems>
                             <barButtonItem image="filter_icon" id="gpt-5K-jIV">
-                                <color key="tintColor" name="AverageButtonColors"/>
+                                <color key="tintColor" name="NormalButton_color"/>
                                 <connections>
                                     <action selector="didTapToolBarButton:" destination="dyT-ZU-lsL" id="SMa-Fc-ID5"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="search_icon" id="eaD-vl-tCq">
-                                <color key="tintColor" name="AverageButtonColors"/>
+                                <color key="tintColor" name="NormalButton_color"/>
                                 <connections>
                                     <action selector="didTapSearchBarButton:" destination="dyT-ZU-lsL" id="4ot-hw-p6P"/>
                                 </connections>
@@ -94,7 +94,7 @@
                                     <segment title="公斤" width="45"/>
                                     <segment title="台斤" width="45"/>
                                 </segments>
-                                <color key="tintColor" name="AverageButtonColors"/>
+                                <color key="tintColor" name="NormalButton_color"/>
                                 <connections>
                                     <action selector="weightTypeSegControlDidChange:" destination="dyT-ZU-lsL" eventType="valueChanged" id="4VK-hN-nEf"/>
                                 </connections>
@@ -212,7 +212,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沒有搜尋結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghk-mV-sf2">
-                                <rect key="frame" x="0.33333333333334281" y="387.33333333333331" width="375" height="38"/>
+                                <rect key="frame" x="0.0" y="387.33333333333331" width="375" height="38"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="27"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -293,6 +293,9 @@
         <image name="search_icon" width="30" height="30"/>
         <image name="top_icon" width="21" height="21"/>
         <namedColor name="AverageButtonColors">
+            <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NormalButton_color">
             <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
