@@ -9,9 +9,6 @@
 import UIKit
 
 class DetailTitleTableViewCell: UITableViewCell {
-    //TODO: activity indicator when loading Text and image
-    //TODO: placeHoulder image when no image (no text is done by remove button)
-    //TODO: maybe aspect fit is better
 
     @IBOutlet weak var detailNameLabel: UILabel!
     @IBOutlet weak var detailBuyingButton: UIButton!
@@ -47,7 +44,6 @@ class DetailTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         setUI()
-
     }
 
     @IBAction func didTapBuyingButton(_ sender: UIButton) {
@@ -71,12 +67,9 @@ class DetailTitleTableViewCell: UITableViewCell {
 
     private func showTransformAnimation(rate: CGFloat) {
 
-        let fixedRate = rate < 0 ? 0 : rate > 1 ? 1 : rate
-
+        let fixedRate = rate < 0 ? 0 : (rate > 1 ? 1 : rate)
         let transformingHeight = 5 * fixedRate
-
         let transformingWidth = 15 * fixedRate
-
         let transformingRadius = 10 * fixedRate
 
         backgroundToContentTopConstraint.constant = transformingHeight
@@ -90,6 +83,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     }
 
     private func changeBackgroundColor() {
+        
         titleBackgroundView.backgroundColor = isFruit ?
             UIColor(named: GotoMarketColors.FruitCellBackground) :
             UIColor(named: GotoMarketColors.VegeCellBackground)

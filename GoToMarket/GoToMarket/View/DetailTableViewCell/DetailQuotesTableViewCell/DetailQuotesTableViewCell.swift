@@ -27,23 +27,17 @@ class DetailQuotesTableViewCell: UITableViewCell {
     }
 
     private func setUI() {
+        
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     @IBAction func didTapPriceInfoButton(_ sender: UIButton) {
+        
         delegate?.priceInfoButtonTapped(sender: sender)
     }
 
     @IBAction func weightTypeSegControlDidChange(_ sender: UISegmentedControl) {
 
         delegate?.changeWeightButtonTapped(sender: sender, fromCell: self)
-
     }
-
 }

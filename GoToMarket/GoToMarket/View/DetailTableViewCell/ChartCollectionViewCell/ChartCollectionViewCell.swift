@@ -18,8 +18,8 @@ class ChartCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        chartView.noDataTextColor = GoToMarketColor.newDarkBlueGreen.color()
-        chartView.noDataText = "～資料下載中～"
+        chartView.noDataTextColor = UIColor(named: GotoMarketColors.ChartLine) ?? UIColor.black
+        chartView.noDataText = GoToMarketConstant.loadingChartLabelText
     }
 
     func setChart(dataPoints: [String], values: [Double], period: HistoryPeriod) {
@@ -32,11 +32,8 @@ class ChartCollectionViewCell: UICollectionViewCell {
             dataEntries.append(dataEntry)
         }
 
-        let lineChartDataSet = LineChartDataSet(
-            values: dataEntries,
-            label: period.getLineChartLabelText())
-
-        lineChartDataSet.setColor(GoToMarketColor.newLightBlueGreen.color())
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: period.getLineChartLabelText())
+        lineChartDataSet.setColor(UIColor(named: GotoMarketColors.ChartLine) ?? UIColor.black)
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled = false
@@ -45,7 +42,7 @@ class ChartCollectionViewCell: UICollectionViewCell {
         let averageLine = ChartLimitLine(limit: average)
         averageLine.lineWidth = 1.5
         averageLine.lineDashLengths = [5, 5]
-        averageLine.lineColor = GoToMarketColor.newOrange.color()
+        averageLine.lineColor = UIColor(named: GotoMarketColors.ChartAverage) ?? UIColor.red
 
         var dataSets = [IChartDataSet]()
         dataSets.append(lineChartDataSet)
@@ -59,8 +56,8 @@ class ChartCollectionViewCell: UICollectionViewCell {
         xAxis.drawLabelsEnabled = false
         xAxis.drawGridLinesEnabled = false
 
-        let fromDate = dataPoints.first ?? ""
-        let toDate = dataPoints.last ?? ""
+        let fromDate = dataPoints.first ?? GoToMarketConstant.emptyString
+        let toDate = dataPoints.last ?? GoToMarketConstant.emptyString
 
         let label = GoToMarketConstant.lineCharLimitLineNamePrefix
             + String(format: "%.2f", average)
@@ -70,12 +67,6 @@ class ChartCollectionViewCell: UICollectionViewCell {
 
         dataPeriodLabel.text = GoToMarketConstant.lineChartDescriptionString + fromDate + " ～ " + toDate
         averagePriceLabel.text = label
-        averagePriceLabel.textColor = GoToMarketColor.newOrange.color()
-
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
+        averagePriceLabel.textColor = UIColor(named: GotoMarketColors.ChartAverage) ?? UIColor.red
     }
 }

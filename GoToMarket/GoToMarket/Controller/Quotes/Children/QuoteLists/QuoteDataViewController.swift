@@ -88,7 +88,7 @@ class QuoteDataViewController: UIViewController {
             quotesTableView.addSubview(refreshControl)
         }
 
-        refreshControl.tintColor = GoToMarketColor.newOrange.color()
+        refreshControl.tintColor = UIColor(named: GotoMarketColors.ChartAverage)
         refreshControl.addTarget(self, action: #selector(didPullTableView(_:)), for: .valueChanged)
 
         let nibFile = UINib(

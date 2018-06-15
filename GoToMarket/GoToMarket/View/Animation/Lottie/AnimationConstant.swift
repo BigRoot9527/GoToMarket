@@ -11,5 +11,4 @@ struct AnimationConstant {
     static let successName: String = "success"
     static let warningName: String = "warning"
     static let loadingName: String = "loading"
-
 }

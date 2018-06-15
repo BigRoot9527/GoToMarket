@@ -148,7 +148,7 @@
                                     <constraint firstAttribute="height" constant="29" id="awm-sC-7NI"/>
                                     <constraint firstAttribute="width" secondItem="ji4-6a-VXP" secondAttribute="height" multiplier="94:29" id="qVY-wx-Tkp"/>
                                 </constraints>
-                                <color key="tintColor" name="AverageButtonColors"/>
+                                <color key="tintColor" name="NormalButton_color"/>
                                 <connections>
                                     <action selector="didTapBottomStepper:" destination="2Y7-gV-Foe" eventType="valueChanged" id="GTf-y8-OJH"/>
                                 </connections>
@@ -296,11 +296,11 @@
         <image name="garbage_icon" width="64" height="64"/>
         <image name="information" width="64" height="64"/>
         <image name="unconfirm2_icon" width="128" height="128"/>
-        <namedColor name="AverageButtonColors">
-            <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="MainTitleText_color">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NormalButton_color">
+            <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="NormalCellBackground_color">
             <color red="0.92199999094009399" green="0.92199999094009399" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

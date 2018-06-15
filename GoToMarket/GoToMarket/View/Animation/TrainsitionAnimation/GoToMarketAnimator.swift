@@ -23,8 +23,6 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var isAsyncAnimation: Bool = true
     weak var presentedContextViewProvider: ContextViewProvider?
     weak var presentingContextViewProvider: ContextViewProvider?
-    //Optional
-    var presentingVisualEffectView: UIVisualEffectView = UIVisualEffectView()
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 
@@ -79,7 +77,6 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView.alpha = 0.0
             containerView.addSubview(toView)
             containerView.bringSubview(toFront: toView)
-            presentingVisualEffectView.effect = nil
         }
 
         initialContextView.alpha = 0.0
@@ -119,10 +116,9 @@ class GoToMarketAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
                 if let check = self?.isPresentation, check {
 
-                    self?.presentingVisualEffectView.effect = UIVisualEffect()
                     toView.alpha = 1.0
                     finalContextView.alpha = 1.0
-                    
+
                 } else {
 
                     fromView.alpha = 0.0

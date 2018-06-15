@@ -158,9 +158,9 @@ class NoteTableViewCell: UITableViewCell {
 
             } else {
 
-                self?.topCellView.backgroundColor = GoToMarketColor.defaultNoteCellColor.color()
+                self?.topCellView.backgroundColor = UIColor(named: GotoMarketColors.NormalCellBackground)
 
-                self?.bottomCellView.backgroundColor = GoToMarketColor.defaultNoteCellColor.color()
+                self?.bottomCellView.backgroundColor = UIColor(named: GotoMarketColors.NormalCellBackground)
 
             }
         }

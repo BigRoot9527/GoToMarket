@@ -68,7 +68,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="待購清單" id="Kz3-UR-JEO">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="filter_icon" id="7Hh-93-Vbd">
-                            <color key="tintColor" name="AverageButtonColors"/>
+                            <color key="tintColor" name="NormalButton_color"/>
                             <connections>
                                 <action selector="didTapToolMenuBarButton:" destination="MKc-4e-X6d" id="s2j-VF-bgn"/>
                             </connections>
@@ -81,7 +81,7 @@
                                     <segment title="公斤" width="45"/>
                                     <segment title="台斤" width="45"/>
                                 </segments>
-                                <color key="tintColor" name="AverageButtonColors"/>
+                                <color key="tintColor" name="NormalButton_color"/>
                                 <connections>
                                     <action selector="weightTypeSegControlDidChange:" destination="MKc-4e-X6d" eventType="valueChanged" id="TU7-iz-Det"/>
                                 </connections>
@@ -202,7 +202,7 @@
         <image name="fruit_icon" width="30" height="30"/>
         <image name="money_icon" width="30" height="30"/>
         <image name="reset_icon" width="30" height="30"/>
-        <namedColor name="AverageButtonColors">
+        <namedColor name="NormalButton_color">
             <color red="0.0" green="0.0" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

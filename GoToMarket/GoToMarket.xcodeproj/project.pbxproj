@@ -326,8 +326,8 @@
 		3230F3D220AA8E7A002812E0 /* DetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */,
 				32B1E39020AED98100336B09 /* DetailTableViewCellDelegate.swift */,
+				32DB8BD420AD9CB500EFE687 /* ChartCollectionViewCell */,
 				32B1E37C20AED36E00336B09 /* DetailTitleTableViewCell */,
 				32B1E37D20AED38100336B09 /* DetailIntroTableViewCell */,
 				32B1E37E20AED3A400336B09 /* DetailQuotesTableViewCell */,

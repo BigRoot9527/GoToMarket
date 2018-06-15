@@ -115,7 +115,7 @@ class CalculateViewController: UIViewController {
 
         } else {
 
-            textField.backgroundColor = GoToMarketColor.textFieldErrorColor.color()
+            textField.backgroundColor = UIColor.init(named: GotoMarketColors.TextFieldError)
             textField.textColor = UIColor.red
             textField.text = GoToMarketConstant.calculateCostTextFieldError
 

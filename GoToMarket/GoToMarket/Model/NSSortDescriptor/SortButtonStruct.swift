@@ -52,7 +52,7 @@ struct SortButton: SortParametersGettable {
             return UIColor(named: GotoMarketColors.SortDescending)
 
         case .none:
-            return GoToMarketColor.sortButtonNoneColor.color()
+            return UIColor(named: GotoMarketColors.SortNone)
         }
     }
 

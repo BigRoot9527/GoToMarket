@@ -16,51 +16,15 @@ struct GotoMarketColors {
     static let MainTitleText = "MainTitleText_color"
     static let unSelectText = "UnSelected_color"
 
+    static let NormalCellBackground = "NormalCellBackground_color"
+
     static let SortDescending = "SortDescending_color"
     static let SortAscending = "SortAscending_color"
+    static let SortNone = "SortNone_color"
 
-}
+    static let ChartLine = "ChartLine_color"
+    static let ChartAverage = "ChartAverage_color"
 
-enum GoToMarketColor: String {
+    static let TextFieldError = "TextFieldError_color"
 
-    case traditionalRed = "CA3738"
-    case traditionalGreen = "61A763"
-    case traditionalBlue = "3E82C2"
-    case newDarkBlueGreen = "01585F"
-    case newLightBlueGreen = "039393"
-    case newWhite = "FFFCC4"
-    case newGray = "F0EDBB"
-    case newOrange = "FF3800"
-    case pitchRed = "FF5F5F"
-    case yellowCartColor = "DDA639"
-    case defaultNoteCellColor = "EBEBF1"
-    case finishedNoteCellColor = "96D192"
-    case sortButtonAcendingColor = "FF7876"
-    case sortButtonDecendingColor = "86D989"
-    case sortButtonNoneColor = "E9DBFF"
-    case defaultGray = "EFEFF4"
-    case textFieldErrorColor = "F3C0DD"
-
-    func color() -> UIColor {
-
-        var cString: String = self.rawValue.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if cString.hasPrefix("#") {
-            cString.remove(at: cString.startIndex)
-        }
-
-        if (cString.count) != 6 {
-            return UIColor.gray
-        }
-
-        var rgbValue: UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
 }
