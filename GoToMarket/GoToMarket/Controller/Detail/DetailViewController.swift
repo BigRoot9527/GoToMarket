@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var itemCodeInput: String?
     var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
-    var dismissedCallBack: ((Double) -> Void)?
+    var dismissedCallBack: (() -> Void)?
 
     //CoreData
     private let cropManager = CropManager()
@@ -150,10 +150,10 @@ class DetailViewController: UIViewController {
                 self?.isIntroNeedReload = true
 
             }
-        }) { (error) in
+        }, failure: { (error) in
 
             print(error)
-        }
+        })
     }
 
     // MARK: - SwiftMessage
@@ -191,7 +191,6 @@ class DetailViewController: UIViewController {
         self.view.layoutIfNeeded()
         let cell = detailTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailTitleTableViewCell
         self.detailContextView = cell?.titleBackgroundView
-
     }
 
     // MARK: - IBAction
@@ -338,12 +337,9 @@ extension DetailViewController: UITableViewDelegate {
             if scrollView.contentOffset.y < dismissOffsetThreshold {
                 dismiss(animated: true, completion: { [weak self] in
 
-                    guard
-                        let callBack = self?.dismissedCallBack,
-                        let updatePrice = self?.fetchedItem?.note?.sellingPrice
-                        else { return }
+                    guard let callBack = self?.dismissedCallBack else { return }
 
-                    callBack(updatePrice)
+                    callBack()
                 })
             }
 
@@ -431,6 +427,8 @@ extension DetailViewController: DetailTableViewCellDelegate {
         fromCell.detailRealPriceLabel.text = PriceStringProvider.shared.getTruePriceString(fromTruePrice: cropData.newAveragePrice)
 
         fromCell.weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
+
+        postWeightTypeNotification()
     }
 
     func priceInfoButtonTapped(sender: UIButton) {

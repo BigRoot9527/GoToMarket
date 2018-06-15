@@ -110,7 +110,6 @@ class QuoteDataViewController: UIViewController {
 
             guard let settingVC = UIStoryboard.marketSetting().instantiateInitialViewController() as? MarketSettingViewController else { return }
 
-            //TODO: Switch item type
             settingVC.itemTypeInput = .crop
 
             settingVC.hero.modalAnimationType = .fade
@@ -120,8 +119,6 @@ class QuoteDataViewController: UIViewController {
         } else {
 
             guard let loadingVC = UIStoryboard.loading().instantiateInitialViewController() as? LoadingViewController else { return }
-
-            //TODO: Switch item type
 
             loadingVC.itemTypeInput = .crop
 
@@ -292,7 +289,6 @@ extension QuoteDataViewController: UITableViewDelegate {
             let detailVC = UIStoryboard.detail().instantiateInitialViewController() as? DetailViewController else { return }
 
         detailVC.itemCodeInput = crop.cropCode
-
         detailVC.didTapBuyingCallBack = { [weak self] bool -> Void in
 
             crop.note?.isInCart = bool
@@ -301,10 +297,9 @@ extension QuoteDataViewController: UITableViewDelegate {
 
             cell.inBuyingChart = bool
         }
+        detailVC.dismissedCallBack = { [weak self] in
 
-        detailVC.dismissedCallBack = { updatedPrice -> Void in
-
-            cell.sellPriceLabel.text = PriceStringProvider.shared.getSellPriceString(fromSellingPrice: updatedPrice)
+            self?.changeQuoteWeight()
         }
 
         self.quoteContextView = cell.quoteBackgroundView
@@ -312,7 +307,6 @@ extension QuoteDataViewController: UITableViewDelegate {
         transition.presentedContextViewProvider = detailVC
 
         detailVC.transitioningDelegate = self
-
         detailVC.modalPresentationStyle = .overFullScreen
 
         present(detailVC, animated: true, completion: nil)

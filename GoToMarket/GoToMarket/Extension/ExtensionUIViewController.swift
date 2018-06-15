@@ -93,6 +93,11 @@ extension UIViewController {
 
     }
 
+    func postWeightTypeNotification() {
+
+        NotificationCenter.default.post(name: GoToMarketConstant.weightNotificationName, object: self)
+    }
+
     // MARK: - Alert
     func showAlert(
         alertTitle: String,

@@ -139,9 +139,7 @@ class MarketSettingViewController: UIViewController {
             loadingVC.hero.isEnabled = true
 
             presentingVC?.present(loadingVC, animated: true, completion: nil)
-
         }
-
     }
 
     private func makeComfirm(ofMarket marketString: String) {

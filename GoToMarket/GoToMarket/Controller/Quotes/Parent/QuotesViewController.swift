@@ -26,18 +26,19 @@ class QuotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNav()
         setupSeachBar()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateweightTypeSegControl),
+            name: GoToMarketConstant.weightNotificationName,
+            object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        updateUI()
-    }
-
-    private func setupNav() {
-
+        setupUI()
     }
 
     private func setupSeachBar() {
@@ -49,12 +50,18 @@ class QuotesViewController: UIViewController {
         cancelButton.setTitle(GoToMarketConstant.cancleButtonTitleValue, for: .normal)
     }
 
-    private func updateUI() {
-
-        weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
+    private func setupUI() {
 
         searchBarBottomToSafeTopConstraint.constant = topConstant.1
         toolBarBottomToSwitchBottomConstraint.constant = topConstant.1
+
+        updateweightTypeSegControl()
+    }
+
+    // MARK: - Notification
+    @objc private func updateweightTypeSegControl() {
+
+        weightTypeSegControl.selectedSegmentIndex = PriceStringProvider.shared.getSegmentedControlIndex()
     }
 
     // MARK: - IBAction

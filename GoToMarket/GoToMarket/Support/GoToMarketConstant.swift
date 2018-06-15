@@ -17,6 +17,7 @@ struct GoToMarketConstant {
     static let quoteListsVegeText: String = "蔬菜"
 
     static let cartNotificationName = Notification.Name("CartCount")
+    static let weightNotificationName = Notification.Name("WeightType")
 
     static let emptyString: String = ""
 
