@@ -27,7 +27,7 @@ class QuotesViewController: UIViewController {
         super.viewDidLoad()
 
         setupSeachBar()
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateweightTypeSegControl),

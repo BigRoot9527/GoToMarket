@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import Hero
 
-class ChartCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChartCollectionViewController: UIViewController {
 
     let manager = CropManager()
     let dispatchGroup = DispatchGroup()
@@ -29,42 +29,6 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
     // MARK: - IBOutlet
     @IBOutlet weak var chartCollectionView: UICollectionView!
     @IBOutlet weak var chartPageControl: UIPageControl!
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return loadingHistoryType.count
-    }
-
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-        ) -> UICollectionViewCell {
-
-        let cell = chartCollectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: ChartCollectionViewCell.self),
-            for: indexPath)
-
-        guard let chartCVCell = cell as? ChartCollectionViewCell else { return cell }
-
-        guard
-            let dateArray = historyDateArray[indexPath.row],
-            let quoteArray = histroyQuoteArray[indexPath.row]
-            else { return chartCVCell }
-        //TODO: to return loading image
-
-        chartCVCell.setChart(
-            dataPoints: dateArray,
-            values: quoteArray,
-            period: loadingHistoryType[indexPath.row]
-        )
-
-        return chartCVCell
-
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let count = Int(scrollView.contentOffset.x / chartCollectionView.frame.width )
-        chartPageControl.currentPage = count
-    }
 
     //LifeCycle
     override func viewDidLoad() {
@@ -145,5 +109,48 @@ class ChartCollectionViewController: UIViewController, UICollectionViewDelegate,
 
             self?.chartCollectionView.reloadData()
         }
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension ChartCollectionViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return loadingHistoryType.count
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+        ) -> UICollectionViewCell {
+
+        let cell = chartCollectionView.dequeueReusableCell(
+            withReuseIdentifier: String(describing: ChartCollectionViewCell.self),
+            for: indexPath)
+
+        guard let chartCVCell = cell as? ChartCollectionViewCell else { return cell }
+
+        guard
+            let dateArray = historyDateArray[indexPath.row],
+            let quoteArray = histroyQuoteArray[indexPath.row]
+            else { return chartCVCell }
+        //TODO: to return loading image
+
+        chartCVCell.setChart(
+            dataPoints: dateArray,
+            values: quoteArray,
+            period: loadingHistoryType[indexPath.row]
+        )
+
+        return chartCVCell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension ChartCollectionViewController: UICollectionViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let count = Int(scrollView.contentOffset.x / chartCollectionView.frame.width )
+        chartPageControl.currentPage = count
     }
 }

@@ -14,12 +14,12 @@ class DetailIntroTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setUI()
     }
 
     private func setUI() {
-        
+
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
 }

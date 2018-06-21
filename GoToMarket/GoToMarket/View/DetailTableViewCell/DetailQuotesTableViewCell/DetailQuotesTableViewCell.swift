@@ -27,12 +27,12 @@ class DetailQuotesTableViewCell: UITableViewCell {
     }
 
     private func setUI() {
-        
+
         self.selectionStyle = UITableViewCellSelectionStyle.none
     }
 
     @IBAction func didTapPriceInfoButton(_ sender: UIButton) {
-        
+
         delegate?.priceInfoButtonTapped(sender: sender)
     }
 

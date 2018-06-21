@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DetailTableViewCellDelegate: class {
-    
+
     func priceInfoButtonTapped(sender: UIButton)
     func buyingButtonTapped(sender: UIButton)
     func changeWeightButtonTapped(sender: UISegmentedControl, fromCell: DetailQuotesTableViewCell)

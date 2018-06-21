@@ -83,7 +83,7 @@ class DetailTitleTableViewCell: UITableViewCell {
     }
 
     private func changeBackgroundColor() {
-        
+
         titleBackgroundView.backgroundColor = isFruit ?
             UIColor(named: GotoMarketColors.FruitCellBackground) :
             UIColor(named: GotoMarketColors.VegeCellBackground)

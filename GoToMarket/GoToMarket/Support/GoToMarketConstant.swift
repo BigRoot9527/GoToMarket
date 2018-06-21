@@ -32,7 +32,7 @@ struct GoToMarketConstant {
     static let oneMonthChartLabelName: String = "近一月內批發均價"
 
     static let oneSeasonChartLabelName: String = "近三月內批發均價"
-    
+
     static let loadingChartLabelText: String = "資料下載中...."
 
     static let lineCharLimitLineNamePrefix: String = "平均："
