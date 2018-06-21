@@ -118,11 +118,7 @@ class MarketSettingViewController: UIViewController {
 
     private func initLoadingVC(ofMarket marketString: String) {
 
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "Loading Market Choise",
-            AnalyticsParameterItemName: marketString,
-            AnalyticsParameterContentType: "cont"
-            ])
+        Analytics.logEvent("Market_Choise", parameters: ["market": marketString])
 
         weak var presentingVC = self.presentingViewController
 
