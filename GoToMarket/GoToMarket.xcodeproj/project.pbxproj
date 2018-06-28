@@ -97,6 +97,7 @@
 		32DB8BD320AD9BF300EFE687 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */; };
 		32DB8BD620AD9DE800EFE687 /* ChartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */; };
 		32DB8BD820AD9F8800EFE687 /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */; };
+		32DD0B3F20E513E600250258 /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD0B3E20E513E600250258 /* HttpClientTests.swift */; };
 		32E4861E20A6C18D00DA531C /* GoToMarketConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */; };
 		32FFB45720B69D0800D92064 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */; };
 		E66FB8D4EC714D53FA809C26 /* Pods_GoToMarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6540AA216BF90F7907908A5E /* Pods_GoToMarketTests.framework */; };
@@ -208,6 +209,7 @@
 		32DB8BD220AD9BF300EFE687 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		32DB8BD520AD9DE800EFE687 /* ChartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCollectionViewCell.xib; sourceTree = "<group>"; };
 		32DB8BD720AD9F8800EFE687 /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		32DD0B3E20E513E600250258 /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 		32E4861D20A6C18D00DA531C /* GoToMarketConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToMarketConstant.swift; sourceTree = "<group>"; };
 		32FFB45620B69D0800D92064 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		3C254E305E16CD1431F91097 /* Pods_GoToMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoToMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				323BD63A20CE58B600C7AD63 /* GoToMarketTests.swift */,
+				32DD0B3E20E513E600250258 /* HttpClientTests.swift */,
 				323BD63C20CE58B600C7AD63 /* Info.plist */,
 			);
 			path = GoToMarketTests;
@@ -936,6 +939,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32DD0B3F20E513E600250258 /* HttpClientTests.swift in Sources */,
 				323BD63B20CE58B600C7AD63 /* GoToMarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,23 +23,16 @@ protocol DataRequestGettable {
 class HttpClient {
 
     static let shared = HttpClient()
-    private let queue: DispatchQueue
-    private var dataClient: DataRequestGettable
+    let queue: DispatchQueue
+    var dataClient: DataRequestGettable
 
-    private init (customClient: DataRequestGettable? = nil) {
+    private init () {
 
-        if let client = customClient {
-            dataClient = client
-            queue = client.queue
-
-        } else {
-
-            queue = DispatchQueue(
-                label: String(describing: HttpClient.self) + UUID().uuidString,
-                qos: .default,
-                attributes: .concurrent)
-            dataClient = OpenDataClient(queue: queue)
-        }
+        queue = DispatchQueue(
+            label: String(describing: HttpClient.self) + UUID().uuidString,
+            qos: .default,
+            attributes: .concurrent)
+        dataClient = OpenDataClient(queue: queue)
     }
 
     @discardableResult

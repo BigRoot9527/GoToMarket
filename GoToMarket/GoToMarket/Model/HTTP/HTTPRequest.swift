@@ -11,10 +11,12 @@ import Foundation
 protocol HTTPRequest {
     var domainURL: String { get set }
     var requestType: OpenDataQueryItemConvertable { get set }
+
     //Optional
     func domainURLString() -> String
     func urlQueryItems() -> [URLQueryItem]?
     func request() throws -> URLRequest
+
 }
 
 extension HTTPRequest {
