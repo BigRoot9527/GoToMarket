@@ -9,20 +9,66 @@
 import Foundation
 import Alamofire
 
-class HttpClient {
-    static let shared = HttpClient()
-    private let queue: DispatchQueue
-    private init () {
-        queue = DispatchQueue(label: String(describing: HttpClient.self) + UUID().uuidString,
-                              qos: .default,
-                              attributes: .concurrent)
-    }
-    @discardableResult
-    private func originRequest(
+protocol DataRequestGettable {
+
+    var queue: DispatchQueue { get set }
+
+    func dataRequest(
         _ request: URLRequestConvertible,
         success: @escaping (Data) -> Void,
         failure: @escaping (Error) -> Void
-        ) -> DataRequest {
+        ) -> DataRequest?
+}
+
+class HttpClient {
+
+    static let shared = HttpClient()
+    private let queue: DispatchQueue
+    private var dataClient: DataRequestGettable
+
+    private init (customClient: DataRequestGettable? = nil) {
+
+        if let client = customClient {
+            dataClient = client
+            queue = client.queue
+
+        } else {
+
+            queue = DispatchQueue(
+                label: String(describing: HttpClient.self) + UUID().uuidString,
+                qos: .default,
+                attributes: .concurrent)
+            dataClient = OpenDataClient(queue: queue)
+        }
+    }
+
+    @discardableResult
+    func request(
+        _ openHTTPRequest: HTTPRequest,
+        success: @escaping (Data) -> Void,
+        failure: @escaping (Error) -> Void
+        ) -> DataRequest? {
+        do {
+            return try dataClient.dataRequest(openHTTPRequest.request(), success: success, failure: failure)
+
+        } catch {
+            print("Error from ODHTTPClient: \(error)")
+            failure(error)
+            return nil
+        }
+    }
+}
+
+private struct OpenDataClient: DataRequestGettable {
+
+    var queue: DispatchQueue
+
+    @discardableResult
+    func dataRequest(
+        _ request: URLRequestConvertible,
+        success: @escaping (Data) -> Void,
+        failure: @escaping (Error) -> Void
+        ) -> DataRequest? {
         return Alamofire.SessionManager.default.request(request).validate().responseData(
             queue: queue,
             completionHandler: { response in
@@ -31,23 +77,8 @@ class HttpClient {
                     success(data)
                 case .failure(let error):
                     failure(error)
-                }
-            }
-        )
-    }
-    @discardableResult
-    func request(
-        _ openHTTPRequest: HTTPRequest,
-        success: @escaping (Data) -> Void,
-        failure: @escaping (Error) -> Void
-        ) -> DataRequest? {
-        do {
-            return try originRequest(openHTTPRequest.request(), success: success, failure: failure)
-        } catch {
-            print("Error from ODHTTPClient: \(error)")
-            failure(error)
-            return nil
-        }
-    }
 
+                }
+        })
+    }
 }
