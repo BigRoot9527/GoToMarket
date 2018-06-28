@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
 
     //Input
     var itemCodeInput: String?
-    var titleHeroIdInput: String?
     var didTapBuyingCallBack: ((Bool) -> Void)?
     var dismissedCallBack: (() -> Void)?
 
@@ -222,11 +221,6 @@ extension DetailViewController: UITableViewDataSource {
                     describing: DetailTitleTableViewCell.self),
                 for: indexPath)
                 as? DetailTitleTableViewCell else { return UITableViewCell() }
-
-            if let heroID = titleHeroIdInput {
-
-                cell.contentView.hero.id = heroID
-            }
 
             cell.delegate = self
             cell.detailNameLabel.text = crop.cropName
